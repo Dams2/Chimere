@@ -52,11 +52,25 @@ extension Screens {
     }
 }
 
+protocol OrderSummaryViewControllerDelegate: class {
+    func didSelectConfirm(deposit: Deposit)
+}
+
 extension Screens {
-    func createDepositViewController() -> UIViewController {
+    func createOrderSummaryViewController(delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
+        let repository = ExchangeRepository(client: context.client)
+        let viewModel = OrderSummaryViewModel(delegate: delegate, repository: repository)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createDepositViewController(deposit: Deposit) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(repository: repository)
+        let viewModel = DepositViewModel(deposit: deposit, repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

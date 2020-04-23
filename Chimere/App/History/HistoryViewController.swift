@@ -16,7 +16,7 @@ final class HistoryViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak private  var tableView: UITableView!
     
     // MARK: - View life cycle
     
@@ -26,10 +26,6 @@ final class HistoryViewController: UIViewController {
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-        
-//        let userID = UIDevice.current.
-//        
-//        print(userID.uuidString)
         
 //        bind(to: viewModel)
     }

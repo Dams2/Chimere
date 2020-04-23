@@ -115,6 +115,8 @@ final class ExchangeViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
+        let userID = UIDevice.current.identifierForVendor?.uuidString
+
         self.tabBarController?.tabBar.barTintColor = .white
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
         bind(to: viewModel)

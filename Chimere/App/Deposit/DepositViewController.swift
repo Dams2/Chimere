@@ -13,11 +13,8 @@ final class DepositViewController: UIViewController {
     // MARK: - Properties
     
     var viewModel: DepositViewModel!
-    
+
     // MARK: - Outlets
-  
-        
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
@@ -113,7 +110,7 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyDepositAmountImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyDepositAmountButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyDepositAmountButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
         
@@ -144,7 +141,7 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyDepositAdressImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyDepositAdressButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyDepositAdressButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
         
@@ -162,7 +159,7 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyMessageValueImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyMessageValueButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyMessageValueButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
     }
@@ -186,7 +183,7 @@ final class DepositViewController: UIViewController {
         UIPasteboard.general.string = label.text
         button.setBackgroundImage(UIImage(systemName: "checkmark.seal"), for: .normal)
         
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
             button.setBackgroundImage(UIImage(systemName: "square.on.square"), for: .normal)
         }
     }

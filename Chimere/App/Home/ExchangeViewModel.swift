@@ -67,9 +67,9 @@ final class ExchangeViewModel {
         originCurrencyNameText?("Ethereum")
         originCurrencySymbolText?("ETH")
         refundAddressText?("Enter BTC refund address here... 👈")
-        
+
         exchangeRatesText?("1 BTC ~ 42.907 ETH")
-        
+
         destinationText?("You get approximately")
         destinationAmountText?("0.01")
         destinationCurrencyNameText?("Bitcoin")
@@ -85,6 +85,7 @@ final class ExchangeViewModel {
     }
     
     func didPressSwitch() {
+        
     }
     
     func didPressChangeDestinationCurrency() {
@@ -92,12 +93,6 @@ final class ExchangeViewModel {
     }
     
     func didPressExchangeNow(depositCurrencySymbolText: String, refundAddressText: String, destinationCurrencySymbolText: String, destinationAddressText: String) {
-    
-//        let orderItems: [String: Any] = ["deposit_amount": "120", "deposit_ticker": depositCurrencySymbolText, "refund_address": "0xa2fec727757e47c64942e23949da839e6da948ac", "destination_amount": "34", "destination_ticker": destinationCurrencySymbolText, "destination_address": "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX"]
-//        repository.postOrder(order: orderItems) { (depositeResponse) in
-//            
-//        }
-
 //        guard !refundAddressText.isEmpty else {
 //            presentAlert(message: "You must fill refund address")
 //            return

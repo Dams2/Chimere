@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */; };
+		911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */; };
 		9121EAE1244B377600E6CFB2 /* Chimere.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9121EADF244B377600E6CFB2 /* Chimere.xcdatamodeld */; };
 		91456FEE2447B6D0009305E8 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FED2447B6D0009305E8 /* AlertType.swift */; };
 		91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */; };
@@ -43,7 +45,7 @@
 		91C2D1DB2447C69D00BEFBBF /* AddressResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C2D1DA2447C69D00BEFBBF /* AddressResponse.swift */; };
 		91DD8708244F581E001DDD2A /* DepositResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD8707244F581E001DDD2A /* DepositResponse.swift */; };
 		91DD870C244F5B6B001DDD2A /* Deposit.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD870B244F5B6B001DDD2A /* Deposit.swift */; };
-		91DD870E244F5CD8001DDD2A /* Deposit+Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD870D244F5CD8001DDD2A /* Deposit+Order.swift */; };
+		91DD870E244F5CD8001DDD2A /* Deposit+DepositResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91DD870D244F5CD8001DDD2A /* Deposit+DepositResponse.swift */; };
 		91E4536D244EA21B0053593B /* HistoryCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4536C244EA21B0053593B /* HistoryCoordinator.swift */; };
 		91E4536F244EA2310053593B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4536E244EA2310053593B /* HistoryViewController.swift */; };
 		91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E45371244EA2870053593B /* HistoryViewModel.swift */; };
@@ -60,6 +62,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
+		911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewModel.swift; sourceTree = "<group>"; };
 		9121EAE0244B377600E6CFB2 /* Chimere.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chimere.xcdatamodel; sourceTree = "<group>"; };
 		91456FED2447B6D0009305E8 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
@@ -100,7 +104,7 @@
 		91C2D1DA2447C69D00BEFBBF /* AddressResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddressResponse.swift; sourceTree = "<group>"; };
 		91DD8707244F581E001DDD2A /* DepositResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositResponse.swift; sourceTree = "<group>"; };
 		91DD870B244F5B6B001DDD2A /* Deposit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deposit.swift; sourceTree = "<group>"; };
-		91DD870D244F5CD8001DDD2A /* Deposit+Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deposit+Order.swift"; sourceTree = "<group>"; };
+		91DD870D244F5CD8001DDD2A /* Deposit+DepositResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Deposit+DepositResponse.swift"; sourceTree = "<group>"; };
 		91E4536C244EA21B0053593B /* HistoryCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryCoordinator.swift; sourceTree = "<group>"; };
 		91E4536E244EA2310053593B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		91E45371244EA2870053593B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
@@ -124,6 +128,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		911DC20C24522B7B003E2679 /* Order */ = {
+			isa = PBXGroup;
+			children = (
+				911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */,
+				911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */,
+			);
+			path = Order;
+			sourceTree = "<group>";
+		};
 		91456FEC2447B6C4009305E8 /* Alert */ = {
 			isa = PBXGroup;
 			children = (
@@ -266,6 +279,7 @@
 				9198D10D2446215700980FBA /* Navigation */,
 				91456FEC2447B6C4009305E8 /* Alert */,
 				9198D110244623EE00980FBA /* Home */,
+				911DC20C24522B7B003E2679 /* Order */,
 				9195111524474D3500595300 /* Deposit */,
 				91E45370244EA2370053593B /* History */,
 				9146345F2449EA2D00CE9BB6 /* Image */,
@@ -307,7 +321,7 @@
 		91C2D1D92447C68F00BEFBBF /* Exchange */ = {
 			isa = PBXGroup;
 			children = (
-				91DD870D244F5CD8001DDD2A /* Deposit+Order.swift */,
+				91DD870D244F5CD8001DDD2A /* Deposit+DepositResponse.swift */,
 				91DD870B244F5B6B001DDD2A /* Deposit.swift */,
 				91DD8707244F581E001DDD2A /* DepositResponse.swift */,
 				91C2D1DA2447C69D00BEFBBF /* AddressResponse.swift */,
@@ -441,7 +455,7 @@
 				9198D10F2446235D00980FBA /* ExchangeCoordinator.swift in Sources */,
 				91BF86BA2448D00800403F97 /* CurrenciesTableViewCell.swift in Sources */,
 				914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */,
-				91DD870E244F5CD8001DDD2A /* Deposit+Order.swift in Sources */,
+				91DD870E244F5CD8001DDD2A /* Deposit+DepositResponse.swift in Sources */,
 				9198D10524461FDE00980FBA /* Screens.swift in Sources */,
 				9198D0FE24461F2900980FBA /* Coordinator.swift in Sources */,
 				9195111724474D4F00595300 /* DepositViewController.swift in Sources */,
@@ -459,11 +473,13 @@
 				9121EAE1244B377600E6CFB2 /* Chimere.xcdatamodeld in Sources */,
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,
 				9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */,
+				911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */,
 				91C2D1D82447C68600BEFBBF /* ExchangeRepository.swift in Sources */,
 				9195111924474D7300595300 /* DepositViewModel.swift in Sources */,
 				91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */,
 				9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */,
 				914634612449EA4000CE9BB6 /* ImageRepository.swift in Sources */,
+				911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

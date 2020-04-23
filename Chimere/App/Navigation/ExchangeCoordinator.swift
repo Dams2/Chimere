@@ -55,14 +55,18 @@ final class ExchangeCoordinator {
         presenter.dismiss(animated: true, completion: nil)
     }
     
-    private func showDeposit() {
-        let viewController = screens.createDepositViewController()
+    private func showOrderSummary() {
+        let viewController = screens.createOrderSummaryViewController(delegate: self)
+        presenter.pushViewController(viewController, animated: true)
+    }
+    
+    private func showDeposit(deposit: Deposit) {
+        let viewController = screens.createDepositViewController(deposit: deposit)
         presenter.pushViewController(viewController, animated: true)
     }
 }
 
 extension ExchangeCoordinator: ExchangeViewControllerDelegate {
-    
     func didshowExchange() {
         showExchange()
     }
@@ -72,17 +76,17 @@ extension ExchangeCoordinator: ExchangeViewControllerDelegate {
         showCurrenciesList()
     }
 
-    func didDismissCurrenciesList() {
-        dismissCurrenciesList()
-    }
-    
     func didShowDestinationCurrencies() {
         selectedCurrency = .destination
         showCurrenciesList()
     }
     
+    func didDismissCurrenciesList() {
+        dismissCurrenciesList()
+    }
+
     func didSelectExchangeNow() {
-        showDeposit()
+        showOrderSummary()
     }
     
     func didPresentAlert(for alert: AlertType) {
@@ -107,5 +111,11 @@ extension ExchangeCoordinator: CurrenciesListViewControllerDelegate {
         case .destination:
             exchangeViewController.updateDestination(currency: currency)
         }
+    }
+}
+
+extension ExchangeCoordinator: OrderSummaryViewControllerDelegate {
+    func didSelectConfirm(deposit: Deposit) {
+        showDeposit(deposit: deposit)
     }
 }

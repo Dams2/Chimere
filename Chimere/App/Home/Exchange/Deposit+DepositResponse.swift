@@ -1,5 +1,5 @@
 //
-//  Deposit+Order.swift
+//  Deposit+DepositResponse.swift
 //  Chimere
 //
 //  Created by Damien Rojo on 21.04.20.

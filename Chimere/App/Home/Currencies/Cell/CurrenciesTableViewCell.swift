@@ -18,7 +18,7 @@ final class CurrenciesTableViewCell: UITableViewCell {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var currencyImageView: UIImageView!
+    @IBOutlet weak private var currencyImageView: UIImageView!
     
     @IBOutlet weak private var currencyNameLabel: UILabel!
     

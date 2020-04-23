@@ -12,9 +12,12 @@ final class DepositViewModel {
     
     // MARK: - Private Properties
     
+    private let deposit: Deposit
+    
     private let repository: ExchangeRepositoryType
 
-    init(repository: ExchangeRepositoryType) {
+    init(deposit: Deposit, repository: ExchangeRepositoryType) {
+        self.deposit = deposit
         self.repository = repository
     }
     
@@ -54,33 +57,23 @@ final class DepositViewModel {
     
     func viewDidLoad() {
         transactionIDText?("Trasaction ID:")
+        transactionIDValueText?(deposit.id)
         copyTansactionIDImageText?("square.on.square")
         
         descriptionText?("Please use your wallet or exchange account to send money to the following address by typing it in or scanning the QR code")
         
         sendText?("Send")
+        depositAmountText?("\(deposit.depositAmount)")
         copyDepositAmountImageText?("square.on.square")
         
         toThisWalletText?("To this address")
+        depositQRCodeText?(deposit.depositAddress)
         
         addressText?("Address")
+        depositAddressText?(deposit.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
         messageText?("Message")
         copyMessageValueImageText?("square.on.square")
-    }
-    
-    func depositRequest() {
-        let orderItems: [String: Any] = ["deposit_amount": "120", "deposit_ticker": "ETH", "refund_address": "0xa2fec727757e47c64942e23949da839e6da948ac", "destination_amount": "34", "destination_ticker": "BTC", "destination_address": "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX"]
-               
-        repository.postOrder(order: orderItems) { (depositResponse) in
-           guard let id =  depositResponse.order.id else {return}
-            
-           self.transactionIDValueText?(id)
-           self.depositAmountText?("\(depositResponse.order.depositAmount)")
-           self.depositQRCodeText?(depositResponse.order.depositAddress)
-           self.depositAddressText?(depositResponse.order.depositAddress)
-            
-        }
     }
 }
