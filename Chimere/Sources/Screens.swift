@@ -20,8 +20,11 @@ public class Screens {
 }
 
 protocol ExchangeViewControllerDelegate: class {
-    func didShowCurrencieslist()
-    func didSelectExchangeNow(deposit: Deposit)
+    func didshowExchange()
+    func didShowOriginCurrenciesList()
+    func didShowDestinationCurrencies()
+    func didDismissCurrenciesList()
+    func didSelectExchangeNow()
     func didPresentAlert(for alert: AlertType)
 }
 
@@ -50,10 +53,10 @@ extension Screens {
 }
 
 extension Screens {
-    func createDepositViewController(deposit : Deposit) -> UIViewController {
+    func createDepositViewController() -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(deposit: deposit, repository: repository)
+        let viewModel = DepositViewModel(repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -19,6 +19,8 @@
 		9195111424465C8000595300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111324465C8000595300 /* ViewController.swift */; };
 		9195111724474D4F00595300 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111624474D4F00595300 /* DepositViewController.swift */; };
 		9195111924474D7300595300 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111824474D7300595300 /* DepositViewModel.swift */; };
+		9195E9E62451089800327571 /* HistoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195E9E52451089800327571 /* HistoryTableViewCell.swift */; };
+		9195E9E92451095300327571 /* HistoryDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195E9E82451095300327571 /* HistoryDataSources.swift */; };
 		9198D0D824461EE500980FBA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D0D724461EE500980FBA /* AppDelegate.swift */; };
 		9198D0DF24461EE500980FBA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9198D0DD24461EE500980FBA /* Main.storyboard */; };
 		9198D0E424461EEA00980FBA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9198D0E324461EEA00980FBA /* Assets.xcassets */; };
@@ -70,6 +72,8 @@
 		9195111324465C8000595300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9195111624474D4F00595300 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		9195111824474D7300595300 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
+		9195E9E52451089800327571 /* HistoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryTableViewCell.swift; sourceTree = "<group>"; };
+		9195E9E82451095300327571 /* HistoryDataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryDataSources.swift; sourceTree = "<group>"; };
 		9198D0D424461EE500980FBA /* Chimere.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Chimere.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9198D0D724461EE500980FBA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9198D0DE24461EE500980FBA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -153,6 +157,14 @@
 				9195111824474D7300595300 /* DepositViewModel.swift */,
 			);
 			path = Deposit;
+			sourceTree = "<group>";
+		};
+		9195E9E72451089B00327571 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				9195E9E52451089800327571 /* HistoryTableViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 		9198D0CB24461EE500980FBA = {
@@ -255,7 +267,7 @@
 				91456FEC2447B6C4009305E8 /* Alert */,
 				9198D110244623EE00980FBA /* Home */,
 				9195111524474D3500595300 /* Deposit */,
-				91E45370244EA2370053593B /* OrderHistory */,
+				91E45370244EA2370053593B /* History */,
 				9146345F2449EA2D00CE9BB6 /* Image */,
 			);
 			path = App;
@@ -303,13 +315,15 @@
 			path = Exchange;
 			sourceTree = "<group>";
 		};
-		91E45370244EA2370053593B /* OrderHistory */ = {
+		91E45370244EA2370053593B /* History */ = {
 			isa = PBXGroup;
 			children = (
+				9195E9E72451089B00327571 /* Cell */,
 				91E4536E244EA2310053593B /* HistoryViewController.swift */,
 				91E45371244EA2870053593B /* HistoryViewModel.swift */,
+				9195E9E82451095300327571 /* HistoryDataSources.swift */,
 			);
-			path = OrderHistory;
+			path = History;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -418,6 +432,7 @@
 				9198D10224461F6700980FBA /* MainCoordinator.swift in Sources */,
 				91E4536D244EA21B0053593B /* HistoryCoordinator.swift in Sources */,
 				91DD870C244F5B6B001DDD2A /* Deposit.swift in Sources */,
+				9195E9E92451095300327571 /* HistoryDataSources.swift in Sources */,
 				9198D0D824461EE500980FBA /* AppDelegate.swift in Sources */,
 				91E4536F244EA2310053593B /* HistoryViewController.swift in Sources */,
 				9198D10A2446203C00980FBA /* HTTPEngine.swift in Sources */,
@@ -431,6 +446,7 @@
 				9198D0FE24461F2900980FBA /* Coordinator.swift in Sources */,
 				9195111724474D4F00595300 /* DepositViewController.swift in Sources */,
 				91BF86C42448D5F200403F97 /* Currency.swift in Sources */,
+				9195E9E62451089800327571 /* HistoryTableViewCell.swift in Sources */,
 				9198D1152446377200980FBA /* ExchangeViewModel.swift in Sources */,
 				9195111424465C8000595300 /* ViewController.swift in Sources */,
 				9198D1082446203000980FBA /* HTTPClient.swift in Sources */,

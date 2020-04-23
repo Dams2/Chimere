@@ -27,7 +27,7 @@ final class CurrenciesListViewModel {
     
     private var currencyItems: [CurrencyItem] = [] {
         didSet {
-            let items = currencyItems.map { Currency(currencyItems:  $0) }
+            let items = currencyItems.map { Currency(currencyItem:  $0) }
             self.items?(items)
         }
     }
@@ -48,14 +48,15 @@ final class CurrenciesListViewModel {
     
     func didSelectItem(at index: Int) {
         guard index < currencyItems.count else { return }
-        let currency = Currency(currencyItems: currencyItems[index])
+        let item = currencyItems[index]
+        let currency = Currency(currencyItem: item)
         delegate?.didSelect(currency)
     }
 }
 
 extension Currency {
-    init(currencyItems: CurrenciesListViewModel.CurrencyItem) {
-        switch currencyItems {
+    init(currencyItem: CurrenciesListViewModel.CurrencyItem) {
+        switch currencyItem {
         case .active(response: let response):
             self = Currency(response: response)
         }

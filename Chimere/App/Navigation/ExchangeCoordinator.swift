@@ -17,6 +17,15 @@ final class ExchangeCoordinator {
     private let screens: Screens
     
     private var exchangeViewController: UIViewController?
+    
+    private var currenciesListViewController: CurrenciesListViewController?
+
+    private enum SelectedCurrency {
+        case origin
+        case destination
+    }
+
+    private var selectedCurrency: SelectedCurrency?
 
     // MARK: - Initializer
 
@@ -41,20 +50,39 @@ final class ExchangeCoordinator {
         let viewController = screens.createCurrenciesListViewController(delegate: self)
         presenter.showDetailViewController(viewController, sender: self)
     }
-
-    private func showDeposit(deposit: Deposit) {
-        let viewController = screens.createDepositViewController(deposit: deposit)
+    
+    private func dismissCurrenciesList() {
+        presenter.dismiss(animated: true, completion: nil)
+    }
+    
+    private func showDeposit() {
+        let viewController = screens.createDepositViewController()
         presenter.pushViewController(viewController, animated: true)
     }
 }
 
 extension ExchangeCoordinator: ExchangeViewControllerDelegate {
-    func didShowCurrencieslist() {
+    
+    func didshowExchange() {
+        showExchange()
+    }
+    
+    func didShowOriginCurrenciesList() {
+        selectedCurrency = .origin
+        showCurrenciesList()
+    }
+
+    func didDismissCurrenciesList() {
+        dismissCurrenciesList()
+    }
+    
+    func didShowDestinationCurrencies() {
+        selectedCurrency = .destination
         showCurrenciesList()
     }
     
-    func didSelectExchangeNow(deposit: Deposit) {
-        showDeposit(deposit: deposit)
+    func didSelectExchangeNow() {
+        showDeposit()
     }
     
     func didPresentAlert(for alert: AlertType) {
@@ -69,6 +97,15 @@ extension ExchangeCoordinator: ExchangeViewControllerDelegate {
 
 extension ExchangeCoordinator: CurrenciesListViewControllerDelegate {
     func didSelect(_ currency: Currency) {
-
+        guard
+            let selectedCurrency = selectedCurrency,
+            let exchangeViewController = exchangeViewController as? ExchangeViewController
+            else { return }
+        switch selectedCurrency {
+        case .origin:
+            exchangeViewController.updateOrigin(currency: currency)
+        case .destination:
+            exchangeViewController.updateDestination(currency: currency)
+        }
     }
 }

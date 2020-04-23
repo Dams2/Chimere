@@ -14,11 +14,8 @@ final class DepositViewModel {
     
     private let repository: ExchangeRepositoryType
 
-    let deposit: Deposit
-    
-    init(deposit: Deposit, repository: ExchangeRepositoryType) {
+    init(repository: ExchangeRepositoryType) {
         self.repository = repository
-        self.deposit = deposit
     }
     
     // MARK: - Outputs
@@ -66,19 +63,24 @@ final class DepositViewModel {
         
         toThisWalletText?("To this address")
         
-        addressText?("addess")
+        addressText?("Address")
         copyDepositAdressImageText?("square.on.square")
         
         messageText?("Message")
         copyMessageValueImageText?("square.on.square")
-        
+    }
+    
+    func depositRequest() {
         let orderItems: [String: Any] = ["deposit_amount": "120", "deposit_ticker": "ETH", "refund_address": "0xa2fec727757e47c64942e23949da839e6da948ac", "destination_amount": "34", "destination_ticker": "BTC", "destination_address": "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX"]
+               
         repository.postOrder(order: orderItems) { (depositResponse) in
-            guard let id =  depositResponse.order.id else {return}
-            self.transactionIDValueText?(id)
-            self.depositAmountText?("\(depositResponse.order.depositAmount)")
-            self.depositQRCodeText?(depositResponse.order.depositAddress)
-            self.depositAddressText?(depositResponse.order.depositAddress)
+           guard let id =  depositResponse.order.id else {return}
+            
+           self.transactionIDValueText?(id)
+           self.depositAmountText?("\(depositResponse.order.depositAmount)")
+           self.depositQRCodeText?(depositResponse.order.depositAddress)
+           self.depositAddressText?(depositResponse.order.depositAddress)
+            
         }
     }
 }

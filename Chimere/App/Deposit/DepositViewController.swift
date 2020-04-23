@@ -16,6 +16,9 @@ final class DepositViewController: UIViewController {
     
     // MARK: - Outlets
   
+        
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
             transactionIDView.backgroundColor = .white
@@ -66,7 +69,6 @@ final class DepositViewController: UIViewController {
         super.viewDidLoad()
         
         bind(to: viewModel)
-        
         viewModel.viewDidLoad()
     }
     
@@ -190,7 +192,7 @@ final class DepositViewController: UIViewController {
     }
     
     // MARK: - Actions
-
+    
     @IBAction private func didPressCopyTransactionIDButton(_ sender: UIButton) {
         copyNotified(button: sender, label: transactionIDValueLabel)
     }

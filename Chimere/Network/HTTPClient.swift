@@ -16,15 +16,12 @@ enum RequestType: String {
 final class HTTPClient {
 
     private let engine: HTTPEngine
-    
-    private let jsonEncoder: JSONEncoder
 
     private let jsonDecoder: JSONDecoder
 
     init(engine: HTTPEngine) {
         self.engine = engine
         self.jsonDecoder = JSONDecoder()
-        self.jsonEncoder = JSONEncoder()
     }
 
     func request<T>(type: T.Type,
@@ -40,7 +37,7 @@ final class HTTPClient {
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }
-    
+
     func dataRequest(requestType: RequestType,
                      url: URL,
                      cancelledBy token: RequestCancellationToken,
@@ -54,7 +51,7 @@ final class HTTPClient {
             completion(data)
         }
     }
-    
+
     func upload<T>(type: T.Type,
                     requestType: RequestType,
                     array: [String: Any],
@@ -81,9 +78,8 @@ final class HTTPClient {
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }
-    
+
     private func decodeJSON<T>(type: T.Type, data: Data, completion: @escaping (T) -> Void) where T: Codable {
-        
         guard let decodedData = try? jsonDecoder.decode(type.self, from: data) else {
             print("Decoder was unable to decode: \(type.self)")
             return

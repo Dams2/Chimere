@@ -10,7 +10,6 @@ import Foundation
 
 protocol ExchangeRepositoryType: class {
     func getAddressValidation(for address: String, symbol: String, callback: @escaping (Bool) -> Void)
-    func getCurrencies(callback: @escaping (CurrenciesResponse) -> Void)
     func postOrder(order: [String: Any], callback: @escaping (DepositResponse) -> Void)
 }
 
@@ -38,20 +37,8 @@ final class ExchangeRepository: ExchangeRepositoryType {
         })
     }
     
-    func getCurrencies(callback: @escaping (CurrenciesResponse) -> Void) {
-        let stringURL = "https://ff766d7e.ngrok.io/api/asset/retrieve-all-active-asset"
-        guard let url = URL(string: stringURL) else { return }
-        client.request(type: CurrenciesResponse.self,
-                       requestType: .GET,
-                       url: url,
-                       cancelledBy: token,
-                       completion: { currenciesResponse in
-                        callback(currenciesResponse)
-        })
-    }
-    
     func postOrder(order: [String: Any] ,callback: @escaping (DepositResponse) -> Void) {
-        let stringURL = "https://eaa24072.ngrok.io/api/order/create-order"
+        let stringURL = "https://361d6e5c.ngrok.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: DepositResponse.self,

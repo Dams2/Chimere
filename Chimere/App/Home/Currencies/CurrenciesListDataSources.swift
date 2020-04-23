@@ -14,6 +14,14 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
     
     var didSelectItemAtIndex: ((Int) -> Void)?
 
+    init(tableView: UITableView) {
+        super.init()
+
+        tableView.rowHeight = 50
+        tableView.dataSource = self
+        tableView.delegate = self
+    }
+
     private var items: [Item] = []
 
     func update(with item: [Item]) {

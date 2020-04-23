@@ -12,7 +12,10 @@ final class CurrenciesListViewController: UIViewController {
     
     // MARK: - Private Properties
     
-    private lazy var dataSource = CurrenciesListDataSources()
+    private lazy var dataSource: CurrenciesListDataSources = {
+        let dataSource = CurrenciesListDataSources(tableView: self.tableView)
+        return dataSource
+    }()
 
     var viewModel: CurrenciesListViewModel!
     
@@ -25,14 +28,10 @@ final class CurrenciesListViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.tableView.rowHeight = 50
-        tableView.dataSource = dataSource
-        tableView.delegate = dataSource
-        
+        bind(to: dataSource)
+
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
-        bind(to: dataSource)
     }
 
     // MARK: - Helpers

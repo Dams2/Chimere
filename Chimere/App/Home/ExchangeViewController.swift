@@ -24,35 +24,35 @@ final class ExchangeViewController: UIViewController {
 
     // Deposit //
 
-    @IBOutlet weak private var depositView: UIView! {
+    @IBOutlet weak private var originView: UIView! {
         didSet {
-            depositView.backgroundColor = .white
-            depositView.layer.borderWidth = 1
-            depositView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
-            depositView.layer.cornerRadius = 10
+            originView.backgroundColor = .white
+            originView.layer.borderWidth = 1
+            originView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            originView.layer.cornerRadius = 10
         }
     }
 
-    @IBOutlet weak private var depositLabel: UILabel!
+    @IBOutlet weak private var originLabel: UILabel!
 
-    @IBOutlet weak private var depositAmountTextField: UITextField! {
+    @IBOutlet weak private var originAmountTextField: UITextField! {
         didSet {
-            depositAmountTextField.keyboardType = .decimalPad
-            depositAmountTextField.backgroundColor = .white
+            originAmountTextField.keyboardType = .decimalPad
+            originAmountTextField.backgroundColor = .white
         }
     }
 
-    @IBOutlet weak private var depositCurrencyView: UIView! {
+    @IBOutlet weak private var originCurrencyView: UIView! {
         didSet {
-            depositCurrencyView.layer.cornerRadius = 10
+            originCurrencyView.layer.cornerRadius = 10
         }
     }
 
-    @IBOutlet weak private var depositCurrencyNameLabel: UILabel!
+    @IBOutlet weak private var originCurrencyNameLabel: UILabel!
 
-    @IBOutlet weak private var depositCurrencySymbolLabel: UILabel!
+    @IBOutlet weak private var originCurrencySymbolLabel: UILabel!
 
-    @IBOutlet weak private var changeDepositCurrencyButton: UIButton!
+    @IBOutlet weak private var changeOriginCurrencyButton: UIButton!
 
     @IBOutlet weak private var refundAddressTextField: UITextField!
 
@@ -115,10 +115,10 @@ final class ExchangeViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
+        self.tabBarController?.tabBar.barTintColor = .white
+        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
         bind(to: viewModel)
-        
         viewModel.viewDidLoad()
-        
     }
     
     // MARK: - Helpers
@@ -131,27 +131,27 @@ final class ExchangeViewController: UIViewController {
             }
         }
         
-        viewModel.depositText = { [weak self] text in
+        viewModel.originText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.depositLabel.text = text
+                self?.originLabel.text = text
             }
         }
         
-        viewModel.depositAmountText = { [weak self] placeholder in
+        viewModel.originAmountText = { [weak self] placeholder in
             DispatchQueue.main.async {
-                self?.depositAmountTextField.placeholder = placeholder
+                self?.originAmountTextField.placeholder = placeholder
             }
         }
         
-        viewModel.depositCurrencyNameText = { [weak self] text in
+        viewModel.originCurrencyNameText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.depositCurrencyNameLabel.text = text
+                self?.originCurrencyNameLabel.text = text
             }
         }
         
-        viewModel.depositCurrencySymbolText = { [weak self] text in
+        viewModel.originCurrencySymbolText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.depositCurrencySymbolLabel.text = text
+                self?.originCurrencySymbolLabel.text = text
             }
         }
         
@@ -224,8 +224,8 @@ final class ExchangeViewController: UIViewController {
 
     // MARK: - Actions
 
-    @IBAction func didPressChangeDepositCurrencyButton(_ sender: UIButton) {
-        viewModel.didPressChangeDepositCurrency() 
+    @IBAction func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
+        viewModel.didPressChangeOriginCurrency() 
     }
 
     @IBAction func didPressSwitchButton(_ sender: UIButton) {
@@ -233,7 +233,7 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {
-        viewModel.didPressChangeDepositCurrency()
+        viewModel.didPressChangeDestinationCurrency()
     }
 
     @IBAction func didPressExchangeNowButton(_ sender: UIButton) {
@@ -241,8 +241,18 @@ final class ExchangeViewController: UIViewController {
                 
         changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
         
-        guard let depositCurrencySymbolText = depositCurrencySymbolLabel.text, let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text else { return }
+        guard let depositCurrencySymbolText = originCurrencySymbolLabel.text, let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text else { return }
         
         viewModel.didPressExchangeNow(depositCurrencySymbolText: depositCurrencySymbolText, refundAddressText: refundAddressText, destinationCurrencySymbolText: destinationCurrencySymbolText, destinationAddressText: destinationAddressText)
+    }
+
+    // MARK: - Public
+
+    func updateOrigin(currency: Currency) {
+        viewModel.updateOrigin(currency: currency)
+    }
+
+    func updateDestination(currency: Currency) {
+        viewModel.updateDestination(currency: currency)
     }
 }

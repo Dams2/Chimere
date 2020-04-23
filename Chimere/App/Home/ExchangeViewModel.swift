@@ -27,13 +27,13 @@ final class ExchangeViewModel {
     
     // deposit
 
-    var depositText: ((String) -> Void)?
+    var originText: ((String) -> Void)?
     
-    var depositAmountText: ((String) -> Void)?
+    var originAmountText: ((String) -> Void)?
     
-    var depositCurrencyNameText: ((String) -> Void)?
+    var originCurrencyNameText: ((String) -> Void)?
     
-    var depositCurrencySymbolText: ((String) -> Void)?
+    var originCurrencySymbolText: ((String) -> Void)?
     
     var refundAddressText: ((String) -> Void)?
     
@@ -56,16 +56,16 @@ final class ExchangeViewModel {
     // next step
 
     var exchangeNowText: ((String) -> Void)?
-
+    
     // MARK: - Inputs
     
     func viewDidLoad() {
         descriptionText?("We are making crypto easy to exchange")
         
-        depositText?("You send")
-        depositAmountText?("0.01")
-        depositCurrencyNameText?("Ethereum")
-        depositCurrencySymbolText?("ETH")
+        originText?("You send")
+        originAmountText?("0.01")
+        originCurrencyNameText?("Ethereum")
+        originCurrencySymbolText?("ETH")
         refundAddressText?("Enter BTC refund address here... 👈")
         
         exchangeRatesText?("1 BTC ~ 42.907 ETH")
@@ -76,19 +76,19 @@ final class ExchangeViewModel {
         destinationCurrencySymbolText?("BTC")
         destinationAddressText?("Destination ETH address here... 👈")
         
-        exchangeNowText?("Exchange now")
-    }
-    
-    func didPressChangeDepositCurrency() {
-        delegate?.didShowCurrencieslist()
-    }
-    
-    func didPressSwitch() {
+        exchangeNowText?("Exchange Now")
         
     }
     
+    func didPressChangeOriginCurrency() {
+        delegate?.didShowOriginCurrenciesList()
+    }
+    
+    func didPressSwitch() {
+    }
+    
     func didPressChangeDestinationCurrency() {
-        delegate?.didShowCurrencieslist()
+        delegate?.didShowDestinationCurrencies()
     }
     
     func didPressExchangeNow(depositCurrencySymbolText: String, refundAddressText: String, destinationCurrencySymbolText: String, destinationAddressText: String) {
@@ -113,6 +113,22 @@ final class ExchangeViewModel {
 //                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
 //            }
 //        }
+        
+        self.delegate?.didSelectExchangeNow()
+    }
+    
+    func updateOrigin(currency: Currency) {
+        originCurrencyNameText?(currency.name)
+        originCurrencySymbolText?(currency.symbol)
+        refundAddressText?("Enter \(currency.symbol) refund address here... 👈")
+        delegate?.didDismissCurrenciesList()
+    }
+    
+    func updateDestination(currency: Currency) {
+        destinationCurrencyNameText?(currency.name)
+        destinationCurrencySymbolText?(currency.symbol)
+        destinationAddressText?("Destination \(currency.symbol) address here... 👈")
+        delegate?.didDismissCurrenciesList()
     }
     
     private func presentAlert(message: String) {
@@ -127,7 +143,7 @@ final class ExchangeViewModel {
             return
         } else {
             DispatchQueue.main.async {
-//                self.delegate?.didSelectExchangeNow(deposit: Deposit)
+                self.delegate?.didSelectExchangeNow()
             }
         }
     }
