@@ -10,7 +10,8 @@ import Foundation
 
 protocol ExchangeRepositoryType: class {
     func getAddressValidation(for address: String, symbol: String, callback: @escaping (Bool) -> Void)
-    func postOrder(order: [String: Any], callback: @escaping (DepositResponse) -> Void)
+    func postOrder(order: [String: String], callback: @escaping (DepositResponse) -> Void)
+    func getPrices(callback: @escaping (PriceResponse) -> Void)
 }
 
 final class ExchangeRepository: ExchangeRepositoryType {
@@ -37,8 +38,8 @@ final class ExchangeRepository: ExchangeRepositoryType {
         })
     }
     
-    func postOrder(order: [String: Any] ,callback: @escaping (DepositResponse) -> Void) {
-        let stringURL = "https://361d6e5c.ngrok.io/api/order/create-order"
+    func postOrder(order: [String: String] ,callback: @escaping (DepositResponse) -> Void) {
+        let stringURL = "https://9fc9563c.ngrok.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: DepositResponse.self,
@@ -49,4 +50,18 @@ final class ExchangeRepository: ExchangeRepositoryType {
                         callback(deposit)
         }
     }
+    
+    func getPrices(callback: @escaping (PriceResponse) -> Void) {
+        let stringURL = "https://9f29800a.ngrok.io/price"
+        guard let url = URL(string: stringURL) else { return }
+        
+        client.websocketRequest(type: PriceResponse.self,
+                                requestType: .GET,
+                                url: url,
+                                cancelledBy: token) { (result) in
+                                    callback(result)
+        }
+    }
+    
+    
 }

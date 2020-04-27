@@ -57,6 +57,8 @@ final class ExchangeViewModel {
 
     var exchangeNowText: ((String) -> Void)?
     
+    var orderItems: [String: String] = [:]
+    
     // MARK: - Inputs
     
     func viewDidLoad() {
@@ -66,7 +68,7 @@ final class ExchangeViewModel {
         originAmountText?("0.01")
         originCurrencyNameText?("Ethereum")
         originCurrencySymbolText?("ETH")
-        refundAddressText?("Enter BTC refund address here... 👈")
+        refundAddressText?("Enter ETH refund address here... 👈")
 
         exchangeRatesText?("1 BTC ~ 42.907 ETH")
 
@@ -74,10 +76,13 @@ final class ExchangeViewModel {
         destinationAmountText?("0.01")
         destinationCurrencyNameText?("Bitcoin")
         destinationCurrencySymbolText?("BTC")
-        destinationAddressText?("Destination ETH address here... 👈")
+        destinationAddressText?("Destination BTC address here... 👈")
         
         exchangeNowText?("Exchange Now")
         
+        repository.getPrices { (price) in
+            print(price.ask["BTC"]?.bestAsk)
+        }
     }
     
     func didPressChangeOriginCurrency() {
@@ -92,7 +97,7 @@ final class ExchangeViewModel {
         delegate?.didShowDestinationCurrencies()
     }
     
-    func didPressExchangeNow(depositCurrencySymbolText: String, refundAddressText: String, destinationCurrencySymbolText: String, destinationAddressText: String) {
+    func didPressExchangeNow(originAmountText: String, originCurrencySymbolText: String, refundAddressText: String, destinationAmountText: String, destinationCurrencySymbolText: String, destinationAddressText: String) {
 //        guard !refundAddressText.isEmpty else {
 //            presentAlert(message: "You must fill refund address")
 //            return
@@ -109,7 +114,9 @@ final class ExchangeViewModel {
 //            }
 //        }
         
-        self.delegate?.didSelectExchangeNow()
+        orderItems = ["deposit_amount": originAmountText, "deposit_ticker": originCurrencySymbolText, "refund_address": refundAddressText, "destination_amount": "21", "destination_ticker": destinationCurrencySymbolText, "destination_address": destinationAddressText]
+
+        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
     }
     
     func updateOrigin(currency: Currency) {
@@ -138,7 +145,7 @@ final class ExchangeViewModel {
             return
         } else {
             DispatchQueue.main.async {
-                self.delegate?.didSelectExchangeNow()
+                self.delegate?.didSelectExchangeNow(orderItems: self.orderItems)
             }
         }
     }

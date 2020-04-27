@@ -10,31 +10,80 @@ import Foundation
 
 final class OrderSummaryViewModel {
     
+    private let orderItems: [String: String]
+    
     private let delegate: OrderSummaryViewControllerDelegate?
     
     private let repository: ExchangeRepositoryType
 
-    init(delegate: OrderSummaryViewControllerDelegate?, repository: ExchangeRepositoryType) {
+    init(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate?, repository: ExchangeRepositoryType) {
+        self.orderItems = orderItems
         self.delegate = delegate
         self.repository = repository
     }
     
     // MARK: - Outputs
     
+    var orderText: ((String) -> Void)?
+    var originText:((String) -> Void)?
+    var originAmountText: ((String) -> Void)?
     
+    var destinationText: ((String) -> Void)?
+    var destinationAmountText: ((String) -> Void)?
     
+    var destinationAddressText: ((String) -> Void)?
+    var destinationTokenAddressText : ((String) -> Void)?
+    
+    var exchangeRatesText: ((String) -> Void)?
+    var exchangeRatesAmountText: ((String) -> Void)?
+    
+    var totalFeeText: ((String) -> Void)?
+    var totalFeeAmountText: ((String) -> Void)?
+    
+    var arrivalTimeText: ((String) -> Void)?
+    var estimatedTimeArrival: ((String) -> Void)?
+    
+    var confirmText: ((String) -> Void)?
+
     // MARK: - Inputs
     
     func viewDidLoad() {
-        let orderItems: [String: Any] = ["deposit_amount": "120", "deposit_ticker": "ETH", "refund_address": "0xa2fec727757e47c64942e23949da839e6da948ac", "destination_amount": "34", "destination_ticker": "BTC", "destination_address": "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX"]
-               
-        repository.postOrder(order: orderItems) { (depositResponse) in
-           
-        }
+        orderText?("Order")
 
+        originText?("You send")
+
+        destinationText?("You get approximately")
+
+        exchangeRatesText?("Exchange rates")
+
+        arrivalTimeText?("Arrival time")
+        estimatedTimeArrival?("5 - 30 min")
+        
+        confirmText?("Confirm")
+        
+        setOrder()
+        
+        repository.postOrder(order: orderItems) { (depositResponse) in
+            
+        }
     }
-    
+
     func didPressConfirm(deposit: Deposit) {
         delegate?.didSelectConfirm(deposit: deposit)
+    }
+    
+    // MARK: - Helpers
+    
+    private func setOrder() {
+        guard let originAmount = self.orderItems["deposit_amount"],
+            let originCurrencySymbolText = self.orderItems["deposit_ticker"],
+            let destinationAmountText = self.orderItems["destination_amount"],
+            let destinationCurrencySymbolText = self.orderItems["destination_ticker"],
+            let destinationTokenAddressText = self.orderItems["destination_address"]
+            else { return }
+        
+        self.originAmountText?("\(originAmount) \(originCurrencySymbolText)")
+        self.destinationAmountText?("\(destinationAmountText) \(destinationCurrencySymbolText)")
+        self.destinationTokenAddressText?(destinationTokenAddressText)
     }
 }

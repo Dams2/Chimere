@@ -55,8 +55,8 @@ final class ExchangeCoordinator {
         presenter.dismiss(animated: true, completion: nil)
     }
     
-    private func showOrderSummary() {
-        let viewController = screens.createOrderSummaryViewController(delegate: self)
+    private func showOrderSummary(orderItems: [String: String]) {
+        let viewController = screens.createOrderSummaryViewController(orderItems: orderItems, delegate: self)
         presenter.pushViewController(viewController, animated: true)
     }
     
@@ -85,8 +85,8 @@ extension ExchangeCoordinator: ExchangeViewControllerDelegate {
         dismissCurrenciesList()
     }
 
-    func didSelectExchangeNow() {
-        showOrderSummary()
+    func didSelectExchangeNow(orderItems: [String: String]) {
+        showOrderSummary(orderItems: orderItems)
     }
     
     func didPresentAlert(for alert: AlertType) {

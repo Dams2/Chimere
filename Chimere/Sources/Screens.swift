@@ -24,7 +24,7 @@ protocol ExchangeViewControllerDelegate: class {
     func didShowOriginCurrenciesList()
     func didShowDestinationCurrencies()
     func didDismissCurrenciesList()
-    func didSelectExchangeNow()
+    func didSelectExchangeNow(orderItems: [String: String])
     func didPresentAlert(for alert: AlertType)
 }
 
@@ -57,10 +57,10 @@ protocol OrderSummaryViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createOrderSummaryViewController(delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
+    func createOrderSummaryViewController(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = OrderSummaryViewModel(delegate: delegate, repository: repository)
+        let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }

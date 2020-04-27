@@ -37,6 +37,9 @@
 		9198D10F2446235D00980FBA /* ExchangeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D10E2446235D00980FBA /* ExchangeCoordinator.swift */; };
 		9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D1122446242800980FBA /* ExchangeViewController.swift */; };
 		9198D1152446377200980FBA /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D1142446377200980FBA /* ExchangeViewModel.swift */; };
+		91A452C124573BB200762608 /* PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A452C024573BB200762608 /* PriceResponse.swift */; };
+		91A452C324573BD500762608 /* Price.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A452C224573BD500762608 /* Price.swift */; };
+		91A452C524573C8300762608 /* Price+PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A452C424573C8300762608 /* Price+PriceResponse.swift */; };
 		91BF86B72448CF2000403F97 /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86B62448CF2000403F97 /* CurrenciesListViewController.swift */; };
 		91BF86BA2448D00800403F97 /* CurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86B92448D00800403F97 /* CurrenciesTableViewCell.swift */; };
 		91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86BB2448D03100403F97 /* CurrenciesListDataSources.swift */; };
@@ -96,6 +99,9 @@
 		9198D10E2446235D00980FBA /* ExchangeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoordinator.swift; sourceTree = "<group>"; };
 		9198D1122446242800980FBA /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		9198D1142446377200980FBA /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		91A452C024573BB200762608 /* PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceResponse.swift; sourceTree = "<group>"; };
+		91A452C224573BD500762608 /* Price.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Price.swift; sourceTree = "<group>"; };
+		91A452C424573C8300762608 /* Price+PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Price+PriceResponse.swift"; sourceTree = "<group>"; };
 		91BF86B62448CF2000403F97 /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 		91BF86B92448D00800403F97 /* CurrenciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewCell.swift; sourceTree = "<group>"; };
 		91BF86BB2448D03100403F97 /* CurrenciesListDataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListDataSources.swift; sourceTree = "<group>"; };
@@ -325,6 +331,9 @@
 				91DD870B244F5B6B001DDD2A /* Deposit.swift */,
 				91DD8707244F581E001DDD2A /* DepositResponse.swift */,
 				91C2D1DA2447C69D00BEFBBF /* AddressResponse.swift */,
+				91A452C424573C8300762608 /* Price+PriceResponse.swift */,
+				91A452C224573BD500762608 /* Price.swift */,
+				91A452C024573BB200762608 /* PriceResponse.swift */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -449,6 +458,7 @@
 				9195E9E92451095300327571 /* HistoryDataSources.swift in Sources */,
 				9198D0D824461EE500980FBA /* AppDelegate.swift in Sources */,
 				91E4536F244EA2310053593B /* HistoryViewController.swift in Sources */,
+				91A452C324573BD500762608 /* Price.swift in Sources */,
 				9198D10A2446203C00980FBA /* HTTPEngine.swift in Sources */,
 				91456FEE2447B6D0009305E8 /* AlertType.swift in Sources */,
 				91C2D1DB2447C69D00BEFBBF /* AddressResponse.swift in Sources */,
@@ -457,6 +467,7 @@
 				914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */,
 				91DD870E244F5CD8001DDD2A /* Deposit+DepositResponse.swift in Sources */,
 				9198D10524461FDE00980FBA /* Screens.swift in Sources */,
+				91A452C124573BB200762608 /* PriceResponse.swift in Sources */,
 				9198D0FE24461F2900980FBA /* Coordinator.swift in Sources */,
 				9195111724474D4F00595300 /* DepositViewController.swift in Sources */,
 				91BF86C42448D5F200403F97 /* Currency.swift in Sources */,
@@ -477,6 +488,7 @@
 				91C2D1D82447C68600BEFBBF /* ExchangeRepository.swift in Sources */,
 				9195111924474D7300595300 /* DepositViewModel.swift in Sources */,
 				91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */,
+				91A452C524573C8300762608 /* Price+PriceResponse.swift in Sources */,
 				9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */,
 				914634612449EA4000CE9BB6 /* ImageRepository.swift in Sources */,
 				911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */,

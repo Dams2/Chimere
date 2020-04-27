@@ -54,7 +54,7 @@ final class HTTPClient {
 
     func upload<T>(type: T.Type,
                     requestType: RequestType,
-                    array: [String: Any],
+                    array: [String: String],
                     url: URL,
                     cancelledBy token: RequestCancellationToken,
                     completion: @escaping (T) -> Void) where T: Codable {
@@ -75,6 +75,20 @@ final class HTTPClient {
             
 //            let str = String(decoding: data, as: UTF8.self)
 //            let json = Data(str.utf8)
+            self.decodeJSON(type: T.self, data: data, completion: completion)
+        })
+    }
+    
+    func websocketRequest<T>(type: T.Type,
+                             requestType: RequestType,
+                             url: URL,
+                             cancelledBy token: RequestCancellationToken,
+                             completion: @escaping (T) -> Void) where T: Codable{
+        var request = URLRequest(url: url)
+        request.httpMethod = requestType.rawValue
+        
+        engine.sendWebsocket(request: request, cancelledBy: token, callback: { data, _, _ in
+            guard let data = data else { return }
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }

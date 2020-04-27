@@ -412,7 +412,6 @@
         <!--Order Summary View Controller-->
         <scene sceneID="n2z-bs-jSV">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wC9-XK-yGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <viewController storyboardIdentifier="OrderSummaryViewController" id="bEb-Ca-ayz" customClass="OrderSummaryViewController" customModule="Chimere" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="heQ-ef-O7t">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
@@ -604,15 +603,15 @@
                         <outlet property="arrivalTimeLabel" destination="Gtx-af-4vQ" id="vuG-4r-ZO9"/>
                         <outlet property="confirmButton" destination="4lt-FI-2EU" id="Cbc-xp-Zdl"/>
                         <outlet property="destinationAddressLabel" destination="WG5-gH-V4Y" id="gJt-J7-GJS"/>
-                        <outlet property="destinationAddressTextField" destination="JZX-Hq-EHm" id="WbU-Ko-Fjb"/>
                         <outlet property="destinationAmountLabel" destination="YOs-Ge-p7K" id="bxR-HZ-ye4"/>
                         <outlet property="destinationLabel" destination="qif-65-uza" id="goa-LV-m5O"/>
+                        <outlet property="destinationTokenAddressTextField" destination="JZX-Hq-EHm" id="WbU-Ko-Fjb"/>
                         <outlet property="estimatedTimeArrivalLabel" destination="QdI-cp-vvj" id="jIa-KH-CZE"/>
                         <outlet property="exchangeRatesAmountLabel" destination="xNm-Wh-hId" id="Gb1-bp-RUB"/>
                         <outlet property="exchangeRatesLabel" destination="DVT-KX-31j" id="7tH-VA-ooj"/>
                         <outlet property="infoView" destination="dk4-Fm-CVA" id="OZD-yj-BHq"/>
-                        <outlet property="networkFee" destination="JOm-fa-U3d" id="XW2-FV-c9T"/>
-                        <outlet property="networkFeeAmount" destination="2bc-5v-fY2" id="4lm-GO-Ahz"/>
+                        <outlet property="networkFeeAmountLabel" destination="2bc-5v-fY2" id="4lm-GO-Ahz"/>
+                        <outlet property="networkFeeLabel" destination="JOm-fa-U3d" id="XW2-FV-c9T"/>
                         <outlet property="orderLabel" destination="7ay-2j-MUW" id="Vcz-wF-qou"/>
                         <outlet property="originAmountLabel" destination="2Fh-Hv-9lf" id="bTO-8L-OJI"/>
                         <outlet property="originLabel" destination="VVw-HA-4Xl" id="4Km-h2-jTe"/>
@@ -620,6 +619,7 @@
                         <outlet property="totalFeeLabel" destination="7O4-qM-uaf" id="ff5-yd-LZB"/>
                     </connections>
                 </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wC9-XK-yGx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="308" y="41.379310344827587"/>
         </scene>
@@ -995,6 +995,7 @@
                                                 <constraint firstItem="OFC-t6-heb" firstAttribute="top" secondItem="MPu-wo-lBP" secondAttribute="top" id="iMK-78-nld"/>
                                                 <constraint firstItem="VbE-z4-fYj" firstAttribute="top" secondItem="ccP-Rd-gF2" secondAttribute="bottom" constant="5" id="qy1-U1-SyV"/>
                                                 <constraint firstItem="rcF-j5-5qi" firstAttribute="top" secondItem="VbE-z4-fYj" secondAttribute="bottom" constant="5" id="tdX-6i-m0E"/>
+                                                <constraint firstItem="rcF-j5-5qi" firstAttribute="leading" secondItem="MPu-wo-lBP" secondAttribute="leadingMargin" id="xnZ-vw-3ab"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

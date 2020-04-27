@@ -115,7 +115,7 @@ final class ExchangeViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-        let userID = UIDevice.current.identifierForVendor?.uuidString
+//        let userID = UIDevice.current.identifierForVendor?.uuidString
 
         self.tabBarController?.tabBar.barTintColor = .white
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
@@ -239,13 +239,24 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction func didPressExchangeNowButton(_ sender: UIButton) {
-        guard let refundAddressText = refundAddressTextField.text, let destinationAddressText = destinationAddressTextField.text else { return }
+        guard let refundAddressText = refundAddressTextField.text,
+            let destinationAddressText = destinationAddressTextField.text
+            else { return }
                 
         changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
         
-        guard let depositCurrencySymbolText = originCurrencySymbolLabel.text, let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text else { return }
+        guard let originAmountText = originAmountTextField.text,
+            let originCurrencySymbolText = originCurrencySymbolLabel.text,
+            let destinationAmountText = destinationAmountTextField.text,
+            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
+            else { return }
         
-        viewModel.didPressExchangeNow(depositCurrencySymbolText: depositCurrencySymbolText, refundAddressText: refundAddressText, destinationCurrencySymbolText: destinationCurrencySymbolText, destinationAddressText: destinationAddressText)
+        viewModel.didPressExchangeNow(originAmountText: originAmountText,
+                                      originCurrencySymbolText: originCurrencySymbolText,
+                                      refundAddressText: refundAddressText,
+                                      destinationAmountText: destinationAmountText,
+                                      destinationCurrencySymbolText: destinationCurrencySymbolText,
+                                      destinationAddressText: destinationAddressText)
     }
 
     // MARK: - Public

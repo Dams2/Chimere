@@ -10,7 +10,7 @@ import UIKit
 
 final class OrderSummaryViewController: UIViewController {
     
-    // MARK: - Private Properties
+    // MARK: - Properties
     
     var viewModel: OrderSummaryViewModel!
         
@@ -28,7 +28,7 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBOutlet weak private var destinationAddressLabel: UILabel!
     
-    @IBOutlet weak private var destinationAddressTextField: UITextView!
+    @IBOutlet weak private var destinationTokenAddressTextField: UITextView!
     
     
     @IBOutlet weak private var infoView: UIView!  {
@@ -47,9 +47,9 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBOutlet weak private var totalFeeAmountLabel: UILabel!
     
-    @IBOutlet weak private var networkFee: UILabel!
+    @IBOutlet weak private var networkFeeLabel: UILabel!
     
-    @IBOutlet weak private var networkFeeAmount: UILabel!
+    @IBOutlet weak private var networkFeeAmountLabel: UILabel!
     
     @IBOutlet weak private var arrivalTimeLabel: UILabel!
     
@@ -68,16 +68,102 @@ final class OrderSummaryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+        
+        bind(to: viewModel)
+        viewModel.viewDidLoad()
     }
     
     // MARK: - Helpers
     
-    
+    func bind(to viewModel: OrderSummaryViewModel) {
+        viewModel.orderText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.orderLabel.text = text
+            }
+        }
+        
+        viewModel.originText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.originLabel.text = text
+            }
+        }
+        
+        viewModel.originAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.originAmountLabel.text = text
+            }
+        }
+        
+        viewModel.destinationText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationLabel.text = text
+            }
+        }
+        
+        viewModel.destinationAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationAmountLabel.text = text
+            }
+        }
+        
+        viewModel.destinationAddressText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationAddressLabel.text = text
+            }
+        }
+        
+        viewModel.destinationTokenAddressText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationTokenAddressTextField.text = text
+            }
+        }
+        
+        viewModel.exchangeRatesText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangeRatesLabel.text = text
+            }
+        }
+        
+        viewModel.exchangeRatesAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangeRatesAmountLabel.text = text
+            }
+        }
+        
+        viewModel.totalFeeText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.totalFeeLabel.text = text
+            }
+        }
+        
+        viewModel.totalFeeAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.totalFeeAmountLabel.text = text
+            }
+        }
+        
+        viewModel.arrivalTimeText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.arrivalTimeLabel.text = text
+            }
+        }
+        
+        viewModel.estimatedTimeArrival = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.estimatedTimeArrivalLabel.text = text
+            }
+        }
+        
+        viewModel.confirmText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.confirmButton.setTitle(text, for: .normal)
+            }
+        }
+    }
     
     // MARK: - Actions
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
-        let deposit = Deposit(id: "", depositAmount: "", depositSymbol: "", depositAddress: "", destinationAmount: "", destinationSymbol: "", destinationAddress: "", createdDate: "")
-        viewModel.didPressConfirm(deposit: deposit)
+//        viewModel.didPressConfirm(deposit: deposit)
     }
 }
