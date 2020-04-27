@@ -270,7 +270,7 @@
 		9198D110244623EE00980FBA /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				91C2D1D92447C68F00BEFBBF /* Exchange */,
+				91C2D1D92447C68F00BEFBBF /* Model */,
 				9198D1122446242800980FBA /* ExchangeViewController.swift */,
 				9198D1142446377200980FBA /* ExchangeViewModel.swift */,
 				91C2D1D72447C68600BEFBBF /* ExchangeRepository.swift */,
@@ -324,7 +324,7 @@
 			path = Model;
 			sourceTree = "<group>";
 		};
-		91C2D1D92447C68F00BEFBBF /* Exchange */ = {
+		91C2D1D92447C68F00BEFBBF /* Model */ = {
 			isa = PBXGroup;
 			children = (
 				91DD870D244F5CD8001DDD2A /* Deposit+DepositResponse.swift */,
@@ -335,7 +335,7 @@
 				91A452C224573BD500762608 /* Price.swift */,
 				91A452C024573BB200762608 /* PriceResponse.swift */,
 			);
-			path = Exchange;
+			path = Model;
 			sourceTree = "<group>";
 		};
 		91E45370244EA2370053593B /* History */ = {

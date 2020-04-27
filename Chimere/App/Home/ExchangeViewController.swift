@@ -225,6 +225,16 @@ final class ExchangeViewController: UIViewController {
     }
 
     // MARK: - Actions
+    
+    @IBAction func originAmountTextFieldDidChange(_ sender: UITextField) {
+        guard let originAmountText = originAmountTextField.text,
+            let originCurrencySymbolText = self.originCurrencySymbolLabel.text,
+            let destinationCurrencySymbolText = self .destinationCurrencySymbolLabel.text
+            else { return }
+            
+        viewModel.getPrices(originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+    }
+    
 
     @IBAction func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
         viewModel.didPressChangeOriginCurrency() 

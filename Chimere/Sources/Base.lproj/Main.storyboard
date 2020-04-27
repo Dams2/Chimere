@@ -37,6 +37,9 @@
                                                                 <rect key="frame" x="0.0" y="26" width="187" height="24.333333333333329"/>
                                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <action selector="originAmountTextFieldDidChange:" destination="fcI-Tf-to8" eventType="editingChanged" id="FyU-6k-jzr"/>
+                                                                </connections>
                                                             </textField>
                                                         </subviews>
                                                         <constraints>

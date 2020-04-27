@@ -70,7 +70,7 @@ final class ExchangeViewModel {
         originCurrencySymbolText?("ETH")
         refundAddressText?("Enter ETH refund address here... 👈")
 
-        exchangeRatesText?("1 BTC ~ 42.907 ETH")
+        exchangeRatesText?("")
 
         destinationText?("You get approximately")
         destinationAmountText?("0.01")
@@ -79,10 +79,6 @@ final class ExchangeViewModel {
         destinationAddressText?("Destination BTC address here... 👈")
         
         exchangeNowText?("Exchange Now")
-        
-        repository.getPrices { (price) in
-            print(price.ask["BTC"]?.bestAsk)
-        }
     }
     
     func didPressChangeOriginCurrency() {
@@ -131,6 +127,39 @@ final class ExchangeViewModel {
         destinationCurrencySymbolText?(currency.symbol)
         destinationAddressText?("Destination \(currency.symbol) address here... 👈")
         delegate?.didDismissCurrenciesList()
+    }
+    
+    // MARK: - Helpers
+    
+    func getPrices(originAmountText: String, originCurrencySymbolText: String, destinationCurrencySymbolText: String) {
+        repository.getPrices { (price) in
+            guard let originRate = price.ask[originCurrencySymbolText]?.bestAsk,
+                let destinationRate = price.bid[destinationCurrencySymbolText]?.bestBid
+                else { return }
+            
+            self.exchangeRate(originAmountText: originAmountText, originRate: originRate, originCurrencySymbolText: originCurrencySymbolText, destinationRate: destinationRate, destinationCurrencySymbolText: destinationCurrencySymbolText)
+        }
+    }
+    
+    private func convertDestinationValue(originAmountText: String, rate: Float) {
+        guard let originAmount = Float(originAmountText) else { return }
+        if originAmount == 0 {
+            destinationAmountText?("0")
+        } else {
+            let value = originAmount * rate
+            destinationAmountText?("\(value)")
+        }
+    }
+    
+    private func exchangeRate(originAmountText: String, originRate: String, originCurrencySymbolText: String, destinationRate: String, destinationCurrencySymbolText: String) {
+        guard let originRate = Float(originRate),
+            let destinationRate = Float(destinationRate)
+            else { return }
+        
+        let rate =  originRate / destinationRate
+        
+        self.convertDestinationValue(originAmountText: originAmountText, rate: rate)
+        self.exchangeRatesText?("1 \(originCurrencySymbolText) ~ \(rate) \(destinationCurrencySymbolText)")
     }
     
     private func presentAlert(message: String) {
