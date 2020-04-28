@@ -29,6 +29,8 @@ final class ExchangeViewModel {
 
     var originText: ((String) -> Void)?
     
+    var originAmountPlaceholderText: ((String) -> Void)?
+    
     var originAmountText: ((String) -> Void)?
     
     var originCurrencyNameText: ((String) -> Void)?
@@ -52,6 +54,14 @@ final class ExchangeViewModel {
     var destinationCurrencySymbolText: ((String) -> Void)?
 
     var destinationAddressText: ((String) -> Void)?
+    
+    // Warning
+    
+    var warningImageText: ((String) -> Void)?
+    
+    var warningText: ((String) -> Void)?
+    
+    var warningAmountText: ((String) -> Void)?
         
     // next step
 
@@ -65,7 +75,8 @@ final class ExchangeViewModel {
         descriptionText?("We are making crypto easy to exchange")
         
         originText?("You send")
-        originAmountText?("0.01")
+        originAmountPlaceholderText?("0.01")
+        originAmountText?("")
         originCurrencyNameText?("Ethereum")
         originCurrencySymbolText?("ETH")
         refundAddressText?("Enter ETH refund address here... 👈")
@@ -77,6 +88,10 @@ final class ExchangeViewModel {
         destinationCurrencyNameText?("Bitcoin")
         destinationCurrencySymbolText?("BTC")
         destinationAddressText?("Destination BTC address here... 👈")
+        
+        warningImageText?("")
+        warningText?("")
+        warningAmountText?("")
         
         exchangeNowText?("Exchange Now")
     }
@@ -91,6 +106,12 @@ final class ExchangeViewModel {
     
     func didPressChangeDestinationCurrency() {
         delegate?.didShowDestinationCurrencies()
+    }
+    
+    func didPressWarningAmount(warningAmountText: String, originAmount: String, originCurrencySymbolText: String, destinationCurrencySymbolText: String) {
+        originAmountText?("\(warningAmountText)")
+        getPrices(originAmountText: originAmount, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+        
     }
     
     func didPressExchangeNow(originAmountText: String, originCurrencySymbolText: String, refundAddressText: String, destinationAmountText: String, destinationCurrencySymbolText: String, destinationAddressText: String) {
@@ -110,23 +131,25 @@ final class ExchangeViewModel {
 //            }
 //        }
         
-        orderItems = ["deposit_amount": originAmountText, "deposit_ticker": originCurrencySymbolText, "refund_address": refundAddressText, "destination_amount": "21", "destination_ticker": destinationCurrencySymbolText, "destination_address": destinationAddressText]
+        orderItems = ["deposit_amount": originAmountText, "deposit_ticker": originCurrencySymbolText, "refund_address": refundAddressText, "destination_amount": destinationAmountText, "destination_ticker": destinationCurrencySymbolText, "destination_address": destinationAddressText]
 
         self.delegate?.didSelectExchangeNow(orderItems: orderItems)
     }
     
-    func updateOrigin(currency: Currency) {
+    func updateOrigin(currency: Currency, originAmountText: String, originCurrencySymbol: String, destinationCurrencySymbolText: String) {
         originCurrencyNameText?(currency.name)
         originCurrencySymbolText?(currency.symbol)
         refundAddressText?("Enter \(currency.symbol) refund address here... 👈")
         delegate?.didDismissCurrenciesList()
+        getPrices(originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbol, destinationCurrencySymbolText: destinationCurrencySymbolText)
     }
     
-    func updateDestination(currency: Currency) {
+    func updateDestination(currency: Currency, originAmountText: String, originCurrencySymbolText: String, destinationCurrencySymbol: String) {
         destinationCurrencyNameText?(currency.name)
         destinationCurrencySymbolText?(currency.symbol)
         destinationAddressText?("Destination \(currency.symbol) address here... 👈")
         delegate?.didDismissCurrenciesList()
+        getPrices(originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbol)
     }
     
     // MARK: - Helpers
@@ -137,31 +160,45 @@ final class ExchangeViewModel {
                 let destinationRate = price.bid[destinationCurrencySymbolText]?.bestBid
                 else { return }
             
-            self.exchangeRate(originAmountText: originAmountText, originRate: originRate, originCurrencySymbolText: originCurrencySymbolText, destinationRate: destinationRate, destinationCurrencySymbolText: destinationCurrencySymbolText)
+            self.exchangeRateValue(originAmountText: originAmountText, originRate: originRate, originCurrencySymbolText: originCurrencySymbolText, destinationRate: destinationRate, destinationCurrencySymbolText: destinationCurrencySymbolText)
         }
     }
-    
-    private func convertDestinationValue(originAmountText: String, rate: Float) {
+
+    private func convertDestinationValue(originAmountText: String, originRate: Float, rate: Float) {
         guard let originAmount = Float(originAmountText) else { return }
-        if originAmount == 0 {
-            destinationAmountText?("0")
+        let minimumAmount = 20 / originRate
+        let maximumAmount = 5000 / originRate
+
+        if originAmount < minimumAmount {
+            destinationAmountText?("...")
+            warningImageText?("exclamationmark.triangle")
+            warningText?("Minimum amount is:")
+            warningAmountText?("\(minimumAmount)")
+        } else if originAmount > maximumAmount {
+            destinationAmountText?("...")
+            warningImageText?("exclamationmark.triangle")
+            warningText?("Maximum amount is:")
+            warningAmountText?("\(maximumAmount)")
         } else {
             let value = originAmount * rate
             destinationAmountText?("\(value)")
+            warningImageText?("")
+            warningText?("")
+            warningAmountText?("")
         }
     }
-    
-    private func exchangeRate(originAmountText: String, originRate: String, originCurrencySymbolText: String, destinationRate: String, destinationCurrencySymbolText: String) {
+
+    private func exchangeRateValue(originAmountText: String, originRate: String, originCurrencySymbolText: String, destinationRate: String, destinationCurrencySymbolText: String) {
         guard let originRate = Float(originRate),
             let destinationRate = Float(destinationRate)
             else { return }
         
         let rate =  originRate / destinationRate
         
-        self.convertDestinationValue(originAmountText: originAmountText, rate: rate)
+        self.convertDestinationValue(originAmountText: originAmountText, originRate: originRate, rate: rate)
         self.exchangeRatesText?("1 \(originCurrencySymbolText) ~ \(rate) \(destinationCurrencySymbolText)")
     }
-    
+
     private func presentAlert(message: String) {
         DispatchQueue.main.async {
             self.delegate?.didPresentAlert(for: .badEntry(alertConfiguration: AlertConfiguration(title: "Warning", message: message, okMessage: "ok", cancelMessage: nil)))

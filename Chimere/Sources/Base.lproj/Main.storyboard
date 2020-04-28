@@ -2,7 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina5_9" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -288,6 +288,35 @@
                                     <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="oY8-Fh-YwG"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="MgC-az-0Fk">
+                                <rect key="frame" x="137" y="507" width="101.33333333333331" height="20"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A23-9f-Lc5">
+                                        <rect key="frame" x="0.0" y="0.0" width="20" height="20"/>
+                                        <color key="tintColor" red="0.96078431369999995" green="0.15686274510000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="20" id="hVH-e8-a1n"/>
+                                            <constraint firstAttribute="width" constant="20" id="jBt-oQ-47c"/>
+                                        </constraints>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XfX-kv-MsH">
+                                        <rect key="frame" x="23.000000000000004" y="0.0" width="34.333333333333343" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ycF-mu-inT">
+                                        <rect key="frame" x="60.333333333333343" y="0.0" width="41" height="20"/>
+                                        <fontDescription key="fontDescription" name="ArialMT" family="Arial" pointSize="14"/>
+                                        <state key="normal" title="Button">
+                                            <color key="titleColor" red="0.96078431369999995" green="0.15686274510000001" blue="0.30196078430000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressWarningAmountButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="Suu-Te-PQU"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
@@ -296,6 +325,8 @@
                             <constraint firstItem="miB-1H-3lr" firstAttribute="top" secondItem="ell-vy-3Ox" secondAttribute="bottom" constant="15" id="NGe-Nu-3g2"/>
                             <constraint firstItem="ell-vy-3Ox" firstAttribute="leading" secondItem="bI4-4y-IM1" secondAttribute="leading" constant="20" id="V8E-Ea-rpM"/>
                             <constraint firstItem="ell-vy-3Ox" firstAttribute="top" secondItem="j6r-ao-sPw" secondAttribute="top" constant="20" id="Zqe-t0-pYZ"/>
+                            <constraint firstItem="MgC-az-0Fk" firstAttribute="centerX" secondItem="bI4-4y-IM1" secondAttribute="centerX" id="h4k-MN-6rH"/>
+                            <constraint firstItem="MgC-az-0Fk" firstAttribute="top" secondItem="miB-1H-3lr" secondAttribute="bottom" constant="8" id="j7a-7R-Uoz"/>
                             <constraint firstAttribute="trailing" secondItem="ell-vy-3Ox" secondAttribute="trailing" constant="20" id="nrI-Q9-bsR"/>
                             <constraint firstItem="j6r-ao-sPw" firstAttribute="bottom" secondItem="jly-O7-EeK" secondAttribute="bottom" constant="25" id="sUB-9d-i5C"/>
                             <constraint firstAttribute="trailing" secondItem="jly-O7-EeK" secondAttribute="trailing" constant="16" id="wMN-ze-SdN"/>
@@ -325,11 +356,14 @@
                         <outlet property="originView" destination="Oqe-bo-Hej" id="CuN-1P-im7"/>
                         <outlet property="refundAddressTextField" destination="PEM-ul-NHE" id="KXY-03-pgq"/>
                         <outlet property="switchButton" destination="nqt-Dd-ceV" id="aVV-7y-kJW"/>
+                        <outlet property="warningAmountButton" destination="ycF-mu-inT" id="9st-PT-h8c"/>
+                        <outlet property="warningImageView" destination="A23-9f-Lc5" id="R4B-PU-u0M"/>
+                        <outlet property="warningLabel" destination="XfX-kv-MsH" id="qe1-lg-Hmb"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9q-bj-htL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-445" y="42"/>
+            <point key="canvasLocation" x="-445.60000000000002" y="41.379310344827587"/>
         </scene>
         <!--Currencies List View Controller-->
         <scene sceneID="m5K-sk-WWG">

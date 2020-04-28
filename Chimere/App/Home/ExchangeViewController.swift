@@ -102,6 +102,14 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var changeDestinationCurrencyButton: UIButton!
 
     @IBOutlet weak private var destinationAddressTextField: UITextField!
+    
+    // Warning //
+    
+    @IBOutlet weak private var warningImageView: UIImageView!
+    
+    @IBOutlet weak private var warningLabel: UILabel!
+    
+    @IBOutlet weak private var warningAmountButton: UIButton!
 
     @IBOutlet weak private var exchangeNowButton: UIButton! {
         didSet {
@@ -139,9 +147,15 @@ final class ExchangeViewController: UIViewController {
             }
         }
         
-        viewModel.originAmountText = { [weak self] placeholder in
+        viewModel.originAmountPlaceholderText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.originAmountTextField.placeholder = placeholder
+            }
+        }
+        
+        viewModel.originAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.originAmountTextField.text = text
             }
         }
         
@@ -199,6 +213,24 @@ final class ExchangeViewController: UIViewController {
             }
         }
         
+        viewModel.warningImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.warningImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.warningText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.warningLabel.text = text
+            }
+        }
+        
+        viewModel.warningAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.warningAmountButton.setTitle(text, for: .normal)
+            }
+        }
+        
         viewModel.exchangeNowText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.exchangeNowButton.setTitle(text, for: .normal)
@@ -247,7 +279,17 @@ final class ExchangeViewController: UIViewController {
     @IBAction func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {
         viewModel.didPressChangeDestinationCurrency()
     }
-
+    
+    @IBAction func didPressWarningAmountButton(_ sender: UIButton) {
+        guard let warningAmountText = sender.titleLabel?.text,
+            let originAmountText = originAmountTextField.text,
+            let originCurrencySymbolText = originCurrencySymbolLabel.text,
+            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
+        else { return }
+        
+        viewModel.didPressWarningAmount(warningAmountText: warningAmountText, originAmount: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+    }
+    
     @IBAction func didPressExchangeNowButton(_ sender: UIButton) {
         guard let refundAddressText = refundAddressTextField.text,
             let destinationAddressText = destinationAddressTextField.text
@@ -272,10 +314,18 @@ final class ExchangeViewController: UIViewController {
     // MARK: - Public
 
     func updateOrigin(currency: Currency) {
-        viewModel.updateOrigin(currency: currency)
+        guard let originAmountText = originAmountTextField.text,
+            let originCurrencySymbolText = originCurrencySymbolLabel.text,
+            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
+            else { return }
+        viewModel.updateOrigin(currency: currency, originAmountText: originAmountText, originCurrencySymbol: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
     }
 
     func updateDestination(currency: Currency) {
-        viewModel.updateDestination(currency: currency)
+        guard let originAmountText = originAmountTextField.text,
+        let originCurrencySymbolText = originCurrencySymbolLabel.text,
+        let destinationCurrencySymbol = destinationCurrencySymbolLabel.text
+        else { return }
+        viewModel.updateDestination(currency: currency, originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbol: destinationCurrencySymbol)
     }
 }
