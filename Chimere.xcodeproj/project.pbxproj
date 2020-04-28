@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */; };
 		911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */; };
-		9121EAE1244B377600E6CFB2 /* Chimere.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 9121EADF244B377600E6CFB2 /* Chimere.xcdatamodeld */; };
 		91456FEE2447B6D0009305E8 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FED2447B6D0009305E8 /* AlertType.swift */; };
 		91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */; };
 		9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */; };
@@ -65,7 +64,6 @@
 /* Begin PBXFileReference section */
 		911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewModel.swift; sourceTree = "<group>"; };
-		9121EAE0244B377600E6CFB2 /* Chimere.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Chimere.xcdatamodel; sourceTree = "<group>"; };
 		91456FED2447B6D0009305E8 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
 		914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesResponse.swift; sourceTree = "<group>"; };
@@ -229,7 +227,6 @@
 				9198D0FD24461F2900980FBA /* Coordinator.swift */,
 				9198D10124461F6700980FBA /* MainCoordinator.swift */,
 				9198D0DD24461EE500980FBA /* Main.storyboard */,
-				9121EADF244B377600E6CFB2 /* Chimere.xcdatamodeld */,
 			);
 			path = Sources;
 			sourceTree = "<group>";
@@ -474,7 +471,6 @@
 				914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */,
 				9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */,
 				91DD8708244F581E001DDD2A /* DepositResponse.swift in Sources */,
-				9121EAE1244B377600E6CFB2 /* Chimere.xcdatamodeld in Sources */,
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,
 				9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */,
 				911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */,
@@ -751,19 +747,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCVersionGroup section */
-		9121EADF244B377600E6CFB2 /* Chimere.xcdatamodeld */ = {
-			isa = XCVersionGroup;
-			children = (
-				9121EAE0244B377600E6CFB2 /* Chimere.xcdatamodel */,
-			);
-			currentVersion = 9121EAE0244B377600E6CFB2 /* Chimere.xcdatamodel */;
-			path = Chimere.xcdatamodeld;
-			sourceTree = "<group>";
-			versionGroupType = wrapper.xcdatamodel;
-		};
-/* End XCVersionGroup section */
 	};
 	rootObject = 9198D0CC24461EE500980FBA /* Project object */;
 }

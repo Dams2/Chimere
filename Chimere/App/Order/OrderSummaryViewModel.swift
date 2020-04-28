@@ -34,7 +34,7 @@ final class OrderSummaryViewModel {
     var destinationAddressText: ((String) -> Void)?
     var destinationTokenAddressText : ((String) -> Void)?
     
-    var exchangeRatesText: ((String) -> Void)?
+    var exchangeRateText: ((String) -> Void)?
     var exchangeRatesAmountText: ((String) -> Void)?
     
     var totalFeeText: ((String) -> Void)?
@@ -54,7 +54,7 @@ final class OrderSummaryViewModel {
 
         destinationText?("You get approximately")
 
-        exchangeRatesText?("Exchange rates")
+        exchangeRateText?("Exchange rates")
 
         arrivalTimeText?("Arrival time")
         estimatedTimeArrival?("5 - 30 min")
@@ -79,11 +79,13 @@ final class OrderSummaryViewModel {
             let originCurrencySymbolText = self.orderItems["deposit_ticker"],
             let destinationAmountText = self.orderItems["destination_amount"],
             let destinationCurrencySymbolText = self.orderItems["destination_ticker"],
-            let destinationTokenAddressText = self.orderItems["destination_address"]
+            let destinationTokenAddressText = self.orderItems["destination_address"],
+            let exchangeRateText = self.orderItems["exchangeRate"]
             else { return }
         
         self.originAmountText?("\(originAmount) \(originCurrencySymbolText)")
         self.destinationAmountText?("\(destinationAmountText) \(destinationCurrencySymbolText)")
         self.destinationTokenAddressText?(destinationTokenAddressText)
+        self.exchangeRatesAmountText?("\(exchangeRateText)")
     }
 }

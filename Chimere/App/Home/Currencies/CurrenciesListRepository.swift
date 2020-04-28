@@ -23,7 +23,7 @@ final class CurrenciesListRepository: CurrenciesListRepositoryType {
     }
     
     func getCurrencies(callback: @escaping (CurrenciesResponse) -> Void) {
-        let stringURL = "https://9f30c7fd.ngrok.io/api/asset/retrieve-all-active-asset"
+        let stringURL = "https://3c0d57ba.ngrok.io/api/asset/retrieve-all-active-asset"
         guard let url = URL(string: stringURL) else { return }
         client.request(type: CurrenciesResponse.self,
                        requestType: .GET,

@@ -118,7 +118,7 @@ final class OrderSummaryViewController: UIViewController {
             }
         }
         
-        viewModel.exchangeRatesText = { [weak self] text in
+        viewModel.exchangeRateText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.exchangeRatesLabel.text = text
             }

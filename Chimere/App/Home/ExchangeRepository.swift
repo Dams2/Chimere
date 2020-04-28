@@ -39,7 +39,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
     }
     
     func postOrder(order: [String: String] ,callback: @escaping (DepositResponse) -> Void) {
-        let stringURL = "https://9f30c7fd.ngrok.io/api/order/create-order"
+        let stringURL = "https://3c0d57ba.ngrok.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: DepositResponse.self,
@@ -52,7 +52,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
     }
     
     func getPrices(callback: @escaping (PriceResponse) -> Void) {
-        let stringURL = "https://7be24001.ngrok.io/price"
+        let stringURL = "https://ac39a997.ngrok.io/price"
         guard let url = URL(string: stringURL) else { return }
         
         client.websocketRequest(type: PriceResponse.self,

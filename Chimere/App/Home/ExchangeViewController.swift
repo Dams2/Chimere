@@ -123,121 +123,137 @@ final class ExchangeViewController: UIViewController {
         super.viewDidLoad()
         self.hideKeyboardWhenTappedAround()
         
-//        let userID = UIDevice.current.identifierForVendor?.uuidString
-
-        self.tabBarController?.tabBar.barTintColor = .white
-        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+        setUI()
+        
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
-    
+
     // MARK: - Helpers
     
+    private func setUI() {
+        let imageView = UIImageView(frame: CGRect(x: -40, y: 0, width: 40, height: 40))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "Chimere")
+        imageView.image = image
+        self.navigationItem.titleView = imageView
+        self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.tabBarController?.tabBar.barTintColor = .white
+        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+    }
+
     private func bind(to viewModel: ExchangeViewModel) {
-        
+
         viewModel.descriptionText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.descriptionTextView.text = text
             }
         }
-        
+
         viewModel.originText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.originLabel.text = text
             }
         }
-        
+
         viewModel.originAmountPlaceholderText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.originAmountTextField.placeholder = placeholder
             }
         }
-        
+
         viewModel.originAmountText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.originAmountTextField.text = text
             }
         }
-        
+
         viewModel.originCurrencyNameText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.originCurrencyNameLabel.text = text
             }
         }
-        
+
         viewModel.originCurrencySymbolText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.originCurrencySymbolLabel.text = text
             }
         }
-        
+
         viewModel.refundAddressText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.refundAddressTextField.placeholder = placeholder
             }
         }
-        
-        viewModel.exchangeRatesText = { [weak self] text in
+
+        viewModel.exchangeRateText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.exchangeRateLabel.text = text
             }
         }
-        
+
         viewModel.destinationText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.destinationLabel.text = text
             }
         }
         
-        viewModel.destinationAmountText = { [weak self] placeholder in
+        viewModel.destinationAmountPlaceholderText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.destinationAmountTextField.placeholder = placeholder
             }
         }
-        
+
+        viewModel.destinationAmountText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationAmountTextField.text = text
+            }
+        }
+
         viewModel.destinationCurrencyNameText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.destinationCurrencyNameLabel.text = text
             }
         }
-        
+
         viewModel.destinationCurrencySymbolText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.destinationCurrencySymbolLabel.text = text
             }
         }
-        
+
         viewModel.destinationAddressText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.destinationAddressTextField.placeholder = placeholder
             }
         }
-        
+
         viewModel.warningImageText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.warningImageView.image = UIImage(systemName: text)
             }
         }
-        
+
         viewModel.warningText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.warningLabel.text = text
             }
         }
-        
+
         viewModel.warningAmountText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.warningAmountButton.setTitle(text, for: .normal)
             }
         }
-        
+
         viewModel.exchangeNowText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.exchangeNowButton.setTitle(text, for: .normal)
             }
         }
     }
-    
+
     private func changePLaceholderColor(refundAddressText: String, destinationAddressText: String) {
         if refundAddressText.isEmpty && destinationAddressText.isEmpty {
             changePlaceholder(addressTextField: refundAddressTextField, message: "You must fill refund address")
@@ -257,16 +273,17 @@ final class ExchangeViewController: UIViewController {
     }
 
     // MARK: - Actions
-    
+
     @IBAction func originAmountTextFieldDidChange(_ sender: UITextField) {
         guard let originAmountText = originAmountTextField.text,
             let originCurrencySymbolText = self.originCurrencySymbolLabel.text,
             let destinationCurrencySymbolText = self .destinationCurrencySymbolLabel.text
             else { return }
-            
-        viewModel.getPrices(originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+
+        viewModel.getPrices(originAmountText: originAmountText,
+                            originCurrencySymbolText: originCurrencySymbolText,
+                            destinationCurrencySymbolText: destinationCurrencySymbolText)
     }
-    
 
     @IBAction func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
         viewModel.didPressChangeOriginCurrency() 
@@ -279,36 +296,43 @@ final class ExchangeViewController: UIViewController {
     @IBAction func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {
         viewModel.didPressChangeDestinationCurrency()
     }
-    
+
     @IBAction func didPressWarningAmountButton(_ sender: UIButton) {
         guard let warningAmountText = sender.titleLabel?.text,
             let originAmountText = originAmountTextField.text,
             let originCurrencySymbolText = originCurrencySymbolLabel.text,
             let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
         else { return }
-        
+
         viewModel.didPressWarningAmount(warningAmountText: warningAmountText, originAmount: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
     }
-    
+
     @IBAction func didPressExchangeNowButton(_ sender: UIButton) {
         guard let refundAddressText = refundAddressTextField.text,
             let destinationAddressText = destinationAddressTextField.text
             else { return }
-                
+
         changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
-        
-        guard let originAmountText = originAmountTextField.text,
+
+        guard let userID = UIDevice.current.identifierForVendor?.uuidString,
+            let originAmountText = originAmountTextField.text,
             let originCurrencySymbolText = originCurrencySymbolLabel.text,
             let destinationAmountText = destinationAmountTextField.text,
-            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
+            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text,
+            let exchangeRate = exchangeRateLabel.text
             else { return }
         
-        viewModel.didPressExchangeNow(originAmountText: originAmountText,
+        
+
+
+        viewModel.didPressExchangeNow(userID: userID,
+                                      originAmountText: originAmountText,
                                       originCurrencySymbolText: originCurrencySymbolText,
                                       refundAddressText: refundAddressText,
                                       destinationAmountText: destinationAmountText,
                                       destinationCurrencySymbolText: destinationCurrencySymbolText,
-                                      destinationAddressText: destinationAddressText)
+                                      destinationAddressText: destinationAddressText,
+                                      exchangeRate: exchangeRate)
     }
 
     // MARK: - Public

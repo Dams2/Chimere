@@ -45,5 +45,7 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemAtIndex?(indexPath.item)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
+        cell.selectionStyle = UITableViewCell.SelectionStyle.none
     }
 }
