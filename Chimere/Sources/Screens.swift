@@ -79,6 +79,9 @@ extension Screens {
 extension Screens {
     func createHistoryViewController() -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        let repository = HistoryRepository(client: context.client)
+        let viewModel = HistoryViewModel(repository: repository)
+        viewController.viewModel = viewModel
         return viewController
     }
 }

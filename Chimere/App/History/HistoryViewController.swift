@@ -22,23 +22,25 @@ final class HistoryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
         
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-        
-//        bind(to: viewModel)
+       
+        bind(to: viewModel)
+        viewModel.viewDidLoad(userID: userID)
     }
 
     // MARK: - Helpers
     
     private func bind(to viewModel: HistoryViewModel) {
-//        viewModel.items = { [weak self] items in
-//            DispatchQueue.main.async {
-//                self?.dataSource.update(with: items)
-//                self?.tableView.reloadData()
-//            }
-//        }
+        viewModel.items = { [weak self] items in
+            DispatchQueue.main.async {
+                self?.dataSource.update(with: items)
+                self?.tableView.reloadData()
+            }
+        }
     }
     
 }

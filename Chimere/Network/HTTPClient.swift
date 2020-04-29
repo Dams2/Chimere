@@ -73,8 +73,9 @@ final class HTTPClient {
         engine.send(request: request, cancelledBy: token, callback: { data, _, _ in
             guard let data = data else { return }
             
-//            let str = String(decoding: data, as: UTF8.self)
-//            let json = Data(str.utf8)
+            let str = String(decoding: data, as: UTF8.self)
+            let json = Data(str.utf8)
+            print(str)
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }

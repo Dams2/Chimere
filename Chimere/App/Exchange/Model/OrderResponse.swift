@@ -9,8 +9,9 @@
 import Foundation
 
 // MARK: - DepositResponse
-struct DepositResponse: Codable {
+struct OrderResponse: Codable {
     let order: Order
+    let orders: [Order]
 }
 
 // MARK: - Order

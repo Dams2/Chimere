@@ -111,9 +111,15 @@ final class ExchangeViewModel {
         delegate?.didShowDestinationCurrencies()
     }
 
-    func didPressWarningAmount(warningAmountText: String, originAmount: String, originCurrencySymbolText: String, destinationCurrencySymbolText: String) {
+    func didPressWarningAmount(warningAmountText: String,
+                               originAmount: String,
+                               originCurrencySymbolText: String,
+                               destinationCurrencySymbolText: String) {
         originAmountText?("\(warningAmountText)")
-        getPrices(originAmountText: originAmount, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+        
+        getPrices(originAmountText: originAmount,
+                  originCurrencySymbolText: originCurrencySymbolText,
+                  destinationCurrencySymbolText: destinationCurrencySymbolText)
         
     }
 

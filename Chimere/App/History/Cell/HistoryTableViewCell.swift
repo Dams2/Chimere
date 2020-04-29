@@ -46,10 +46,10 @@ final class HistoryTableViewCell: UITableViewCell {
         }
       }
     
-
-// override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        contentView.frame = contentView.frame.inset(by: UIEdgeInsets(top: 0, left: 10, bottom: 10, right: 10))
-//    }
+    func configure(with deposit: Deposit) {
+        depositAmountLabel.text = "\(deposit.depositAmount) \(deposit.depositSymbol)"
+        destinationAmountLabel.text = "\(deposit.destinationAmount) \(deposit.destinationSymbol)"
+        
+        dateLabel.text = deposit.createdDate
+    }
 }
