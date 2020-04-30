@@ -21,9 +21,9 @@ final class HistoryRepository: HistoryRepositoryType {
     init(client: HTTPClient) {
         self.client = client
     }
-    
+
     func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void) {
-        let stringURL = "https://08865228.ngrok.io/api/order/find-orders"
+        let stringURL = "https://e6186bfb.ngrok.io/api/order/find-orders"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: UserOrdersResponse.self,

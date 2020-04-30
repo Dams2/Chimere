@@ -114,6 +114,8 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var exchangeNowButton: UIButton! {
         didSet {
             exchangeNowButton.layer.cornerRadius = 10
+            exchangeNowButton.layer.borderWidth = 1
+            exchangeNowButton.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
         }
     }
 
@@ -290,7 +292,19 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction func didPressSwitchButton(_ sender: UIButton) {
-        viewModel.didPressSwitch()
+        guard let originAmountText = originAmountTextField.text,
+            let originCurrencyName = originCurrencyNameLabel.text,
+            let originCurrencySymbol = originCurrencySymbolLabel.text,
+            let destinationCurrencyName = destinationCurrencyNameLabel.text,
+            let destinationCurrencySymbol = destinationCurrencySymbolLabel.text
+            else { return}
+        
+        sender.isUserInteractionEnabled = false
+
+        viewModel.didPressSwitch(originAmountText: originAmountText, originCurrencyName: originCurrencyName, originCurrencySymbol: originCurrencySymbol, destinationCurrencyName: destinationCurrencyName, destinationCurrencySymbol: destinationCurrencySymbol)
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            sender.isUserInteractionEnabled = true
+        }
     }
 
     @IBAction func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {

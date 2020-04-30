@@ -10,7 +10,6 @@ import Foundation
 
 extension Currency {
     init(response: Asset) {
-        self.imgURL = "\(response.imgURL)"
         self.name = "\(response.currency)"
         self.symbol = "\(response.ticker)"
         self.price = ""

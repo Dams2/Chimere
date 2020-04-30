@@ -11,9 +11,9 @@ import Foundation
 extension UserOrders {
     init(response: Order) {
         self.id = "\(response.id)"
-        self.depositAmount = "\(response.depositAmount)"
-        self.depositSymbol = "\(response.depositTicker)"
-        self.depositAddress = "\(response.depositAddress)"
+        self.originAmount = "\(response.depositAmount)"
+        self.originSymbol = "\(response.depositTicker)"
+        self.originAddress = "\(response.depositAddress)"
         self.destinationAmount = "\(response.destinationAmount)"
         self.destinationSymbol = "\(response.destinationTicker)"
         self.destinationAddress = "\(response.destinationAddress)"

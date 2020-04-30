@@ -23,19 +23,11 @@ final class CurrenciesTableViewCell: UITableViewCell {
     @IBOutlet weak private var currencyNameLabel: UILabel!
     
     @IBOutlet weak private var currencySymbolLabel: UILabel!
-    
-    override func prepareForReuse() {
-        super.prepareForReuse()
-        token = nil
-    }
 
     // MARK: - Action
     
     func configure(with currency: Currency) {
-        token = RequestCancellationToken()
-        guard let token = token, let url = URL(string: currency.imgURL) else { return }
-
-        currencyImageView.setImage(url: url, placeholder: nil, cancelledBy: token)
+        currencyImageView.image = UIImage(named: currency.symbol)
         currencyNameLabel.text = currency.name
         currencySymbolLabel.text = currency.symbol
     }

@@ -16,6 +16,8 @@ final class OrderSummaryViewModel {
     
     private let repository: ExchangeRepositoryType
 
+    private var deposit: Deposit?
+
     init(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate?, repository: ExchangeRepositoryType) {
         self.orderItems = orderItems
         self.delegate = delegate
@@ -64,11 +66,12 @@ final class OrderSummaryViewModel {
         setOrder()
         
         repository.postOrder(order: orderItems) { (depositResponse) in
-            
+            self.deposit = Deposit(response: depositResponse)
         }
     }
 
-    func didPressConfirm(deposit: Deposit) {
+    func didPressConfirm() {
+        guard let deposit = self.deposit else { return }
         delegate?.didSelectConfirm(deposit: deposit)
     }
     

@@ -164,6 +164,6 @@ final class OrderSummaryViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
-//        viewModel.didPressConfirm(deposit: deposit)
+        viewModel.didPressConfirm()
     }
 }

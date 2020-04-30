@@ -25,11 +25,11 @@ final class OrderDetailViewController: UIViewController {
     @IBOutlet weak var statusLabel: UILabel!
     
     
-    @IBOutlet weak var depositCurrencyImageView: UIImageView!
+    @IBOutlet weak var originCurrencyImageView: UIImageView!
     
-    @IBOutlet weak var depositAmountLabel: UILabel!
+    @IBOutlet weak var originAmountLabel: UILabel!
     
-    @IBOutlet weak var depositCurrencySymbolLabel: UILabel!
+    @IBOutlet weak var originCurrencySymbolLabel: UILabel!
     
     @IBOutlet weak var toImageView: UIImageView!
     
@@ -39,10 +39,18 @@ final class OrderDetailViewController: UIViewController {
     
     @IBOutlet weak var destinationCurrencySymbolLabel: UILabel!
     
-    
-    
     @IBOutlet weak var dateLabel: UILabel!
+    
     // MARK: - Actions
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        
+    }
     
+    // MARK: - Helpers
+    
+    func bind(to viewModel: OrderDetailViewModel) {
+        
+    }
 }

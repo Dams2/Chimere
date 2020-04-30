@@ -14,8 +14,6 @@
 		91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */; };
 		9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */; };
 		9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146345D2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift */; };
-		914634612449EA4000CE9BB6 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914634602449EA4000CE9BB6 /* ImageRepository.swift */; };
-		914634632449EA7900CE9BB6 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914634622449EA7900CE9BB6 /* ImageProvider.swift */; };
 		914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F77F62450EFE50018FA7F /* CurrenciesListViewModel.swift */; };
 		914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */; };
 		9195111424465C8000595300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111324465C8000595300 /* ViewController.swift */; };
@@ -76,8 +74,6 @@
 		91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
 		914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesResponse.swift; sourceTree = "<group>"; };
 		9146345D2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CurrenciesResponse.swift"; sourceTree = "<group>"; };
-		914634602449EA4000CE9BB6 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
-		914634622449EA7900CE9BB6 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		914F77F62450EFE50018FA7F /* CurrenciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewModel.swift; sourceTree = "<group>"; };
 		914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListRepository.swift; sourceTree = "<group>"; };
 		9195111324465C8000595300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -169,15 +165,6 @@
 				91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */,
 			);
 			path = Alert;
-			sourceTree = "<group>";
-		};
-		9146345F2449EA2D00CE9BB6 /* Image */ = {
-			isa = PBXGroup;
-			children = (
-				914634622449EA7900CE9BB6 /* ImageProvider.swift */,
-				914634602449EA4000CE9BB6 /* ImageRepository.swift */,
-			);
-			path = Image;
 			sourceTree = "<group>";
 		};
 		9195111224465C5C00595300 /* Extension */ = {
@@ -307,7 +294,6 @@
 				9195111524474D3500595300 /* Deposit */,
 				91E45370244EA2370053593B /* History */,
 				91B70F9F245A4B1500D9F9AE /* OrderDetail */,
-				9146345F2449EA2D00CE9BB6 /* Image */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -507,7 +493,6 @@
 				9198D1152446377200980FBA /* ExchangeViewModel.swift in Sources */,
 				9195111424465C8000595300 /* ViewController.swift in Sources */,
 				9198D1082446203000980FBA /* HTTPClient.swift in Sources */,
-				914634632449EA7900CE9BB6 /* ImageProvider.swift in Sources */,
 				9198D10024461F3B00980FBA /* Context.swift in Sources */,
 				91BF86B72448CF2000403F97 /* CurrenciesListViewController.swift in Sources */,
 				914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */,
@@ -522,7 +507,6 @@
 				9195111924474D7300595300 /* DepositViewModel.swift in Sources */,
 				91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */,
 				9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */,
-				914634612449EA4000CE9BB6 /* ImageRepository.swift in Sources */,
 				911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

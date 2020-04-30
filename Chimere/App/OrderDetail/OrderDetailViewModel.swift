@@ -18,7 +18,36 @@ final class OrderDetailViewModel {
 
     // MARK: - Outputs
     
+    var statusText: ((String) -> Void)?
+    
+    var originCurrencyImageText: ((String) -> Void)?
+    
+    var originAmountText: ((String) -> Void)?
+    
+    var originCurrencySymbolText: ((String) -> Void)?
+    
+    var toImageText: ((String) -> Void)?
+    
+    var destinationCurrencyImageText: ((String) -> Void)?
+    
+    var destinationAmountText: ((String) -> Void)?
+    
+    var destinationCurrencySymbolText: ((String) -> Void)?
+    
+    var dateText: ((String) -> Void)?
+    
     
     // MARK: - Inputs
-
+    
+    func viewDidLoad() {
+        statusText?("")
+        originCurrencyImageText?("")
+        originAmountText?(order.originAmount)
+        originCurrencySymbolText?(order.originSymbol)
+        toImageText?("")
+        destinationCurrencyImageText?("")
+        destinationAmountText?(order.destinationAmount)
+        destinationCurrencySymbolText?(order.destinationSymbol)
+        dateText?(order.createdDate)
+    }
 }

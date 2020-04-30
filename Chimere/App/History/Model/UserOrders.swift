@@ -10,9 +10,9 @@ import Foundation
 
 struct UserOrders {
     let id: String
-    let depositAmount: String
-    let depositSymbol: String
-    let depositAddress: String
+    let originAmount: String
+    let originSymbol: String
+    let originAddress: String
     let destinationAmount: String
     let destinationSymbol: String
     let destinationAddress: String

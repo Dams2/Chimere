@@ -51,8 +51,8 @@ final class HistoryTableViewCell: UITableViewCell {
       }
 
     func configure(with deposit: UserOrders) {
-        depositAmountLabel.text = "\(deposit.depositAmount)"
-        depositCurrencySymbolLabel.text = deposit.depositSymbol
+        depositAmountLabel.text = "\(deposit.originAmount)"
+        depositCurrencySymbolLabel.text = deposit.originSymbol
         destinationAmountLabel.text = "\(deposit.destinationAmount)"
         destinationCurrencySymbolLabel.text = deposit.destinationSymbol
         dateLabel.text = deposit.createdDate

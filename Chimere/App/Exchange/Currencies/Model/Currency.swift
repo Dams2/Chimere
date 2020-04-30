@@ -9,7 +9,6 @@
 import Foundation
 
 struct Currency {
-    let imgURL: String
     let name: String
     let symbol: String
     let price: String
