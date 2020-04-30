@@ -9,8 +9,7 @@
 /* Begin PBXBuildFile section */
 		911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */; };
 		911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */; };
-		913911C3245A0A67004A9DD2 /* Orders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913911C2245A0A67004A9DD2 /* Orders.swift */; };
-		913911C5245A0A8E004A9DD2 /* Orders+OrderResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913911C4245A0A8D004A9DD2 /* Orders+OrderResponse.swift */; };
+		913911C3245A0A67004A9DD2 /* UserOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913911C2245A0A67004A9DD2 /* UserOrders.swift */; };
 		91456FEE2447B6D0009305E8 /* AlertType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FED2447B6D0009305E8 /* AlertType.swift */; };
 		91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */; };
 		9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */; };
@@ -40,6 +39,11 @@
 		9198D1152446377200980FBA /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D1142446377200980FBA /* ExchangeViewModel.swift */; };
 		91A452C124573BB200762608 /* PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A452C024573BB200762608 /* PriceResponse.swift */; };
 		91A9E5DF2459F4CA00490481 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A9E5DE2459F4CA00490481 /* HistoryRepository.swift */; };
+		91B70F9A245A3A8400D9F9AE /* UserOrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70F99245A3A8400D9F9AE /* UserOrdersResponse.swift */; };
+		91B70F9C245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70F9B245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift */; };
+		91B70F9E245A40EB00D9F9AE /* DateFormatter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70F9D245A40EB00D9F9AE /* DateFormatter.swift */; };
+		91B70FA1245A4B9900D9F9AE /* OrderDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70FA0245A4B9900D9F9AE /* OrderDetailViewController.swift */; };
+		91B70FA3245A4EF100D9F9AE /* OrderDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70FA2245A4EF100D9F9AE /* OrderDetailViewModel.swift */; };
 		91BF86B72448CF2000403F97 /* CurrenciesListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86B62448CF2000403F97 /* CurrenciesListViewController.swift */; };
 		91BF86BA2448D00800403F97 /* CurrenciesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86B92448D00800403F97 /* CurrenciesTableViewCell.swift */; };
 		91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91BF86BB2448D03100403F97 /* CurrenciesListDataSources.swift */; };
@@ -67,8 +71,7 @@
 /* Begin PBXFileReference section */
 		911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewModel.swift; sourceTree = "<group>"; };
-		913911C2245A0A67004A9DD2 /* Orders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Orders.swift; sourceTree = "<group>"; };
-		913911C4245A0A8D004A9DD2 /* Orders+OrderResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Orders+OrderResponse.swift"; sourceTree = "<group>"; };
+		913911C2245A0A67004A9DD2 /* UserOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrders.swift; sourceTree = "<group>"; };
 		91456FED2447B6D0009305E8 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
 		914634592449E1BA00CE9BB6 /* CurrenciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesResponse.swift; sourceTree = "<group>"; };
@@ -102,6 +105,11 @@
 		9198D1142446377200980FBA /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
 		91A452C024573BB200762608 /* PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceResponse.swift; sourceTree = "<group>"; };
 		91A9E5DE2459F4CA00490481 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
+		91B70F99245A3A8400D9F9AE /* UserOrdersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrdersResponse.swift; sourceTree = "<group>"; };
+		91B70F9B245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UserOrders+UserOrdersResponse.swift"; sourceTree = "<group>"; };
+		91B70F9D245A40EB00D9F9AE /* DateFormatter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateFormatter.swift; sourceTree = "<group>"; };
+		91B70FA0245A4B9900D9F9AE /* OrderDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewController.swift; sourceTree = "<group>"; };
+		91B70FA2245A4EF100D9F9AE /* OrderDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderDetailViewModel.swift; sourceTree = "<group>"; };
 		91BF86B62448CF2000403F97 /* CurrenciesListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewController.swift; sourceTree = "<group>"; };
 		91BF86B92448D00800403F97 /* CurrenciesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesTableViewCell.swift; sourceTree = "<group>"; };
 		91BF86BB2448D03100403F97 /* CurrenciesListDataSources.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListDataSources.swift; sourceTree = "<group>"; };
@@ -146,8 +154,10 @@
 		913911BF245A08E8004A9DD2 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				913911C4245A0A8D004A9DD2 /* Orders+OrderResponse.swift */,
-				913911C2245A0A67004A9DD2 /* Orders.swift */,
+				91B70F9B245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift */,
+				913911C2245A0A67004A9DD2 /* UserOrders.swift */,
+				91B70F99245A3A8400D9F9AE /* UserOrdersResponse.swift */,
+				91B70F9D245A40EB00D9F9AE /* DateFormatter.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -296,9 +306,19 @@
 				911DC20C24522B7B003E2679 /* Order */,
 				9195111524474D3500595300 /* Deposit */,
 				91E45370244EA2370053593B /* History */,
+				91B70F9F245A4B1500D9F9AE /* OrderDetail */,
 				9146345F2449EA2D00CE9BB6 /* Image */,
 			);
 			path = App;
+			sourceTree = "<group>";
+		};
+		91B70F9F245A4B1500D9F9AE /* OrderDetail */ = {
+			isa = PBXGroup;
+			children = (
+				91B70FA0245A4B9900D9F9AE /* OrderDetailViewController.swift */,
+				91B70FA2245A4EF100D9F9AE /* OrderDetailViewModel.swift */,
+			);
+			path = OrderDetail;
 			sourceTree = "<group>";
 		};
 		91BF86B52448CF0900403F97 /* Currencies */ = {
@@ -461,20 +481,23 @@
 				91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */,
 				9198D10C2446205000980FBA /* RequestCancellationToken.swift in Sources */,
 				9198D10224461F6700980FBA /* MainCoordinator.swift in Sources */,
+				91B70F9C245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift in Sources */,
 				91E4536D244EA21B0053593B /* HistoryCoordinator.swift in Sources */,
 				91DD870C244F5B6B001DDD2A /* Deposit.swift in Sources */,
+				91B70FA3245A4EF100D9F9AE /* OrderDetailViewModel.swift in Sources */,
 				9195E9E92451095300327571 /* HistoryDataSources.swift in Sources */,
 				9198D0D824461EE500980FBA /* AppDelegate.swift in Sources */,
 				91E4536F244EA2310053593B /* HistoryViewController.swift in Sources */,
 				9198D10A2446203C00980FBA /* HTTPEngine.swift in Sources */,
-				913911C5245A0A8E004A9DD2 /* Orders+OrderResponse.swift in Sources */,
 				91456FEE2447B6D0009305E8 /* AlertType.swift in Sources */,
 				91C2D1DB2447C69D00BEFBBF /* AddressResponse.swift in Sources */,
 				9198D10F2446235D00980FBA /* ExchangeCoordinator.swift in Sources */,
 				91A9E5DF2459F4CA00490481 /* HistoryRepository.swift in Sources */,
 				91BF86BA2448D00800403F97 /* CurrenciesTableViewCell.swift in Sources */,
 				914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */,
+				91B70F9E245A40EB00D9F9AE /* DateFormatter.swift in Sources */,
 				91DD870E244F5CD8001DDD2A /* Deposit+DepositResponse.swift in Sources */,
+				91B70FA1245A4B9900D9F9AE /* OrderDetailViewController.swift in Sources */,
 				9198D10524461FDE00980FBA /* Screens.swift in Sources */,
 				91A452C124573BB200762608 /* PriceResponse.swift in Sources */,
 				9198D0FE24461F2900980FBA /* Coordinator.swift in Sources */,
@@ -493,8 +516,9 @@
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,
 				9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */,
 				911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */,
+				91B70F9A245A3A8400D9F9AE /* UserOrdersResponse.swift in Sources */,
 				91C2D1D82447C68600BEFBBF /* ExchangeRepository.swift in Sources */,
-				913911C3245A0A67004A9DD2 /* Orders.swift in Sources */,
+				913911C3245A0A67004A9DD2 /* UserOrders.swift in Sources */,
 				9195111924474D7300595300 /* DepositViewModel.swift in Sources */,
 				91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */,
 				9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */,

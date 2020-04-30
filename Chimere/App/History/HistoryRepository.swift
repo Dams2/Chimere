@@ -9,7 +9,7 @@
 import Foundation
 
 protocol HistoryRepositoryType: class {
-    func findOrders(order: [String: String] ,callback: @escaping (OrderResponse) -> Void)
+    func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void)
 }
 //find-orders
 final class HistoryRepository: HistoryRepositoryType {
@@ -22,16 +22,16 @@ final class HistoryRepository: HistoryRepositoryType {
         self.client = client
     }
     
-    func findOrders(order: [String: String] ,callback: @escaping (OrderResponse) -> Void) {
+    func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void) {
         let stringURL = "https://08865228.ngrok.io/api/order/find-orders"
         guard let url = URL(string: stringURL) else { return }
 
-        client.upload(type: OrderResponse.self,
+        client.upload(type: UserOrdersResponse.self,
                       requestType: .POST,
                       array: order,
                       url: url,
-                      cancelledBy: token) { (deposit) in
-                        callback(deposit)
+                      cancelledBy: token) { (orders) in
+                        callback(orders)
         }
     }
 }

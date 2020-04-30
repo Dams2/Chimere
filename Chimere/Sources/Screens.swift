@@ -76,11 +76,24 @@ extension Screens {
     }
 }
 
+protocol HistoryViewControllerDelegate: class {
+    func didSelect(_ order: UserOrders)
+}
+
 extension Screens {
-    func createHistoryViewController() -> UIViewController {
+    func createHistoryViewController(delegate: HistoryViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
         let repository = HistoryRepository(client: context.client)
-        let viewModel = HistoryViewModel(repository: repository)
+        let viewModel = HistoryViewModel(delegate: delegate, repository: repository)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createOrderDetailViewController(order: UserOrders) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
+        let viewModel = OrderDetailViewModel(order: order)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -10,7 +10,7 @@ import UIKit
 
 final class HistoryDataSources:  NSObject, UITableViewDelegate, UITableViewDataSource {
 
-    typealias Item = Orders
+    typealias Item = UserOrders
 
     var didSelectItemAtIndex: ((Int) -> Void)?
 
@@ -35,24 +35,7 @@ final class HistoryDataSources:  NSObject, UITableViewDelegate, UITableViewDataS
         return cell
     }
 
-
-
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemAtIndex?(indexPath.item)
     }
-
 }
-//    var raw = ["ka","ksmsd","slsaéa","srt","","cbb"]
-//
-//    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-//        return raw.count
-//    }
-    
-//    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        let recipe = indexPath
-//        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-//
-//        cell.layer.cornerRadius = 10
-//
-//        return cell
-//    }

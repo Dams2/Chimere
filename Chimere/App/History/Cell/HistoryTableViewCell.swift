@@ -24,11 +24,15 @@ final class HistoryTableViewCell: UITableViewCell {
     
     @IBOutlet weak var depositAmountLabel: UILabel!
     
+    @IBOutlet weak var depositCurrencySymbolLabel: UILabel!
+    
     @IBOutlet weak var toImageView: UIImageView!
     
     @IBOutlet weak var destinationCurrencyImageView: UIImageView!
     
     @IBOutlet weak var destinationAmountLabel: UILabel!
+    
+    @IBOutlet weak var destinationCurrencySymbolLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
     
@@ -45,11 +49,12 @@ final class HistoryTableViewCell: UITableViewCell {
             super.frame = frame
         }
       }
-    
-    func configure(with deposit: Deposit) {
-        depositAmountLabel.text = "\(deposit.depositAmount) \(deposit.depositSymbol)"
-        destinationAmountLabel.text = "\(deposit.destinationAmount) \(deposit.destinationSymbol)"
-        
+
+    func configure(with deposit: UserOrders) {
+        depositAmountLabel.text = "\(deposit.depositAmount)"
+        depositCurrencySymbolLabel.text = deposit.depositSymbol
+        destinationAmountLabel.text = "\(deposit.destinationAmount)"
+        destinationCurrencySymbolLabel.text = deposit.destinationSymbol
         dateLabel.text = deposit.createdDate
     }
 }

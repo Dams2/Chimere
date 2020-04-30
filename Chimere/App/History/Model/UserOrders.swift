@@ -8,7 +8,7 @@
 
 import Foundation
 
-struct Orders {
+struct UserOrders {
     let id: String
     let depositAmount: String
     let depositSymbol: String

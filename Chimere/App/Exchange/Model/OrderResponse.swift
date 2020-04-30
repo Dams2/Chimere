@@ -11,7 +11,6 @@ import Foundation
 // MARK: - DepositResponse
 struct OrderResponse: Codable {
     let order: Order
-    let orders: [Order]
 }
 
 // MARK: - Order

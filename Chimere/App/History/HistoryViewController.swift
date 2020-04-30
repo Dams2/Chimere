@@ -27,7 +27,9 @@ final class HistoryViewController: UIViewController {
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-       
+        
+        bind(to: dataSource)
+
         bind(to: viewModel)
         viewModel.viewDidLoad(userID: userID)
     }
@@ -43,4 +45,7 @@ final class HistoryViewController: UIViewController {
         }
     }
     
+    private func bind(to dataSource: HistoryDataSources) {
+        dataSource.didSelectItemAtIndex = viewModel.didSelectItem
+    }
 }
