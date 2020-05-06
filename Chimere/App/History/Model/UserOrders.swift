@@ -9,7 +9,7 @@
 import Foundation
 
 struct UserOrders {
-//    var state: Status
+    let state: [String: Bool]
     let id: String
     let originAmount: String
     let originSymbol: String
@@ -18,12 +18,4 @@ struct UserOrders {
     let destinationSymbol: String
     let destinationAddress: String
     let createdDate: String
-}
-
-struct Status {
-    var loaded = false
-    var exchanging = false
-    var completed = false
-    var expired = false
-    var failed = false
 }

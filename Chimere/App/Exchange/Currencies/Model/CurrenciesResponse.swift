@@ -15,12 +15,14 @@ struct CurrenciesResponse: Codable {
 
 // MARK: - Asset
 struct Asset: Codable {
+    let ticker: String
     let imgURL: String
-    let id, ticker, currency: String
+    let currency, active, id: String
 
     enum CodingKeys: String, CodingKey {
+        case ticker
         case imgURL = "img_url"
+        case currency, active
         case id = "_id"
-        case ticker, currency
     }
 }

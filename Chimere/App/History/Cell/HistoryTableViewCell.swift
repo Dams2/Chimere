@@ -10,6 +10,10 @@ import UIKit
 
 final class HistoryTableViewCell: UITableViewCell {
     
+    // MARK: - Private Properties
+    
+    private let helper = Helper()
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var statusView: UIView! {
@@ -35,7 +39,7 @@ final class HistoryTableViewCell: UITableViewCell {
     @IBOutlet weak var destinationCurrencySymbolLabel: UILabel!
     
     @IBOutlet weak var dateLabel: UILabel!
-    
+
     // MARK: - Actions
     
     override var frame: CGRect {
@@ -59,5 +63,12 @@ final class HistoryTableViewCell: UITableViewCell {
         destinationAmountLabel.text = "\(userOrders.destinationAmount)"
         destinationCurrencySymbolLabel.text = userOrders.destinationSymbol
         dateLabel.text = userOrders.createdDate
+
+        for (state, value) in userOrders.state {
+            if value == true {
+                self.statusLabel.text = state
+                helper.colorCode(state: state, text: statusLabel)
+            }
+        }
     }
 }

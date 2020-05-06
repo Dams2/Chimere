@@ -67,10 +67,10 @@ extension Screens {
 }
 
 extension Screens {
-    func createDepositViewController(deposit: Deposit) -> UIViewController {
+    func createDepositViewController(deposit: Deposit, delegate: ExchangeViewControllerDelegate) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(deposit: deposit, repository: repository)
+        let viewModel = DepositViewModel(deposit: deposit, repository: repository, delegate: delegate)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -154,6 +154,9 @@ final class ExchangeViewModel {
             return
         }
         
+        guard destinationAmountText != "..." else { return }
+        print("---- \(destinationAmountText)")
+
         guard !refundAddressText.isEmpty else {
             presentAlert(message: "You must fill refund address")
             return
@@ -190,7 +193,6 @@ final class ExchangeViewModel {
         originCurrencySymbolText?(currency.symbol)
         refundAddressText?("Enter \(currency.symbol) refund address here... 👈")
         delegate?.didDismissCurrenciesList()
-        
     }
 
     func updateDestination(currency: Currency, originAmountText: String, originCurrencySymbolText: String, destinationCurrencySymbol: String) {
@@ -214,7 +216,7 @@ final class ExchangeViewModel {
             guard let originRate = price.ask[originCurrencySymbolText]?.bestAsk,
                 let destinationRate = price.bid[destinationCurrencySymbolText]?.bestBid
                 else { return }
-
+            
             self.exchangeRateValue(originAmountText: originAmountText,
                                    originRate: originRate,
                                    originCurrencySymbolText: originCurrencySymbolText,
@@ -240,7 +242,6 @@ final class ExchangeViewModel {
     private func convertDestinationValue(originAmountText: String, originRate: Float, rate: Float) {
         guard let originAmount = Float(originAmountText) else { return }
         var minimumAmount = 20 / originRate
-        var maximumAmount = 5000 / originRate
 
         guard originAmount > minimumAmount else {
             minimumAmount = 22 / originRate
@@ -250,14 +251,14 @@ final class ExchangeViewModel {
                             warningAmount: "\(minimumAmount)")
             return
         }
-        guard originAmount < maximumAmount else {
-            maximumAmount = 4950 / originRate
-            warningSettings(destinationAmount: "...",
-                            image: "exclamationmark.triangle",
-                            message: "Maximum amount is:",
-                            warningAmount: "\(maximumAmount)")
-            return
-        }
+//        guard originAmount < maximumAmount else {
+//            maximumAmount = 4950 / originRate
+//            warningSettings(destinationAmount: "...",
+//                            image: "exclamationmark.triangle",
+//                            message: "Maximum amount is:",
+//                            warningAmount: "\(maximumAmount)")
+//            return
+//        }
         let value = originAmount * rate
         warningSettings(destinationAmount: "\(value)", image: "", message: "", warningAmount: "")
     }

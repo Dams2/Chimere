@@ -61,7 +61,7 @@ final class ExchangeCoordinator {
     }
     
     private func showDeposit(deposit: Deposit) {
-        let viewController = screens.createDepositViewController(deposit: deposit)
+        let viewController = screens.createDepositViewController(deposit: deposit, delegate: self)
         presenter.pushViewController(viewController, animated: true)
     }
 }

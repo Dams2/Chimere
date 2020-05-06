@@ -10,6 +10,10 @@ import UIKit
 
 final class OrderDetailViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private let helper = Helper()
+    
     // MARK: - Properties
     
     var viewModel: OrderDetailViewModel!
@@ -22,24 +26,61 @@ final class OrderDetailViewController: UIViewController {
         }
     }
     
-    @IBOutlet weak var statusLabel: UILabel!
+    @IBOutlet weak private var statusLabel: UILabel!
     
+    @IBOutlet weak private var transactionIDLabel: UILabel!
     
-    @IBOutlet weak var originCurrencyImageView: UIImageView!
+    @IBOutlet weak private var transactionIDValueLabel: UILabel!
     
-    @IBOutlet weak var originAmountLabel: UILabel!
+    @IBOutlet weak private var copyTransactionIDValueButton: UIButton!
     
-    @IBOutlet weak var originCurrencySymbolLabel: UILabel!
+    @IBOutlet weak private var originCurrencyImageView: UIImageView!
     
-    @IBOutlet weak var toImageView: UIImageView!
+    @IBOutlet weak private var originAmountLabel: UILabel!
     
-    @IBOutlet weak var destinationCurrencyImageView: UIImageView!
+    @IBOutlet weak private var originCurrencySymbolLabel: UILabel!
     
-    @IBOutlet weak var destinationAmountLabel: UILabel!
+    @IBOutlet weak private var toImageView: UIImageView!
     
-    @IBOutlet weak var destinationCurrencySymbolLabel: UILabel!
+    @IBOutlet weak private var destinationCurrencyImageView: UIImageView!
     
-    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak private var destinationAmountLabel: UILabel!
+    
+    @IBOutlet weak private var destinationCurrencySymbolLabel: UILabel!
+    
+    @IBOutlet weak private var dateLabel: UILabel!
+    
+    // Wallet
+    
+    @IBOutlet weak private var depositWalletView: UIView! {
+        didSet {
+            depositWalletView.layer.borderWidth = 1
+            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            depositWalletView.layer.cornerRadius = 15
+        }
+    }
+    
+    @IBOutlet weak private var sendLabel: UILabel!
+    
+    @IBOutlet weak private  var depositAmountLabel: UILabel!
+    
+    @IBOutlet weak private var copyDepositAmountButton: UIButton!
+    
+    @IBOutlet weak private var toThisWalletLabel: UILabel!
+    
+    @IBOutlet weak private var depositQRCodeImageView: UIImageView!
+    
+    @IBOutlet weak private var addressLabel: UILabel!
+    
+    @IBOutlet weak private var depositAddressLabel: UILabel!
+    
+    @IBOutlet weak private var copyDepositAdressButton: UIButton!
+    
+    @IBOutlet weak private var messageLabel: UILabel!
+    
+    @IBOutlet weak private var messageValueLabel: UILabel!
+    
+    @IBOutlet weak private var copyMessageValueButton: UIButton!
     
     // MARK: - Actions
     
@@ -48,6 +89,8 @@ final class OrderDetailViewController: UIViewController {
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        
+        setState()
     }
     
     // MARK: - Helpers
@@ -55,6 +98,18 @@ final class OrderDetailViewController: UIViewController {
     func bind(to viewModel: OrderDetailViewModel) {
         viewModel.statusText = { [weak self] text in
             self?.statusLabel.text = text
+        }
+        
+        viewModel.transactionIDText = { [weak self] text in
+            self?.transactionIDLabel.text = text
+        }
+        
+        viewModel.transactionIDValueText = { [weak self] text in
+            self?.transactionIDValueLabel.text = text
+        }
+        
+        viewModel.copyTansactionIDImageText = { [weak self] text in
+            self?.copyTransactionIDValueButton.setImage(UIImage(systemName: text), for: .normal)
         }
         
         viewModel.originCurrencyImageText = { [weak self] text in
@@ -88,5 +143,14 @@ final class OrderDetailViewController: UIViewController {
         viewModel.dateText = { [weak self] text in
             self?.dateLabel.text = text
         }
+    }
+    
+    private func setState() {
+        guard let state = statusLabel.text else { return }
+        helper.colorCode(state: state, text: statusLabel)
+    }
+    
+    @IBAction private func didPressCopyTransactionIDValueButton(_ sender: UIButton) {
+        helper.copyNotified(button: sender, label: transactionIDValueLabel)
     }
 }

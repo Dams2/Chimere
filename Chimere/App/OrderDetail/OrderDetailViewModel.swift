@@ -10,8 +10,10 @@ import Foundation
 
 final class OrderDetailViewModel {
     
-    let order: UserOrders
+    // MARK: - Properties
     
+    let order: UserOrders
+
     init(order: UserOrders) {
         self.order = order
     }
@@ -19,6 +21,12 @@ final class OrderDetailViewModel {
     // MARK: - Outputs
     
     var statusText: ((String) -> Void)?
+    
+    var transactionIDText: ((String) -> Void)?
+    
+    var transactionIDValueText: ((String) -> Void)?
+    
+    var copyTansactionIDImageText: ((String) -> Void)?
     
     var originCurrencyImageText: ((String) -> Void)?
     
@@ -36,11 +44,41 @@ final class OrderDetailViewModel {
     
     var dateText: ((String) -> Void)?
     
+    // Wallet
+    
+    var sendText: ((String) -> Void)?
+    
+    var depositAmountText: ((String) -> Void)?
+    
+    var copyDepositAmountImageText: ((String) -> Void)?
+    
+    var toThisWalletText: ((String) -> Void)?
+    
+    var depositQRCodeImageText: ((String) -> Void)?
+    
+    var addressText: ((String) -> Void)?
+    
+    var depositAddressText: ((String) -> Void)?
+    
+    var copyDepositAdressImageText:((String) -> Void)?
+    
+    var messageText: ((String) -> Void)?
+    
+    var messageValueText: ((String) -> Void)?
+    
+    var copyMessageValueImageText: ((String) -> Void)?
     
     // MARK: - Inputs
     
     func viewDidLoad() {
-        statusText?("")
+        for (state, value) in order.state {
+            if value == true {
+                self.statusText?(state)
+            }
+        }
+        transactionIDText?("Transaction ID:")
+        transactionIDValueText?(order.id)
+        copyTansactionIDImageText?("square.on.square")
         originCurrencyImageText?(order.originSymbol)
         originAmountText?(order.originAmount)
         originCurrencySymbolText?(order.originSymbol)
@@ -49,5 +87,20 @@ final class OrderDetailViewModel {
         destinationAmountText?(order.destinationAmount)
         destinationCurrencySymbolText?(order.destinationSymbol)
         dateText?(order.createdDate)
+        
+        sendText?("Send")
+        depositAmountText?(order.originAmount)
+        copyDepositAmountImageText?("square.on.square")
+        
+        toThisWalletText?("To this wallet")
+        depositQRCodeImageText?("")
+        
+        addressText?("Address")
+        depositAddressText?("")
+        copyDepositAdressImageText?("square.on.square")
+        
+        messageText?("")
+        messageValueText?("")
+        copyMessageValueImageText?("")
     }
 }

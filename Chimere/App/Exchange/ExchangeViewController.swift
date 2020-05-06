@@ -119,6 +119,7 @@ final class ExchangeViewController: UIViewController {
         }
     }
 
+
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -302,7 +303,12 @@ final class ExchangeViewController: UIViewController {
         
         sender.isUserInteractionEnabled = false
 
-        viewModel.didPressSwitch(originAmountText: originAmountText, originCurrencyName: originCurrencyName, originCurrencySymbol: originCurrencySymbol, destinationCurrencyName: destinationCurrencyName, destinationCurrencySymbol: destinationCurrencySymbol)
+        viewModel.didPressSwitch(originAmountText: originAmountText,
+                                 originCurrencyName: originCurrencyName,
+                                 originCurrencySymbol: originCurrencySymbol,
+                                 destinationCurrencyName: destinationCurrencyName,
+                                 destinationCurrencySymbol: destinationCurrencySymbol)
+        
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             sender.isUserInteractionEnabled = true
         }
@@ -336,9 +342,6 @@ final class ExchangeViewController: UIViewController {
             let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text,
             let exchangeRate = exchangeRateLabel.text
             else { return }
-        
-        
-
 
         viewModel.didPressExchangeNow(userID: userID,
                                       originAmountText: originAmountText,
@@ -357,7 +360,10 @@ final class ExchangeViewController: UIViewController {
             let originCurrencySymbolText = originCurrencySymbolLabel.text,
             let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
             else { return }
-        viewModel.updateOrigin(currency: currency, originAmountText: originAmountText, originCurrencySymbol: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+        viewModel.updateOrigin(currency: currency,
+                               originAmountText: originAmountText,
+                               originCurrencySymbol: originCurrencySymbolText,
+                               destinationCurrencySymbolText: destinationCurrencySymbolText)
     }
 
     func updateDestination(currency: Currency) {
@@ -365,6 +371,9 @@ final class ExchangeViewController: UIViewController {
         let originCurrencySymbolText = originCurrencySymbolLabel.text,
         let destinationCurrencySymbol = destinationCurrencySymbolLabel.text
         else { return }
-        viewModel.updateDestination(currency: currency, originAmountText: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbol: destinationCurrencySymbol)
+        viewModel.updateDestination(currency: currency,
+                                    originAmountText: originAmountText,
+                                    originCurrencySymbolText: originCurrencySymbolText,
+                                    destinationCurrencySymbol: destinationCurrencySymbol)
     }
 }

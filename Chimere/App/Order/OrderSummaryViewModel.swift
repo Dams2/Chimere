@@ -40,7 +40,7 @@ final class OrderSummaryViewModel {
     var exchangeRatesAmountText: ((String) -> Void)?
     
     var exchangeFeeText: ((String) -> Void)?
-    var totalFeeAmountText: ((String) -> Void)?
+    var exchangeFeeAmountText: ((String) -> Void)?
     
     var arrivalTimeText: ((String) -> Void)?
     var estimatedTimeArrival: ((String) -> Void)?
@@ -57,8 +57,10 @@ final class OrderSummaryViewModel {
         destinationText?("You get approximately")
 
         exchangeRateText?("Exchange rates")
-        exchangeFeeText?("0.09")
-        
+
+        exchangeFeeText?("Exchange fee")
+        exchangeFeeAmountText?("0.09")
+
         arrivalTimeText?("Arrival time")
         estimatedTimeArrival?("5 - 30 min")
 
@@ -71,9 +73,17 @@ final class OrderSummaryViewModel {
         }
     }
 
-    func didPressConfirm() {
+    func didPressConfirm()  {
         guard let deposit = self.deposit else { return }
         delegate?.didSelectConfirm(deposit: deposit)
+    }
+    
+    func waitDepositResponse() -> Bool {
+        guard let deposit = self.deposit else { return false }
+        guard !deposit.id.isEmpty else {
+            return false
+        }
+        return true
     }
     
     // MARK: - Helpers

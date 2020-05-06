@@ -10,16 +10,23 @@ import Foundation
 
 final class DateFormatter {
     
-    class func hourMinutesFormat(stringDate: String) -> String {
+    class func dateFormatter(stringDate: String) -> String {
+        print("xxxxxxx")
+        print(stringDate)
         var interval: Double = 0
         let convertedDate = stringDate.components(separatedBy: ":")
+        print("pppppppppp")
+
+        print(convertedDate)
         for (index, part) in convertedDate.reversed().enumerated() {
             interval += (Double(part) ?? 0) * pow(Double(60), Double(index))
         }
         let date = Date(timeIntervalSinceNow: interval)
+        print("---------")
+        print(date)
         let formatter = Foundation.DateFormatter()
-        formatter.timeZone = TimeZone.current
-        formatter.dateFormat = "HH:mm"
+        formatter.dateFormat = "LLLL dd, HH:mm at"
+        print(formatter)
         return formatter.string(from: date)
     }
 }

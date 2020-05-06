@@ -10,7 +10,13 @@ import UIKit
 
 final class HistoryViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
     private lazy var dataSource = HistoryDataSources()
+    
+    private let refreshControl = UIRefreshControl()
+    
+    // MARK: - Properties
 
     var viewModel: HistoryViewModel!
     
@@ -27,6 +33,9 @@ final class HistoryViewController: UIViewController {
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
+        tableView.refreshControl = refreshControl
+        
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
         
         bind(to: dataSource)
 
@@ -47,5 +56,16 @@ final class HistoryViewController: UIViewController {
     
     private func bind(to dataSource: HistoryDataSources) {
         dataSource.didSelectItemAtIndex = viewModel.didSelectItem
+    }
+    
+    @objc private func refreshWeatherData(_ sender: Any) {
+        guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
+        DispatchQueue.main.async {
+            self.viewModel.findOrder(userID: userID)
+        }
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refreshControl.endRefreshing()
+        }
     }
 }

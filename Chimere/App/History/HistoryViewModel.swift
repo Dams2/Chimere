@@ -38,11 +38,7 @@ final class HistoryViewModel {
     // MARK: - Inputs
     
     func viewDidLoad(userID: String) {
-        repository.findOrders(order: ["owner": userID]) { (orderResponse) in
-            DispatchQueue.main.async {                
-                orderResponse.orders.forEach { self.historyItem.append(.order(response: $0)) }
-            }
-        }
+        findOrder(userID: userID)
     }
     
     func didSelectItem(at index: Int) {
@@ -50,6 +46,14 @@ final class HistoryViewModel {
         let item = historyItem[index]
         let order = UserOrders(historyItem: item)
         delegate?.didSelect(order)
+    }
+    
+    func findOrder(userID: String) {
+        repository.findOrders(order: ["owner": userID]) { (orderResponse) in
+            DispatchQueue.main.async {
+                orderResponse.orders.forEach { self.historyItem.append(.order(response: $0)) }
+            }
+        }
     }
 }
 

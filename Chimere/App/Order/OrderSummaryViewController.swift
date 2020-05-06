@@ -55,15 +55,11 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBOutlet weak private var estimatedTimeArrivalLabel: UILabel!
     
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
-        didSet {
-            activityIndicator.startAnimating()
-        }
-    }
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak private var confirmButton: UIButton!  {
         didSet {
-            confirmButton.isEnabled = false
+            confirmButton.isUserInteractionEnabled = false
             confirmButton.layer.cornerRadius = 10
         }
     }
@@ -77,13 +73,16 @@ final class OrderSummaryViewController: UIViewController {
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            self.activityIndicator.stopAnimating()
-            self.activityIndicator.isHidden = true
-            self.confirmButton.isEnabled = true
-        }
+        
+        repeat {
+            activityIndicator.startAnimating()
+            confirmButton.titleLabel?.textColor = .gray
+        } while viewModel.waitDepositResponse() == false
+        
+        activityIndicator.stopAnimating()
+        confirmButton.isUserInteractionEnabled = true
     }
-    
+
     // MARK: - Helpers
     
     func bind(to viewModel: OrderSummaryViewModel) {
@@ -147,7 +146,7 @@ final class OrderSummaryViewController: UIViewController {
             }
         }
         
-        viewModel.totalFeeAmountText = { [weak self] text in
+        viewModel.exchangeFeeAmountText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.totalFeeAmountLabel.text = text
             }
@@ -175,6 +174,12 @@ final class OrderSummaryViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
-        self.viewModel.didPressConfirm()
+        if viewModel.waitDepositResponse() == false {
+            return
+        } else {
+            confirmButton.isUserInteractionEnabled = true
+            activityIndicator.stopAnimating()
+            viewModel.didPressConfirm()
+        }
     }
 }

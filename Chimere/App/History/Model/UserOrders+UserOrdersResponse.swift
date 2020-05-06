@@ -17,11 +17,11 @@ extension UserOrders {
         self.destinationAmount = "\(response.destinationAmount)"
         self.destinationSymbol = "\(response.destinationTicker)"
         self.destinationAddress = "\(response.destinationAddress)"
-        self.createdDate = "\(DateFormatter.hourMinutesFormat(stringDate: response.createdDate))"
-//        self.state.loaded = response.state.loaded
-//        self.state.exchanging = response.state.exchanging
-//        self.state.completed = response.state.completed
-//        self.state.expired = response.state.expired
-//        self.state.failed = response.state.failed
+        self.createdDate = "\(DateFormatter.dateFormatter(stringDate: response.createdDate))"
+        self.state = ["Loaded": response.state.loaded,
+                      "Exchanging": response.state.exchanging,
+                      "Completed": response.state.completed,
+                      "Expired": response.state.expired,
+                      "Failed": response.state.failed]
     }
 }

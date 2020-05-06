@@ -15,10 +15,13 @@ final class DepositViewModel {
     private let deposit: Deposit
     
     private let repository: ExchangeRepositoryType
+    
+    private let delegate: ExchangeViewControllerDelegate
 
-    init(deposit: Deposit, repository: ExchangeRepositoryType) {
+    init(deposit: Deposit, repository: ExchangeRepositoryType, delegate: ExchangeViewControllerDelegate) {
         self.deposit = deposit
         self.repository = repository
+        self.delegate = delegate
     }
     
     // MARK: - Outputs
@@ -52,6 +55,8 @@ final class DepositViewModel {
     var messageValueText: ((String) -> Void)?
     
     var copyMessageValueImageText: ((String) -> Void)?
+    
+    var completedText: ((String) -> Void)?
 
     // MARK: - Inputs
     
@@ -75,5 +80,11 @@ final class DepositViewModel {
         
         messageText?("Message")
         copyMessageValueImageText?("square.on.square")
+        
+        completedText?("Completed")
+    }
+    
+    func didPressCompleted() {
+        delegate.didshowExchange()
     }
 }

@@ -10,6 +10,10 @@ import UIKit
 
 final class DepositViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private let helper = Helper()
+    
     // MARK: - Properties
     
     var viewModel: DepositViewModel!
@@ -18,8 +22,8 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
-//            transactionIDView.layer.borderWidth = 1
-//            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            transactionIDView.layer.borderWidth = 1
+            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
             transactionIDView.layer.cornerRadius = 15
         }
     }
@@ -34,8 +38,8 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var depositWalletView: UIView! {
         didSet {
-            depositWalletView.layer.borderWidth = 1
-            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+//            depositWalletView.layer.borderWidth = 1
+//            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
             depositWalletView.layer.cornerRadius = 15
         }
     }
@@ -61,6 +65,12 @@ final class DepositViewController: UIViewController {
     @IBOutlet weak private var messageValueLabel: UILabel!
     
     @IBOutlet weak private var copyMessageValueButton: UIButton!
+    
+    @IBOutlet weak var completedButton: UIButton! {
+        didSet {
+            completedButton.layer.cornerRadius = 10
+        }
+    }
     
     // MARK: - View life cycle
     
@@ -181,30 +191,25 @@ final class DepositViewController: UIViewController {
         return nil
     }
     
-    private func copyNotified(button: UIButton, label: UILabel) {
-        UIPasteboard.general.string = label.text
-        button.setBackgroundImage(UIImage(systemName: "checkmark.seal"), for: .normal)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {
-            button.setBackgroundImage(UIImage(systemName: "square.on.square"), for: .normal)
-        }
-    }
-    
     // MARK: - Actions
     
     @IBAction private func didPressCopyTransactionIDButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: transactionIDValueLabel)
+        helper.copyNotified(button: sender, label: transactionIDValueLabel)
     }
     
     @IBAction private func didPressCopyDepositAmountButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: depositAmountLabel)
+        helper.copyNotified(button: sender, label: depositAmountLabel)
     }
     
     @IBAction private func didPressCopyDepositAdressButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: depositAddressLabel)
+        helper.copyNotified(button: sender, label: depositAddressLabel)
     }
     
     @IBAction private func didPressCopyMessageValueButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: messageValueLabel)
+        helper.copyNotified(button: sender, label: messageValueLabel)
+    }
+    
+    @IBAction func didPressCompletedButton(_ sender: UIButton) {
+        viewModel.didPressCompleted()
     }
 }

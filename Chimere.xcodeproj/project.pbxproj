@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		911A551A246366B200F1CDF6 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911A5519246366B200F1CDF6 /* Helper.swift */; };
 		911DC20E24522C0B003E2679 /* OrderSummaryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */; };
 		911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */; };
 		913911C3245A0A67004A9DD2 /* UserOrders.swift in Sources */ = {isa = PBXBuildFile; fileRef = 913911C2245A0A67004A9DD2 /* UserOrders.swift */; };
@@ -67,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		911A5519246366B200F1CDF6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewModel.swift; sourceTree = "<group>"; };
 		913911C2245A0A67004A9DD2 /* UserOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrders.swift; sourceTree = "<group>"; };
@@ -138,6 +140,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		911A55182463669000F1CDF6 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				911A5519246366B200F1CDF6 /* Helper.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
 		911DC20C24522B7B003E2679 /* Order */ = {
 			isa = PBXGroup;
 			children = (
@@ -294,6 +304,7 @@
 				9195111524474D3500595300 /* Deposit */,
 				91E45370244EA2370053593B /* History */,
 				91B70F9F245A4B1500D9F9AE /* OrderDetail */,
+				911A55182463669000F1CDF6 /* Helper */,
 			);
 			path = App;
 			sourceTree = "<group>";
@@ -496,6 +507,7 @@
 				9198D10024461F3B00980FBA /* Context.swift in Sources */,
 				91BF86B72448CF2000403F97 /* CurrenciesListViewController.swift in Sources */,
 				914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */,
+				911A551A246366B200F1CDF6 /* Helper.swift in Sources */,
 				9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */,
 				91DD8708244F581E001DDD2A /* OrderResponse.swift in Sources */,
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,
