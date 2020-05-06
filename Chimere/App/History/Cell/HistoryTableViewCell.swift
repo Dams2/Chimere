@@ -50,11 +50,14 @@ final class HistoryTableViewCell: UITableViewCell {
         }
       }
 
-    func configure(with deposit: UserOrders) {
-        depositAmountLabel.text = "\(deposit.originAmount)"
-        depositCurrencySymbolLabel.text = deposit.originSymbol
-        destinationAmountLabel.text = "\(deposit.destinationAmount)"
-        destinationCurrencySymbolLabel.text = deposit.destinationSymbol
-        dateLabel.text = deposit.createdDate
+    func configure(with userOrders: UserOrders) {
+        depositCurrencyImageView.image = UIImage(named: userOrders.originSymbol)
+        depositAmountLabel.text = "\(userOrders.originAmount)"
+        depositCurrencySymbolLabel.text = userOrders.originSymbol
+        toImageView.image = UIImage(systemName: "chevron.down")
+        destinationCurrencyImageView.image = UIImage(named: userOrders.destinationSymbol)
+        destinationAmountLabel.text = "\(userOrders.destinationAmount)"
+        destinationCurrencySymbolLabel.text = userOrders.destinationSymbol
+        dateLabel.text = userOrders.createdDate
     }
 }

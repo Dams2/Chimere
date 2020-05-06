@@ -41,11 +41,11 @@ final class OrderDetailViewModel {
     
     func viewDidLoad() {
         statusText?("")
-        originCurrencyImageText?("")
+        originCurrencyImageText?(order.originSymbol)
         originAmountText?(order.originAmount)
         originCurrencySymbolText?(order.originSymbol)
-        toImageText?("")
-        destinationCurrencyImageText?("")
+        toImageText?("chevron.down")
+        destinationCurrencyImageText?(order.destinationSymbol)
         destinationAmountText?(order.destinationAmount)
         destinationCurrencySymbolText?(order.destinationSymbol)
         dateText?(order.createdDate)

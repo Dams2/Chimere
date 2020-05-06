@@ -9,8 +9,9 @@
 import Foundation
 
 extension Deposit {
-    init(response: OrderResponse) {
-        self.id = "\(response.order.id)"
+    init?(response: OrderResponse) {
+        guard let id = response.order.id else { return nil }
+        self.id = id
         self.depositAmount = "\(response.order.depositAmount)"
         self.depositSymbol = "\(response.order.depositTicker)"
         self.depositAddress = "\(response.order.depositAddress)"

@@ -21,6 +21,7 @@ struct Order: Codable {
     let depositTicker, depositAddress, destinationTicker, destinationAddress: String
     let destinationAmount: Double
     let refundAddress, createdDate: String
+    let txid: [String]?
 
     enum CodingKeys: String, CodingKey {
         case state
@@ -34,10 +35,11 @@ struct Order: Codable {
         case destinationAmount = "destination_amount"
         case refundAddress = "refund_address"
         case createdDate = "created_date"
+        case txid
     }
 }
 
 // MARK: - State
 struct State: Codable {
-    let loaded, exchanging, completed, expired: Bool
+    let loaded, exchanging, completed, expired, failed: Bool
 }

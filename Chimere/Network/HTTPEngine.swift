@@ -57,7 +57,7 @@ final class HTTPEngine {
         task.receive { (result) in
             switch result {
             case .failure(_):
-                print("Failed to receive message")
+                print("Failed to receive message !!!")
             case .success(let message):
                 switch message {
                 case .string(let text):
@@ -65,6 +65,8 @@ final class HTTPEngine {
                     callback(data, nil, nil)
                 case .data(let data):
                     print(data)
+                @unknown default:
+                    print("Fatal ERROR !!!")
                 }
             }
         }

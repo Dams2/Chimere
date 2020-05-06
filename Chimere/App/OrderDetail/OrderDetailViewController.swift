@@ -46,11 +46,47 @@ final class OrderDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        bind(to: viewModel)
+        viewModel.viewDidLoad()
     }
     
     // MARK: - Helpers
     
     func bind(to viewModel: OrderDetailViewModel) {
+        viewModel.statusText = { [weak self] text in
+            self?.statusLabel.text = text
+        }
         
+        viewModel.originCurrencyImageText = { [weak self] text in
+            self?.originCurrencyImageView.image = UIImage(named: text)
+        }
+        
+        viewModel.originAmountText = { [weak self] text in
+            self?.originAmountLabel.text = text
+        }
+        
+        viewModel.originCurrencySymbolText = { [weak self] text in
+            self?.originCurrencySymbolLabel.text = text
+        }
+        
+        viewModel.toImageText = { [weak self] text in
+            self?.toImageView.image = UIImage(systemName: text)
+        }
+        
+        viewModel.destinationCurrencyImageText = { [weak self] text in
+            self?.destinationCurrencyImageView.image = UIImage(named: text)
+        }
+        
+        viewModel.destinationAmountText = { [weak self] text in
+            self?.destinationAmountLabel.text = text
+        }
+        
+        viewModel.destinationCurrencySymbolText = { [weak self] text in
+            self?.destinationCurrencySymbolLabel.text = text
+        }
+        
+        viewModel.dateText = { [weak self] text in
+            self?.dateLabel.text = text
+        }
     }
 }

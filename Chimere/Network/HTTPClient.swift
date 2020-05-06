@@ -72,7 +72,8 @@ final class HTTPClient {
         
         engine.send(request: request, cancelledBy: token, callback: { data, _, _ in
             guard let data = data else { return }
-
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }
@@ -87,6 +88,8 @@ final class HTTPClient {
         
         engine.sendWebsocket(request: request, cancelledBy: token, callback: { data, _, _ in
             guard let data = data else { return }
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }

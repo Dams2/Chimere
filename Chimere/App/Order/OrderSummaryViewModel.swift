@@ -39,7 +39,7 @@ final class OrderSummaryViewModel {
     var exchangeRateText: ((String) -> Void)?
     var exchangeRatesAmountText: ((String) -> Void)?
     
-    var totalFeeText: ((String) -> Void)?
+    var exchangeFeeText: ((String) -> Void)?
     var totalFeeAmountText: ((String) -> Void)?
     
     var arrivalTimeText: ((String) -> Void)?
@@ -57,14 +57,15 @@ final class OrderSummaryViewModel {
         destinationText?("You get approximately")
 
         exchangeRateText?("Exchange rates")
-
+        exchangeFeeText?("0.09")
+        
         arrivalTimeText?("Arrival time")
         estimatedTimeArrival?("5 - 30 min")
-        
+
         confirmText?("Confirm")
-        
+
         setOrder()
-        
+
         repository.postOrder(order: orderItems) { (depositResponse) in
             self.deposit = Deposit(response: depositResponse)
         }

@@ -70,8 +70,6 @@ final class ExchangeViewModel {
     var exchangeNowText: ((String) -> Void)?
 
     var orderItems: [String: String] = [:]
-    
-    
 
     // MARK: - Inputs
 
@@ -110,7 +108,6 @@ final class ExchangeViewModel {
                         originCurrencySymbol: String,
                         destinationCurrencyName: String,
                         destinationCurrencySymbol: String) {
-        
         exchangeRateText?("")
         originCurrencyNameText?(destinationCurrencyName)
         originCurrencySymbolText?(destinationCurrencySymbol)
@@ -146,22 +143,27 @@ final class ExchangeViewModel {
                              destinationCurrencySymbolText: String,
                              destinationAddressText: String,
                              exchangeRate: String) {
-//        guard !refundAddressText.isEmpty else {
-//            presentAlert(message: "You must fill refund address")
-//            return
-//        }
-//
-//        guard !destinationAddressText.isEmpty else {
-//            presentAlert(message: "You must fill destination address")
-//            return
-//        }
+        
+        guard originCurrencySymbolText != destinationCurrencySymbolText else {
+            presentAlert(message: "You can't exchange \(originCurrencySymbolText) to \(destinationCurrencySymbolText)")
+            return
+        }
+        
+        guard !originAmountText.isEmpty else {
+            presentAlert(message: "You must fill in  an amount")
+            return
+        }
+        
+        guard !refundAddressText.isEmpty else {
+            presentAlert(message: "You must fill refund address")
+            return
+        }
 
-//        repository.getAddressValidation(for: refundAddressText, symbol: depositCurrencySymbolText) { (validationDepositAdress) in
-//            self.repository.getAddressValidation(for: destinationAddressText, symbol: destinationCurrencySymbolText) { (valisationDestinationAdress) in
-//                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
-//            }
-//        }
-
+        guard !destinationAddressText.isEmpty else {
+            presentAlert(message: "You must fill destination address")
+            return
+        }
+        
         orderItems = ["owner": userID,
                       "deposit_amount": originAmountText,
                       "deposit_ticker": originCurrencySymbolText,
@@ -170,6 +172,12 @@ final class ExchangeViewModel {
                       "destination_ticker": destinationCurrencySymbolText,
                       "destination_address": destinationAddressText,
                       "exchangeRate": exchangeRate]
+        
+//        repository.getAddressValidation(for: refundAddressText, symbol: originCurrencySymbolText) { (validationDepositAdress) in
+//            self.repository.getAddressValidation(for: destinationAddressText, symbol: destinationCurrencySymbolText) { (valisationDestinationAdress) in
+//                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
+//            }
+//        }
 
         self.delegate?.didSelectExchangeNow(orderItems: orderItems)
     }
@@ -186,6 +194,7 @@ final class ExchangeViewModel {
     }
 
     func updateDestination(currency: Currency, originAmountText: String, originCurrencySymbolText: String, destinationCurrencySymbol: String) {
+        guard currency.name != originAmountText else { return }
         destinationCurrencyNameText?(currency.name)
         destinationCurrencySymbolText?(currency.symbol)
         destinationAddressText?("Destination \(currency.symbol) address here... 👈")
@@ -200,7 +209,7 @@ final class ExchangeViewModel {
     func getPrices(originAmountText: String,
                    originCurrencySymbolText: String,
                    destinationCurrencySymbolText: String) {
-        
+        destinationAmountText?("...")
         repository.getPrices { (price) in
             guard let originRate = price.ask[originCurrencySymbolText]?.bestAsk,
                 let destinationRate = price.bid[destinationCurrencySymbolText]?.bestBid

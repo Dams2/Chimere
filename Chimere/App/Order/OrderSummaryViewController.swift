@@ -55,11 +55,17 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBOutlet weak private var estimatedTimeArrivalLabel: UILabel!
     
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView! {
+        didSet {
+            activityIndicator.startAnimating()
+        }
+    }
     
     @IBOutlet weak private var confirmButton: UIButton!  {
-       didSet {
-           confirmButton.layer.cornerRadius = 10
-       }
+        didSet {
+            confirmButton.isEnabled = false
+            confirmButton.layer.cornerRadius = 10
+        }
     }
 
     
@@ -71,6 +77,11 @@ final class OrderSummaryViewController: UIViewController {
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+            self.activityIndicator.stopAnimating()
+            self.activityIndicator.isHidden = true
+            self.confirmButton.isEnabled = true
+        }
     }
     
     // MARK: - Helpers
@@ -130,7 +141,7 @@ final class OrderSummaryViewController: UIViewController {
             }
         }
         
-        viewModel.totalFeeText = { [weak self] text in
+        viewModel.exchangeFeeText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.totalFeeLabel.text = text
             }
@@ -164,6 +175,6 @@ final class OrderSummaryViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
-        viewModel.didPressConfirm()
+        self.viewModel.didPressConfirm()
     }
 }

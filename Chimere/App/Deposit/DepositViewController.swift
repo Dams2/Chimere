@@ -18,7 +18,8 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
-            transactionIDView.backgroundColor = .white
+//            transactionIDView.layer.borderWidth = 1
+//            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
             transactionIDView.layer.cornerRadius = 15
         }
     }
@@ -31,10 +32,11 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var descriptionLabel: UITextView!
     
-    @IBOutlet weak private var depositWallet: UIView! {
+    @IBOutlet weak private var depositWalletView: UIView! {
         didSet {
-            depositWallet.backgroundColor = .white
-            depositWallet.layer.cornerRadius = 15
+            depositWalletView.layer.borderWidth = 1
+            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            depositWalletView.layer.cornerRadius = 15
         }
     }
     
