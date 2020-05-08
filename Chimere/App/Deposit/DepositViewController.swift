@@ -38,8 +38,6 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var depositWalletView: UIView! {
         didSet {
-//            depositWalletView.layer.borderWidth = 1
-//            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
             depositWalletView.layer.cornerRadius = 15
         }
     }
@@ -60,11 +58,23 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var copyDepositAdressButton: UIButton!
     
-    @IBOutlet weak private var messageLabel: UILabel!
+    @IBOutlet weak private var messageLabel: UILabel! {
+       didSet {
+           messageLabel.isHidden = true
+        }
+    }
     
-    @IBOutlet weak private var messageValueLabel: UILabel!
+    @IBOutlet weak private var messageValueLabel: UILabel! {
+        didSet {
+            messageValueLabel.isHidden = true
+        }
+    }
     
-    @IBOutlet weak private var copyMessageValueButton: UIButton!
+    @IBOutlet weak private var copyMessageValueButton: UIButton! {
+       didSet {
+           copyMessageValueButton.isHidden = true
+       }
+    }
     
     @IBOutlet weak var completedButton: UIButton! {
         didSet {
@@ -76,7 +86,10 @@ final class DepositViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
@@ -132,10 +145,10 @@ final class DepositViewController: UIViewController {
             }
         }
         
-        viewModel.depositQRCodeText = {  text in
+        viewModel.depositQRCodeText = { [weak self] text in
             DispatchQueue.main.async {
-                guard let image = self.generateQRCode(from: text) else { return }
-                self.depositQRCodeImageView.image = image
+                guard let image = self?.helper.generateQRCode(from: text) else { return }
+                self?.depositQRCodeImageView.image = image
             }
         }
         
@@ -174,21 +187,6 @@ final class DepositViewController: UIViewController {
                 self?.copyMessageValueButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
-    }
-    
-    private func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
-            }
-        }
-
-        return nil
     }
     
     // MARK: - Actions

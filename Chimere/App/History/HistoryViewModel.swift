@@ -10,16 +10,29 @@ import Foundation
 
 final class HistoryViewModel {
     
-    let delegate: HistoryViewControllerDelegate?
+    // MARK: - Private Properties
     
-    let repository: HistoryRepositoryType
+    private let delegate: HistoryViewControllerDelegate?
+    
+    private let repository: HistoryRepositoryType
     
     init(delegate: HistoryViewControllerDelegate?, repository: HistoryRepositoryType) {
         self.delegate = delegate
         self.repository = repository
     }
-    
+
     // MARK: - Outputs
+    
+    var emptyOrderText: ((String) -> Void)?
+    var exchangeNowText: ((String) -> Void)?
+    
+    var loadingState: ((State) -> Void)?
+    
+    enum State {
+        case isTrue
+        case isFalse
+        case isEmpty
+    }
     
     var items: (([UserOrders]) -> Void)?
     
@@ -49,11 +62,23 @@ final class HistoryViewModel {
     }
     
     func findOrder(userID: String) {
+        loadingState?(.isTrue)
         repository.findOrders(order: ["owner": userID]) { (orderResponse) in
             DispatchQueue.main.async {
+                self.loadingState?(.isFalse)
                 orderResponse.orders.forEach { self.historyItem.append(.order(response: $0)) }
+                guard !self.historyItem.isEmpty else {
+                    self.loadingState?(.isEmpty)
+                    self.emptyOrderText?("You have no order")
+                    self.exchangeNowText?("Exchange now")
+                    return
+                }
             }
         }
+    }
+    
+    func didPressExchangeNow() {
+        delegate?.didShowExchange()
     }
 }
 

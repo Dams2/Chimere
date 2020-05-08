@@ -618,7 +618,7 @@
                                     <action selector="didPressConfirmButton:" destination="bEb-Ca-ayz" eventType="touchUpInside" id="udG-Aj-5gR"/>
                                 </connections>
                             </button>
-                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Zd-UNp">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Zd-UNp">
                                 <rect key="frame" x="339" y="804.5" width="20" height="20"/>
                                 <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
@@ -954,7 +954,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DAc-uc-fuO">
+                            <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DAc-uc-fuO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <prototypes>
@@ -1077,23 +1077,71 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DXp-Xl-Xp0">
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CJW-z3-x0K">
+                                        <rect key="frame" x="96" y="389.5" width="222.5" height="73"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEe-5A-Tsp">
+                                                <rect key="frame" x="0.0" y="0.0" width="222.5" height="27"/>
+                                                <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="24"/>
+                                                <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCw-EG-mIx">
+                                                <rect key="frame" x="27" y="33" width="168" height="40"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
+                                                <state key="normal" title="Exchange now">
+                                                    <color key="titleColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressCompletedButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="c0f-Sd-Z7g"/>
+                                                    <action selector="didPressExchangeNow:" destination="z4o-Ru-ULT" eventType="touchUpInside" id="Dxy-O0-syh"/>
+                                                    <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="f30-tr-uKZ"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="CJW-z3-x0K" firstAttribute="centerX" secondItem="DXp-Xl-Xp0" secondAttribute="centerX" id="BP4-ef-Ucf"/>
+                                    <constraint firstItem="CJW-z3-x0K" firstAttribute="centerY" secondItem="DXp-Xl-Xp0" secondAttribute="centerY" id="ugC-fj-rEG"/>
+                                </constraints>
+                            </view>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1Pq-s3-1am">
+                                <rect key="frame" x="197" y="438" width="20" height="20"/>
+                                <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="DAc-uc-fuO" firstAttribute="trailing" secondItem="RGG-lj-dJc" secondAttribute="trailing" id="Ca1-uv-xuW"/>
+                            <constraint firstItem="DXp-Xl-Xp0" firstAttribute="top" secondItem="RGG-lj-dJc" secondAttribute="top" id="KV9-oL-tnF"/>
+                            <constraint firstItem="DXp-Xl-Xp0" firstAttribute="trailing" secondItem="RGG-lj-dJc" secondAttribute="trailing" id="NxK-Lf-Php"/>
                             <constraint firstItem="DAc-uc-fuO" firstAttribute="top" secondItem="rg8-iF-f13" secondAttribute="top" id="Srv-vX-KLf"/>
+                            <constraint firstItem="1Pq-s3-1am" firstAttribute="centerY" secondItem="rg8-iF-f13" secondAttribute="centerY" id="U7x-9c-QFb"/>
                             <constraint firstItem="DAc-uc-fuO" firstAttribute="leading" secondItem="RGG-lj-dJc" secondAttribute="leading" id="cAf-PG-CgY"/>
                             <constraint firstAttribute="bottom" secondItem="DAc-uc-fuO" secondAttribute="bottom" id="eSO-hb-wHY"/>
+                            <constraint firstAttribute="bottom" secondItem="DXp-Xl-Xp0" secondAttribute="bottom" id="fbU-A6-VEd"/>
+                            <constraint firstItem="DXp-Xl-Xp0" firstAttribute="leading" secondItem="RGG-lj-dJc" secondAttribute="leading" id="jDz-D0-s4e"/>
+                            <constraint firstItem="1Pq-s3-1am" firstAttribute="centerX" secondItem="rg8-iF-f13" secondAttribute="centerX" id="xmq-XI-P75"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="RGG-lj-dJc"/>
                     </view>
                     <connections>
+                        <outlet property="activityIndicator" destination="1Pq-s3-1am" id="Kyq-Xk-SuW"/>
+                        <outlet property="emptyOrderLabel" destination="pEe-5A-Tsp" id="YUV-Sp-btH"/>
+                        <outlet property="emptyOrdersView" destination="DXp-Xl-Xp0" id="0Dh-WI-Bzb"/>
+                        <outlet property="exchangeNowButton" destination="mCw-EG-mIx" id="HQd-tZ-CYP"/>
                         <outlet property="tableView" destination="DAc-uc-fuO" id="ce0-5e-alk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMF-hH-TJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1830" y="42"/>
+            <point key="canvasLocation" x="1828.985507246377" y="41.517857142857139"/>
         </scene>
         <!--Order Detail View Controller-->
         <scene sceneID="YpQ-pu-YyU">
@@ -1283,6 +1331,7 @@
                                                             <color key="titleShadowColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="didPressCopyDepositAmountButton:" destination="kxY-Zt-QYj" eventType="touchUpInside" id="6PL-eI-shG"/>
                                                             <action selector="didPressCopyDepositAmountButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="dmL-Pf-6D8"/>
                                                         </connections>
                                                     </button>
@@ -1337,6 +1386,7 @@
                                                             <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
                                                         <connections>
+                                                            <action selector="didPressCopyDepositAddressButton:" destination="kxY-Zt-QYj" eventType="touchUpInside" id="lVU-HE-w88"/>
                                                             <action selector="didPressCopyDepositAdressButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="dNq-AE-PUN"/>
                                                         </connections>
                                                     </button>
@@ -1374,6 +1424,7 @@
                                                                     <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
                                                                 <connections>
+                                                                    <action selector="didPressCopyMessageValueButton:" destination="kxY-Zt-QYj" eventType="touchUpInside" id="4JE-Ve-Qul"/>
                                                                     <action selector="didPressCopyMessageValueButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="hiw-vF-J1f"/>
                                                                 </connections>
                                                             </button>

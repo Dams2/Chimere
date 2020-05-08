@@ -34,14 +34,22 @@ final class HistoryCoordinator {
         presenter.viewControllers = [viewController]
     }
     
+    internal func showExchange() {
+        
+    }
+    
     private func showOrderDetail(order: UserOrders) {
         let viewController = screens.createOrderDetailViewController(order: order)
-        presenter.pushViewController(viewController, animated: true)
+        presenter.showDetailViewController(viewController, sender: self)
     }
 }
 
 extension HistoryCoordinator: HistoryViewControllerDelegate {
     func didSelect(_ order: UserOrders) {
         showOrderDetail(order: order)
+    }
+    
+    func didShowExchange() {
+        showExchange()
     }
 }

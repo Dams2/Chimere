@@ -68,14 +68,16 @@ final class OrderDetailViewModel {
     
     var copyMessageValueImageText: ((String) -> Void)?
     
+    var status: ((State) -> Void)?
+    
+    enum State {
+        case paid
+        case notPaid
+    }
+    
     // MARK: - Inputs
     
     func viewDidLoad() {
-        for (state, value) in order.state {
-            if value == true {
-                self.statusText?(state)
-            }
-        }
         transactionIDText?("Transaction ID:")
         transactionIDValueText?(order.id)
         copyTansactionIDImageText?("square.on.square")
@@ -93,14 +95,24 @@ final class OrderDetailViewModel {
         copyDepositAmountImageText?("square.on.square")
         
         toThisWalletText?("To this wallet")
-        depositQRCodeImageText?("")
+        depositQRCodeImageText?(order.depositAddress)
         
         addressText?("Address")
-        depositAddressText?("")
+        depositAddressText?(order.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
         messageText?("")
         messageValueText?("")
         copyMessageValueImageText?("")
+        
+        for (state, value) in order.state {
+            if value == true {
+                self.statusText?(state)
+                self.status?(.paid)
+            } else {
+                self.statusText?("Not yet paid")
+                self.status?(.notPaid)
+            }
+        }
     }
 }

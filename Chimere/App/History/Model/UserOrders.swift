@@ -13,7 +13,7 @@ struct UserOrders {
     let id: String
     let originAmount: String
     let originSymbol: String
-    let originAddress: String
+    let depositAddress: String
     let destinationAmount: String
     let destinationSymbol: String
     let destinationAddress: String

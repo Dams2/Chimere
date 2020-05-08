@@ -29,7 +29,7 @@ protocol ExchangeViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createExchangeViewController(delegate: ExchangeViewControllerDelegate) -> UIViewController {
+    func createExchangeViewController(delegate: ExchangeViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ExchangeViewController") as! ExchangeViewController
         let repository = ExchangeRepository(client: context.client)
         let viewModel = ExchangeViewModel(delegate: delegate, repository: repository)
@@ -78,6 +78,7 @@ extension Screens {
 
 protocol HistoryViewControllerDelegate: class {
     func didSelect(_ order: UserOrders)
+    func didShowExchange()
 }
 
 extension Screens {

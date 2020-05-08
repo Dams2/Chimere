@@ -13,7 +13,7 @@ extension UserOrders {
         self.id = "\(response.id ?? "")"
         self.originAmount = "\(response.depositAmount)"
         self.originSymbol = "\(response.depositTicker)"
-        self.originAddress = "\(response.depositAddress)"
+        self.depositAddress = "\(response.depositAddress)"
         self.destinationAmount = "\(response.destinationAmount)"
         self.destinationSymbol = "\(response.destinationTicker)"
         self.destinationAddress = "\(response.destinationAddress)"

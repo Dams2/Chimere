@@ -68,6 +68,8 @@ final class HistoryTableViewCell: UITableViewCell {
             if value == true {
                 self.statusLabel.text = state
                 helper.colorCode(state: state, text: statusLabel)
+            } else {
+                self.statusLabel.text = "Not yet paid"
             }
         }
     }

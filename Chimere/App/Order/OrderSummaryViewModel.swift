@@ -47,6 +47,8 @@ final class OrderSummaryViewModel {
     
     var confirmText: ((String) -> Void)?
 
+    var loadingState: ((Bool) -> Void)?
+
     // MARK: - Inputs
     
     func viewDidLoad() {
@@ -68,8 +70,10 @@ final class OrderSummaryViewModel {
 
         setOrder()
 
-        repository.postOrder(order: orderItems) { (depositResponse) in
-            self.deposit = Deposit(response: depositResponse)
+        loadingState?(true)
+        repository.postOrder(order: orderItems) { [weak self] (depositResponse) in
+            self?.loadingState?(false)
+            self?.deposit = Deposit(response: depositResponse)
         }
     }
 
@@ -77,15 +81,7 @@ final class OrderSummaryViewModel {
         guard let deposit = self.deposit else { return }
         delegate?.didSelectConfirm(deposit: deposit)
     }
-    
-    func waitDepositResponse() -> Bool {
-        guard let deposit = self.deposit else { return false }
-        guard !deposit.id.isEmpty else {
-            return false
-        }
-        return true
-    }
-    
+
     // MARK: - Helpers
     
     private func setOrder() {

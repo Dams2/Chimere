@@ -35,7 +35,7 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var originLabel: UILabel!
 
-    @IBOutlet weak var originAmountTextField: UITextField! {
+    @IBOutlet weak private var originAmountTextField: UITextField! {
         didSet {
             originAmountTextField.keyboardType = .decimalPad
             originAmountTextField.backgroundColor = .white
@@ -50,11 +50,11 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var originCurrencyNameLabel: UILabel!
 
-    @IBOutlet weak var originCurrencySymbolLabel: UILabel!
+    @IBOutlet weak private var originCurrencySymbolLabel: UILabel!
 
     @IBOutlet weak private var changeOriginCurrencyButton: UIButton!
 
-    @IBOutlet weak var refundAddressTextField: UITextField!
+    @IBOutlet weak private var refundAddressTextField: UITextField!
 
     // Info //
 
@@ -81,7 +81,7 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var destinationLabel: UILabel!
 
-    @IBOutlet weak var destinationAmountTextField: UITextField! {
+    @IBOutlet weak private var destinationAmountTextField: UITextField! {
         didSet {
             destinationAmountTextField.keyboardType = .decimalPad
             destinationAmountTextField.backgroundColor = .white
@@ -97,11 +97,11 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var destinationCurrencyNameLabel: UILabel!
 
-    @IBOutlet weak var destinationCurrencySymbolLabel: UILabel!
+    @IBOutlet weak private var destinationCurrencySymbolLabel: UILabel!
 
     @IBOutlet weak private var changeDestinationCurrencyButton: UIButton!
 
-    @IBOutlet weak var destinationAddressTextField: UITextField!
+    @IBOutlet weak private var destinationAddressTextField: UITextField!
     
     // Warning //
     
@@ -201,7 +201,7 @@ final class ExchangeViewController: UIViewController {
                 self?.destinationLabel.text = text
             }
         }
-        
+
         viewModel.destinationAmountPlaceholderText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.destinationAmountTextField.placeholder = placeholder
@@ -284,9 +284,7 @@ final class ExchangeViewController: UIViewController {
             else { return }
         let strReplace = originAmountText.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
         sender.text = strReplace 
-        viewModel.getPrices(originAmountText: strReplace,
-                            originCurrencySymbolText: originCurrencySymbolText,
-                            destinationCurrencySymbolText: destinationCurrencySymbolText)
+        viewModel.getPrices(originAmountText: strReplace)
     }
 
     @IBAction private func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
@@ -294,20 +292,11 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction private  func didPressSwitchButton(_ sender: UIButton) {
-        guard let originAmountText = originAmountTextField.text,
-            let originCurrencyName = originCurrencyNameLabel.text,
-            let originCurrencySymbol = originCurrencySymbolLabel.text,
-            let destinationCurrencyName = destinationCurrencyNameLabel.text,
-            let destinationCurrencySymbol = destinationCurrencySymbolLabel.text
-            else { return}
+        guard let originAmountText = originAmountTextField.text else { return}
         
         sender.isUserInteractionEnabled = false
 
-        viewModel.didPressSwitch(originAmountText: originAmountText,
-                                 originCurrencyName: originCurrencyName,
-                                 originCurrencySymbol: originCurrencySymbol,
-                                 destinationCurrencyName: destinationCurrencyName,
-                                 destinationCurrencySymbol: destinationCurrencySymbol)
+        viewModel.didPressSwitch(originAmountText: originAmountText)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
             sender.isUserInteractionEnabled = true
@@ -320,12 +309,10 @@ final class ExchangeViewController: UIViewController {
 
     @IBAction private func didPressWarningAmountButton(_ sender: UIButton) {
         guard let warningAmountText = sender.titleLabel?.text,
-            let originAmountText = originAmountTextField.text,
-            let originCurrencySymbolText = originCurrencySymbolLabel.text,
-            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
-        else { return }
+            let originAmountText = originAmountTextField.text
+            else { return }
 
-        viewModel.didPressWarningAmount(warningAmountText: warningAmountText, originAmount: originAmountText, originCurrencySymbolText: originCurrencySymbolText, destinationCurrencySymbolText: destinationCurrencySymbolText)
+        viewModel.didPressWarningAmount(warningAmountText: warningAmountText, originAmount: originAmountText)
     }
 
     @IBAction private func didPressExchangeNowButton(_ sender: UIButton) {
@@ -337,18 +324,14 @@ final class ExchangeViewController: UIViewController {
 
         guard let userID = UIDevice.current.identifierForVendor?.uuidString,
             let originAmountText = originAmountTextField.text,
-            let originCurrencySymbolText = originCurrencySymbolLabel.text,
             let destinationAmountText = destinationAmountTextField.text,
-            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text,
             let exchangeRate = exchangeRateLabel.text
             else { return }
 
         viewModel.didPressExchangeNow(userID: userID,
                                       originAmountText: originAmountText,
-                                      originCurrencySymbolText: originCurrencySymbolText,
                                       refundAddressText: refundAddressText,
                                       destinationAmountText: destinationAmountText,
-                                      destinationCurrencySymbolText: destinationCurrencySymbolText,
                                       destinationAddressText: destinationAddressText,
                                       exchangeRate: exchangeRate)
     }
@@ -356,24 +339,14 @@ final class ExchangeViewController: UIViewController {
     // MARK: - Public
 
     func updateOrigin(currency: Currency) {
-        guard let originAmountText = originAmountTextField.text,
-            let originCurrencySymbolText = originCurrencySymbolLabel.text,
-            let destinationCurrencySymbolText = destinationCurrencySymbolLabel.text
-            else { return }
+        guard let originAmountText = originAmountTextField.text else { return }
         viewModel.updateOrigin(currency: currency,
-                               originAmountText: originAmountText,
-                               originCurrencySymbol: originCurrencySymbolText,
-                               destinationCurrencySymbolText: destinationCurrencySymbolText)
+                               originAmountText: originAmountText)
     }
 
     func updateDestination(currency: Currency) {
-        guard let originAmountText = originAmountTextField.text,
-        let originCurrencySymbolText = originCurrencySymbolLabel.text,
-        let destinationCurrencySymbol = destinationCurrencySymbolLabel.text
-        else { return }
+        guard let originAmountText = originAmountTextField.text else { return }
         viewModel.updateDestination(currency: currency,
-                                    originAmountText: originAmountText,
-                                    originCurrencySymbolText: originCurrencySymbolText,
-                                    destinationCurrencySymbol: destinationCurrencySymbol)
+                                    originAmountText: originAmountText)
     }
 }
