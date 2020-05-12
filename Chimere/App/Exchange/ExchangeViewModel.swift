@@ -16,9 +16,12 @@ final class ExchangeViewModel {
 
     private let repository: ExchangeRepositoryType
 
-    init(delegate: ExchangeViewControllerDelegate?, repository: ExchangeRepositoryType) {
+    private let translator: Translator
+
+    init(delegate: ExchangeViewControllerDelegate?, repository: ExchangeRepositoryType, translator: Translator) {
         self.delegate = delegate
         self.repository = repository
+        self.translator = translator
     }
 
     var originCurrencyName: String = "" {
@@ -98,7 +101,8 @@ final class ExchangeViewModel {
     // MARK: - Inputs
 
     func viewDidLoad() {
-        descriptionText?("We are making crypto easy to exchange")
+//        descriptionText?("We are making crypto easy to exchange")
+        descriptionText?(translator.translate(key: "mobile.chimere/exchange/description.text"))
         
         originText?("You send")
         originAmountPlaceholderText?("0.01")
