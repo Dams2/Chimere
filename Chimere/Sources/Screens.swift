@@ -60,7 +60,7 @@ extension Screens {
     func createOrderSummaryViewController(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository)
+        let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -70,7 +70,7 @@ extension Screens {
     func createDepositViewController(deposit: Deposit, delegate: ExchangeViewControllerDelegate) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(deposit: deposit, repository: repository, delegate: delegate)
+        let viewModel = DepositViewModel(deposit: deposit, repository: repository, delegate: delegate, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -85,7 +85,7 @@ extension Screens {
     func createHistoryViewController(delegate: HistoryViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
         let repository = HistoryRepository(client: context.client)
-        let viewModel = HistoryViewModel(delegate: delegate, repository: repository)
+        let viewModel = HistoryViewModel(delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -94,7 +94,7 @@ extension Screens {
 extension Screens {
     func createOrderDetailViewController(order: UserOrders) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
-        let viewModel = OrderDetailViewModel(order: order)
+        let viewModel = OrderDetailViewModel(order: order, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }

@@ -20,6 +20,6 @@ final class Context {
     init() {
         let engine = HTTPEngine(configuration: .default)
         client = HTTPClient(engine: engine)
-        translator = Translator(with: Locale.current.languageCode ?? "fr")
+        translator = Translator(with: Locale.current.languageCode ?? "en")
     }
 }

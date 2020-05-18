@@ -1,0 +1,207 @@
+
+/* Class = "UILabel"; text = "To this adress"; ObjectID = "1mb-L0-e7c"; */
+"1mb-L0-e7c.text" = "To this adress";
+
+/* Class = "UILabel"; text = "2 BTC"; ObjectID = "2Fh-Hv-9lf"; */
+"2Fh-Hv-9lf.text" = "2 BTC";
+
+/* Class = "UILabel"; text = "569.28234"; ObjectID = "37D-Ts-qUr"; */
+"37D-Ts-qUr.text" = "569.28234";
+
+/* Class = "UILabel"; text = "Destination ETH address"; ObjectID = "4Ax-PB-KHV"; */
+"4Ax-PB-KHV.text" = "Destination ETH address";
+
+/* Class = "UIButton"; normalTitle = "Confirm"; ObjectID = "4lt-FI-2EU"; */
+"4lt-FI-2EU.normalTitle" = "Confirm";
+
+/* Class = "UILabel"; text = "ETC"; ObjectID = "4rU-vj-KLI"; */
+"4rU-vj-KLI.text" = "ETC";
+
+/* Class = "UILabel"; text = "Transaction ID:"; ObjectID = "60X-vs-nah"; */
+"60X-vs-nah.text" = "Transaction ID:";
+
+/* Class = "UILabel"; text = "BTC"; ObjectID = "6c8-7k-o3T"; */
+"6c8-7k-o3T.text" = "BTC";
+
+/* Class = "UILabel"; text = "Total Fee"; ObjectID = "7O4-qM-uaf"; */
+"7O4-qM-uaf.text" = "Total Fee";
+
+/* Class = "UILabel"; text = "Order"; ObjectID = "7ay-2j-MUW"; */
+"7ay-2j-MUW.text" = "Order";
+
+/* Class = "UILabel"; text = "July 22, 02:01"; ObjectID = "8QN-mu-Uor"; */
+"8QN-mu-Uor.text" = "July 22, 02:01";
+
+/* Class = "UILabel"; text = "Send"; ObjectID = "9I9-HH-TVa"; */
+"9I9-HH-TVa.text" = "Send";
+
+/* Class = "UILabel"; text = "0.200511"; ObjectID = "9vx-gX-Kvz"; */
+"9vx-gX-Kvz.text" = "0.200511";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "BUW-nr-W14"; */
+"BUW-nr-W14.text" = "Message";
+
+/* Class = "UITextView"; text = "Please use your wallet or exchange account to send money to the following address by typing it in or scanning the QR code"; ObjectID = "CVB-uW-XXy"; */
+"CVB-uW-XXy.text" = "Please use your wallet or exchange account to send money to the following address by typing it in or scanning the QR code";
+
+/* Class = "UILabel"; text = "Exchange rates"; ObjectID = "DVT-KX-31j"; */
+"DVT-KX-31j.text" = "Exchange rates";
+
+/* Class = "UILabel"; text = "ab7328j8BsK8"; ObjectID = "FML-3J-8Tt"; */
+"FML-3J-8Tt.text" = "ab7328j8BsK8";
+
+/* Class = "UILabel"; text = "0.548921"; ObjectID = "GqC-2w-hEG"; */
+"GqC-2w-hEG.text" = "0.548921";
+
+/* Class = "UILabel"; text = "Arrival time"; ObjectID = "Gtx-af-4vQ"; */
+"Gtx-af-4vQ.text" = "Arrival time";
+
+/* Class = "UILabel"; text = "Adress"; ObjectID = "Gwx-MA-c41"; */
+"Gwx-MA-c41.text" = "Adress";
+
+/* Class = "UILabel"; text = "By clicking this button you agree to our"; ObjectID = "JOm-fa-U3d"; */
+"JOm-fa-U3d.text" = "By clicking this button you agree to our";
+
+/* Class = "UITextView"; text = "0xvHSDB772hih2387hG8F8f868237zhhkhg7g8b7zt89"; ObjectID = "JZX-Hq-EHm"; */
+"JZX-Hq-EHm.text" = "0xvHSDB772hih2387hG8F8f868237zhhkhg7g8b7zt89";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Jh4-dZ-WPl"; */
+"Jh4-dZ-WPl.text" = "Label";
+
+/* Class = "UILabel"; text = "1 USDT ~ 0.000145 ETH"; ObjectID = "JiZ-QW-VNG"; */
+"JiZ-QW-VNG.text" = "1 USDT ~ 0.000145 ETH";
+
+/* Class = "UILabel"; text = "0.5489210"; ObjectID = "Lad-mJ-pWh"; */
+"Lad-mJ-pWh.text" = "0.5489210";
+
+/* Class = "UILabel"; text = "You get approximately"; ObjectID = "OQ7-XI-F3P"; */
+"OQ7-XI-F3P.text" = "You get approximately";
+
+/* Class = "UITextField"; placeholder = "  Enter USDT refund address"; ObjectID = "PEM-ul-NHE"; */
+"PEM-ul-NHE.placeholder" = "  Enter USDT refund address";
+
+/* Class = "UILabel"; text = "Exchanging"; ObjectID = "QV3-ng-MIB"; */
+"QV3-ng-MIB.text" = "Exchanging";
+
+/* Class = "UILabel"; text = "0xd3dq3nqwj81932e12nd1h3n8dned8q"; ObjectID = "QVJ-6X-8LH"; */
+"QVJ-6X-8LH.text" = "0xd3dq3nqwj81932e12nd1h3n8dned8q";
+
+/* Class = "UILabel"; text = "5 - 30 min"; ObjectID = "QdI-cp-vvj"; */
+"QdI-cp-vvj.text" = "5 - 30 min";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "R5I-X2-aTH"; */
+"R5I-X2-aTH.text" = "...";
+
+/* Class = "UILabel"; text = "hvays5d3sdkjfal"; ObjectID = "Rhg-wH-Ity"; */
+"Rhg-wH-Ity.text" = "hvays5d3sdkjfal";
+
+/* Class = "UILabel"; text = "Ethereum classic"; ObjectID = "RpM-G9-zv2"; */
+"RpM-G9-zv2.text" = "Ethereum classic";
+
+/* Class = "UITextField"; placeholder = "0.01"; ObjectID = "SXa-Fs-oGr"; */
+"SXa-Fs-oGr.placeholder" = "0.01";
+
+/* Class = "UITextField"; placeholder = "  Destination ETC address"; ObjectID = "Uz0-cF-10u"; */
+"Uz0-cF-10u.placeholder" = "  Destination ETC address";
+
+/* Class = "UILabel"; text = "You send"; ObjectID = "VVw-HA-4Xl"; */
+"VVw-HA-4Xl.text" = "You send";
+
+/* Class = "UILabel"; text = "Destination ETH address"; ObjectID = "WG5-gH-V4Y"; */
+"WG5-gH-V4Y.text" = "Destination ETH address";
+
+/* Class = "UILabel"; text = "569.28234"; ObjectID = "XVY-D8-Ees"; */
+"XVY-D8-Ees.text" = "569.28234";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "XfX-kv-MsH"; */
+"XfX-kv-MsH.text" = "Label";
+
+/* Class = "UILabel"; text = "78.8364055 ETH"; ObjectID = "YOs-Ge-p7K"; */
+"YOs-Ge-p7K.text" = "78.8364055 ETH";
+
+/* Class = "UILabel"; text = "USDT"; ObjectID = "b1Y-uj-fY9"; */
+"b1Y-uj-fY9.text" = "USDT";
+
+/* Class = "UILabel"; text = "Tether"; ObjectID = "ccz-co-Mql"; */
+"ccz-co-Mql.text" = "Tether";
+
+/* Class = "UILabel"; text = "You send"; ObjectID = "eJQ-EI-RNF"; */
+"eJQ-EI-RNF.text" = "You send";
+
+/* Class = "UITextView"; text = "We are making crypto easy to exchange\n"; ObjectID = "ell-vy-3Ox"; */
+"ell-vy-3Ox.text" = "We are making crypto easy to exchange\n";
+
+/* Class = "UILabel"; text = "..."; ObjectID = "es0-oK-HfR"; */
+"es0-oK-HfR.text" = "...";
+
+/* Class = "UILabel"; text = "Stratus"; ObjectID = "f1O-xe-cc5"; */
+"f1O-xe-cc5.text" = "Stratus";
+
+/* Class = "UITextField"; placeholder = "0.01"; ObjectID = "fkl-mS-dy3"; */
+"fkl-mS-dy3.placeholder" = "0.01";
+
+/* Class = "UILabel"; text = "ETH"; ObjectID = "guQ-97-Rpb"; */
+"guQ-97-Rpb.text" = "ETH";
+
+/* Class = "UIButton"; normalTitle = "Completed"; ObjectID = "hbc-Ku-LiM"; */
+"hbc-Ku-LiM.normalTitle" = "Completed";
+
+/* Class = "UIButton"; normalTitle = "Exchange Now "; ObjectID = "jly-O7-EeK"; */
+"jly-O7-EeK.normalTitle" = "Exchange Now ";
+
+/* Class = "UILabel"; text = "Exchanging"; ObjectID = "l7W-hf-iuI"; */
+"l7W-hf-iuI.text" = "Exchanging";
+
+/* Class = "UIButton"; normalTitle = "Exchange now"; ObjectID = "mCw-EG-mIx"; */
+"mCw-EG-mIx.normalTitle" = "Exchange now";
+
+/* Class = "UILabel"; text = "ab7328j8BsK8"; ObjectID = "mSN-yZ-Pbh"; */
+"mSN-yZ-Pbh.text" = "ab7328j8BsK8";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "nal-MH-eME"; */
+"nal-MH-eME.text" = "Label";
+
+/* Class = "UILabel"; text = "Send"; ObjectID = "or8-My-ah4"; */
+"or8-My-ah4.text" = "Send";
+
+/* Class = "UILabel"; text = "You have no orders"; ObjectID = "pEe-5A-Tsp"; */
+"pEe-5A-Tsp.text" = "You have no orders";
+
+/* Class = "UILabel"; text = "You get approximately"; ObjectID = "qif-65-uza"; */
+"qif-65-uza.text" = "You get approximately";
+
+/* Class = "UILabel"; text = "0.56892 BTC"; ObjectID = "ruU-vE-ewf"; */
+"ruU-vE-ewf.text" = "0.56892 BTC";
+
+/* Class = "UILabel"; text = "hvays5d3sdkjfal"; ObjectID = "teK-fI-Rgd"; */
+"teK-fI-Rgd.text" = "hvays5d3sdkjfal";
+
+/* Class = "UILabel"; text = "Adress"; ObjectID = "uDX-F0-LAI"; */
+"uDX-F0-LAI.text" = "Adress";
+
+/* Class = "UILabel"; text = "Message"; ObjectID = "ub4-Nc-9TB"; */
+"ub4-Nc-9TB.text" = "Message";
+
+/* Class = "UIButton"; normalTitle = "terms of use"; ObjectID = "uyR-WL-b6C"; */
+"uyR-WL-b6C.normalTitle" = "terms of use";
+
+/* Class = "UILabel"; text = "To this adress"; ObjectID = "v2Z-pm-Gti"; */
+"v2Z-pm-Gti.text" = "To this adress";
+
+/* Class = "UILabel"; text = "Transaction ID:"; ObjectID = "xM1-gs-0KC"; */
+"xM1-gs-0KC.text" = "Transaction ID:";
+
+/* Class = "UILabel"; text = "BTC"; ObjectID = "xMc-lw-mlF"; */
+"xMc-lw-mlF.text" = "BTC";
+
+/* Class = "UILabel"; text = "1 BTC  ~ 78.892294 ETH"; ObjectID = "xNm-Wh-hId"; */
+"xNm-Wh-hId.text" = "1 BTC  ~ 78.892294 ETH";
+
+/* Class = "UILabel"; text = "July 22, 02:01"; ObjectID = "yS0-uH-Clt"; */
+"yS0-uH-Clt.text" = "July 22, 02:01";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "ycF-mu-inT"; */
+"ycF-mu-inT.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "0.56892 BTC"; ObjectID = "yw1-X3-KXU"; */
+"yw1-X3-KXU.text" = "0.56892 BTC";

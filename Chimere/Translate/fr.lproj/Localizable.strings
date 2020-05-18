@@ -1,0 +1,85 @@
+/* 
+  Localizable.strings
+  Chimere
+
+  Created by Damien Rojo on 18.05.20.
+  Copyright © 2020 Damien Rojo. All rights reserved.
+*/
+
+// - Exchange :
+
+"mobile/Exchange/descriptionText" = "We are making crypto easy to exchange";
+
+"mobile/Exchange/originText" = "Vous envoyez";
+
+"mobile/Exchange/refundAddressText" = "Entrez l'adresse ETH de remboursement ici... 👈";
+
+"mobile/Exchange/destinationText" = "Approximativement";
+
+"mobile/Exchange/destinationAddressText" = "Entrez l'adresse BTC de destination ici... 👈";
+
+"mobile/Exchange/exchangeNowText" = "Éxchanger Maintenant";
+
+"mobile/Exchange/WarningMinimumAmount" = "Montant minimum:";
+
+"mobile/Exchange/WarningMaximumAmount" = "Montant maximum:";
+
+///////////// ALERT SAME ASSET
+
+"mobile/Exchange/Alert/title" = "Attention";
+
+"mobile/Exchange/Alert/OkMessage" = "D'accord";
+
+"mobile/Exchange/Alert/fillAnAmount" = "Vous devez remplir un montant";
+
+"mobile/Exchange/Alert/fillRefundAddress" = "Vous devez remplir l'adresse de remboursement";
+
+"mobile/Exchange/Alert/fillDestinationAddress" = "Vous devez remplir l'adresse de destination";
+
+"mobile/Exchange/Alert/AddressDoNotExist" = "Votre adresse de remboursement ou de destination n'existe pas";
+
+// - OrderSummary :
+
+"mobile/OrderSummary/OrderText" = "commande";
+
+"mobile/OrderSummary/ExchangeRateText" = "Taux d'échange";
+
+"mobile/OrderSummary/ExchangeFee" = "Frais d'échange";
+
+"mobile/OrderSummary/ArrivalTimeText" = "Heure d'arrivée";
+
+"mobile/OrderSummary/TermsOfUseText" = "En cliquant sur ce bouton, vous acceptez nos";
+
+"mobile/OrderSummary/ShowTermsOfUse" = "conditions d'utilisation";
+
+"mobile/OrderSummary/ConfirmText" = "Confirmer";
+
+// - Deposit :
+
+"mobile/Deposit/DescriptionText" = "Veuillez utiliser votre portefeuille pour envoyer de l'argent à l'adresse suivante en copiant ou en scannant le code QR";
+
+"mobile/Deposit/ToThisWalletText" = "À cette adresse";
+
+"mobile/Deposit/AddressText" = "Adresse";
+
+"mobile/Deposit/CompletedText" = "Terminé";
+
+// - History :
+
+"mobile/History/EmptyOrderText" = "Vous n'avez pas de commande";
+
+"mobile/History/ExchangeNowText" = "Échangez maintenant";
+
+// - Annex :
+
+"mobile/Annex/Enter" = "Entrez";
+
+"mobile/Annex/RefundAddress" = "refund adresse ici... 👈";
+
+"mobile/Annex/Destination" = "Destination";
+
+"mobile/Annex/AddressHere" = "adresse ici... 👈";
+
+"mobile/Annex/SameCurrency" = "vous ne pouvez échanger";
+
+"mobile/Annex/to" = "avec";

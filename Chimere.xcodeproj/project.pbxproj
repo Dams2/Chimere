@@ -36,6 +36,7 @@
 		9198D10F2446235D00980FBA /* ExchangeCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D10E2446235D00980FBA /* ExchangeCoordinator.swift */; };
 		9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D1122446242800980FBA /* ExchangeViewController.swift */; };
 		9198D1152446377200980FBA /* ExchangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9198D1142446377200980FBA /* ExchangeViewModel.swift */; };
+		919F4E0B2472EC920091865D /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 919F4E0D2472EC920091865D /* Localizable.strings */; };
 		91A452C124573BB200762608 /* PriceResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A452C024573BB200762608 /* PriceResponse.swift */; };
 		91A9E5DF2459F4CA00490481 /* HistoryRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91A9E5DE2459F4CA00490481 /* HistoryRepository.swift */; };
 		91B70F9A245A3A8400D9F9AE /* UserOrdersResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91B70F99245A3A8400D9F9AE /* UserOrdersResponse.swift */; };
@@ -110,6 +111,8 @@
 		9198D10E2446235D00980FBA /* ExchangeCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeCoordinator.swift; sourceTree = "<group>"; };
 		9198D1122446242800980FBA /* ExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewController.swift; sourceTree = "<group>"; };
 		9198D1142446377200980FBA /* ExchangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExchangeViewModel.swift; sourceTree = "<group>"; };
+		919F4E0C2472EC920091865D /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
+		919F4E0E2472ECB40091865D /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Localizable.strings; sourceTree = "<group>"; };
 		91A452C024573BB200762608 /* PriceResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceResponse.swift; sourceTree = "<group>"; };
 		91A9E5DE2459F4CA00490481 /* HistoryRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryRepository.swift; sourceTree = "<group>"; };
 		91B70F99245A3A8400D9F9AE /* UserOrdersResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrdersResponse.swift; sourceTree = "<group>"; };
@@ -401,6 +404,7 @@
 			isa = PBXGroup;
 			children = (
 				91F1029A2469AA3000515F47 /* Translator.swift */,
+				919F4E0D2472EC920091865D /* Localizable.strings */,
 			);
 			path = Translate;
 			sourceTree = "<group>";
@@ -500,6 +504,7 @@
 			knownRegions = (
 				en,
 				Base,
+				fr,
 			);
 			mainGroup = 9198D0CB24461EE500980FBA;
 			productRefGroup = 9198D0D524461EE500980FBA /* Products */;
@@ -519,6 +524,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9198D0E724461EEA00980FBA /* LaunchScreen.storyboard in Resources */,
+				919F4E0B2472EC920091865D /* Localizable.strings in Resources */,
 				9198D0E424461EEA00980FBA /* Assets.xcassets in Resources */,
 				9198D0DF24461EE500980FBA /* Main.storyboard in Resources */,
 			);
@@ -641,6 +647,15 @@
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
 		};
+		919F4E0D2472EC920091865D /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				919F4E0C2472EC920091865D /* en */,
+				919F4E0E2472ECB40091865D /* fr */,
+			);
+			name = Localizable.strings;
+			sourceTree = "<group>";
+		};
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
@@ -648,6 +663,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -708,6 +724,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -763,7 +780,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -771,6 +788,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DRojo.chimere;
 				PRODUCT_NAME = Chimere;
 				SWIFT_VERSION = 5.0;
@@ -784,7 +802,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -792,6 +810,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DRojo.chimere;
 				PRODUCT_NAME = Chimere;
 				SWIFT_VERSION = 5.0;

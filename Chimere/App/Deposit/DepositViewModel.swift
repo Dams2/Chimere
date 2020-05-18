@@ -17,11 +17,14 @@ final class DepositViewModel {
     private let repository: ExchangeRepositoryType
     
     private let delegate: ExchangeViewControllerDelegate
+    
+    private let translator: Translator
 
-    init(deposit: Deposit, repository: ExchangeRepositoryType, delegate: ExchangeViewControllerDelegate) {
+    init(deposit: Deposit, repository: ExchangeRepositoryType, delegate: ExchangeViewControllerDelegate, translator: Translator) {
         self.deposit = deposit
         self.repository = repository
         self.delegate = delegate
+        self.translator = translator
     }
     
     // MARK: - Outputs
@@ -61,27 +64,27 @@ final class DepositViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
-        transactionIDText?("Trasaction ID:")
+        transactionIDText?("Transaction ID:")
         transactionIDValueText?(deposit.id)
         copyTansactionIDImageText?("square.on.square")
         
-        descriptionText?("Please use your wallet or exchange account to send money to the following address by typing it in or scanning the QR code")
+        descriptionText?(translator.translate(key: "mobile/Deposit/DescriptionText"))
         
-        sendText?("Send")
+        sendText?(translator.translate(key: "mobile/Exchange/originText"))
         depositAmountText?("\(deposit.depositAmount)")
         copyDepositAmountImageText?("square.on.square")
         
-        toThisWalletText?("To this address")
+        toThisWalletText?(translator.translate(key: "mobile/Deposit/ToThisWalletText"))
         depositQRCodeText?(deposit.depositAddress)
         
-        addressText?("Address")
+        addressText?(translator.translate(key: "mobile/Deposit/AddressText"))
         depositAddressText?(deposit.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
         messageText?("Message")
         copyMessageValueImageText?("square.on.square")
         
-        completedText?("Completed")
+        completedText?(translator.translate(key: "mobile/Deposit/CompletedText"))
     }
     
     func didPressCompleted() {

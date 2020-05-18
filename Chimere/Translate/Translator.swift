@@ -10,22 +10,10 @@ import Foundation
 
 final class Translator {
 
-    let locale: String
-
-    private var bundle: Bundle? = nil
+    private(set) var locale: String
 
     init(with locale: String) {
         self.locale = locale
-        createCustomBundleIfNeeded(for: locale)
-        loadLocalizedFile(for: locale)
-    }
-
-    private func createCustomBundleIfNeeded(for locale: String ) {
-        
-    }
-    
-    private func loadLocalizedFile(for locale: String) {
-        
     }
 
     func translate(key: String) -> String {
@@ -33,28 +21,7 @@ final class Translator {
     }
 
     private func getString(for key: String) -> String {
-        if bundle == nil {
-            bundle = Bundle(path: bundlePath(for: locale))
-        }
+        return NSLocalizedString(key, comment: "")
 
-        assert(bundle != nil, "Custom bundle can't be nil")
-//        return bundle?.localizedString(forKey: key,
-//                                       value: nil,
-//                                       table: nil) ?? ""
-        return strings[key] ?? ""
-    }
-
-    let bundleFileName = "localized-string.bundle"
-    private func bundlePath(for locale: String) -> String {
-        let paths = NSSearchPathForDirectoriesInDomains(.documentDirectory,
-                                                        .userDomainMask,
-                                                        true)
-        let documentDirectory = paths.first ?? ""
-        return "\(documentDirectory)/\(bundleFileName)/\(locale).lproj"
     }
 }
-
-private let strings = [
-    "mobile.marketplace/orderpipe/alert-title-not-set.text": "Alerte!",
-    "key2": "Value"
-]

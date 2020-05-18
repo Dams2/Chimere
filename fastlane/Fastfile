@@ -34,8 +34,6 @@ lane :beta do
   	#slack(message: "Successfully distributed a new beta build")
 	build_app
   	upload_to_testflight
-
-
 end
 
 #lane :release do

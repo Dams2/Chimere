@@ -17,11 +17,14 @@ final class OrderSummaryViewModel {
     private let repository: ExchangeRepositoryType
 
     private var deposit: Deposit?
+    
+    private let translator: Translator
 
-    init(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate?, repository: ExchangeRepositoryType) {
+    init(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate?, repository: ExchangeRepositoryType, translator: Translator) {
         self.orderItems = orderItems
         self.delegate = delegate
         self.repository = repository
+        self.translator = translator
     }
     
     // MARK: - Outputs
@@ -55,24 +58,24 @@ final class OrderSummaryViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
-        orderText?("Order")
+        orderText?(translator.translate(key: "mobile/OrderSummary/OrderText"))
 
-        originText?("You send")
+        originText?(translator.translate(key: "mobile/Exchange/originText"))
         
-        destinationText?("You get approximately")
+        destinationText?(translator.translate(key: "mobile/Exchange/destinationText"))
 
-        exchangeRateText?("Exchange rates")
+        exchangeRateText?(translator.translate(key: "mobile/OrderSummary/ExchangeRateText"))
 
-        exchangeFeeText?("Exchange fee")
+        exchangeFeeText?(translator.translate(key: "mobile/OrderSummary/ExchangeFee"))
         exchangeFeeAmountText?("0.09")
 
-        arrivalTimeText?("Arrival time")
+        arrivalTimeText?(translator.translate(key: "mobile/OrderSummary/ArrivalTimeText"))
         estimatedTimeArrival?("5 - 30 min")
         
-        termsOfUseText?("By clicking this button you agree to our")
-        showTermsOfUse?("terms of use")
+        termsOfUseText?(translator.translate(key: "mobile/OrderSummary/TermsOfUseText"))
+        showTermsOfUse?(translator.translate(key: "mobile/OrderSummary/ShowTermsOfUse"))
 
-        confirmText?("Confirm")
+        confirmText?(translator.translate(key: "mobile/OrderSummary/ConfirmText"))
 
         setOrder()
 

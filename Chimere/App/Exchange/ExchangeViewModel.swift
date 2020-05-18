@@ -105,30 +105,29 @@ final class ExchangeViewModel {
     // MARK: - Inputs
 
     func viewDidLoad() {
-        descriptionText?("We are making crypto easy to exchange")
-//        descriptionText?(translator.translate(key: "mobile.chimere/exchange/description.text"))
+        descriptionText?(translator.translate(key: "mobile/Exchange/descriptionText"))
 
-        originText?("You send")
+        originText?(translator.translate(key: "mobile/Exchange/originText"))
         originAmountPlaceholderText?("0.01")
         originAmountText?("")
         originCurrencyName = "Ethereum"
         originCurrencySymbol = "ETH"
-        refundAddressText?("Enter ETH refund address here... 👈")
+        refundAddressText?(translator.translate(key: "mobile/Exchange/refundAddressText"))
 
         exchangeRateText?("")
 
-        destinationText?("You get approximately")
+        destinationText?(translator.translate(key: "mobile/Exchange/destinationText"))
         destinationAmountPlaceholderText?("0.01")
         destinationAmountText?("")
         destinationCurrencyName = "Bitcoin"
         destinationCurrencySymbol = "BTC"
-        destinationAddressText?("Destination BTC address here... 👈")
+        destinationAddressText?(translator.translate(key: "mobile/Exchange/destinationAddressText"))
 
         warningImageText?("")
         warningText?("")
         warningAmountText?("")
 
-        exchangeNowText?("Exchange Now")
+        exchangeNowText?(translator.translate(key: "mobile/Exchange/exchangeNowText"))
         
         alertState?(true)
     }
@@ -162,12 +161,12 @@ final class ExchangeViewModel {
                              exchangeRate: String) {
         
         guard originCurrencySymbol != destinationCurrencySymbol else {
-            presentAlert(message: "You can't exchange \(originCurrencySymbol) to \(destinationCurrencySymbol)")
+            presentAlert(message: "\(translator.translate(key: "mobile/Annex/SameCurrency")) \(originCurrencySymbol) \(translator.translate(key: "mobile/Annex/to")) \(destinationCurrencySymbol)")
             return
         }
         
         guard !originAmountText.isEmpty else {
-            presentAlert(message: "You must fill in  an amount")
+            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillAnAmount"))
             return
         }
         
@@ -175,12 +174,12 @@ final class ExchangeViewModel {
         print("---- \(destinationAmountText)")
 
         guard !refundAddressText.isEmpty else {
-            presentAlert(message: "You must fill refund address")
+            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillRefundAddress"))
             return
         }
 
         guard !destinationAddressText.isEmpty else {
-            presentAlert(message: "You must fill destination address")
+            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillDestinationAddress"))
             return
         }
         
@@ -193,20 +192,20 @@ final class ExchangeViewModel {
                       "destination_address": destinationAddressText,
                       "exchangeRate": exchangeRate]
         
-//        repository.getAddressValidation(for: refundAddressText, symbol: originCurrencySymbolText) { (validationDepositAdress) in
-//            self.repository.getAddressValidation(for: destinationAddressText, symbol: destinationCurrencySymbolText) { (valisationDestinationAdress) in
-//                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
-//            }
-//        }
+        repository.getAddressValidation(for: refundAddressText, symbol: originCurrencySymbol) { (validationDepositAdress) in
+            self.repository.getAddressValidation(for: destinationAddressText, symbol: self.destinationCurrencySymbol) { (valisationDestinationAdress) in
+                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
+            }
+        }
 
-        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
+//        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
     }
 
     func updateOrigin(currency: Currency, originAmountText: String) {
         getPrices(originAmountText: originAmountText)
         originCurrencyNameText?(currency.name)
         originCurrencySymbol = currency.symbol
-        refundAddressText?("Enter \(currency.symbol) refund address here... 👈")
+        refundAddressText?("\(translator.translate(key: "mobile/Annex/Enter")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/RefundAddress"))")
         delegate?.didDismissCurrenciesList()
         getPrices(originAmountText: originAmountText)
     }
@@ -215,7 +214,7 @@ final class ExchangeViewModel {
         guard currency.name != originAmountText else { return }
         destinationCurrencyNameText?(currency.name)
         destinationCurrencySymbol = currency.symbol
-        destinationAddressText?("Destination \(currency.symbol) address here... 👈")
+        destinationAddressText?("\(translator.translate(key: "mobile/Annex/Destination")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/AddressHere"))")
         delegate?.didDismissCurrenciesList()
         getPrices(originAmountText: originAmountText)
     }
@@ -272,7 +271,7 @@ final class ExchangeViewModel {
         guard originAmount >= minimumAmount else {
             warningSettings(destinationAmount: "...",
                             image: "exclamationmark.triangle",
-                            message: "Minimum amount is:",
+                            message: translator.translate(key: "mobile/Exchange/WarningMinimumAmount"),
                             warningAmount: "\(minimumAmount)")
             alertState?(false)
             return
@@ -281,7 +280,7 @@ final class ExchangeViewModel {
         guard originAmount <= maximumAmount else {
             warningSettings(destinationAmount: "...",
                             image: "exclamationmark.triangle",
-                            message: "Maximum amount is:",
+                            message: translator.translate(key: "mobile/Exchange/WarningMaximumAmount"),
                             warningAmount: "\(maximumAmount)")
             alertState?(false)
             return
@@ -301,13 +300,13 @@ final class ExchangeViewModel {
 
     private func presentAlert(message: String) {
         DispatchQueue.main.async {
-            self.delegate?.didPresentAlert(for: .badEntry(alertConfiguration: AlertConfiguration(title: "Warning", message: message, okMessage: "ok", cancelMessage: nil)))
+            self.delegate?.didPresentAlert(for: .badEntry(alertConfiguration: AlertConfiguration(title: self.translator.translate(key: "mobile/Exchange/Alert/title"), message: message, okMessage: self.translator.translate(key: "mobile/Exchange/Alert/OkMessage"), cancelMessage: nil)))
         }
     }
 
     private func addressValidation(validationDepositAdress: Bool, valisationDestinationAdress: Bool) {
         if validationDepositAdress == false || valisationDestinationAdress == false {
-            self.presentAlert(message: "Your refund address or your destination does not exist")
+            self.presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/AddressDoNotExist"))
             return
         } else {
             DispatchQueue.main.async {
@@ -324,11 +323,11 @@ final class ExchangeViewModel {
             self.exchangeRateText?("")
             self.originCurrencyName = destination[0]
             self.originCurrencySymbol = destination[1]
-            self.refundAddressText?("Enter \(destination[1]) refund address here... 👈")
+            self.refundAddressText?("\(self.translator.translate(key: "mobile/Annex/Enter")) \(destination[1]) \(self.translator.translate(key: "mobile/Annex/RefundAddress"))")
 
             self.destinationCurrencyName = origin[0]
             self.destinationCurrencySymbol = origin[1]
-            self.destinationAddressText?("Destination \(origin[1]) address here... 👈")
+            self.destinationAddressText?("\(self.translator.translate(key: "mobile/Annex/Destination" )) \(origin[1]) \(self.translator.translate(key: "mobile/Annex/AddressHere"))")
         }
     }
 }

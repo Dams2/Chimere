@@ -16,9 +16,11 @@ final class HistoryViewModel {
     
     private let repository: HistoryRepositoryType
     
-    init(delegate: HistoryViewControllerDelegate?, repository: HistoryRepositoryType) {
+    private let translator: Translator
+    init(delegate: HistoryViewControllerDelegate?, repository: HistoryRepositoryType, translator: Translator) {
         self.delegate = delegate
         self.repository = repository
+        self.translator = translator
     }
 
     // MARK: - Outputs
@@ -69,8 +71,8 @@ final class HistoryViewModel {
                 orderResponse.orders.forEach { self.historyItem.append(.order(response: $0)) }
                 guard !self.historyItem.isEmpty else {
                     self.loadingState?(.isEmpty)
-                    self.emptyOrderText?("You have no order")
-                    self.exchangeNowText?("Exchange now")
+                    self.emptyOrderText?(self.translator.translate(key: "mobile/History/EmptyOrderText"))
+                    self.exchangeNowText?(self.translator.translate(key: "mobile/History/ExchangeNowText"))
                     return
                 }
             }

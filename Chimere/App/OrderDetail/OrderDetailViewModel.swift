@@ -12,10 +12,13 @@ final class OrderDetailViewModel {
     
     // MARK: - Properties
     
-    let order: UserOrders
+    private let order: UserOrders
+    
+    private let translator: Translator
 
-    init(order: UserOrders) {
+    init(order: UserOrders, translator: Translator) {
         self.order = order
+        self.translator = translator
     }
 
     // MARK: - Outputs
@@ -102,14 +105,14 @@ final class OrderDetailViewModel {
         
         dateText?(order.createdDate)
         
-        sendText?("Send")
+        sendText?(translator.translate(key: "mobile/Exchange/originText"))
         depositAmountText?(order.originAmount)
         copyDepositAmountImageText?("square.on.square")
         
-        toThisWalletText?("To this wallet")
+        toThisWalletText?(translator.translate(key: "mobile/Deposit/ToThisWalletText"))
         depositQRCodeImageText?(order.depositAddress)
         
-        addressText?("Address")
+        addressText?(translator.translate(key: "mobile/Deposit/AddressText"))
         depositAddressText?(order.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
