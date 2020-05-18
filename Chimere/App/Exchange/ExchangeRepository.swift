@@ -11,7 +11,7 @@ import Foundation
 protocol ExchangeRepositoryType: class {
     func getAddressValidation(for address: String, symbol: String, callback: @escaping (Bool) -> Void)
     func postOrder(order: [String: String], callback: @escaping (OrderResponse) -> Void)
-    func getPrices(callback: @escaping (PriceResponse) -> Void)
+    func getPrices(message: String, callback: @escaping (PriceResponse) -> Void)
 }
 
 final class ExchangeRepository: ExchangeRepositoryType {
@@ -39,7 +39,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
     }
     
     func postOrder(order: [String: String] ,callback: @escaping (OrderResponse) -> Void) {
-        let stringURL = "https://d6afa678.ngrok.io/api/order/create-order"
+        let stringURL = "https://chimere.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: OrderResponse.self,
@@ -51,13 +51,14 @@ final class ExchangeRepository: ExchangeRepositoryType {
         }
     }
     
-    func getPrices(callback: @escaping (PriceResponse) -> Void) {
-        let stringURL = "https://30f23539.ngrok.io/price"
+    func getPrices(message: String, callback: @escaping (PriceResponse) -> Void) {
+        let stringURL = "ws://chimere.io:8080/price"
         guard let url = URL(string: stringURL) else { return }
         
         client.websocketRequest(type: PriceResponse.self,
                                 requestType: .GET,
                                 url: url,
+                                message: message,
                                 cancelledBy: token) { (result) in
                                     callback(result)
         }

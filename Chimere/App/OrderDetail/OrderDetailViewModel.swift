@@ -42,6 +42,10 @@ final class OrderDetailViewModel {
     
     var destinationCurrencySymbolText: ((String) -> Void)?
     
+    var destinationAddressText: ((String) -> Void)?
+    
+    var destinationAddressValueText: ((String) -> Void)?
+    
     var dateText: ((String) -> Void)?
     
     // Wallet
@@ -71,7 +75,11 @@ final class OrderDetailViewModel {
     var status: ((State) -> Void)?
     
     enum State {
-        case paid
+        case failed
+        case loaded
+        case exchanging
+        case completed
+        case expired
         case notPaid
     }
     
@@ -88,6 +96,10 @@ final class OrderDetailViewModel {
         destinationCurrencyImageText?(order.destinationSymbol)
         destinationAmountText?(order.destinationAmount)
         destinationCurrencySymbolText?(order.destinationSymbol)
+        
+        destinationAddressText?("Destination \(order.destinationSymbol) address")
+        destinationAddressValueText?(order.destinationAddress)
+        
         dateText?(order.createdDate)
         
         sendText?("Send")
@@ -105,14 +117,24 @@ final class OrderDetailViewModel {
         messageValueText?("")
         copyMessageValueImageText?("")
         
-        for (state, value) in order.state {
-            if value == true {
-                self.statusText?(state)
-                self.status?(.paid)
-            } else {
-                self.statusText?("Not yet paid")
-                self.status?(.notPaid)
-            }
+        guard order.state["Failed"] == false else {
+            status?(.failed)
+            statusText?("Failed")
+            return
+        }
+        
+        if order.state["Loaded"] == false && order.state["Exchanging"] == false && order.state["Completed"] == false {
+            statusText?("Not paid")
+            status?(.notPaid)
+        } else {
+            status?(.loaded)
+            statusText?("Paid")
+        }
+        
+        guard order.state["Expired"] == false else {
+            status?(.expired)
+            statusText?("Expired")
+            return
         }
     }
 }

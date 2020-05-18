@@ -45,6 +45,9 @@ final class OrderSummaryViewModel {
     var arrivalTimeText: ((String) -> Void)?
     var estimatedTimeArrival: ((String) -> Void)?
     
+    var termsOfUseText: ((String) -> Void)?
+    var showTermsOfUse: ((String) -> Void)?
+    
     var confirmText: ((String) -> Void)?
 
     var loadingState: ((Bool) -> Void)?
@@ -55,7 +58,7 @@ final class OrderSummaryViewModel {
         orderText?("Order")
 
         originText?("You send")
-
+        
         destinationText?("You get approximately")
 
         exchangeRateText?("Exchange rates")
@@ -65,6 +68,9 @@ final class OrderSummaryViewModel {
 
         arrivalTimeText?("Arrival time")
         estimatedTimeArrival?("5 - 30 min")
+        
+        termsOfUseText?("By clicking this button you agree to our")
+        showTermsOfUse?("terms of use")
 
         confirmText?("Confirm")
 
@@ -75,6 +81,11 @@ final class OrderSummaryViewModel {
             self?.loadingState?(false)
             self?.deposit = Deposit(response: depositResponse)
         }
+    }
+    
+    func didPressTermsOfUse() -> String {
+        let stringUrl = "https://chimere.io/terms-of-use"
+        return stringUrl
     }
 
     func didPressConfirm()  {

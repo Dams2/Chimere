@@ -81,12 +81,13 @@ final class HTTPClient {
     func websocketRequest<T>(type: T.Type,
                              requestType: RequestType,
                              url: URL,
+                             message: String,
                              cancelledBy token: RequestCancellationToken,
                              completion: @escaping (T) -> Void) where T: Codable{
         var request = URLRequest(url: url)
         request.httpMethod = requestType.rawValue
         
-        engine.sendWebsocket(request: request, cancelledBy: token, callback: { data, _, _ in
+        engine.sendWebsocket(message: message, request: request, cancelledBy: token, callback: { data, _, _ in
             guard let data = data else { return }
             let str = String(decoding: data, as: UTF8.self)
             print(str)

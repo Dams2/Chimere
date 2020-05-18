@@ -63,14 +63,40 @@ final class HistoryTableViewCell: UITableViewCell {
         destinationAmountLabel.text = "\(userOrders.destinationAmount)"
         destinationCurrencySymbolLabel.text = userOrders.destinationSymbol
         dateLabel.text = userOrders.createdDate
-
-        for (state, value) in userOrders.state {
-            if value == true {
-                self.statusLabel.text = state
-                helper.colorCode(state: state, text: statusLabel)
-            } else {
-                self.statusLabel.text = "Not yet paid"
+        
+        guard userOrders.state["Failed"] == false else {
+            self.statusLabel.text = "Failed"
+            self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
+            return
+        }
+        
+        guard userOrders.state["Failed"] == false else {
+            self.statusLabel.text = "Failed"
+            self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
+            return
+        }
+        
+        if userOrders.state["Loaded"] == false && userOrders.state["Exchanging"] == false && userOrders.state["Completed"] == false {
+            self.statusLabel.text = "Not paid"
+            self.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+        } else {
+            self.statusLabel.text = "Paid"
+            self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+            if userOrders.state["Completed"] == true {
+                self.statusLabel.text = "Completed"
+                self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
             }
+        }
+        
+        if userOrders.state["Completed"] == true {
+            self.statusLabel.text = "Completed"
+            self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+        }
+        
+        guard userOrders.state["Expired"] == false else {
+            self.statusLabel.text = "Expired"
+            self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1770516336, alpha: 1)
+            return
         }
     }
 }

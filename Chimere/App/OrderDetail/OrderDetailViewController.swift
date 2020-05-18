@@ -48,6 +48,10 @@ final class OrderDetailViewController: UIViewController {
     
     @IBOutlet weak private var destinationCurrencySymbolLabel: UILabel!
     
+    @IBOutlet weak var destinationAddressLabel: UILabel!
+    
+    @IBOutlet weak var destinationAddressValueLabel: UILabel!
+    
     @IBOutlet weak private var dateLabel: UILabel!
     
     // Wallet
@@ -108,18 +112,29 @@ final class OrderDetailViewController: UIViewController {
     func bind(to viewModel: OrderDetailViewModel) {
         viewModel.status = { [weak self] state in
             switch state {
-            case .paid:
+            case .failed:
+                self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
+                self?.depositWalletView.isHidden = true
+            case .loaded:
+                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+                self?.depositWalletView.isHidden = true
+            case .exchanging:
+                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+                self?.depositWalletView.isHidden = true
+            case .completed:
+                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+                self?.depositWalletView.isHidden = true
+            case .expired:
+                self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
                 self?.depositWalletView.isHidden = true
             case .notPaid:
-                self?.depositWalletView.isHidden = false
+                self?.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
             }
         }
         
         viewModel.statusText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.statusLabel.text = text
-                guard let statusLabel = self?.statusLabel else { return }
-                self?.helper.colorCode(state: text, text: statusLabel)
             }
         }
 
@@ -180,6 +195,18 @@ final class OrderDetailViewController: UIViewController {
         viewModel.destinationCurrencySymbolText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.destinationCurrencySymbolLabel.text = text
+            }
+        }
+        
+        viewModel.destinationAddressText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationAddressLabel.text = text
+            }
+        }
+
+        viewModel.destinationAddressValueText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.destinationAddressValueLabel.text = text
             }
         }
 

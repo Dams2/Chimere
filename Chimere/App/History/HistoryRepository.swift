@@ -23,7 +23,7 @@ final class HistoryRepository: HistoryRepositoryType {
     }
 
     func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void) {
-        let stringURL = "https://d6afa678.ngrok.io/api/order/find-orders"
+        let stringURL = "https://chimere.io/api/order/find-orders"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: UserOrdersResponse.self,

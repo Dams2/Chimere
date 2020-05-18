@@ -10,26 +10,19 @@ import Foundation
 
 // MARK: - PriceResponse
 struct PriceResponse: Codable {
-    let ask: [String: Ask]
-    let bid: [String: Bid]
+    let askPrice, bidPrice: Price
+    let askMin, askMax: String
 }
 
-// MARK: - Ask
-struct Ask: Codable {
-    let ticker, exchange, bestAsk: String
+// MARK: - Price
+struct Price: Codable {
+    let ticker, exchange: String
+    let bestAsk: String?
+    let bestBid: String?
 
     enum CodingKeys: String, CodingKey {
         case ticker, exchange
         case bestAsk = "best_ask"
-    }
-}
-
-// MARK: - Bid
-struct Bid: Codable {
-    let ticker, exchange, bestBid: String
-
-    enum CodingKeys: String, CodingKey {
-        case ticker, exchange
         case bestBid = "best_bid"
     }
 }

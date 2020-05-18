@@ -56,6 +56,7 @@
 		91E4536F244EA2310053593B /* HistoryViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E4536E244EA2310053593B /* HistoryViewController.swift */; };
 		91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91E45371244EA2870053593B /* HistoryViewModel.swift */; };
 		91F1029B2469AA3000515F47 /* Translator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F1029A2469AA3000515F47 /* Translator.swift */; };
+		91F102A4246AEC1300515F47 /* ChimereUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91F102A3246AEC1300515F47 /* ChimereUITests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = 9198D0D324461EE500980FBA;
 			remoteInfo = antex;
+		};
+		91F102A6246AEC1300515F47 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 9198D0CC24461EE500980FBA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 9198D0D324461EE500980FBA;
+			remoteInfo = Chimere;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -122,6 +130,9 @@
 		91E4536E244EA2310053593B /* HistoryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewController.swift; sourceTree = "<group>"; };
 		91E45371244EA2870053593B /* HistoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryViewModel.swift; sourceTree = "<group>"; };
 		91F1029A2469AA3000515F47 /* Translator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Translator.swift; sourceTree = "<group>"; };
+		91F102A1246AEC1300515F47 /* ChimereUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChimereUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		91F102A3246AEC1300515F47 /* ChimereUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChimereUITests.swift; sourceTree = "<group>"; };
+		91F102A5246AEC1300515F47 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -133,6 +144,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9198D0EA24461EEA00980FBA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91F1029E246AEC1300515F47 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -209,6 +227,7 @@
 			children = (
 				9198D0D624461EE500980FBA /* Chimere */,
 				9198D0F024461EEA00980FBA /* ChimereTests */,
+				91F102A2246AEC1300515F47 /* ChimereUITests */,
 				9198D0D524461EE500980FBA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -218,6 +237,7 @@
 			children = (
 				9198D0D424461EE500980FBA /* Chimere.app */,
 				9198D0ED24461EEA00980FBA /* ChimereTests.xctest */,
+				91F102A1246AEC1300515F47 /* ChimereUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -385,6 +405,15 @@
 			path = Translate;
 			sourceTree = "<group>";
 		};
+		91F102A2246AEC1300515F47 /* ChimereUITests */ = {
+			isa = PBXGroup;
+			children = (
+				91F102A3246AEC1300515F47 /* ChimereUITests.swift */,
+				91F102A5246AEC1300515F47 /* Info.plist */,
+			);
+			path = ChimereUITests;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -423,6 +452,24 @@
 			productReference = 9198D0ED24461EEA00980FBA /* ChimereTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
+		91F102A0246AEC1300515F47 /* ChimereUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 91F102A8246AEC1300515F47 /* Build configuration list for PBXNativeTarget "ChimereUITests" */;
+			buildPhases = (
+				91F1029D246AEC1300515F47 /* Sources */,
+				91F1029E246AEC1300515F47 /* Frameworks */,
+				91F1029F246AEC1300515F47 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				91F102A7246AEC1300515F47 /* PBXTargetDependency */,
+			);
+			name = ChimereUITests;
+			productName = ChimereUITests;
+			productReference = 91F102A1246AEC1300515F47 /* ChimereUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -438,6 +485,10 @@
 					};
 					9198D0EC24461EEA00980FBA = {
 						CreatedOnToolsVersion = 11.4;
+						TestTargetID = 9198D0D324461EE500980FBA;
+					};
+					91F102A0246AEC1300515F47 = {
+						CreatedOnToolsVersion = 11.4.1;
 						TestTargetID = 9198D0D324461EE500980FBA;
 					};
 				};
@@ -457,6 +508,7 @@
 			targets = (
 				9198D0D324461EE500980FBA /* Chimere */,
 				9198D0EC24461EEA00980FBA /* ChimereTests */,
+				91F102A0246AEC1300515F47 /* ChimereUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -473,6 +525,13 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		9198D0EB24461EEA00980FBA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		91F1029F246AEC1300515F47 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -542,6 +601,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		91F1029D246AEC1300515F47 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				91F102A4246AEC1300515F47 /* ChimereUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
@@ -549,6 +616,11 @@
 			isa = PBXTargetDependency;
 			target = 9198D0D324461EE500980FBA /* Chimere */;
 			targetProxy = 9198D0EE24461EEA00980FBA /* PBXContainerItemProxy */;
+		};
+		91F102A7246AEC1300515F47 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 9198D0D324461EE500980FBA /* Chimere */;
+			targetProxy = 91F102A6246AEC1300515F47 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -691,6 +763,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -702,6 +775,7 @@
 				PRODUCT_NAME = Chimere;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Debug;
 		};
@@ -710,6 +784,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -721,6 +796,7 @@
 				PRODUCT_NAME = Chimere;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
+				VERSIONING_SYSTEM = "apple-generic";
 			};
 			name = Release;
 		};
@@ -768,6 +844,48 @@
 			};
 			name = Release;
 		};
+		91F102A9246AEC1300515F47 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SPYXZN2GGQ;
+				INFOPLIST_FILE = ChimereUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DRojo.ChimereUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Chimere;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Debug;
+		};
+		91F102AA246AEC1300515F47 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = SPYXZN2GGQ;
+				INFOPLIST_FILE = ChimereUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.DRojo.ChimereUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = Chimere;
+				VERSIONING_SYSTEM = "apple-generic";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -794,6 +912,15 @@
 			buildConfigurations = (
 				9198D0FA24461EEA00980FBA /* Debug */,
 				9198D0FB24461EEA00980FBA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		91F102A8246AEC1300515F47 /* Build configuration list for PBXNativeTarget "ChimereUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				91F102A9246AEC1300515F47 /* Debug */,
+				91F102AA246AEC1300515F47 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

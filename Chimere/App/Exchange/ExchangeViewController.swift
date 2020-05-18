@@ -119,7 +119,6 @@ final class ExchangeViewController: UIViewController {
         }
     }
 
-
     // MARK: - View life cycle
 
     override func viewDidLoad() {
@@ -127,7 +126,6 @@ final class ExchangeViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
         
         setUI()
-        
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
@@ -255,6 +253,17 @@ final class ExchangeViewController: UIViewController {
                 self?.exchangeNowButton.setTitle(text, for: .normal)
             }
         }
+        
+        viewModel.alertState = { [weak self] state in
+            DispatchQueue.main.async {
+                switch state {
+                case true:
+                    self?.warningAmountButton.isEnabled = false
+                default:
+                    self?.warningAmountButton.isEnabled = true
+                }
+            }
+        }
     }
 
     private func changePLaceholderColor(refundAddressText: String, destinationAddressText: String) {
@@ -278,10 +287,7 @@ final class ExchangeViewController: UIViewController {
     // MARK: - Actions
 
     @IBAction private func originAmountTextFieldDidChange(_ sender: UITextField) {
-        guard let originAmountText = originAmountTextField.text,
-            let originCurrencySymbolText = self.originCurrencySymbolLabel.text,
-            let destinationCurrencySymbolText = self .destinationCurrencySymbolLabel.text
-            else { return }
+        guard let originAmountText = originAmountTextField.text else { return }
         let strReplace = originAmountText.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
         sender.text = strReplace 
         viewModel.getPrices(originAmountText: strReplace)
@@ -293,14 +299,8 @@ final class ExchangeViewController: UIViewController {
 
     @IBAction private  func didPressSwitchButton(_ sender: UIButton) {
         guard let originAmountText = originAmountTextField.text else { return}
-        
-        sender.isUserInteractionEnabled = false
 
         viewModel.didPressSwitch(originAmountText: originAmountText)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            sender.isUserInteractionEnabled = true
-        }
     }
 
     @IBAction private func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {

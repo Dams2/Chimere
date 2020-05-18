@@ -375,7 +375,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-io-y10">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CurrenciesTableViewCell" rowHeight="50" id="7t1-Cm-1Fz" customClass="CurrenciesTableViewCell" customModule="Chimere" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="50"/>
@@ -524,7 +524,7 @@
                                 <rect key="frame" x="0.0" y="375" width="414" height="521"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9oy-0m-dzL">
-                                        <rect key="frame" x="20" y="20" width="374" height="200"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="207"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-cC-Wzo">
                                                 <rect key="frame" x="0.0" y="0.0" width="374" height="44"/>
@@ -560,25 +560,8 @@
                                                     </label>
                                                 </subviews>
                                             </stackView>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="c18-vn-2PI">
-                                                <rect key="frame" x="0.0" y="104" width="374" height="44"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Network fee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOm-fa-U3d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
-                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
-                                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.0030000000000000" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2bc-5v-fY2">
-                                                        <rect key="frame" x="0.0" y="26" width="374" height="18"/>
-                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
-                                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cT6-z6-baw">
-                                                <rect key="frame" x="0.0" y="156" width="374" height="44"/>
+                                                <rect key="frame" x="0.0" y="104" width="374" height="44"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtx-af-4vQ">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
@@ -592,6 +575,27 @@
                                                         <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="custom" customColorSpace="calibratedRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                </subviews>
+                                            </stackView>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="c18-vn-2PI">
+                                                <rect key="frame" x="0.0" y="156" width="374" height="51"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking this button you agree to our" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOm-fa-U3d">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="18"/>
+                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                        <color key="textColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="0.64000000000000001" colorSpace="custom" customColorSpace="calibratedRGB"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyR-WL-b6C">
+                                                        <rect key="frame" x="0.0" y="21" width="374" height="30"/>
+                                                        <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="16"/>
+                                                        <state key="normal" title="terms of use">
+                                                            <color key="titleColor" red="0.26274509800000001" green="0.090196078430000007" blue="0.52549019610000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="didPressTermsOfUseButton:" destination="bEb-Ca-ayz" eventType="touchUpInside" id="XWV-aP-GjK"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
                                             </stackView>
                                         </subviews>
@@ -623,7 +627,7 @@
                                 <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="YLd-Zd-UNp" firstAttribute="centerY" secondItem="4lt-FI-2EU" secondAttribute="centerY" id="5Yf-9A-gMQ"/>
                             <constraint firstItem="7ay-2j-MUW" firstAttribute="leading" secondItem="2Hd-Bj-Wum" secondAttribute="leading" constant="20" id="61d-kh-JjE"/>
@@ -655,11 +659,11 @@
                         <outlet property="exchangeRatesAmountLabel" destination="xNm-Wh-hId" id="Gb1-bp-RUB"/>
                         <outlet property="exchangeRatesLabel" destination="DVT-KX-31j" id="7tH-VA-ooj"/>
                         <outlet property="infoView" destination="dk4-Fm-CVA" id="OZD-yj-BHq"/>
-                        <outlet property="networkFeeAmountLabel" destination="2bc-5v-fY2" id="4lm-GO-Ahz"/>
-                        <outlet property="networkFeeLabel" destination="JOm-fa-U3d" id="XW2-FV-c9T"/>
                         <outlet property="orderLabel" destination="7ay-2j-MUW" id="Vcz-wF-qou"/>
                         <outlet property="originAmountLabel" destination="2Fh-Hv-9lf" id="bTO-8L-OJI"/>
                         <outlet property="originLabel" destination="VVw-HA-4Xl" id="4Km-h2-jTe"/>
+                        <outlet property="termsOfUseButton" destination="uyR-WL-b6C" id="FPz-Nv-CeR"/>
+                        <outlet property="termsOfUseLabel" destination="JOm-fa-U3d" id="XW2-FV-c9T"/>
                         <outlet property="totalFeeAmountLabel" destination="9vx-gX-Kvz" id="meN-1y-cij"/>
                         <outlet property="totalFeeLabel" destination="7O4-qM-uaf" id="ff5-yd-LZB"/>
                     </connections>
@@ -957,6 +961,7 @@
                             <tableView hidden="YES" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DAc-uc-fuO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="HistoryTableViewCell" rowHeight="204" id="g5F-Pe-7VM" customClass="HistoryTableViewCell" customModule="Chimere" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="414" height="204"/>
@@ -1105,7 +1110,7 @@
                                         </subviews>
                                     </stackView>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="CJW-z3-x0K" firstAttribute="centerX" secondItem="DXp-Xl-Xp0" secondAttribute="centerX" id="BP4-ef-Ucf"/>
                                     <constraint firstItem="CJW-z3-x0K" firstAttribute="centerY" secondItem="DXp-Xl-Xp0" secondAttribute="centerY" id="ugC-fj-rEG"/>
@@ -1116,7 +1121,7 @@
                                 <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="DAc-uc-fuO" firstAttribute="trailing" secondItem="RGG-lj-dJc" secondAttribute="trailing" id="Ca1-uv-xuW"/>
                             <constraint firstItem="DXp-Xl-Xp0" firstAttribute="top" secondItem="RGG-lj-dJc" secondAttribute="top" id="KV9-oL-tnF"/>
@@ -1175,10 +1180,10 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vSi-aL-mGc">
-                                <rect key="frame" x="61.5" y="129" width="291" height="46"/>
+                                <rect key="frame" x="56" y="129" width="302" height="46"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hSs-sb-uUG">
-                                        <rect key="frame" x="8" y="13" width="275" height="20"/>
+                                        <rect key="frame" x="8" y="13" width="286" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60X-vs-nah">
                                                 <rect key="frame" x="0.0" y="0.0" width="116" height="20"/>
@@ -1193,13 +1198,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piE-9O-XWV">
-                                                <rect key="frame" x="256" y="0.0" width="19" height="20"/>
+                                                <rect key="frame" x="256" y="0.0" width="30" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="W4J-J2-9RD"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                 <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                <state key="normal" image="square.and.arrow.up" catalog="system">
+                                                <state key="normal">
                                                     <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                     <color key="titleShadowColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
@@ -1456,7 +1461,7 @@
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="eKy-DD-Eio" firstAttribute="centerX" secondItem="UHM-e2-bTs" secondAttribute="centerX" id="5aE-b4-BVv"/>
                             <constraint firstItem="eKy-DD-Eio" firstAttribute="top" secondItem="Q4j-V3-ae0" secondAttribute="bottom" constant="8" id="7gK-jd-XsR"/>
@@ -1493,6 +1498,8 @@
                         <outlet property="depositAmountLabel" destination="yw1-X3-KXU" id="Pj4-QN-EGt"/>
                         <outlet property="depositQRCodeImageView" destination="Jfv-dm-ooB" id="KDC-MC-ClY"/>
                         <outlet property="depositWalletView" destination="5jp-zZ-9yJ" id="Qwf-D5-jDr"/>
+                        <outlet property="destinationAddressLabel" destination="4Ax-PB-KHV" id="CR6-zQ-EIF"/>
+                        <outlet property="destinationAddressValueLabel" destination="QVJ-6X-8LH" id="rRK-of-6sD"/>
                         <outlet property="destinationAmountLabel" destination="XVY-D8-Ees" id="Nbw-PT-2BK"/>
                         <outlet property="destinationCurrencyImageView" destination="LyE-It-eHE" id="On7-uD-RVc"/>
                         <outlet property="destinationCurrencySymbolLabel" destination="guQ-97-Rpb" id="u2B-Mf-SqN"/>
@@ -1520,6 +1527,5 @@
         <image name="bitcoinsign.square" catalog="system" width="128" height="114"/>
         <image name="chevron.down" catalog="system" width="128" height="72"/>
         <image name="cruzeirosign.square" catalog="system" width="128" height="114"/>
-        <image name="square.and.arrow.up" catalog="system" width="115" height="128"/>
     </resources>
 </document>

@@ -32,7 +32,7 @@ extension Screens {
     func createExchangeViewController(delegate: ExchangeViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ExchangeViewController") as! ExchangeViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = ExchangeViewModel(delegate: delegate, repository: repository)
+        let viewModel = ExchangeViewModel(delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }

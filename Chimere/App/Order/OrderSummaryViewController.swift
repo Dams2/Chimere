@@ -47,9 +47,9 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBOutlet weak private var totalFeeAmountLabel: UILabel!
     
-    @IBOutlet weak private var networkFeeLabel: UILabel!
+    @IBOutlet weak private var termsOfUseLabel: UILabel!
     
-    @IBOutlet weak private var networkFeeAmountLabel: UILabel!
+    @IBOutlet weak private var termsOfUseButton: UIButton!
     
     @IBOutlet weak private var arrivalTimeLabel: UILabel!
     
@@ -171,6 +171,18 @@ final class OrderSummaryViewController: UIViewController {
             }
         }
         
+        viewModel.termsOfUseText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.termsOfUseLabel.text = text
+            }
+        }
+        
+        viewModel.showTermsOfUse = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.termsOfUseButton.setTitle(text, for: .normal)
+            }
+        }
+        
         viewModel.confirmText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.confirmButton.setTitle(text, for: .normal)
@@ -182,5 +194,10 @@ final class OrderSummaryViewController: UIViewController {
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
         viewModel.didPressConfirm()
+    }
+    
+    @IBAction func didPressTermsOfUseButton(_ sender: UIButton) {
+        guard let url = URL(string: viewModel.didPressTermsOfUse()) else { return }
+        UIApplication.shared.open(url)
     }
 }

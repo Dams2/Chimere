@@ -38,6 +38,16 @@
                ReferencedContainer = "container:Chimere.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "91F102A0246AEC1300515F47"
+               BuildableName = "ChimereUITests.xctest"
+               BlueprintName = "ChimereUITests"
+               ReferencedContainer = "container:Chimere.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

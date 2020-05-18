@@ -40,13 +40,14 @@ final class HTTPEngine {
         }
     }
     
-    func sendWebsocket(request: URLRequest,
+    func sendWebsocket(message: String,
+                       request: URLRequest,
                        cancelledBy token: RequestCancellationToken,
                        callback: @escaping HTTPCompletionHander) {
 
         let task = session.webSocketTask(with: request)
 
-        let message = URLSessionWebSocketTask.Message.string("Envoi les prix cornio")
+        let message = URLSessionWebSocketTask.Message.string(message)
 
         task.send(message) { (error) in
             if let error = error {
