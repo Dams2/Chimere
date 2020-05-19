@@ -101,6 +101,8 @@ final class ExchangeViewModel {
     var alertState: ((Bool) -> Void)?
 
     var orderItems: [String: String] = [:]
+    
+    var loadingState: ((Bool) -> Void)?
 
     // MARK: - Inputs
 
@@ -139,7 +141,7 @@ final class ExchangeViewModel {
     func didPressSwitch(originAmountText: String) {
         switchCurrencies()
         message = "\(destinationCurrencySymbol)/\(originCurrencySymbol)"
-        getPrices(originAmountText: originAmountText)
+        getPrices(originAmountText: originAmountText, message: message)
     }
 
     func didPressChangeDestinationCurrency() {
@@ -149,7 +151,7 @@ final class ExchangeViewModel {
     func didPressWarningAmount(warningAmountText: String,
                                originAmount: String) {
         originAmountText?("\(warningAmountText)")
-        getPrices(originAmountText: warningAmountText)
+        getPrices(originAmountText: warningAmountText, message: message)
         alertState?(true)
     }
 
@@ -191,45 +193,43 @@ final class ExchangeViewModel {
                       "destination_ticker": destinationCurrencySymbol,
                       "destination_address": destinationAddressText,
                       "exchangeRate": exchangeRate]
-        
-        repository.getAddressValidation(for: refundAddressText, symbol: originCurrencySymbol) { (validationDepositAdress) in
-            self.repository.getAddressValidation(for: destinationAddressText, symbol: self.destinationCurrencySymbol) { (valisationDestinationAdress) in
-                self.addressValidation(validationDepositAdress: validationDepositAdress, valisationDestinationAdress: valisationDestinationAdress)
-            }
-        }
 
-//        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
+        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
     }
 
     func updateOrigin(currency: Currency, originAmountText: String) {
-        getPrices(originAmountText: originAmountText)
-        originCurrencyNameText?(currency.name)
+        originCurrencyName = currency.name
         originCurrencySymbol = currency.symbol
         refundAddressText?("\(translator.translate(key: "mobile/Annex/Enter")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/RefundAddress"))")
         delegate?.didDismissCurrenciesList()
-        getPrices(originAmountText: originAmountText)
+        message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
+        getPrices(originAmountText: originAmountText, message: message)
     }
 
     func updateDestination(currency: Currency, originAmountText: String) {
         guard currency.name != originAmountText else { return }
-        destinationCurrencyNameText?(currency.name)
+        destinationCurrencyName = currency.name
         destinationCurrencySymbol = currency.symbol
         destinationAddressText?("\(translator.translate(key: "mobile/Annex/Destination")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/AddressHere"))")
         delegate?.didDismissCurrenciesList()
-        getPrices(originAmountText: originAmountText)
+        message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
+        getPrices(originAmountText: originAmountText, message: message)
     }
-
+    
+    func getRates(originAmountText: String) {
+        message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
+        getPrices(originAmountText: originAmountText, message: message)
+    }
     // MARK: - Helpers
 
-    func getPrices(originAmountText: String) {
+    private func getPrices(originAmountText: String, message: String) {
+        loadingState?(true)
         destinationAmountText?("...")
-        message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
-        print(message)
         repository.getPrices(message: message) { (price) in
             guard let destinationRate = price.askPrice.bestAsk,
                 let originRate = price.bidPrice.bestBid
                 else { return }
-            
+            self.loadingState?(false)
             self.exchangeRateValue(originAmountText: originAmountText,
                                    originRate: originRate,
                                    destinationRate: destinationRate,
@@ -253,6 +253,7 @@ final class ExchangeViewModel {
                                      rate: rate,
                                      maximumPrice: maximumPrice,
                                      minimumPrice: minimumPrice)
+        print("\(destinationCurrencySymbol) / \(originCurrencySymbol)")
         self.exchangeRateText?("1 \(originCurrencySymbol) ~ \(rate) \(destinationCurrencySymbol)")
     }
 

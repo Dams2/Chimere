@@ -78,12 +78,6 @@ final class OrderSummaryViewModel {
         confirmText?(translator.translate(key: "mobile/OrderSummary/ConfirmText"))
 
         setOrder()
-
-        loadingState?(true)
-        repository.postOrder(order: orderItems) { [weak self] (depositResponse) in
-            self?.loadingState?(false)
-            self?.deposit = Deposit(response: depositResponse)
-        }
     }
     
     func didPressTermsOfUse() -> String {
@@ -91,8 +85,16 @@ final class OrderSummaryViewModel {
         return stringUrl
     }
 
-    func didPressConfirm()  {
-        guard let deposit = self.deposit else { return }
+    func postOrder()  {
+        loadingState?(true)
+        repository.postOrder(order: orderItems) { [weak self] (depositResponse) in
+            self?.loadingState?(false)
+            self?.deposit = Deposit(response: depositResponse)
+        }
+    }
+    
+    func didPressConfirm() {
+        guard let deposit = deposit else { return }
         delegate?.didSelectConfirm(deposit: deposit)
     }
 

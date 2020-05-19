@@ -84,9 +84,9 @@ final class DepositViewController: UIViewController {
     
     // MARK: - View life cycle
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//    }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

@@ -25,13 +25,13 @@ end
 
 lane :beta do  
 	
-	#cert
-  	#sigh(force: true)
-	#build_app(scheme: "Chimere") 
- 	#sync_code_signing(type: "appstore")  
-  	#build_app(scheme: "Chimere")
-  	#upload_to_testflight
-  	#slack(message: "Successfully distributed a new beta build")
+	cert
+  	sigh(force: true)
+	build_app(scheme: "Chimere") 
+ 	sync_code_signing(type: "appstore")  
+  	build_app(scheme: "Chimere")
+  	upload_to_testflight
+  	slack(message: "Successfully distributed a new beta build")
 	build_app
   	upload_to_testflight
 end

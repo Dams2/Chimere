@@ -69,13 +69,7 @@ final class HistoryTableViewCell: UITableViewCell {
             self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
             return
         }
-        
-        guard userOrders.state["Failed"] == false else {
-            self.statusLabel.text = "Failed"
-            self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
-            return
-        }
-        
+
         if userOrders.state["Loaded"] == false && userOrders.state["Exchanging"] == false && userOrders.state["Completed"] == false {
             self.statusLabel.text = "Not paid"
             self.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)

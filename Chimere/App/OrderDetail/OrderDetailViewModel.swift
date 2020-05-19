@@ -132,6 +132,10 @@ final class OrderDetailViewModel {
         } else {
             status?(.loaded)
             statusText?("Paid")
+            if order.state["Completed"] == true {
+                status?(.completed)
+                statusText?("Completed")
+            }
         }
         
         guard order.state["Expired"] == false else {

@@ -8,7 +8,7 @@
 
 // - Exchange :
 
-"mobile/Exchange/descriptionText" = "We are making crypto easy to exchange";
+"mobile/Exchange/descriptionText" = "Nous facilitons l'échange de crypto";
 
 "mobile/Exchange/originText" = "Vous envoyez";
 
@@ -18,7 +18,7 @@
 
 "mobile/Exchange/destinationAddressText" = "Entrez l'adresse BTC de destination ici... 👈";
 
-"mobile/Exchange/exchangeNowText" = "Éxchanger Maintenant";
+"mobile/Exchange/exchangeNowText" = "Échanger";
 
 "mobile/Exchange/WarningMinimumAmount" = "Montant minimum:";
 
@@ -68,7 +68,7 @@
 
 "mobile/History/EmptyOrderText" = "Vous n'avez pas de commande";
 
-"mobile/History/ExchangeNowText" = "Échangez maintenant";
+"mobile/History/ExchangeNowText" = "Échangez";
 
 // - Annex :
 

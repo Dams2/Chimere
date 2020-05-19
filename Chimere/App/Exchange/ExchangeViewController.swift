@@ -145,6 +145,18 @@ final class ExchangeViewController: UIViewController {
     }
 
     private func bind(to viewModel: ExchangeViewModel) {
+        
+        viewModel.loadingState = { [weak self] state in
+            DispatchQueue.main.async {
+                self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+                switch state {
+                case true:
+                    self?.switchButton.isEnabled = false
+                case false:
+                    self?.switchButton.isEnabled = true
+                }
+            }
+        }
 
         viewModel.descriptionText = { [weak self] text in
             DispatchQueue.main.async {
@@ -268,16 +280,13 @@ final class ExchangeViewController: UIViewController {
 
     private func changePLaceholderColor(refundAddressText: String, destinationAddressText: String) {
         if refundAddressText.isEmpty && destinationAddressText.isEmpty {
-            changePlaceholder(addressTextField: refundAddressTextField, message: "You must fill refund address here... 👈")
+            changePlaceholder(addressTextField: refundAddressTextField)
         } else if destinationAddressText.isEmpty {
-            changePlaceholder(addressTextField: destinationAddressTextField, message: "You must fill destination address here... 👈")
+            changePlaceholder(addressTextField: destinationAddressTextField)
         }
     }
 
-    private func changePlaceholder(addressTextField: UITextField, message: String) {
-        addressTextField.attributedPlaceholder = NSAttributedString(string: message,
-        attributes: [NSAttributedString.Key.foregroundColor: UIColor.red])
-        
+    private func changePlaceholder(addressTextField: UITextField) {
         let bottomLine = CALayer()
         bottomLine.frame = CGRect(x: 0.0, y: addressTextField.frame.height - 1, width: addressTextField.frame.width, height: 1.0)
         bottomLine.backgroundColor = UIColor.red.cgColor
@@ -290,7 +299,7 @@ final class ExchangeViewController: UIViewController {
         guard let originAmountText = originAmountTextField.text else { return }
         let strReplace = originAmountText.replacingOccurrences(of: ",", with: ".", options: .literal, range: nil)
         sender.text = strReplace 
-        viewModel.getPrices(originAmountText: strReplace)
+        viewModel.getRates(originAmountText: strReplace)
     }
 
     @IBAction private func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
@@ -299,7 +308,8 @@ final class ExchangeViewController: UIViewController {
 
     @IBAction private  func didPressSwitchButton(_ sender: UIButton) {
         guard let originAmountText = originAmountTextField.text else { return}
-
+        
+        
         viewModel.didPressSwitch(originAmountText: originAmountText)
     }
 

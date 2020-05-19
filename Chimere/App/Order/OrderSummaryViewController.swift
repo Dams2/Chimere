@@ -89,6 +89,7 @@ final class OrderSummaryViewController: UIViewController {
                     self?.activityIndicator.startAnimating()
                 default:
                     self?.activityIndicator.stopAnimating()
+                    self?.viewModel.didPressConfirm()
                 }
             }
         }
@@ -193,7 +194,7 @@ final class OrderSummaryViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didPressConfirmButton(_ sender: UIButton) {
-        viewModel.didPressConfirm()
+        viewModel.postOrder()
     }
     
     @IBAction func didPressTermsOfUseButton(_ sender: UIButton) {
