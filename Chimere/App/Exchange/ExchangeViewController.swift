@@ -279,9 +279,7 @@ final class ExchangeViewController: UIViewController {
     }
 
     private func changePLaceholderColor(refundAddressText: String, destinationAddressText: String) {
-        if refundAddressText.isEmpty && destinationAddressText.isEmpty {
-            changePlaceholder(addressTextField: refundAddressTextField)
-        } else if destinationAddressText.isEmpty {
+        if destinationAddressText.isEmpty {
             changePlaceholder(addressTextField: destinationAddressTextField)
         }
     }
@@ -326,17 +324,21 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction private func didPressExchangeNowButton(_ sender: UIButton) {
-        guard let refundAddressText = refundAddressTextField.text,
+        guard let originAmount = originAmountTextField.text,
+            let refundAddressText = refundAddressTextField.text,
             let destinationAddressText = destinationAddressTextField.text
             else { return }
-
-        changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
-
+        
+        
         guard let userID = UIDevice.current.identifierForVendor?.uuidString,
-            let originAmountText = originAmountTextField.text,
-            let destinationAmountText = destinationAmountTextField.text,
-            let exchangeRate = exchangeRateLabel.text
-            else { return }
+        let originAmountText = originAmountTextField.text,
+        let destinationAmountText = destinationAmountTextField.text,
+        let exchangeRate = exchangeRateLabel.text
+        else { return }
+        
+        if !originAmount.isEmpty {
+            changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
+        }
 
         viewModel.didPressExchangeNow(userID: userID,
                                       originAmountText: originAmountText,

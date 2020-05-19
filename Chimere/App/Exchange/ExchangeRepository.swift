@@ -9,7 +9,7 @@
 import Foundation
 
 protocol ExchangeRepositoryType: class {
-    func getAddressValidation(for address: String, symbol: String, callback: @escaping (Bool) -> Void)
+    func getAddressValidation(address: [String: String], callback: @escaping (AddressResponse) -> Void)
     func postOrder(order: [String: String], callback: @escaping (OrderResponse) -> Void)
     func getPrices(message: String, callback: @escaping (PriceResponse) -> Void)
 }
@@ -24,18 +24,17 @@ final class ExchangeRepository: ExchangeRepositoryType {
         self.client = client
     }
     
-    func getAddressValidation(for address: String, symbol: String, callback: @escaping (Bool) -> Void) {
-        
-        let stringURL = "https://shapeshift.io/validateAddress/\(address)/\(symbol)"
+    func getAddressValidation(address: [String: String], callback: @escaping (AddressResponse) -> Void) {
+        let stringURL = "https://chimere.io/api/check/is-valid-address"
         guard let url = URL(string: stringURL) else { return }
-        client.request(type: AddressResponse.self,
-                       requestType: .GET,
-                       url: url,
-                       cancelledBy: token,
-                       completion: { addressResponse in
-                        guard let isValid = addressResponse.isvalid else { return }
-                        callback(isValid)
-        })
+
+        client.upload(type: AddressResponse.self,
+                      requestType: .POST,
+                      dictionary: address,
+                      url: url,
+                      cancelledBy: token) { (validation) in
+                        callback(validation)
+        }
     }
     
     func postOrder(order: [String: String] ,callback: @escaping (OrderResponse) -> Void) {
@@ -44,7 +43,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
 
         client.upload(type: OrderResponse.self,
                       requestType: .POST,
-                      array: order,
+                      dictionary: order,
                       url: url,
                       cancelledBy: token) { (deposit) in
                         callback(deposit)

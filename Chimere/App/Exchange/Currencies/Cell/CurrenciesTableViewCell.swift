@@ -23,12 +23,24 @@ final class CurrenciesTableViewCell: UITableViewCell {
     @IBOutlet weak private var currencyNameLabel: UILabel!
     
     @IBOutlet weak private var currencySymbolLabel: UILabel!
-
+    
+    var active = ""
+    
     // MARK: - Action
     
     func configure(with currency: Currency) {
+        active = currency.active
+        
+        if active == "false" {
+            self.isUserInteractionEnabled = false
+            self.textLabel?.text = "Temporarily disable"
+            self.textLabel?.textAlignment = .center
+        }
+        
         currencyImageView.image = UIImage(named: currency.symbol)
         currencyNameLabel.text = currency.name
         currencySymbolLabel.text = currency.symbol
+        
+        
     }
 }

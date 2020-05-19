@@ -10,6 +10,5 @@ import Foundation
 
 // MARK: - AddressResponse
 struct AddressResponse: Codable {
-    let isvalid: Bool?
-    let error: String?
+    let valid: Bool
 }

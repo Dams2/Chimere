@@ -38,23 +38,9 @@ final class HTTPClient {
         })
     }
 
-    func dataRequest(requestType: RequestType,
-                     url: URL,
-                     cancelledBy token: RequestCancellationToken,
-                     completion: @escaping (Data) -> Void) {
-        
-        var request = URLRequest(url: url)
-        request.httpMethod = requestType.rawValue
-        
-        engine.send(request: request, cancelledBy: token) { data, _, _ in
-            guard let data = data else { return }
-            completion(data)
-        }
-    }
-
     func upload<T>(type: T.Type,
                     requestType: RequestType,
-                    array: [String: String],
+                    dictionary: [String: String],
                     url: URL,
                     cancelledBy token: RequestCancellationToken,
                     completion: @escaping (T) -> Void) where T: Codable {
@@ -62,7 +48,7 @@ final class HTTPClient {
         request.httpMethod = requestType.rawValue
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
         }

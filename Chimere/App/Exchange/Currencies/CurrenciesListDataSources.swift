@@ -37,15 +37,16 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
             return UITableViewCell()
         }
             
-        let recipe = items[indexPath.item]
+        let currency = items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
-        cell.configure(with: recipe)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.298263669, green: 0.2964964211, blue: 0.2996258736, alpha: 1)
+        cell.configure(with: currency)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         didSelectItemAtIndex?(indexPath.item)
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
-        cell.selectionStyle = UITableViewCell.SelectionStyle.none
+        cell.selectionStyle = UITableViewCell.SelectionStyle.default
     }
 }

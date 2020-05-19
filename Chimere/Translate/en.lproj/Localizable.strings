@@ -16,7 +16,7 @@
 
 "mobile/Exchange/destinationText" = "You get approximately";
 
-"mobile/Exchange/destinationAddressText" = "Destination BTC address here... 👈";
+"mobile/Exchange/destinationAddressText" = "Destination LINK address here... 👈";
 
 "mobile/Exchange/exchangeNowText" = "Exchange now";
 
@@ -36,7 +36,7 @@
 
 "mobile/Exchange/Alert/fillDestinationAddress" = "VYou must fill destination address";
 
-"mobile/Exchange/Alert/AddressDoNotExist" = "Your refund or your destination address doesn't exist";
+"mobile/Exchange/Alert/AddressDoNotExist" = "Destination address doesn't exist";
 
 // - OrderSummary :
 

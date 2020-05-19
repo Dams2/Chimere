@@ -121,8 +121,8 @@ final class ExchangeViewModel {
         destinationText?(translator.translate(key: "mobile/Exchange/destinationText"))
         destinationAmountPlaceholderText?("0.01")
         destinationAmountText?("")
-        destinationCurrencyName = "Bitcoin"
-        destinationCurrencySymbol = "BTC"
+        destinationCurrencyName = "Chainlink token"
+        destinationCurrencySymbol = "LINK"
         destinationAddressText?(translator.translate(key: "mobile/Exchange/destinationAddressText"))
 
         warningImageText?("")
@@ -173,12 +173,10 @@ final class ExchangeViewModel {
         }
         
         guard destinationAmountText != "..." else { return }
-        print("---- \(destinationAmountText)")
-
-        guard !refundAddressText.isEmpty else {
-            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillRefundAddress"))
-            return
-        }
+//        guard !refundAddressText.isEmpty else {
+//            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillRefundAddress"))
+//            return
+//        }
 
         guard !destinationAddressText.isEmpty else {
             presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillDestinationAddress"))
@@ -193,8 +191,11 @@ final class ExchangeViewModel {
                       "destination_ticker": destinationCurrencySymbol,
                       "destination_address": destinationAddressText,
                       "exchangeRate": exchangeRate]
-
-        self.delegate?.didSelectExchangeNow(orderItems: orderItems)
+        
+        let address = ["address": destinationAddressText, "chain": destinationCurrencySymbol]
+        repository.getAddressValidation(address: address) { (validation) in
+            self.addressValidation(valisationDestinationAdress: validation.valid)
+        }
     }
 
     func updateOrigin(currency: Currency, originAmountText: String) {
@@ -305,8 +306,8 @@ final class ExchangeViewModel {
         }
     }
 
-    private func addressValidation(validationDepositAdress: Bool, valisationDestinationAdress: Bool) {
-        if validationDepositAdress == false || valisationDestinationAdress == false {
+    private func addressValidation(valisationDestinationAdress: Bool) {
+        if valisationDestinationAdress == false {
             self.presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/AddressDoNotExist"))
             return
         } else {

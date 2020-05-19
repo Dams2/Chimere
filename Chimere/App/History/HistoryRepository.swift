@@ -28,7 +28,7 @@ final class HistoryRepository: HistoryRepositoryType {
 
         client.upload(type: UserOrdersResponse.self,
                       requestType: .POST,
-                      array: order,
+                      dictionary: order,
                       url: url,
                       cancelledBy: token) { (orders) in
                         callback(orders)
