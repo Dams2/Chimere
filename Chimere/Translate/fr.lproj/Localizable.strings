@@ -83,3 +83,5 @@
 "mobile/Annex/SameCurrency" = "vous ne pouvez échanger";
 
 "mobile/Annex/to" = "avec";
+
+"mobile/Annex/TemporarilyDisable" = "désactiver temporairement";

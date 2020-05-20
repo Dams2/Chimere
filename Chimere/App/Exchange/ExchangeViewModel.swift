@@ -186,15 +186,16 @@ final class ExchangeViewModel {
         orderItems = ["owner": userID,
                       "deposit_amount": originAmountText,
                       "deposit_ticker": originCurrencySymbol,
-                      "refund_address": refundAddressText,
+                      "refund_address": "refundAddressText",
                       "destination_amount": destinationAmountText,
                       "destination_ticker": destinationCurrencySymbol,
                       "destination_address": destinationAddressText,
                       "exchangeRate": exchangeRate]
         
         let address = ["address": destinationAddressText, "chain": destinationCurrencySymbol]
+        
         repository.getAddressValidation(address: address) { (validation) in
-            self.addressValidation(valisationDestinationAdress: validation.valid)
+            self.addressValidation(valisationDestinationAdress: validation.valid, orderItems: self.orderItems)
         }
     }
 
@@ -306,13 +307,13 @@ final class ExchangeViewModel {
         }
     }
 
-    private func addressValidation(valisationDestinationAdress: Bool) {
+    private func addressValidation(valisationDestinationAdress: Bool, orderItems: [String: String]) {
         if valisationDestinationAdress == false {
             self.presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/AddressDoNotExist"))
             return
         } else {
             DispatchQueue.main.async {
-                self.delegate?.didSelectExchangeNow(orderItems: self.orderItems)
+                self.delegate?.didSelectExchangeNow(orderItems: orderItems)
             }
         }
     }

@@ -39,7 +39,7 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
             
         let currency = items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
-        cell.textLabel?.textColor = #colorLiteral(red: 0.298263669, green: 0.2964964211, blue: 0.2996258736, alpha: 1)
+        cell.textLabel?.textColor = #colorLiteral(red: 0.2980392157, green: 0.2980392157, blue: 0.2980392157, alpha: 0.6396350599)
         cell.configure(with: currency)
         return cell
     }

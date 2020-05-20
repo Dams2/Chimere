@@ -87,9 +87,13 @@ final class OrderSummaryViewModel {
 
     func postOrder()  {
         loadingState?(true)
+        print(orderItems)
         repository.postOrder(order: orderItems) { [weak self] (depositResponse) in
             self?.loadingState?(false)
             self?.deposit = Deposit(response: depositResponse)
+            DispatchQueue.main.async {
+                self?.didPressConfirm()
+            }
         }
     }
     

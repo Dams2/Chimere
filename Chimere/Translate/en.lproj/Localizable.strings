@@ -34,7 +34,7 @@
 
 "mobile/Exchange/Alert/fillRefundAddress" = "You must fill refund address";
 
-"mobile/Exchange/Alert/fillDestinationAddress" = "VYou must fill destination address";
+"mobile/Exchange/Alert/fillDestinationAddress" = "You must fill destination address";
 
 "mobile/Exchange/Alert/AddressDoNotExist" = "Destination address doesn't exist";
 
@@ -84,3 +84,4 @@
 
 "mobile/Annex/to" = "to";
 
+"mobile/Annex/TemporarilyDisable" = "temporarily disable";

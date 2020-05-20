@@ -73,6 +73,8 @@ final class OrderSummaryViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
         
+        self.navigationController!.navigationBar.tintColor = UIColor.lightGray
+        
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
@@ -89,7 +91,6 @@ final class OrderSummaryViewController: UIViewController {
                     self?.activityIndicator.startAnimating()
                 default:
                     self?.activityIndicator.stopAnimating()
-                    self?.viewModel.didPressConfirm()
                 }
             }
         }
