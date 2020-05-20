@@ -1,0 +1,86 @@
+/* 
+  Localizable.strings
+  Chimere
+
+  Created by Damien Rojo on 18.05.20.
+  Copyright © 2020 Damien Rojo. All rights reserved.
+*/
+
+// - Exchange :
+"mobile/Exchange/descriptionText" = "Facilitamos el intercambio de cripto";
+
+"mobile/Exchange/originText" = "Usted envía";
+
+"mobile/Exchange/refundAddressText" = "Ingrese la dirección ETH de reembolso aquí ... 👈";
+
+"mobile/Exchange/destinationText" = "Aproximadamente";
+
+"mobile/Exchange/destinationAddressText" = "Ingrese la dirección LINK de destino aquí ... 👈";
+
+"mobile/Exchange/exchangeNowText" = "Cambiar";
+
+"mobile/Exchange/WarningMinimumAmount" = "Monto minimo:";
+
+"mobile/Exchange/WarningMaximumAmount" = "Monto máximo:";
+
+///////////// ALERT SAME ASSET
+
+"mobile/Exchange/Alert/title" = "Atención";
+
+"mobile/Exchange/Alert/OkMessage" = "Deacuerdo";
+
+"mobile/Exchange/Alert/fillAnAmount" = "Debes completar un monto";
+
+"mobile/Exchange/Alert/fillRefundAddress" = "Debe completar la dirección de reembolso";
+
+"mobile/Exchange/Alert/fillDestinationAddress" = "Debes completar la dirección de destino";
+
+"mobile/Exchange/Alert/AddressDoNotExist" = "La dirección de destino no existe";
+
+// - OrderSummary :
+
+"mobile/OrderSummary/OrderText" = "Pedido";
+
+"mobile/OrderSummary/ExchangeRateText" = "Tasa de cambio";
+
+"mobile/OrderSummary/ExchangeFee" = "Tarifa de cambio";
+
+"mobile/OrderSummary/ArrivalTimeText" = "Hora de llegada";
+
+"mobile/OrderSummary/TermsOfUseText" = "Al hacer clic en este botón, acepta nuestros";
+
+"mobile/OrderSummary/ShowTermsOfUse" = "condiciones de uso";
+
+"mobile/OrderSummary/ConfirmText" = "Confirmar";
+
+// - Deposit :
+
+"mobile/Deposit/DescriptionText" = "Utilice su billetera para enviar dinero a la siguiente dirección copiando o escaneando el código QR";
+
+"mobile/Deposit/ToThisWalletText" = "A esta dirección";
+
+"mobile/Deposit/AddressText" = "Dirección";
+
+"mobile/Deposit/CompletedText" = "Terminado";
+
+// - History :
+
+"mobile/History/EmptyOrderText" = "No tienes pedidos";
+
+"mobile/History/ExchangeNowText" = "Cambiar";
+
+// - Annex :
+
+"mobile/Annex/Enter" = "Introdusce";
+
+"mobile/Annex/RefundAddress" = "dirección de reembolso aquí... 👈";
+
+"mobile/Annex/Destination" = "Destino";
+
+"mobile/Annex/AddressHere" = "dirección aquí... 👈";
+
+"mobile/Annex/SameCurrency" = "No puedes intercambiar";
+
+"mobile/Annex/to" = "con";
+
+"mobile/Annex/TemporarilyDisable" = "temporarily disable";

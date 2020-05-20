@@ -40,7 +40,7 @@
 
 // - OrderSummary :
 
-"mobile/OrderSummary/OrderText" = "commande";
+"mobile/OrderSummary/OrderText" = "Commande";
 
 "mobile/OrderSummary/ExchangeRateText" = "Taux d'échange";
 
@@ -84,4 +84,3 @@
 
 "mobile/Annex/to" = "avec";
 
-"mobile/Annex/TemporarilyDisable" = "désactiver temporairement";

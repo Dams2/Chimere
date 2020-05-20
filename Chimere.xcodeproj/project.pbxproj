@@ -81,6 +81,7 @@
 		911A5519246366B200F1CDF6 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
 		911DC20D24522C0B003E2679 /* OrderSummaryViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewController.swift; sourceTree = "<group>"; };
 		911DC20F24522C42003E2679 /* OrderSummaryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderSummaryViewModel.swift; sourceTree = "<group>"; };
+		91390FFE2475637B0010956D /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Localizable.strings; sourceTree = "<group>"; };
 		913911C2245A0A67004A9DD2 /* UserOrders.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserOrders.swift; sourceTree = "<group>"; };
 		91456FED2447B6D0009305E8 /* AlertType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertType.swift; sourceTree = "<group>"; };
 		91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertConfiguration.swift; sourceTree = "<group>"; };
@@ -505,6 +506,7 @@
 				en,
 				Base,
 				fr,
+				es,
 			);
 			mainGroup = 9198D0CB24461EE500980FBA;
 			productRefGroup = 9198D0D524461EE500980FBA /* Products */;
@@ -652,6 +654,7 @@
 			children = (
 				919F4E0C2472EC920091865D /* en */,
 				919F4E0E2472ECB40091865D /* fr */,
+				91390FFE2475637B0010956D /* es */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

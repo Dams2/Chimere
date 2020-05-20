@@ -36,12 +36,12 @@ lane :beta do
   	upload_to_testflight
 end
 
-#lane :release do
-#  sync_code_signing
-#  disable_automatic_code_signing(path: "Chimere.xcodeproj")
-#  build_app
-#  enable_automatic_code_signing(path: "Chimere.xcodeproj")
-#  upload_to_testflight
+lane :release do
+	capture_screenshots      
+  	sync_code_signing(type: "appstore") 
+  	build_app(scheme: "Chimere")
+ 	upload_to_app_store              
+  	slack(message: "Successfully uploaded a new App Store build")
 #end
 
 
