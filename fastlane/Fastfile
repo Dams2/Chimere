@@ -32,16 +32,20 @@ lane :beta do
   	build_app(scheme: "Chimere")
   	upload_to_testflight
   	slack(message: "Successfully distributed a new beta build")
+	increment_build_number
 	build_app
   	upload_to_testflight
+	
 end
 
-lane :release do
-	capture_screenshots      
-  	sync_code_signing(type: "appstore") 
-  	build_app(scheme: "Chimere")
- 	upload_to_app_store              
-  	slack(message: "Successfully uploaded a new App Store build")
-end
+
+
+#lane :release do
+	#capture_screenshots      
+  	#sync_code_signing(type: "appstore") 
+  	#build_app(scheme: "Chimere")
+ 	#upload_to_app_store              
+  	#slack(message: "Successfully uploaded a new App Store build")
+#end
 
 
