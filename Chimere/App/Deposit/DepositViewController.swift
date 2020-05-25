@@ -84,16 +84,13 @@ final class DepositViewController: UIViewController {
     
     // MARK: - View life cycle
     
-//    override func viewDidLoad() {
-//        super.viewDidLoad()
-//    }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
+    override func viewDidLoad() {
+        super.viewDidLoad()
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
     }
-    
+
     // MARK: - Helpers
     
     private func bind(to viewModel: DepositViewModel) {

@@ -62,13 +62,13 @@
 
 "mobile/Deposit/AddressText" = "Adresse";
 
-"mobile/Deposit/CompletedText" = "Terminé";
+"mobile/Deposit/CompletedText" = "Terminer";
 
 // - History :
 
 "mobile/History/EmptyOrderText" = "Vous n'avez pas de commande";
 
-"mobile/History/ExchangeNowText" = "Échangez";
+"mobile/History/ExchangeNowText" = "Échanger";
 
 // - Annex :
 

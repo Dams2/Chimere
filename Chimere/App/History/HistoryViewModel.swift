@@ -53,6 +53,7 @@ final class HistoryViewModel {
     // MARK: - Inputs
     
     func viewDidLoad(userID: String) {
+        loadingState?(.isTrue)
         findOrder(userID: userID)
     }
     
@@ -64,7 +65,7 @@ final class HistoryViewModel {
     }
     
     func findOrder(userID: String) {
-        loadingState?(.isTrue)
+        historyItem.removeAll()
         repository.findOrders(order: ["owner": userID]) { (orderResponse) in
             DispatchQueue.main.async {
                 self.loadingState?(.isFalse)
@@ -78,6 +79,8 @@ final class HistoryViewModel {
             }
         }
     }
+    
+    
     
     func didPressExchangeNow() {
         delegate?.didShowExchange()

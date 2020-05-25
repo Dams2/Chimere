@@ -71,7 +71,7 @@ final class DepositViewModel {
         descriptionText?(translator.translate(key: "mobile/Deposit/DescriptionText"))
         
         sendText?(translator.translate(key: "mobile/Exchange/originText"))
-        depositAmountText?("\(deposit.depositAmount)")
+        depositAmountText?("\(deposit.depositAmount) \(deposit.depositSymbol)")
         copyDepositAmountImageText?("square.on.square")
         
         toThisWalletText?(translator.translate(key: "mobile/Deposit/ToThisWalletText"))

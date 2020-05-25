@@ -40,7 +40,7 @@ final class HistoryViewController: UIViewController {
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
-//        tableView.refreshControl = refreshControl
+        tableView.refreshControl = refreshControl
         
         exchangeNowButton.isEnabled = false
 
@@ -50,7 +50,7 @@ final class HistoryViewController: UIViewController {
         viewModel.viewDidLoad(userID: userID)
         
         setUI()
-//        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
+        refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)
     }
 
     // MARK: - Helpers
@@ -91,18 +91,18 @@ final class HistoryViewController: UIViewController {
         dataSource.didSelectItemAtIndex = viewModel.didSelectItem
     }
     
-//    @objc private func refreshWeatherData(_ sender: Any) {
-//        activityIndicator.isHidden = true
-//        guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
-//        DispatchQueue.main.async {
-//            self.tableView.reloadData()
-//            self.viewModel.findOrder(userID: userID)
-//        }
-//
-//        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-//            self.refreshControl.endRefreshing()
-//        }
-//    }
+    @objc private func refreshWeatherData(_ sender: Any) {
+        activityIndicator.isHidden = true
+        guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
+        DispatchQueue.main.async {
+            self.tableView.reloadData()
+            self.viewModel.findOrder(userID: userID)
+        }
+
+        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+            self.refreshControl.endRefreshing()
+        }
+    }
     
     private func setUI() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)

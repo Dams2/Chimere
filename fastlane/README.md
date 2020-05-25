@@ -20,6 +20,16 @@ or alternatively using `brew cask install fastlane`
 fastlane beta
 ```
 
+### certificates
+```
+fastlane certificates
+```
+
+### release
+```
+fastlane release
+```
+
 
 ----
 
