@@ -14,5 +14,6 @@ extension Currency {
         self.symbol = "\(response.ticker)"
         self.price = ""
         self.active = "\(response.active)"
+        self.image = "\(response.imgURL)"
     }
 }

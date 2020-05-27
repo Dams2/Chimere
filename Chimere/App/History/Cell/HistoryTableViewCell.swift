@@ -13,7 +13,7 @@ final class HistoryTableViewCell: UITableViewCell {
     // MARK: - Private Properties
     
     private let helper = Helper()
-
+    
     // MARK: - Outlets
     
     @IBOutlet private weak var statusView: UIView! {

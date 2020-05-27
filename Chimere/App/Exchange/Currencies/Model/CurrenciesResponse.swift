@@ -18,11 +18,12 @@ struct Asset: Codable {
     let ticker: String
     let imgURL: String
     let currency, active, id: String
+    let `protocol`: String?
 
     enum CodingKeys: String, CodingKey {
         case ticker
         case imgURL = "img_url"
-        case currency, active
+        case currency, active, `protocol`
         case id = "_id"
     }
 }

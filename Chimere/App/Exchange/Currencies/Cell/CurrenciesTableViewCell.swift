@@ -13,8 +13,6 @@ final class CurrenciesTableViewCell: UITableViewCell {
     // MARK: - Private Properties
     
     private var client: HTTPClient!
-
-    private var token: RequestCancellationToken?
     
     // MARK: - Outlets
     
@@ -36,7 +34,6 @@ final class CurrenciesTableViewCell: UITableViewCell {
             self.textLabel?.text = "Temporarily disable"
             self.textLabel?.textAlignment = .center
         }
-        
         currencyImageView.image = UIImage(named: currency.symbol)
         currencyNameLabel.text = currency.name
         currencySymbolLabel.text = currency.symbol

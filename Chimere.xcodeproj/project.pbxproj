@@ -19,6 +19,8 @@
 		9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9146345D2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift */; };
 		914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F77F62450EFE50018FA7F /* CurrenciesListViewModel.swift */; };
 		914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */; };
+		9159DE3C247EF6BF00FCA926 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159DE3B247EF6BF00FCA926 /* ImageRepository.swift */; };
+		9159DE3E247EF6DD00FCA926 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159DE3D247EF6DD00FCA926 /* ImageProvider.swift */; };
 		9195111424465C8000595300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111324465C8000595300 /* ViewController.swift */; };
 		9195111724474D4F00595300 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111624474D4F00595300 /* DepositViewController.swift */; };
 		9195111924474D7300595300 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111824474D7300595300 /* DepositViewModel.swift */; };
@@ -93,6 +95,8 @@
 		9146345D2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Currency+CurrenciesResponse.swift"; sourceTree = "<group>"; };
 		914F77F62450EFE50018FA7F /* CurrenciesListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListViewModel.swift; sourceTree = "<group>"; };
 		914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListRepository.swift; sourceTree = "<group>"; };
+		9159DE3B247EF6BF00FCA926 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
+		9159DE3D247EF6DD00FCA926 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
 		9195111324465C8000595300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9195111624474D4F00595300 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		9195111824474D7300595300 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
@@ -203,6 +207,15 @@
 				91456FEF2447B6F2009305E8 /* AlertConfiguration.swift */,
 			);
 			path = Alert;
+			sourceTree = "<group>";
+		};
+		9159DE3A247EF6A400FCA926 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				9159DE3B247EF6BF00FCA926 /* ImageRepository.swift */,
+				9159DE3D247EF6DD00FCA926 /* ImageProvider.swift */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 		9195111224465C5C00595300 /* Extension */ = {
@@ -336,6 +349,7 @@
 				9195111524474D3500595300 /* Deposit */,
 				91E45370244EA2370053593B /* History */,
 				91B70F9F245A4B1500D9F9AE /* OrderDetail */,
+				9159DE3A247EF6A400FCA926 /* Image */,
 				911A55182463669000F1CDF6 /* Helper */,
 			);
 			path = App;
@@ -493,14 +507,17 @@
 				TargetAttributes = {
 					9198D0D324461EE500980FBA = {
 						CreatedOnToolsVersion = 11.4;
+						ProvisioningStyle = Automatic;
 					};
 					9198D0EC24461EEA00980FBA = {
 						CreatedOnToolsVersion = 11.4;
 						LastSwiftMigration = 1140;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 9198D0D324461EE500980FBA;
 					};
 					91F102A0246AEC1300515F47 = {
 						CreatedOnToolsVersion = 11.4.1;
+						ProvisioningStyle = Automatic;
 						TestTargetID = 9198D0D324461EE500980FBA;
 					};
 				};
@@ -595,6 +612,7 @@
 				914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */,
 				911A551A246366B200F1CDF6 /* Helper.swift in Sources */,
 				9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */,
+				9159DE3C247EF6BF00FCA926 /* ImageRepository.swift in Sources */,
 				91DD8708244F581E001DDD2A /* OrderResponse.swift in Sources */,
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,
 				9198D1132446242800980FBA /* ExchangeViewController.swift in Sources */,
@@ -603,6 +621,7 @@
 				91C2D1D82447C68600BEFBBF /* ExchangeRepository.swift in Sources */,
 				913911C3245A0A67004A9DD2 /* UserOrders.swift in Sources */,
 				9195111924474D7300595300 /* DepositViewModel.swift in Sources */,
+				9159DE3E247EF6DD00FCA926 /* ImageProvider.swift in Sources */,
 				91E45372244EA2870053593B /* HistoryViewModel.swift in Sources */,
 				9146345E2449E62A00CE9BB6 /* Currency+CurrenciesResponse.swift in Sources */,
 				911DC21024522C42003E2679 /* OrderSummaryViewModel.swift in Sources */,
@@ -791,8 +810,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -813,8 +833,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 11;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = Chimere/Ressources/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -825,6 +846,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = com.DRojo.chimere;
 				PRODUCT_NAME = Chimere;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -882,7 +904,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = ChimereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -903,7 +925,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 20;
 				DEVELOPMENT_TEAM = SPYXZN2GGQ;
 				INFOPLIST_FILE = ChimereUITests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

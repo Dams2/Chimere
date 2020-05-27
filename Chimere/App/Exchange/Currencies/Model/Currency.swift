@@ -13,4 +13,5 @@ struct Currency {
     let symbol: String
     let price: String
     let active: String
+    let image: String
 }

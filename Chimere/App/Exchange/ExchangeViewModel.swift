@@ -154,6 +154,11 @@ final class ExchangeViewModel {
         getPrices(originAmountText: warningAmountText, message: message)
         alertState?(true)
     }
+    
+    func didPressMoonPay() -> String {
+        let stringUrl = "https://buy-staging.moonpay.io?apiKey=pk_test_jIDOTIygj6fx1MLkSwuINiPl2LpCxx"
+        return stringUrl
+    }
 
     func didPressExchangeNow(userID: String,
                              originAmountText: String,
