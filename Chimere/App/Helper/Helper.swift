@@ -10,6 +10,11 @@ import UIKit
 
 final class Helper {
     
+    func openTermsOfUseLink() -> String {
+        let stringUrl = "https://chimere.io/terms-of-use"
+        return stringUrl
+    }
+    
     func generateQRCode(from string: String) -> UIImage? {
         let data = string.data(using: String.Encoding.ascii)
 
@@ -26,7 +31,8 @@ final class Helper {
     }
     
     func copyNotified(button: UIButton, label: UILabel) {
-        UIPasteboard.general.string = label.text
+        guard let string = label.text else { return }
+        UIPasteboard.general.string = string.filter("0123456789.".contains)
         button.setBackgroundImage(UIImage(systemName: "checkmark.seal"), for: .normal)
         
         DispatchQueue.main.asyncAfter(deadline: .now() + 0.3) {

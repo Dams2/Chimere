@@ -21,7 +21,7 @@ final class CurrenciesListViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet private weak var tableView: UITableView!
     
     // MARK: - View life cycle
     
@@ -29,9 +29,11 @@ final class CurrenciesListViewController: UIViewController {
         super.viewDidLoad()
         
         bind(to: dataSource)
-
+        
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        
+        
     }
 
     // MARK: - Helpers

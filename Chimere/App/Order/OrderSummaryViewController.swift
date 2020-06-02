@@ -199,7 +199,6 @@ final class OrderSummaryViewController: UIViewController {
     }
     
     @IBAction func didPressTermsOfUseButton(_ sender: UIButton) {
-        guard let url = URL(string: viewModel.didPressTermsOfUse()) else { return }
-        UIApplication.shared.open(url)
+        viewModel.didPressTermsOfUse()
     }
 }

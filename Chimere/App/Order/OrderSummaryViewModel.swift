@@ -80,9 +80,8 @@ final class OrderSummaryViewModel {
         setOrder()
     }
     
-    func didPressTermsOfUse() -> String {
-        let stringUrl = "https://chimere.io/terms-of-use"
-        return stringUrl
+    func didPressTermsOfUse(){
+        delegate?.didSelectTermsOfUse()
     }
 
     func postOrder()  {

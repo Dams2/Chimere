@@ -27,13 +27,11 @@ lane :certificates do
 	match(app_identifier: "com.DRojo.chimere")
 end
 
-lane :beta do  
-	match(app_identifier: "com.DRojo.chimere")
-	build_app
-  	upload_to_testflight
-  	slack(message: "Successfully distributed a new beta build")
+lane :beta do 
+	sync_code_signing(type: "appstore")
+	build_app(scheme: "Chimere")
+	upload_to_app_store
 end
-
 
 lane :release do
 	sync_code_signing(type: "appstore")
@@ -44,20 +42,3 @@ lane :release do
 	#upload_to_app_store
 	#slack(message: "Successfully uploaded a new App Store build")   
 end
-
-#lane :release do
-#cert(development:true)
-
-  	#sigh(development:true,force: true)
-	#build_app(scheme: "Chimere") 
- 	#sync_code_signing(type: "appstore")  
-  	#build_app(scheme: "Chimere")
-
-	#cert
-  	#sigh(force: true)
-	#capture_screenshots      
-  	#sync_code_signing(type: "appstore") 
-  	#build_app(scheme: "Chimere")
- 	#upload_to_app_store              
-  	#slack(message: "Successfully uploaded a new App Store build")
-#end

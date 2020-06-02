@@ -60,6 +60,11 @@ final class ExchangeCoordinator {
         presenter.pushViewController(viewController, animated: true)
     }
     
+    private func showTermsOfUse() {
+        let viewController = screens.createTermsOfUseViewController()
+        presenter.showDetailViewController(viewController, sender: self)
+    }
+    
     private func showDeposit(deposit: Deposit) {
         let viewController = screens.createDepositViewController(deposit: deposit, delegate: self)
         presenter.pushViewController(viewController, animated: true)
@@ -117,5 +122,9 @@ extension ExchangeCoordinator: CurrenciesListViewControllerDelegate {
 extension ExchangeCoordinator: OrderSummaryViewControllerDelegate {
     func didSelectConfirm(deposit: Deposit) {
         showDeposit(deposit: deposit)
+    }
+    
+    func didSelectTermsOfUse() {
+        showTermsOfUse()
     }
 }

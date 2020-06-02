@@ -54,6 +54,7 @@ extension Screens {
 
 protocol OrderSummaryViewControllerDelegate: class {
     func didSelectConfirm(deposit: Deposit)
+    func didSelectTermsOfUse()
 }
 
 extension Screens {
@@ -62,6 +63,13 @@ extension Screens {
         let repository = ExchangeRepository(client: context.client)
         let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createTermsOfUseViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TermsOfUseViewController") as! TermsOfUseViewController
         return viewController
     }
 }

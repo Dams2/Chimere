@@ -28,11 +28,13 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
         self.items = item
     }
 
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView,
+                   numberOfRowsInSection section: Int) -> Int {
         return items.count
     }
     
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView,
+                   cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard items.count > indexPath.item else {
             return UITableViewCell()
         }
@@ -44,7 +46,8 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
         return cell
     }
     
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView,
+                   didSelectRowAt indexPath: IndexPath) {
         didSelectItemAtIndex?(indexPath.item)
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
         cell.selectionStyle = UITableViewCell.SelectionStyle.default
