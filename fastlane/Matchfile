@@ -19,7 +19,7 @@ git_url "https://github.com/Dams2/fastlaneCertificates.git" #your private git re
 
 #type "development" 
 # Either development, appstore etc.
-app_identifier 'com.DRojo.chimere'
+app_identifier 'io.chimere.swap'
 #force true
 shallow_clone true
 force_for_new_devices true

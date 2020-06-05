@@ -80,8 +80,6 @@ final class HistoryViewModel {
         }
     }
     
-    
-    
     func didPressExchangeNow() {
         delegate?.didShowExchange()
     }

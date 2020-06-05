@@ -189,19 +189,19 @@ final class DepositViewController: UIViewController {
     // MARK: - Actions
     
     @IBAction private func didPressCopyTransactionIDButton(_ sender: UIButton) {
-        helper.copyNotified(button: sender, label: transactionIDValueLabel)
+        helper.copyNotified(button: sender, label: transactionIDValueLabel, bool: false)
     }
     
     @IBAction private func didPressCopyDepositAmountButton(_ sender: UIButton) {
-        helper.copyNotified(button: sender, label: depositAmountLabel)
+        helper.copyNotified(button: sender, label: depositAmountLabel, bool: true)
     }
     
     @IBAction private func didPressCopyDepositAdressButton(_ sender: UIButton) {
-        helper.copyNotified(button: sender, label: depositAddressLabel)
+        helper.copyNotified(button: sender, label: depositAddressLabel, bool: false)
     }
     
     @IBAction private func didPressCopyMessageValueButton(_ sender: UIButton) {
-        helper.copyNotified(button: sender, label: messageValueLabel)
+        helper.copyNotified(button: sender, label: messageValueLabel, bool: false)
     }
     
     @IBAction func didPressCompletedButton(_ sender: UIButton) {

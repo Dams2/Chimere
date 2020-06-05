@@ -34,7 +34,7 @@ final class HistoryCoordinator {
         presenter.viewControllers = [viewController]
     }
     
-    internal func showExchange() {
+    private func showExchange() {
         
     }
     

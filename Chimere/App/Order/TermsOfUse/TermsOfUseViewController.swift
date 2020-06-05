@@ -23,7 +23,7 @@ final class TermsOfUseViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        webView.scrollView.bounces = false
         DispatchQueue.main.async {
             self.webView.load(self.helper.openTermsOfUseLink())
         }

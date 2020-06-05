@@ -24,7 +24,7 @@ platform :ios do
 end
 
 lane :certificates do
-	match(app_identifier: "com.DRojo.chimere")
+	match(app_identifier: "io.chimere.swap")
 end
 
 lane :beta do 
@@ -37,8 +37,10 @@ lane :release do
 	sync_code_signing(type: "appstore")
 	#capture_screenshots
 	#sync_code_signing
-  	#build_app
-	build_app(scheme: "Chimere")
-	#upload_to_app_store
+  	build_app
+	#build_app(scheme: "Chimere")
+	upload_to_app_store
 	#slack(message: "Successfully uploaded a new App Store build")   
 end
+
+

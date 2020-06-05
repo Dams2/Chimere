@@ -109,6 +109,13 @@ extension Screens {
 }
 
 extension Screens {
+    func createFiatViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FiatViewController") as! FiatViewController
+        return viewController
+    }
+}
+
+extension Screens {
     func createAlert(with configuration: AlertConfiguration) -> UIAlertController {
         let alertController = UIAlertController()
         alertController.title = configuration.title

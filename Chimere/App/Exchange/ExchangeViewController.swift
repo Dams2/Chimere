@@ -10,23 +10,19 @@ import UIKit
 
 final class ExchangeViewController: UIViewController {
     
-    // MARK: - Private Properties
+    // MARK: - Properties
 
     var viewModel: ExchangeViewModel!
+    
+    // MARK: - Private Properties
+    
+    let helper = Helper()
     
     private lazy var fiatBarButtonItem: UIBarButtonItem = {
         let fiatButton = UIBarButtonItem(image: UIImage(systemName: "dollarsign.circle"),
                                             style: .done, target: self, action: nil)
         fiatButton.tintColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
         return fiatButton
-    }()
-
-    private lazy var setTitleViewImage: UIImageView = {
-        let imageView = UIImageView(frame: CGRect(x: -40, y: 0, width: 40, height: 40))
-        imageView.contentMode = .scaleAspectFit
-        let image = UIImage(named: "Chimere")
-        imageView.image = image
-        return imageView
     }()
     
     // MARK: - Outlets
@@ -150,12 +146,9 @@ final class ExchangeViewController: UIViewController {
     // MARK: - Helpers
     
     private func setUI() {
-        self.navigationItem.titleView = setTitleViewImage
+        self.navigationItem.titleView = helper.setTitleViewImage
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        
-//        self.navigationItem.setRightBarButton(fiatBarButtonItem, animated: true)
-        
         self.tabBarController?.tabBar.barTintColor = .white
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
     }
