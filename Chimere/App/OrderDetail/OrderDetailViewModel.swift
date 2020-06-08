@@ -25,6 +25,16 @@ final class OrderDetailViewModel {
     
     var statusText: ((String) -> Void)?
     
+    var statusStep1Text: ((String) -> Void)?
+    
+    var statusStep1ImageText: ((String) -> Void)?
+    
+    var statusStep2Text: ((String) -> Void)?
+    
+    var statusStep2ImageText: ((String) -> Void)?
+    
+    var statusStep3Text: ((String) -> Void)?
+    
     var transactionIDText: ((String) -> Void)?
     
     var transactionIDValueText: ((String) -> Void)?
@@ -89,6 +99,12 @@ final class OrderDetailViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
+        statusStep1Text?(translator.translate(key: "mobile/History/paid"))
+        statusStep1ImageText?("arrow.right")
+        statusStep2Text?(translator.translate(key: "mobile/History/exchanging"))
+        statusStep2ImageText?("arrow.right")
+        statusStep3Text?(translator.translate(key: "mobile/History/completed"))
+        
         transactionIDText?("Transaction ID:")
         transactionIDValueText?(order.id)
         copyTansactionIDImageText?("square.on.square")
@@ -116,31 +132,38 @@ final class OrderDetailViewModel {
         depositAddressText?(order.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
-        messageText?("")
+            
         messageValueText?("")
         copyMessageValueImageText?("")
         
         guard order.state["Failed"] == false else {
             status?(.failed)
-            statusText?("Failed")
+            statusText?(translator.translate(key: "mobile/History/failed"))
             return
         }
         
-        if order.state["Loaded"] == false && order.state["Exchanging"] == false && order.state["Completed"] == false {
-            statusText?("Not paid")
+        if order.state["Loaded"] == false {
+            statusText?(translator.translate(key: "mobile/History/notPaid"))
             status?(.notPaid)
-        } else {
+        }
+        
+        if order.state["Loaded"] == true {
             status?(.loaded)
-            statusText?("Paid")
-            if order.state["Completed"] == true {
-                status?(.completed)
-                statusText?("Completed")
-            }
+            statusStep1ImageText?("minus")
+        }
+        
+        if order.state["Exchanging"] == true {
+            status?(.exchanging)
+            statusStep2ImageText?("minus")
+        }
+        
+        if order.state["Completed"] == true {
+            status?(.completed)
         }
         
         guard order.state["Expired"] == false else {
             status?(.expired)
-            statusText?("Expired")
+            statusText?(translator.translate(key: "mobile/History/expired"))
             return
         }
     }

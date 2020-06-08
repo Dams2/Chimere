@@ -31,13 +31,13 @@ final class CurrenciesTableViewCell: UITableViewCell {
         
         if active == "false" {
             self.isUserInteractionEnabled = false
-            self.textLabel?.text = "Temporarily disable"
-            self.textLabel?.textAlignment = .center
+            let isDisable = "Disable"
+            self.currencySymbolLabel.text = "\(isDisable) \(currency.symbol)"
         }
         currencyImageView.image = UIImage(named: currency.symbol)
         currencyNameLabel.text = currency.name
-        currencySymbolLabel.text = currency.symbol
-        
-        
+        if active == "true" {
+            currencySymbolLabel.text = currency.symbol
+        }
     }
 }

@@ -6,7 +6,14 @@
   Copyright © 2020 Damien Rojo. All rights reserved.
 */
 
+// - TabBar :
+
+"mobile/TabBar/exchange" = "Intercambiar";
+
+"mobile/TabBar/history" = "Histórico";
+
 // - Exchange :
+
 "mobile/Exchange/descriptionText" = "Facilitamos el intercambio de crypto";
 
 "mobile/Exchange/originText" = "Usted envía";
@@ -68,6 +75,18 @@
 "mobile/History/EmptyOrderText" = "No tienes pedidos";
 
 "mobile/History/ExchangeNowText" = "Cambiar";
+
+"mobile/History/completed" = "Terminado";
+
+"mobile/History/exchanging" = "Cambiando";
+
+"mobile/History/paid" = "Pagado";
+
+"mobile/History/notPaid" = "No pagado";
+
+"mobile/History/expired" = "Caducada";
+
+"mobile/History/failed" = "Fallido";
 
 // - Annex :
 

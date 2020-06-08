@@ -36,7 +36,7 @@ final class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
-        
+
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource

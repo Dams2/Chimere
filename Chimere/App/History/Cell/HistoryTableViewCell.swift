@@ -64,31 +64,29 @@ final class HistoryTableViewCell: UITableViewCell {
         destinationCurrencySymbolLabel.text = userOrders.destinationSymbol
         dateLabel.text = userOrders.createdDate
         
+        let translator = Translator(with: "")
+
         guard userOrders.state["Failed"] == false else {
-            self.statusLabel.text = "Failed"
+            self.statusLabel.text = translator.translate(key: "mobile/History/failed")
             self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
             return
         }
 
         if userOrders.state["Loaded"] == false && userOrders.state["Exchanging"] == false && userOrders.state["Completed"] == false {
-            self.statusLabel.text = "Not paid"
+            self.statusLabel.text = translator.translate(key: "mobile/History/notPaid")
             self.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
         } else {
-            self.statusLabel.text = "Paid"
-            self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
-            if userOrders.state["Completed"] == true {
-                self.statusLabel.text = "Completed"
-                self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
-            }
+            self.statusLabel.text = translator.translate(key: "mobile/History/paid")
+            self.statusLabel.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
         }
         
         if userOrders.state["Completed"] == true {
-            self.statusLabel.text = "Completed"
-            self.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+            self.statusLabel.text = translator.translate(key: "mobile/History/completed")
+            self.statusLabel.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
         }
         
         guard userOrders.state["Expired"] == false else {
-            self.statusLabel.text = "Expired"
+            self.statusLabel.text = translator.translate(key: "mobile/History/expired")
             self.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1770516336, alpha: 1)
             return
         }

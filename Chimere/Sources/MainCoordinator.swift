@@ -10,8 +10,8 @@ import UIKit
 
 enum ViewControllerItem: Int {
     case exchange = 0
-    case fiat = 1
-    case history = 2
+//    case fiat = 1
+    case history = 1
 }
 
 protocol TabBarSourceType {
@@ -32,14 +32,15 @@ extension TabBarSourceType {
 fileprivate class TabBarSource: TabBarSourceType {
     var items: [UINavigationController] = [
         UINavigationController(nibName: nil, bundle: nil),
-        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
+//        UINavigationController(nibName: nil, bundle: nil)
     ]
 
     init() {
-        self[.exchange].tabBarItem = UITabBarItem(title: "Exchange", image: UIImage(systemName: "bitcoinsign.circle"), tag: 0)
-        self[.fiat].tabBarItem = UITabBarItem(title: "Fiat", image: UIImage(systemName: "dollarsign.circle"), tag: 1)
-        self[.history].tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "book.circle"), tag: 2)
+        let translator = Translator(with: "")
+        self[.exchange].tabBarItem = UITabBarItem(title: translator.translate(key: "mobile/TabBar/exchange"), image: UIImage(systemName: "bitcoinsign.circle"), tag: 0)
+//        self[.fiat].tabBarItem = UITabBarItem(title: "Fiat", image: UIImage(systemName: "dollarsign.circle"), tag: 1)
+        self[.history].tabBarItem = UITabBarItem(title: translator.translate(key: "mobile/TabBar/history"), image: UIImage(systemName: "book.circle"), tag: 2)
     }
 }
 
@@ -91,7 +92,7 @@ final class MainCoordinator: NSObject {
     }
     
     private func shopFiat() {
-        fiatCoordinator = FiatCoordinator(presenter: tabBarSource[.fiat], screens: screens)
+//        fiatCoordinator = FiatCoordinator(presenter: tabBarSource[.fiat], screens: screens)
         fiatCoordinator?.start()
     }
     
@@ -111,8 +112,8 @@ extension MainCoordinator: UITabBarControllerDelegate {
         switch item {
         case .exchange:
             showHome()
-        case .fiat:
-            shopFiat()
+//        case .fiat:
+//            shopFiat()
         case .history:
             showHistory()
         }

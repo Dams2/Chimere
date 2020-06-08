@@ -27,6 +27,18 @@ final class OrderDetailViewController: UIViewController {
     }
     
     @IBOutlet weak private var statusLabel: UILabel!
+
+    @IBOutlet weak private var statusStep1Label: UILabel!
+    
+    @IBOutlet weak private var statusStep1ImageView: UIImageView!
+    
+    @IBOutlet weak private var statusStep2Label: UILabel!
+    
+    @IBOutlet weak private var statusStep2ImageView: UIImageView!
+    
+    @IBOutlet weak private var statusStep3Label: UILabel!
+    
+    @IBOutlet weak private var statusStackView: UIStackView!
     
     @IBOutlet weak private var transactionIDLabel: UILabel!
     
@@ -48,9 +60,9 @@ final class OrderDetailViewController: UIViewController {
     
     @IBOutlet weak private var destinationCurrencySymbolLabel: UILabel!
     
-    @IBOutlet weak var destinationAddressLabel: UILabel!
+    @IBOutlet weak private var destinationAddressLabel: UILabel!
     
-    @IBOutlet weak var destinationAddressValueLabel: UILabel!
+    @IBOutlet weak private var destinationAddressValueLabel: UILabel!
     
     @IBOutlet weak private var dateLabel: UILabel!
     
@@ -115,26 +127,62 @@ final class OrderDetailViewController: UIViewController {
             case .failed:
                 self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
                 self?.depositWalletView.isHidden = true
+                self?.statusStackView.isHidden = true
+                self?.statusLabel.isHidden = false
             case .loaded:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
+                self?.statusStep1Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
+                self?.statusStep1ImageView.tintColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
                 self?.depositWalletView.isHidden = true
+                self?.statusStackView.isHidden = false
+                self?.statusLabel.isHidden = true
             case .exchanging:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
-                self?.depositWalletView.isHidden = true
+                self?.statusStep2Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
+                self?.statusStep2ImageView.tintColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
             case .completed:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.380194066, green: 0.8453993896, blue: 0.1441816635, alpha: 1)
-                self?.depositWalletView.isHidden = true
+                self?.statusStep3Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
             case .expired:
                 self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
                 self?.depositWalletView.isHidden = true
+                self?.statusStackView.isHidden = true
             case .notPaid:
                 self?.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+                self?.statusStackView.isHidden = true
             }
         }
         
         viewModel.statusText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.statusLabel.text = text
+            }
+        }
+        
+        viewModel.statusStep1Text = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.statusStep1Label.text = text
+            }
+        }
+        
+        viewModel.statusStep1ImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.statusStep1ImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.statusStep2Text = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.statusStep2Label.text = text
+            }
+        }
+        
+        viewModel.statusStep2ImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.statusStep2ImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.statusStep3Text = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.statusStep3Label.text = text
             }
         }
 

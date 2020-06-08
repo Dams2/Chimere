@@ -121,8 +121,6 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var warningLabel: UILabel!
     
     @IBOutlet weak private var warningAmountButton: UIButton!
-
-    @IBOutlet weak private var moonPaybutton: UIButton!
     
     @IBOutlet weak private var exchangeNowButton: UIButton! {
         didSet {
@@ -332,12 +330,6 @@ final class ExchangeViewController: UIViewController {
         viewModel.didPressWarningAmount(warningAmountText: warningAmountText, originAmount: originAmountText)
     }
     
-    
-    @IBAction private func didPressMoonPayButton(_ sender: UIButton) {
-        guard let url = URL(string: viewModel.didPressMoonPay()) else { return }
-        UIApplication.shared.open(url)
-    }
-    
     @IBAction private func didPressExchangeNowButton(_ sender: UIButton) {
         guard let originAmount = originAmountTextField.text,
             let refundAddressText = refundAddressTextField.text,
@@ -354,7 +346,7 @@ final class ExchangeViewController: UIViewController {
         if !originAmount.isEmpty {
             changePLaceholderColor(refundAddressText: refundAddressText, destinationAddressText: destinationAddressText)
         }
-
+        
         viewModel.didPressExchangeNow(userID: userID,
                                       originAmountText: originAmountText,
                                       refundAddressText: refundAddressText,

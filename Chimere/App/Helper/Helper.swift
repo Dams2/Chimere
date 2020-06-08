@@ -10,6 +10,8 @@ import UIKit
 
 final class Helper {
     
+    var translator: Translator?
+    
     lazy var setTitleViewImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: -40, y: 0, width: 40, height: 40))
         imageView.contentMode = .scaleAspectFit

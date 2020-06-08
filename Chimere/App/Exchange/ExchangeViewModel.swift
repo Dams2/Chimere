@@ -178,10 +178,6 @@ final class ExchangeViewModel {
         }
         
         guard destinationAmountText != "..." else { return }
-//        guard !refundAddressText.isEmpty else {
-//            presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillRefundAddress"))
-//            return
-//        }
 
         guard !destinationAddressText.isEmpty else {
             presentAlert(message: translator.translate(key: "mobile/Exchange/Alert/fillDestinationAddress"))
