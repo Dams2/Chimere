@@ -107,6 +107,7 @@ final class HistoryViewController: UIViewController {
     private func setUI() {
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        self.tableView.separatorStyle = UITableViewCell.SeparatorStyle.none
     }
     
     // MARK: - Actions

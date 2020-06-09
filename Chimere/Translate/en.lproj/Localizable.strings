@@ -22,7 +22,7 @@
 
 "mobile/Exchange/destinationText" = "You get approximately";
 
-"mobile/Exchange/destinationAddressText" = "Destination LINK address here... 👈";
+"mobile/Exchange/destinationAddressText" = "Paste destination LINK address here... 👈";
 
 "mobile/Exchange/exchangeNowText" = "Exchange now";
 
@@ -42,7 +42,7 @@
 
 "mobile/Exchange/Alert/fillDestinationAddress" = "You must fill destination address";
 
-"mobile/Exchange/Alert/AddressDoNotExist" = "Destination address doesn't exist";
+"mobile/Exchange/Alert/AddressDoNotExist" = "Destination address is not valid";
 
 // - OrderSummary :
 
@@ -90,7 +90,7 @@
 
 // - Annex :
 
-"mobile/Annex/Enter" = "Enter";
+"mobile/Annex/Enter" = "Paste destination";
 
 "mobile/Annex/RefundAddress" = "refund address here... 👈";
 

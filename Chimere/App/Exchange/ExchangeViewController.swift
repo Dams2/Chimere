@@ -321,7 +321,17 @@ final class ExchangeViewController: UIViewController {
     @IBAction private func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {
         viewModel.didPressChangeDestinationCurrency()
     }
-
+    
+    @IBAction func didPressDestinationAddressTextField(_ sender: UITextField) {
+        var counter = 0
+        counter += 1
+        if counter == 1 {
+            if let myString = UIPasteboard.general.string {
+                sender.text = myString
+            }
+        }
+    }
+    
     @IBAction private func didPressWarningAmountButton(_ sender: UIButton) {
         guard let warningAmountText = sender.titleLabel?.text,
             let originAmountText = originAmountTextField.text

@@ -213,7 +213,7 @@ final class ExchangeViewModel {
         guard currency.name != originAmountText else { return }
         destinationCurrencyName = currency.name
         destinationCurrencySymbol = currency.symbol
-        destinationAddressText?("\(translator.translate(key: "mobile/Annex/Destination")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/AddressHere"))")
+        destinationAddressText?("\(translator.translate(key: "mobile/Annex/Enter")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/AddressHere"))")
         delegate?.didDismissCurrenciesList()
         message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
         getPrices(originAmountText: originAmountText, message: message)

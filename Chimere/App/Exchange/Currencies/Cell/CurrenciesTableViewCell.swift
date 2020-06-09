@@ -32,7 +32,7 @@ final class CurrenciesTableViewCell: UITableViewCell {
         if active == "false" {
             self.isUserInteractionEnabled = false
             let isDisable = "Disable"
-            self.currencySymbolLabel.text = "\(isDisable) \(currency.symbol)"
+            self.currencySymbolLabel.text = "(\(isDisable))"
         }
         currencyImageView.image = UIImage(named: currency.symbol)
         currencyNameLabel.text = currency.name

@@ -22,7 +22,7 @@
 
 "mobile/Exchange/destinationText" = "Approximativement";
 
-"mobile/Exchange/destinationAddressText" = "Entrez l'adresse LINK de destination ici... 👈";
+"mobile/Exchange/destinationAddressText" = "Collez l'adresse LINK de destination ici... 👈";
 
 "mobile/Exchange/exchangeNowText" = "Échanger";
 
@@ -42,7 +42,7 @@
 
 "mobile/Exchange/Alert/fillDestinationAddress" = "Vous devez remplir l'adresse de destination";
 
-"mobile/Exchange/Alert/AddressDoNotExist" = "L'adresse de destination n'existe pas";
+"mobile/Exchange/Alert/AddressDoNotExist" = "L'adresse de destination n'est pas valide";
 
 // - OrderSummary :
 
@@ -90,13 +90,13 @@
 
 // - Annex :
 
-"mobile/Annex/Enter" = "Entrez";
+"mobile/Annex/Enter" = "Collez l'adresse";
 
 "mobile/Annex/RefundAddress" = "refund adresse ici... 👈";
 
 "mobile/Annex/Destination" = "Destination";
 
-"mobile/Annex/AddressHere" = "adresse ici... 👈";
+"mobile/Annex/AddressHere" = "de destination ici... 👈";
 
 "mobile/Annex/SameCurrency" = "vous ne pouvez échanger";
 
