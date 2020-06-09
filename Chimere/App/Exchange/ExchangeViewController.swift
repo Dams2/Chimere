@@ -152,7 +152,6 @@ final class ExchangeViewController: UIViewController {
     }
 
     private func bind(to viewModel: ExchangeViewModel) {
-        
         viewModel.loadingState = { [weak self] state in
             DispatchQueue.main.async {
                 self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)

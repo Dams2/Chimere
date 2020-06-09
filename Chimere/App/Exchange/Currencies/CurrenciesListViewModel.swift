@@ -41,6 +41,10 @@ final class CurrenciesListViewModel {
         repository.getCurrencies { (currenciesResponse) in
             DispatchQueue.main.async {
                 currenciesResponse.asset.lazy.forEach { self.currencyItems.append(.active(response: $0)) }
+                print("------- viewModel ------ ")
+                print(currenciesResponse.asset.first?.ticker)
+                print(currenciesResponse.asset.first?.active)
+                print("\n")
             }
         }
     }
