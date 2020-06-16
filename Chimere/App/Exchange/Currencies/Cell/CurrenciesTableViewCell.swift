@@ -28,9 +28,6 @@ final class CurrenciesTableViewCell: UITableViewCell {
     
     func configure(with currency: Currency) {
         active = currency.active
-        print("------- cell ------ ")
-        print(currency.symbol)
-        print(currency.active)
         
         if active == "false" {
             self.isUserInteractionEnabled = false

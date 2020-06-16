@@ -147,14 +147,22 @@ final class ExchangeViewController: UIViewController {
         self.navigationItem.titleView = helper.setTitleViewImage
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
+        let addHowItWorkButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(infoButton))
+        addHowItWorkButton.tintColor = .black
+        navigationItem.setRightBarButton(addHowItWorkButton,
+                                                animated: true)
+        
         self.tabBarController?.tabBar.barTintColor = .white
-        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0, green: 0.7781116366, blue: 0.1514115036, alpha: 1)
     }
 
     private func bind(to viewModel: ExchangeViewModel) {
         viewModel.loadingState = { [weak self] state in
             DispatchQueue.main.async {
-                self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+                self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 0, green: 0.7781116366, blue: 0.1514115036, alpha: 1)
                 switch state {
                 case true:
                     self?.switchButton.isEnabled = false
@@ -298,6 +306,10 @@ final class ExchangeViewController: UIViewController {
     }
 
     // MARK: - Actions
+    
+    @objc private func infoButton() {
+        viewModel.didPreessHowItWork()
+    }
 
     @IBAction private func originAmountTextFieldDidChange(_ sender: UITextField) {
         guard let originAmountText = originAmountTextField.text else { return }

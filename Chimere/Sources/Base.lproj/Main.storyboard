@@ -136,7 +136,7 @@
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqt-Dd-ceV">
                                                 <rect key="frame" x="331" y="13" width="35" height="34"/>
-                                                <color key="backgroundColor" red="1" green="0.55686274509803924" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                <color key="backgroundColor" red="0.19607843137254902" green="0.76470588235294112" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="Nhn-yX-yfc"/>
                                                     <constraint firstAttribute="height" constant="35" id="ZVj-gS-kXt"/>
@@ -285,7 +285,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.19607843137254902" green="0.76470588235294112" blue="0.26666666666666666" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="oY8-Fh-YwG"/>
@@ -321,7 +321,7 @@
                                 </subviews>
                             </stackView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="miB-1H-3lr" secondAttribute="trailing" constant="20" id="Juo-dV-rTW"/>
                             <constraint firstItem="miB-1H-3lr" firstAttribute="leading" secondItem="bI4-4y-IM1" secondAttribute="leading" constant="20" id="M10-Ij-XUS"/>
@@ -366,7 +366,41 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="C9q-bj-htL" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-445.60000000000002" y="41.379310344827587"/>
+            <point key="canvasLocation" x="-790" y="42"/>
+        </scene>
+        <!--How It Work View Controller-->
+        <scene sceneID="YVJ-hs-ATL">
+            <objects>
+                <viewController storyboardIdentifier="HowItWorkViewController" id="KQy-4k-imC" customClass="HowItWorkViewController" customModule="Chimere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Nmd-QL-e3F">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="76F-X3-PnQ">
+                                <rect key="frame" x="0.0" y="64" width="414" height="798"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <wkWebViewConfiguration key="configuration">
+                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
+                                    <wkPreferences key="preferences"/>
+                                </wkWebViewConfiguration>
+                            </wkWebView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="76F-X3-PnQ" firstAttribute="leading" secondItem="ZtJ-fT-pip" secondAttribute="leading" id="DBU-BV-Dt9"/>
+                            <constraint firstItem="76F-X3-PnQ" firstAttribute="trailing" secondItem="ZtJ-fT-pip" secondAttribute="trailing" id="PdS-GK-qE7"/>
+                            <constraint firstItem="76F-X3-PnQ" firstAttribute="top" secondItem="ZtJ-fT-pip" secondAttribute="top" constant="20" id="djn-uQ-jRW"/>
+                            <constraint firstItem="76F-X3-PnQ" firstAttribute="bottom" secondItem="ZtJ-fT-pip" secondAttribute="bottom" id="wMi-ma-6ZK"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="ZtJ-fT-pip"/>
+                    </view>
+                    <connections>
+                        <outlet property="webView" destination="76F-X3-PnQ" id="qBR-GU-iAD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="y00-5g-U1Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1159.4202898550725" y="746.65178571428567"/>
         </scene>
         <!--Currencies List View Controller-->
         <scene sceneID="m5K-sk-WWG">
@@ -650,7 +684,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <state key="normal">
-                                    <color key="titleColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressConfirmButton:" destination="bEb-Ca-ayz" eventType="touchUpInside" id="udG-Aj-5gR"/>
@@ -658,7 +692,7 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Zd-UNp">
                                 <rect key="frame" x="339" y="809.5" width="20" height="20"/>
-                                <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="color" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -748,7 +782,7 @@
                                                             <constraint firstAttribute="width" constant="25" id="TfJ-wJ-xJ9"/>
                                                             <constraint firstAttribute="height" constant="20" id="p5o-n1-vdX"/>
                                                         </constraints>
-                                                        <color key="tintColor" red="1" green="0.52156862745098043" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal">
                                                             <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                                             <color key="titleShadowColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -803,7 +837,7 @@
                                                             <constraint firstAttribute="height" constant="20" id="bL0-dB-RmS"/>
                                                             <constraint firstAttribute="width" constant="25" id="jIm-pZ-T7W"/>
                                                         </constraints>
-                                                        <color key="tintColor" red="1" green="0.52156862745098043" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal">
                                                             <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -840,7 +874,7 @@
                                                                     <constraint firstAttribute="width" constant="25" id="Ble-QS-qav"/>
                                                                     <constraint firstAttribute="height" constant="20" id="XmZ-bK-WS8"/>
                                                                 </constraints>
-                                                                <color key="tintColor" red="1" green="0.52156862745098043" blue="0.86274509803921573" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <state key="normal">
                                                                     <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>
@@ -931,7 +965,7 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                 <state key="normal" title="Completed">
-                                    <color key="titleColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                    <color key="titleColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 </state>
                                 <connections>
                                     <action selector="didPressCompletedButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="f5i-dS-rLt"/>
@@ -999,7 +1033,7 @@
                             </wkWebView>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cab-DJ-TFB">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
-                                <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="color" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
@@ -1171,7 +1205,7 @@
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="ArialRoundedMTBold" family="Arial Rounded MT Bold" pointSize="24"/>
                                                 <state key="normal">
-                                                    <color key="titleColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                    <color key="titleColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 </state>
                                                 <connections>
                                                     <action selector="didPressCompletedButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="c0f-Sd-Z7g"/>
@@ -1190,7 +1224,7 @@
                             </view>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="1Pq-s3-1am">
                                 <rect key="frame" x="197" y="438" width="20" height="20"/>
-                                <color key="color" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <color key="color" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1237,12 +1271,12 @@
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Payé" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b3c-gO-rYD">
                                                 <rect key="frame" x="0.0" y="0.0" width="40" height="19"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
-                                                <color key="textColor" red="0.2196078431372549" green="0.63137254901960782" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="textColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow.right" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="clV-EG-sbb">
                                                 <rect key="frame" x="50" y="2.5" width="19.5" height="14"/>
-                                                <color key="tintColor" red="0.2196078431372549" green="0.63137254901960782" blue="0.41176470588235292" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="19" id="QF8-Pw-JSi"/>
                                                 </constraints>
@@ -1444,7 +1478,7 @@
                                                         <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <state key="normal">
                                                             <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
-                                                            <color key="titleShadowColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                            <color key="titleShadowColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         </state>
                                                         <connections>
                                                             <action selector="didPressCopyDepositAmountButton:" destination="kxY-Zt-QYj" eventType="touchUpInside" id="6PL-eI-shG"/>
@@ -1497,7 +1531,7 @@
                                                             <constraint firstAttribute="width" constant="25" id="VfY-Z8-x65"/>
                                                             <constraint firstAttribute="height" constant="20" id="pVZ-5p-6W7"/>
                                                         </constraints>
-                                                        <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                        <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                         <state key="normal">
                                                             <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                         </state>
@@ -1535,7 +1569,7 @@
                                                                     <constraint firstAttribute="width" constant="25" id="Mxj-0H-KGK"/>
                                                                     <constraint firstAttribute="height" constant="20" id="QV5-44-Nku"/>
                                                                 </constraints>
-                                                                <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <color key="tintColor" red="0.1960784314" green="0.76470588240000004" blue="0.2666666667" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                                 <state key="normal">
                                                                     <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="calibratedRGB"/>
                                                                 </state>

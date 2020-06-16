@@ -133,6 +133,10 @@ final class ExchangeViewModel {
         
         alertState?(true)
     }
+    
+    func didPreessHowItWork() {
+        delegate?.didSelectHowItWork()
+    }
 
     func didPressChangeOriginCurrency() {
         delegate?.didShowOriginCurrenciesList()

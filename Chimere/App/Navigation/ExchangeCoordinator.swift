@@ -46,6 +46,11 @@ final class ExchangeCoordinator {
         presenter.viewControllers = [exchangeViewController]
     }
     
+    private func showHowItWork() {
+        let viewController = screens.createHowItWorkViewController()
+        presenter.showDetailViewController(viewController, sender: self)
+    }
+    
     private func showCurrenciesList() {
         let viewController = screens.createCurrenciesListViewController(delegate: self)
         presenter.showDetailViewController(viewController, sender: self)
@@ -72,8 +77,13 @@ final class ExchangeCoordinator {
 }
 
 extension ExchangeCoordinator: ExchangeViewControllerDelegate {
+    
     func didshowExchange() {
         showExchange()
+    }
+    
+    func didSelectHowItWork() {
+        showHowItWork()
     }
     
     func didShowOriginCurrenciesList() {

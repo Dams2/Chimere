@@ -26,3 +26,5 @@ struct Price: Codable {
         case bestBid = "best_bid"
     }
 }
+
+

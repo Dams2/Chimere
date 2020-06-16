@@ -26,6 +26,7 @@ protocol ExchangeViewControllerDelegate: class {
     func didDismissCurrenciesList()
     func didSelectExchangeNow(orderItems: [String: String])
     func didPresentAlert(for alert: AlertType)
+    func didSelectHowItWork()
 }
 
 extension Screens {
@@ -34,6 +35,13 @@ extension Screens {
         let repository = ExchangeRepository(client: context.client)
         let viewModel = ExchangeViewModel(delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createHowItWorkViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HowItWorkViewController") as! HowItWorkViewController
         return viewController
     }
 }

@@ -17,7 +17,7 @@ final class TermsOfUseViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet weak var webView: WKWebView!
+    @IBOutlet weak private var webView: WKWebView!
     
     // MARK: - View life cycle
     

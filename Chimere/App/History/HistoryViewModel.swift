@@ -42,7 +42,6 @@ final class HistoryViewModel {
         didSet {
             let items = historyItem.map { UserOrders(historyItem:  $0) }
             self.items?(items)
-            print(items)
         }
     }
     

@@ -41,10 +41,6 @@ final class CurrenciesListViewModel {
         repository.getCurrencies { (currenciesResponse) in
             DispatchQueue.main.async {
                 currenciesResponse.asset.lazy.forEach { self.currencyItems.append(.active(response: $0)) }
-                print("------- viewModel ------ ")
-                print(currenciesResponse.asset.first?.ticker)
-                print(currenciesResponse.asset.first?.active)
-                print("\n")
             }
         }
     }
@@ -55,6 +51,21 @@ final class CurrenciesListViewModel {
         let item = currencyItems[index]
         let currency = Currency(currencyItem: item)
         delegate?.didSelect(currency)
+    }
+
+    func temp() {
+        let arr = ["be", "ba" , "bi", "r" ,"a"]
+        let sortedArr = arr.sorted { $0 < $1 }
+
+        let arraay = [Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf")]
+
+        var dict: [String: Currency] = [:]
+        arraay.forEach {
+            dict[$0.symbol] = $0
+        }
+
+        let itaaa = dict.values
+        let letters = dict.keys
     }
 }
 

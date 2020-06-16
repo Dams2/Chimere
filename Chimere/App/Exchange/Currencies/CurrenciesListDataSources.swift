@@ -42,11 +42,6 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
         let currency = items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
         cell.configure(with: currency)
-//        print("------ DataSOurce ----")
-//        print(currency.symbol)
-//        print(currency.active)
-//        print("\n")
-        
         return cell
     }
     

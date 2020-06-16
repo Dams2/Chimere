@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		9105D96724910A1600DDA6E4 /* HowItWorkViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9105D96624910A1600DDA6E4 /* HowItWorkViewController.swift */; };
 		911373F42489D77900C6FCB1 /* FiatCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911373F32489D77900C6FCB1 /* FiatCoordinator.swift */; };
 		911373F72489D80500C6FCB1 /* FiatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911373F62489D80500C6FCB1 /* FiatViewController.swift */; };
 		911373FA2489DB1900C6FCB1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 911373F92489DB1900C6FCB1 /* WebKit.framework */; };
@@ -86,6 +87,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		9105D96624910A1600DDA6E4 /* HowItWorkViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HowItWorkViewController.swift; sourceTree = "<group>"; };
 		911373F32489D77900C6FCB1 /* FiatCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatCoordinator.swift; sourceTree = "<group>"; };
 		911373F62489D80500C6FCB1 /* FiatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FiatViewController.swift; sourceTree = "<group>"; };
 		911373F92489DB1900C6FCB1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
@@ -181,6 +183,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		9105D965249109F500DDA6E4 /* HowItWork */ = {
+			isa = PBXGroup;
+			children = (
+				9105D96624910A1600DDA6E4 /* HowItWorkViewController.swift */,
+			);
+			path = HowItWork;
+			sourceTree = "<group>";
+		};
 		911373F52489D7F200C6FCB1 /* Fiat */ = {
 			isa = PBXGroup;
 			children = (
@@ -363,6 +373,7 @@
 				9198D1142446377200980FBA /* ExchangeViewModel.swift */,
 				91C2D1D72447C68600BEFBBF /* ExchangeRepository.swift */,
 				91BF86B52448CF0900403F97 /* Currencies */,
+				9105D965249109F500DDA6E4 /* HowItWork */,
 			);
 			path = Exchange;
 			sourceTree = "<group>";
@@ -614,6 +625,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				91456FF02447B6F2009305E8 /* AlertConfiguration.swift in Sources */,
+				9105D96724910A1600DDA6E4 /* HowItWorkViewController.swift in Sources */,
 				9198D10C2446205000980FBA /* RequestCancellationToken.swift in Sources */,
 				9198D10224461F6700980FBA /* MainCoordinator.swift in Sources */,
 				91B70F9C245A3AB400D9F9AE /* UserOrders+UserOrdersResponse.swift in Sources */,
