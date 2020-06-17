@@ -27,19 +27,14 @@ final class ExchangeViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet weak private var descriptionTextView: UITextView! {
-        didSet {
-            descriptionTextView.backgroundColor = .white
-        }
-    }
+    @IBOutlet weak private var descriptionTextView: UITextView!
 
     // Deposit //
 
     @IBOutlet weak private var originView: UIView! {
         didSet {
-            originView.backgroundColor = .white
             originView.layer.borderWidth = 1
-            originView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            originView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             originView.layer.cornerRadius = 10
         }
     }
@@ -49,13 +44,15 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var originAmountTextField: UITextField! {
         didSet {
             originAmountTextField.keyboardType = .decimalPad
-            originAmountTextField.backgroundColor = .white
+            originAmountTextField.backgroundColor = .none
         }
     }
 
     @IBOutlet weak private var originCurrencyView: UIView! {
         didSet {
             originCurrencyView.layer.cornerRadius = 10
+            originCurrencyView.layer.borderWidth = 1
+            originCurrencyView.layer.borderColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         }
     }
 
@@ -76,6 +73,7 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var switchButton: UIButton! {
         didSet {
             switchButton.layer.cornerRadius = 28
+            switchButton.tintColor = .white
         }
     }
 
@@ -83,9 +81,8 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var destinationView: UIView! {
         didSet {
-            destinationView.backgroundColor = .white
             destinationView.layer.borderWidth = 1
-            destinationView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            destinationView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             destinationView.layer.cornerRadius = 10
         }
     }
@@ -95,7 +92,7 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var destinationAmountTextField: UITextField! {
         didSet {
             destinationAmountTextField.keyboardType = .decimalPad
-            destinationAmountTextField.backgroundColor = .white
+            destinationAmountTextField.backgroundColor = .none
             destinationAmountTextField.isUserInteractionEnabled = false
         }
     }
@@ -103,6 +100,8 @@ final class ExchangeViewController: UIViewController {
     @IBOutlet weak private var destinationCurrencyView: UIView! {
         didSet {
             destinationCurrencyView.layer.cornerRadius = 10
+            destinationCurrencyView.layer.borderWidth = 1
+            destinationCurrencyView.layer.borderColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         }
     }
 
@@ -126,7 +125,7 @@ final class ExchangeViewController: UIViewController {
         didSet {
             exchangeNowButton.layer.cornerRadius = 10
             exchangeNowButton.layer.borderWidth = 1
-            exchangeNowButton.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            exchangeNowButton.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         }
     }
 
@@ -151,18 +150,18 @@ final class ExchangeViewController: UIViewController {
                                                  style: .done,
                                                  target: self,
                                                  action: #selector(infoButton))
-        addHowItWorkButton.tintColor = .black
+        addHowItWorkButton.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         navigationItem.setRightBarButton(addHowItWorkButton,
                                                 animated: true)
         
-        self.tabBarController?.tabBar.barTintColor = .white
-        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0, green: 0.7781116366, blue: 0.1514115036, alpha: 1)
+        self.tabBarController?.tabBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
+        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
     }
 
     private func bind(to viewModel: ExchangeViewModel) {
         viewModel.loadingState = { [weak self] state in
             DispatchQueue.main.async {
-                self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 0, green: 0.7781116366, blue: 0.1514115036, alpha: 1)
+                self?.switchButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
                 switch state {
                 case true:
                     self?.switchButton.isEnabled = false

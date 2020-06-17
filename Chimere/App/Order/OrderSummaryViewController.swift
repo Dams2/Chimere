@@ -61,8 +61,7 @@ final class OrderSummaryViewController: UIViewController {
         didSet {
             confirmButton.layer.cornerRadius = 10
             confirmButton.layer.borderWidth = 1
-            confirmButton.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
-            confirmButton.layer.backgroundColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            confirmButton.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         }
     }
 
@@ -71,9 +70,9 @@ final class OrderSummaryViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 1, green: 0.4872516394, blue: 0.8796543479, alpha: 1)
+        self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         
-        self.navigationController!.navigationBar.tintColor = UIColor.lightGray
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
@@ -84,7 +83,7 @@ final class OrderSummaryViewController: UIViewController {
     func bind(to viewModel: OrderSummaryViewModel) {
         viewModel.loadingState = {[weak self] state in
             DispatchQueue.main.async {
-                self?.confirmButton.layer.backgroundColor = state ? #colorLiteral(red: 0.6000000238, green: 0.6000000238, blue: 0.6000000238, alpha: 1) : #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+                self?.confirmButton.layer.backgroundColor = state ? #colorLiteral(red: 0.8039215803, green: 0.8039215803, blue: 0.8039215803, alpha: 1) : #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
                 self?.confirmButton.isEnabled = !state
                 switch state {
                 case true:

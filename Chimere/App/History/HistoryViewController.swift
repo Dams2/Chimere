@@ -36,7 +36,7 @@ final class HistoryViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         guard let userID = UIDevice.current.identifierForVendor?.uuidString else { return }
-
+        print(userID)
         self.tableView.rowHeight = 204
         tableView.dataSource = dataSource
         tableView.delegate = dataSource
@@ -47,7 +47,7 @@ final class HistoryViewController: UIViewController {
         bind(to: dataSource)
 
         bind(to: viewModel)
-        viewModel.viewDidLoad(userID: userID)
+        viewModel.viewDidLoad(userID: "1A605A67-9FC7-43FF-94F5-B3350AB98199")
         
         setUI()
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)

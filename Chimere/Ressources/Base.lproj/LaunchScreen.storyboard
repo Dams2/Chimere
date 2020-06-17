@@ -15,18 +15,18 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChimereLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="gNK-3k-yyP">
-                                <rect key="frame" x="125.5" y="384" width="163" height="128"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ChimereLaunchScreen" translatesAutoresizingMaskIntoConstraints="NO" id="OZq-h0-0YU">
+                                <rect key="frame" x="107" y="384" width="200" height="128"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="163" id="8Nq-f9-9xI"/>
-                                    <constraint firstAttribute="height" constant="128" id="Dp4-Ia-AaC"/>
+                                    <constraint firstAttribute="height" constant="128" id="CgO-Pi-YNG"/>
+                                    <constraint firstAttribute="width" constant="200" id="yln-LN-59o"/>
                                 </constraints>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="gNK-3k-yyP" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="VSd-S4-gtI"/>
-                            <constraint firstItem="gNK-3k-yyP" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="iDg-hV-LsT"/>
+                            <constraint firstItem="OZq-h0-0YU" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="YC4-gV-sMM"/>
+                            <constraint firstItem="OZq-h0-0YU" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="ZXM-vO-7cB"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>

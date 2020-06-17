@@ -23,6 +23,8 @@ final class OrderDetailViewController: UIViewController {
     @IBOutlet private weak var statusView: UIView! {
         didSet {
             statusView.layer.cornerRadius = 10
+            statusView.layer.borderWidth = 1
+            statusView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         }
     }
     
@@ -39,6 +41,8 @@ final class OrderDetailViewController: UIViewController {
     @IBOutlet weak private var statusStep3Label: UILabel!
     
     @IBOutlet weak private var statusStackView: UIStackView!
+    
+    @IBOutlet weak private var transactionIDView: UIView!
     
     @IBOutlet weak private var transactionIDLabel: UILabel!
     
@@ -71,7 +75,7 @@ final class OrderDetailViewController: UIViewController {
     @IBOutlet weak private var depositWalletView: UIView! {
         didSet {
             depositWalletView.layer.borderWidth = 1
-            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            depositWalletView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             depositWalletView.layer.cornerRadius = 15
         }
     }
@@ -125,27 +129,27 @@ final class OrderDetailViewController: UIViewController {
         viewModel.status = { [weak self] state in
             switch state {
             case .failed:
-                self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
                 self?.depositWalletView.isHidden = true
                 self?.statusStackView.isHidden = true
                 self?.statusLabel.isHidden = false
             case .loaded:
-                self?.statusStep1Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
-                self?.statusStep1ImageView.tintColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
+                self?.statusStep1Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.statusStep1ImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
                 self?.depositWalletView.isHidden = true
                 self?.statusStackView.isHidden = false
                 self?.statusLabel.isHidden = true
             case .exchanging:
-                self?.statusStep2Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
-                self?.statusStep2ImageView.tintColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
+                self?.statusStep2Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.statusStep2ImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
             case .completed:
-                self?.statusStep3Label.textColor = #colorLiteral(red: 0.2196078431, green: 0.631372549, blue: 0.4117647059, alpha: 1)
+                self?.statusStep3Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
             case .expired:
-                self?.statusLabel.textColor = #colorLiteral(red: 1, green: 0, blue: 0.1764705882, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
                 self?.depositWalletView.isHidden = true
                 self?.statusStackView.isHidden = true
             case .notPaid:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.9607843161, green: 0.7058823705, blue: 0.200000003, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
                 self?.statusStackView.isHidden = true
             }
         }

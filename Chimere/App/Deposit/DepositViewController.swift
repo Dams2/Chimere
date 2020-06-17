@@ -23,7 +23,7 @@ final class DepositViewController: UIViewController {
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
             transactionIDView.layer.borderWidth = 1
-            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             transactionIDView.layer.cornerRadius = 15
         }
     }
@@ -79,6 +79,8 @@ final class DepositViewController: UIViewController {
     @IBOutlet weak var completedButton: UIButton! {
         didSet {
             completedButton.layer.cornerRadius = 10
+            completedButton.layer.borderWidth = 1
+            completedButton.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         }
     }
     

@@ -53,20 +53,20 @@ final class CurrenciesListViewModel {
         delegate?.didSelect(currency)
     }
 
-    func temp() {
-        let arr = ["be", "ba" , "bi", "r" ,"a"]
-        let sortedArr = arr.sorted { $0 < $1 }
-
-        let arraay = [Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf")]
-
-        var dict: [String: Currency] = [:]
-        arraay.forEach {
-            dict[$0.symbol] = $0
-        }
-
-        let itaaa = dict.values
-        let letters = dict.keys
-    }
+//    func temp() {
+//        let arr = ["be", "ba" , "bi", "r" ,"a"]
+//        let sortedArr = arr.sorted { $0 < $1 }
+//
+//        let arraay = [Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf")]
+//
+//        var dict: [String: Currency] = [:]
+//        arraay.forEach {
+//            dict[$0.symbol] = $0
+//        }
+//
+//        let itaaa = dict.values
+//        let letters = dict.keys
+//    }
 }
 
 extension Currency {
