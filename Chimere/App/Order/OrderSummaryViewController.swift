@@ -34,7 +34,7 @@ final class OrderSummaryViewController: UIViewController {
     @IBOutlet weak private var infoView: UIView!  {
         didSet {
             infoView.layer.borderWidth = 1
-            infoView.layer.borderColor = #colorLiteral(red: 0.9294117647, green: 0.9490196078, blue: 0.968627451, alpha: 1)
+            infoView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             infoView.layer.cornerRadius = 0
        }
     }
@@ -72,7 +72,10 @@ final class OrderSummaryViewController: UIViewController {
         super.viewDidLoad()
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         
+        guard let font = UIFont(name: "BodoniEgyptianPro-ExtBold", size: 20) else { return }
+        
         self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+        self.navigationController?.navigationBar.topItem?.backBarButtonItem?.setTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
         
         bind(to: viewModel)
         viewModel.viewDidLoad()

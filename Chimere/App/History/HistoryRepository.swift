@@ -23,7 +23,8 @@ final class HistoryRepository: HistoryRepositoryType {
     }
 
     func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void) {
-        let stringURL = "https://2594dc08af80.ngrok.io/api/order/find-orders"
+        let stringURL = "https://6d075b60e275.ngrok.io/api/order/find-orders"
+        // 6d075b60e275.ngrok
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: UserOrdersResponse.self,

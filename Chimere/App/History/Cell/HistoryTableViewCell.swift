@@ -82,6 +82,21 @@ final class HistoryTableViewCell: UITableViewCell {
             self.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         }
         
+        if userOrders.state["Exchanging"] == true {
+            self.statusLabel.text = "Exchanging"
+            self.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+        }
+        
+        if userOrders.state["Exchanged"] == true {
+            self.statusLabel.text = "Exchanged"
+            self.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+        }
+        
+        if userOrders.state["Sending"] == true {
+            self.statusLabel.text = "Sending"
+            self.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+        }
+        
         if userOrders.state["Completed"] == true {
             self.statusLabel.text = translator.translate(key: "mobile/History/completed")
             self.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)

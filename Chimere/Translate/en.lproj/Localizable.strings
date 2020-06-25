@@ -80,6 +80,10 @@
 
 "mobile/History/exchanging" = "Exchanging";
 
+"mobile/History/exchanged" = "Exchanged";
+
+"mobile/History/sending" = "Sending";
+
 "mobile/History/paid" = "Paid";
 
 "mobile/History/notPaid" = "Not paid";
@@ -95,6 +99,8 @@
 "mobile/Annex/RefundAddress" = "refund address here... 👈";
 
 "mobile/Annex/Destination" = "Destination";
+
+"mobile/Annex/Address" = "address";
 
 "mobile/Annex/AddressHere" = "address here... 👈";
 

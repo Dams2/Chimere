@@ -25,6 +25,9 @@
 		914F77F92450F0570018FA7F /* CurrenciesListRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */; };
 		9159DE3C247EF6BF00FCA926 /* ImageRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159DE3B247EF6BF00FCA926 /* ImageRepository.swift */; };
 		9159DE3E247EF6DD00FCA926 /* ImageProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9159DE3D247EF6DD00FCA926 /* ImageProvider.swift */; };
+		919101D724A4ECCE00D64C1F /* BodoniEgyptianPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 919101D624A4ECCE00D64C1F /* BodoniEgyptianPro-Regular.ttf */; };
+		919101D924A501B200D64C1F /* BodoniEgyptianPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 919101D824A501B200D64C1F /* BodoniEgyptianPro-Medium.ttf */; };
+		919101DB24A5045600D64C1F /* BodoniEgyptianPro-ExtBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 919101DA24A5045600D64C1F /* BodoniEgyptianPro-ExtBold.ttf */; };
 		9195111424465C8000595300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111324465C8000595300 /* ViewController.swift */; };
 		9195111724474D4F00595300 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111624474D4F00595300 /* DepositViewController.swift */; };
 		9195111924474D7300595300 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111824474D7300595300 /* DepositViewModel.swift */; };
@@ -106,6 +109,9 @@
 		914F77F82450F0570018FA7F /* CurrenciesListRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrenciesListRepository.swift; sourceTree = "<group>"; };
 		9159DE3B247EF6BF00FCA926 /* ImageRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageRepository.swift; sourceTree = "<group>"; };
 		9159DE3D247EF6DD00FCA926 /* ImageProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageProvider.swift; sourceTree = "<group>"; };
+		919101D624A4ECCE00D64C1F /* BodoniEgyptianPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BodoniEgyptianPro-Regular.ttf"; path = "../../../../../../Desktop/BodoniEgyptianPro-Regular.ttf"; sourceTree = "<group>"; };
+		919101D824A501B200D64C1F /* BodoniEgyptianPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BodoniEgyptianPro-Medium.ttf"; path = "../../../../../../Desktop/BodoniEgyptianPro-Medium.ttf"; sourceTree = "<group>"; };
+		919101DA24A5045600D64C1F /* BodoniEgyptianPro-ExtBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "BodoniEgyptianPro-ExtBold.ttf"; path = "../../../../../../Desktop/BodoniEgyptianPro/BodoniEgyptianPro-ExtBold.ttf"; sourceTree = "<group>"; };
 		9195111324465C8000595300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9195111624474D4F00595300 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		9195111824474D7300595300 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
@@ -340,6 +346,9 @@
 			children = (
 				9198D0E324461EEA00980FBA /* Assets.xcassets */,
 				9198D0E524461EEA00980FBA /* LaunchScreen.storyboard */,
+				919101D824A501B200D64C1F /* BodoniEgyptianPro-Medium.ttf */,
+				919101DA24A5045600D64C1F /* BodoniEgyptianPro-ExtBold.ttf */,
+				919101D624A4ECCE00D64C1F /* BodoniEgyptianPro-Regular.ttf */,
 				9198D0E824461EEA00980FBA /* Info.plist */,
 			);
 			path = Ressources;
@@ -596,10 +605,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				919101DB24A5045600D64C1F /* BodoniEgyptianPro-ExtBold.ttf in Resources */,
 				9198D0E724461EEA00980FBA /* LaunchScreen.storyboard in Resources */,
+				919101D724A4ECCE00D64C1F /* BodoniEgyptianPro-Regular.ttf in Resources */,
 				919F4E0B2472EC920091865D /* Localizable.strings in Resources */,
 				9198D0E424461EEA00980FBA /* Assets.xcassets in Resources */,
 				9198D0DF24461EE500980FBA /* Main.storyboard in Resources */,
+				919101D924A501B200D64C1F /* BodoniEgyptianPro-Medium.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -871,7 +883,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = io.chimere.swap;
 				PRODUCT_NAME = Chimere;
 				PROVISIONING_PROFILE_SPECIFIER = "";
@@ -895,7 +907,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.1.1;
+				MARKETING_VERSION = 1.1.2;
 				PRODUCT_BUNDLE_IDENTIFIER = io.chimere.swap;
 				PRODUCT_NAME = Chimere;
 				PROVISIONING_PROFILE_SPECIFIER = io.chimere.swap;

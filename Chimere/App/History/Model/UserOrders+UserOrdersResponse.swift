@@ -20,6 +20,8 @@ extension UserOrders {
         self.createdDate = "\(DateFormatter.dateFormatter(stringDate: response.createdDate))"
         self.state = ["Loaded": response.state.loaded,
                       "Exchanging": response.state.exchanging,
+                      "Exchanged": response.state.exchanged,
+                      "Sending": response.state.sending,
                       "Completed": response.state.completed,
                       "Expired": response.state.expired,
                       "Failed": response.state.failed]

@@ -78,7 +78,11 @@
 
 "mobile/History/completed" = "Terminado";
 
-"mobile/History/exchanging" = "Cambiando";
+"mobile/History/exchanging" = "Cambio en progreso";
+
+"mobile/History/exchanged" = "Cambiado";
+
+"mobile/History/sending" = "Envío en progreso";
 
 "mobile/History/paid" = "Pagado";
 
@@ -93,6 +97,10 @@
 "mobile/Annex/Enter" = "Pega la dirección";
 
 "mobile/Annex/RefundAddress" = "dirección de reembolso aquí... 👈";
+
+"mobile/Annex/Destination" = "Dirección";
+
+"mobile/Annex/Address" = "de destino";
 
 "mobile/Annex/AddressHere" = "de destino aquí... 👈";
 

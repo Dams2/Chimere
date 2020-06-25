@@ -20,7 +20,7 @@ final class OrderDetailViewController: UIViewController {
     
     // MARK: - Outlets
     
-    @IBOutlet private weak var statusView: UIView! {
+    @IBOutlet weak private var statusView: UIView! {
         didSet {
             statusView.layer.cornerRadius = 10
             statusView.layer.borderWidth = 1
@@ -29,18 +29,6 @@ final class OrderDetailViewController: UIViewController {
     }
     
     @IBOutlet weak private var statusLabel: UILabel!
-
-    @IBOutlet weak private var statusStep1Label: UILabel!
-    
-    @IBOutlet weak private var statusStep1ImageView: UIImageView!
-    
-    @IBOutlet weak private var statusStep2Label: UILabel!
-    
-    @IBOutlet weak private var statusStep2ImageView: UIImageView!
-    
-    @IBOutlet weak private var statusStep3Label: UILabel!
-    
-    @IBOutlet weak private var statusStackView: UIStackView!
     
     @IBOutlet weak private var transactionIDView: UIView!
     
@@ -69,6 +57,30 @@ final class OrderDetailViewController: UIViewController {
     @IBOutlet weak private var destinationAddressValueLabel: UILabel!
     
     @IBOutlet weak private var dateLabel: UILabel!
+    
+    // State
+    
+    @IBOutlet weak private var stateDescriptionView: UIView!
+    
+    @IBOutlet weak private var paidImageView: UIImageView!
+    
+    @IBOutlet weak private var paidLabel: UILabel!
+    
+    @IBOutlet weak private var exchangingImageView: UIImageView!
+    
+    @IBOutlet weak private var exchangingLabel: UILabel!
+    
+    @IBOutlet weak private var exchangedImageView: UIImageView!
+    
+    @IBOutlet weak private var exchangedLabel: UILabel!
+    
+    @IBOutlet weak private var sendingImageView: UIImageView!
+    
+    @IBOutlet weak private var sendingLabel: UILabel!
+    
+    @IBOutlet weak private var completedImageView: UIImageView!
+    
+    @IBOutlet weak private var completedLabel: UILabel!
     
     // Wallet
     
@@ -131,62 +143,41 @@ final class OrderDetailViewController: UIViewController {
             case .failed:
                 self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
                 self?.depositWalletView.isHidden = true
-                self?.statusStackView.isHidden = true
-                self?.statusLabel.isHidden = false
+                self?.stateDescriptionView.isHidden = true
             case .loaded:
-                self?.statusStep1Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.statusStep1ImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
                 self?.depositWalletView.isHidden = true
-                self?.statusStackView.isHidden = false
-                self?.statusLabel.isHidden = true
+                self?.stateDescriptionView.isHidden = false
             case .exchanging:
-                self?.statusStep2Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.statusStep2ImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.exchangingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.exchangingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+            case .exchanged:
+                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.exchangedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.exchangedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+            case .sending:
+                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.sendingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.sendingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
             case .completed:
-                self?.statusStep3Label.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.completedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                self?.completedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
             case .expired:
                 self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
                 self?.depositWalletView.isHidden = true
-                self?.statusStackView.isHidden = true
+                self?.stateDescriptionView.isHidden = true
             case .notPaid:
                 self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
-                self?.statusStackView.isHidden = true
+                self?.depositWalletView.isHidden = false
+                self?.stateDescriptionView.isHidden = true
             }
         }
         
         viewModel.statusText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.statusLabel.text = text
-            }
-        }
-        
-        viewModel.statusStep1Text = { [weak self] text in
-            DispatchQueue.main.async {
-                self?.statusStep1Label.text = text
-            }
-        }
-        
-        viewModel.statusStep1ImageText = { [weak self] text in
-            DispatchQueue.main.async {
-                self?.statusStep1ImageView.image = UIImage(systemName: text)
-            }
-        }
-        
-        viewModel.statusStep2Text = { [weak self] text in
-            DispatchQueue.main.async {
-                self?.statusStep2Label.text = text
-            }
-        }
-        
-        viewModel.statusStep2ImageText = { [weak self] text in
-            DispatchQueue.main.async {
-                self?.statusStep2ImageView.image = UIImage(systemName: text)
-            }
-        }
-        
-        viewModel.statusStep3Text = { [weak self] text in
-            DispatchQueue.main.async {
-                self?.statusStep3Label.text = text
             }
         }
 
@@ -267,6 +258,70 @@ final class OrderDetailViewController: UIViewController {
                 self?.dateLabel.text = text
             }
         }
+        
+        // State
+
+        viewModel.paidImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.paidImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.paidText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.paidLabel.text = text
+            }
+        }
+        
+        viewModel.exchangingImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangingImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.exchangingText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangingLabel.text = text
+            }
+        }
+        
+        viewModel.exchangedImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangedImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.exchangedText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.exchangedLabel.text = text
+            }
+        }
+        
+        viewModel.sendingImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.sendingImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.sendingText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.sendingLabel.text = text
+            }
+        }
+        
+        viewModel.completedImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.completedImageView.image = UIImage(systemName: text)
+            }
+        }
+        
+        viewModel.completedText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.completedLabel.text = text
+            }
+        }
+        
+        // Wallet
         
         viewModel.sendText = { [weak self] text in
             DispatchQueue.main.async {

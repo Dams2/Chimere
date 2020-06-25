@@ -38,7 +38,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
     }
     
     func postOrder(order: [String: String] ,callback: @escaping (OrderResponse) -> Void) {
-        let stringURL = "https://chimere.io/api/order/create-order"
+        let stringURL = "https://6d075b60e275.ngrok.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: OrderResponse.self,

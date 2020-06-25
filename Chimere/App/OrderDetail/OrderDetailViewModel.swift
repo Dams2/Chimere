@@ -25,16 +25,6 @@ final class OrderDetailViewModel {
     
     var statusText: ((String) -> Void)?
     
-    var statusStep1Text: ((String) -> Void)?
-    
-    var statusStep1ImageText: ((String) -> Void)?
-    
-    var statusStep2Text: ((String) -> Void)?
-    
-    var statusStep2ImageText: ((String) -> Void)?
-    
-    var statusStep3Text: ((String) -> Void)?
-    
     var transactionIDText: ((String) -> Void)?
     
     var transactionIDValueText: ((String) -> Void)?
@@ -60,7 +50,29 @@ final class OrderDetailViewModel {
     var destinationAddressValueText: ((String) -> Void)?
     
     var dateText: ((String) -> Void)?
+
+    // State
     
+    var paidImageText: ((String) -> Void)?
+
+    var paidText: ((String) -> Void)?
+    
+    var exchangingImageText: ((String) -> Void)?
+
+    var exchangingText: ((String) -> Void)?
+
+    var exchangedImageText: ((String) -> Void)?
+    
+    var exchangedText: ((String) -> Void)?
+    
+    var sendingImageText: ((String) -> Void)?
+
+    var sendingText: ((String) -> Void)?
+
+    var completedImageText: ((String) -> Void)?
+
+    var completedText: ((String) -> Void)?
+
     // Wallet
     
     var sendText: ((String) -> Void)?
@@ -91,6 +103,8 @@ final class OrderDetailViewModel {
         case failed
         case loaded
         case exchanging
+        case exchanged
+        case sending
         case completed
         case expired
         case notPaid
@@ -99,12 +113,6 @@ final class OrderDetailViewModel {
     // MARK: - Inputs
     
     func viewDidLoad() {
-        statusStep1Text?(translator.translate(key: "mobile/History/paid"))
-        statusStep1ImageText?("arrow.right")
-        statusStep2Text?(translator.translate(key: "mobile/History/exchanging"))
-        statusStep2ImageText?("arrow.right")
-        statusStep3Text?(translator.translate(key: "mobile/History/completed"))
-        
         transactionIDText?("Transaction ID:")
         transactionIDValueText?(order.id)
         copyTansactionIDImageText?("square.on.square")
@@ -116,10 +124,34 @@ final class OrderDetailViewModel {
         destinationAmountText?(order.destinationAmount)
         destinationCurrencySymbolText?(order.destinationSymbol)
         
-        destinationAddressText?("Destination \(order.destinationSymbol) address")
+        destinationAddressText?("\(translator.translate(key: "mobile/Annex/Destination")) \(order.destinationSymbol) \(translator.translate(key: "mobile/Annex/Address"))")
         destinationAddressValueText?(order.destinationAddress)
         
         dateText?(order.createdDate)
+        
+        // State
+        
+        paidImageText?("checkmark.seal")
+
+        paidText?(translator.translate(key: "mobile/History/paid"))
+        
+        exchangingImageText?("checkmark.seal")
+
+        exchangingText?(translator.translate(key: "mobile/History/exchanging"))
+
+        exchangedImageText?("checkmark.seal")
+        
+        exchangedText?(translator.translate(key: "mobile/History/exchanged"))
+        
+        sendingImageText?("checkmark.seal")
+
+        sendingText?(translator.translate(key: "mobile/History/sending"))
+
+        completedImageText?("checkmark.seal")
+
+        completedText?(translator.translate(key: "mobile/History/completed"))
+        
+        // wallet
         
         sendText?(translator.translate(key: "mobile/Exchange/originText"))
         depositAmountText?(order.originAmount)
@@ -148,16 +180,27 @@ final class OrderDetailViewModel {
         }
         
         if order.state["Loaded"] == true {
+            statusText?(translator.translate(key: "mobile/History/paid"))
             status?(.loaded)
-            statusStep1ImageText?("minus")
         }
         
         if order.state["Exchanging"] == true {
+            statusText?(translator.translate(key: "mobile/History/exchanging"))
             status?(.exchanging)
-            statusStep2ImageText?("minus")
+        }
+        
+        if order.state["Exchanged"] == true {
+            statusText?(translator.translate(key: "mobile/History/exchanged"))
+            status?(.exchanged)
+        }
+        
+        if order.state["Sending"] == true {
+            statusText?(translator.translate(key: "mobile/History/sending"))
+            status?(.sending)
         }
         
         if order.state["Completed"] == true {
+            statusText?(translator.translate(key: "mobile/History/completed"))
             status?(.completed)
         }
         

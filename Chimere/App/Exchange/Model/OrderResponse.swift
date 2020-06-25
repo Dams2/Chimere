@@ -41,5 +41,5 @@ struct Order: Codable {
 
 // MARK: - State
 struct State: Codable {
-    let loaded, exchanging, completed, expired, failed: Bool
+    let loaded, exchanging, exchanged, sending, completed, expired, failed: Bool
 }
