@@ -47,7 +47,7 @@ final class HistoryViewController: UIViewController {
         bind(to: dataSource)
 
         bind(to: viewModel)
-        viewModel.viewDidLoad(userID: "1A605A67-9FC7-43FF-94F5-B3350AB98199")
+        viewModel.viewDidLoad(userID: userID)
         
         setUI()
         refreshControl.addTarget(self, action: #selector(refreshWeatherData(_:)), for: .valueChanged)

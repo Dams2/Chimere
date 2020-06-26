@@ -109,3 +109,5 @@
 "mobile/Annex/to" = "con";
 
 "mobile/Annex/TemporarilyDisable" = "temporarily disable";
+
+"mobile/Annex/ScanText" = "Escanea el código Qr";

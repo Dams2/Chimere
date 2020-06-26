@@ -10,7 +10,7 @@ import UIKit
 import AVFoundation
 
 final class Helper {
-    
+
     lazy var setTitleViewImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0,
                                                   y: 0,

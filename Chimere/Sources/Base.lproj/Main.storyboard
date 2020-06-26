@@ -81,7 +81,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="39" id="NTd-A7-PYG"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="19"/>
+                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -217,7 +217,7 @@
                                                         <constraints>
                                                             <constraint firstAttribute="height" constant="39" id="mFJ-X3-9yh"/>
                                                         </constraints>
-                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="19"/>
+                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -351,24 +351,21 @@
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-9x-FIM">
-                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <rect key="frame" x="97" y="338" width="220" height="220"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prq-pj-Ql8">
-                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
-                                        <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <connections>
-                                            <action selector="didPressDismissScanView:" destination="fcI-Tf-to8" eventType="touchUpInside" id="rmC-TG-Gdu"/>
-                                        </connections>
-                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scanea el código qr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CV-pF-hoM">
+                                        <rect key="frame" x="36.5" y="179.5" width="147.5" height="20.5"/>
+                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="200" id="7zy-8E-Dhj"/>
-                                    <constraint firstAttribute="trailing" secondItem="prq-pj-Ql8" secondAttribute="trailing" id="9sq-mM-hjZ"/>
-                                    <constraint firstAttribute="width" constant="200" id="KTw-er-v7g"/>
-                                    <constraint firstItem="prq-pj-Ql8" firstAttribute="leading" secondItem="4hO-9x-FIM" secondAttribute="leading" id="R5X-jB-Fg0"/>
-                                    <constraint firstAttribute="bottom" secondItem="prq-pj-Ql8" secondAttribute="bottom" id="aM1-tE-CzO"/>
-                                    <constraint firstItem="prq-pj-Ql8" firstAttribute="top" secondItem="4hO-9x-FIM" secondAttribute="top" id="wFM-mA-gXX"/>
+                                    <constraint firstItem="3CV-pF-hoM" firstAttribute="centerX" secondItem="4hO-9x-FIM" secondAttribute="centerX" id="0C4-fc-O37"/>
+                                    <constraint firstAttribute="height" constant="220" id="7zy-8E-Dhj"/>
+                                    <constraint firstAttribute="width" constant="220" id="KTw-er-v7g"/>
+                                    <constraint firstAttribute="bottom" secondItem="3CV-pF-hoM" secondAttribute="bottom" constant="20" id="vrW-aF-2DY"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -401,7 +398,6 @@
                         <outlet property="destinationCurrencyView" destination="9IT-9Q-T91" id="ZYB-nc-eJK"/>
                         <outlet property="destinationLabel" destination="OQ7-XI-F3P" id="g6D-n9-9Bj"/>
                         <outlet property="destinationView" destination="zMP-QR-12t" id="ciI-Ck-fiV"/>
-                        <outlet property="dismissScanView" destination="prq-pj-Ql8" id="W0r-i0-hMB"/>
                         <outlet property="exchangeNowButton" destination="jly-O7-EeK" id="hAr-Js-8wb"/>
                         <outlet property="exchangeRateLabel" destination="JiZ-QW-VNG" id="L4B-np-ZEP"/>
                         <outlet property="infoView" destination="iJH-P7-jtK" id="mcU-qB-eC8"/>
@@ -412,6 +408,7 @@
                         <outlet property="originLabel" destination="eJQ-EI-RNF" id="N0M-X5-eRu"/>
                         <outlet property="originView" destination="Oqe-bo-Hej" id="CuN-1P-im7"/>
                         <outlet property="refundAddressTextField" destination="PEM-ul-NHE" id="KXY-03-pgq"/>
+                        <outlet property="scanLabel" destination="3CV-pF-hoM" id="s1z-fF-MHG"/>
                         <outlet property="scanQRCodeButton" destination="G9w-xO-ixb" id="jCS-hR-1BP"/>
                         <outlet property="scanView" destination="4hO-9x-FIM" id="clm-n9-RPm"/>
                         <outlet property="switchButton" destination="nqt-Dd-ceV" id="aVV-7y-kJW"/>

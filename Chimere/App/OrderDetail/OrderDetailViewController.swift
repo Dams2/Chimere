@@ -141,37 +141,53 @@ final class OrderDetailViewController: UIViewController {
         viewModel.status = { [weak self] state in
             switch state {
             case .failed:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
-                self?.depositWalletView.isHidden = true
-                self?.stateDescriptionView.isHidden = true
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
+                    self?.depositWalletView.isHidden = true
+                    self?.stateDescriptionView.isHidden = true
+                }
             case .loaded:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.depositWalletView.isHidden = true
-                self?.stateDescriptionView.isHidden = false
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.depositWalletView.isHidden = true
+                    self?.stateDescriptionView.isHidden = false
+                }
             case .exchanging:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.exchangingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.exchangingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.exchangingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.exchangingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                }
             case .exchanged:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.exchangedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.exchangedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.exchangedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.exchangedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                }
             case .sending:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.sendingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.sendingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.sendingImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.sendingLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                }
             case .completed:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.completedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
-                self?.completedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.completedImageView.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                    self?.completedLabel.textColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+                }
             case .expired:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
-                self?.depositWalletView.isHidden = true
-                self?.stateDescriptionView.isHidden = true
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.1137254902, blue: 0.1137254902, alpha: 1)
+                    self?.depositWalletView.isHidden = true
+                    self?.stateDescriptionView.isHidden = true
+                }
             case .notPaid:
-                self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
-                self?.depositWalletView.isHidden = false
-                self?.stateDescriptionView.isHidden = true
+                DispatchQueue.main.async {
+                    self?.statusLabel.textColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+                    self?.depositWalletView.isHidden = false
+                    self?.stateDescriptionView.isHidden = true
+                }
             }
         }
         

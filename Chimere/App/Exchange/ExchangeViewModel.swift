@@ -51,6 +51,8 @@ final class ExchangeViewModel {
     var message: String = ""
     
     // MARK: - Outputs
+    
+    var scanText: ((String) -> Void)?
 
     var descriptionText: ((String) -> Void)?
 
@@ -109,6 +111,8 @@ final class ExchangeViewModel {
     // MARK: - Inputs
 
     func viewDidLoad() {
+        scanText?(translator.translate(key: "mobile/Annex/ScanText"))
+        
         descriptionText?(translator.translate(key: "mobile/Exchange/descriptionText"))
 
         originText?(translator.translate(key: "mobile/Exchange/originText"))

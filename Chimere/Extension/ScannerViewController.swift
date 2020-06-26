@@ -36,7 +36,7 @@ extension ExchangeViewController: AVCaptureMetadataOutputObjectsDelegate {
 
         if (captureSession.canAddOutput(metadataOutput)) {
             captureSession.addOutput(metadataOutput)
-
+            
             metadataOutput.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
             metadataOutput.metadataObjectTypes = [.qr]
         } else {
@@ -44,14 +44,17 @@ extension ExchangeViewController: AVCaptureMetadataOutputObjectsDelegate {
             return
         }
         
-        scanView.layer.masksToBounds = true
-        
-        previewLayer = AVCaptureVideoPreviewLayer(session: captureSession)
-        previewLayer.frame = scanView.layer.bounds
-        previewLayer.videoGravity = .resizeAspectFill
-        scanView.layer.addSublayer(previewLayer)
+        DispatchQueue.main.async {
+            self.scanView.layer.masksToBounds = true
 
-        captureSession.startRunning()
+            self.previewLayer = AVCaptureVideoPreviewLayer(session: self.captureSession)
+            self.previewLayer.frame = self.scanView.layer.bounds
+            self.previewLayer.videoGravity = .resizeAspectFill
+            self.scanView.layer.addSublayer(self.previewLayer)
+            self.scanView.addSubview(self.scanLabel)
+            
+            self.captureSession.startRunning()
+        }
     }
 
     func failed() {
@@ -60,15 +63,6 @@ extension ExchangeViewController: AVCaptureMetadataOutputObjectsDelegate {
         present(ac, animated: true)
         captureSession = nil
     }
-
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//
-//        if (captureSession?.isRunning == false) {
-//            captureSession.startRunning()
-//            scanView.isHidden = false
-//        }
-//    }
 
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
@@ -85,7 +79,6 @@ extension ExchangeViewController: AVCaptureMetadataOutputObjectsDelegate {
         if let metadataObject = metadataObjects.first {
             guard let readableObject = metadataObject as? AVMetadataMachineReadableCodeObject else { return }
             guard let stringValue = readableObject.stringValue else { return }
-//            AudioServicesPlaySystemSound(SystemSoundID(kSystemSoundID_Vibrate))
             found(code: stringValue)
         }
         dismiss(animated: true)

@@ -11,7 +11,7 @@ import Foundation
 protocol HistoryRepositoryType: class {
     func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void)
 }
-//find-orders
+
 final class HistoryRepository: HistoryRepositoryType {
     
     let client: HTTPClient
@@ -24,7 +24,6 @@ final class HistoryRepository: HistoryRepositoryType {
 
     func findOrders(order: [String: String] ,callback: @escaping (UserOrdersResponse) -> Void) {
         let stringURL = "https://chimere.io/api/order/find-orders"
-        // 6d075b60e275.ngrok
         guard let url = URL(string: stringURL) else { return }
 
         client.upload(type: UserOrdersResponse.self,

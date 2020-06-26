@@ -17,6 +17,7 @@ final class HistoryViewModel {
     private let repository: HistoryRepositoryType
     
     private let translator: Translator
+    
     init(delegate: HistoryViewControllerDelegate?, repository: HistoryRepositoryType, translator: Translator) {
         self.delegate = delegate
         self.repository = repository

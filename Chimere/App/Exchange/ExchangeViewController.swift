@@ -16,31 +16,26 @@ final class ExchangeViewController: UIViewController {
     var viewModel: ExchangeViewModel!
         
     var captureSession: AVCaptureSession!
+    
     var previewLayer: AVCaptureVideoPreviewLayer!
+
     
     // MARK: - Private Properties
     
-    let helper = Helper()
-    
-    private lazy var fiatBarButtonItem: UIBarButtonItem = {
-        let fiatButton = UIBarButtonItem(image: UIImage(systemName: "dollarsign.circle"),
-                                            style: .done, target: self, action: nil)
-        fiatButton.tintColor = #colorLiteral(red: 0.2901960784, green: 0.2901960784, blue: 0.2901960784, alpha: 1)
-        return fiatButton
-    }()
-    
+    private let helper = Helper()
+
     // MARK: - Outlets
 
     @IBOutlet weak var scanView: UIView! {
         didSet {
             scanView.layer.borderWidth = 1
             scanView.layer.cornerRadius = 10
-            scanView.layer.borderColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+            scanView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
             scanView.isHidden = true
         }
     }
-    
-    @IBOutlet weak var dismissScanView: UIButton!
+
+    @IBOutlet weak var scanLabel: UILabel!
     
     @IBOutlet weak private var descriptionTextView: UITextView!
 
@@ -150,8 +145,7 @@ final class ExchangeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.hideKeyboardWhenTappedAround()
-        
+        self.hideWhenTappedAround()
         setUI()
         bind(to: viewModel)
         viewModel.viewDidLoad()
@@ -188,6 +182,12 @@ final class ExchangeViewController: UIViewController {
             }
         }
 
+        viewModel.scanText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.scanLabel.text = text
+            }
+        }
+        
         viewModel.descriptionText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.descriptionTextView.text = text
@@ -367,10 +367,6 @@ final class ExchangeViewController: UIViewController {
     
     @IBAction private func didPressScanQRCodeButton(_ sender: UIButton) {
         openCamera()
-    }
-    
-    @IBAction func didPressDismissScanView(_ sender: UIButton) {
-        dismiss()
     }
     
     @IBAction private func didPressWarningAmountButton(_ sender: UIButton) {
