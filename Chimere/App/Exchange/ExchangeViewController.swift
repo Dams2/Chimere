@@ -7,12 +7,16 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class ExchangeViewController: UIViewController {
     
     // MARK: - Properties
 
     var viewModel: ExchangeViewModel!
+        
+    var captureSession: AVCaptureSession!
+    var previewLayer: AVCaptureVideoPreviewLayer!
     
     // MARK: - Private Properties
     
@@ -27,6 +31,17 @@ final class ExchangeViewController: UIViewController {
     
     // MARK: - Outlets
 
+    @IBOutlet weak var scanView: UIView! {
+        didSet {
+            scanView.layer.borderWidth = 1
+            scanView.layer.cornerRadius = 10
+            scanView.layer.borderColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+            scanView.isHidden = true
+        }
+    }
+    
+    @IBOutlet weak var dismissScanView: UIButton!
+    
     @IBOutlet weak private var descriptionTextView: UITextView!
 
     // Deposit //
@@ -111,7 +126,9 @@ final class ExchangeViewController: UIViewController {
 
     @IBOutlet weak private var changeDestinationCurrencyButton: UIButton!
 
-    @IBOutlet weak private var destinationAddressTextField: UITextField!
+    @IBOutlet weak var destinationAddressTextField: UITextField!
+    
+    @IBOutlet weak private var scanQRCodeButton: UIButton!
     
     // Warning //
     
@@ -254,6 +271,12 @@ final class ExchangeViewController: UIViewController {
                 self?.destinationAddressTextField.placeholder = placeholder
             }
         }
+        
+        viewModel.scanQRCodeImageText = { [weak self] text in
+            DispatchQueue.main.async {
+                self?.scanQRCodeButton.setImage(UIImage(systemName: text), for: .normal)
+            }
+        }
 
         viewModel.warningImageText = { [weak self] text in
             DispatchQueue.main.async {
@@ -332,7 +355,7 @@ final class ExchangeViewController: UIViewController {
         viewModel.didPressChangeDestinationCurrency()
     }
     
-    @IBAction func didPressDestinationAddressTextField(_ sender: UITextField) {
+    @IBAction private func didPressDestinationAddressTextField(_ sender: UITextField) {
         var counter = 0
         counter += 1
         if counter == 1 {
@@ -340,6 +363,14 @@ final class ExchangeViewController: UIViewController {
                 sender.text = myString
             }
         }
+    }
+    
+    @IBAction private func didPressScanQRCodeButton(_ sender: UIButton) {
+        openCamera()
+    }
+    
+    @IBAction func didPressDismissScanView(_ sender: UIButton) {
+        dismiss()
     }
     
     @IBAction private func didPressWarningAmountButton(_ sender: UIButton) {
@@ -389,3 +420,4 @@ final class ExchangeViewController: UIViewController {
                                     originAmountText: originAmountText)
     }
 }
+

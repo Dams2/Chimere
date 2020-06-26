@@ -7,10 +7,9 @@
 //
 
 import UIKit
+import AVFoundation
 
 final class Helper {
-    
-    var translator: Translator?
     
     lazy var setTitleViewImage: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 0,
@@ -34,7 +33,7 @@ final class Helper {
     }
     
     func openMoonPay() -> String {
-        let stringUrl = "https://buy-staging.moonpay.io?apiKey=pk_test_jIDOTIygj6fx1MLkSwuINiPl2LpCxx"
+        let stringUrl = "https://buy-staging.moonpay.io/?apiKey=pk_test_jIDOTIygj6fx1MLkSwuINiPl2LpCxx&colorCode=%235A7302"
         return stringUrl
     }
     

@@ -56,5 +56,13 @@
 	</array>
 	<key>UIUserInterfaceStyle</key>
 	<string>Light</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Weed need access to your camera for scan the QR code</string>
+	<key>UIAppFonts</key>
+	<array>
+		<string>BodoniEgyptianPro-ExtBold.ttf</string>
+		<string>BodoniEgyptianPro-Medium.ttf</string>
+		<string>BodoniEgyptianPro-Regular.ttf</string>
+	</array>
 </dict>
 </plist>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
@@ -262,18 +262,37 @@
                                             <constraint firstAttribute="height" constant="70" id="IhU-4M-TJx"/>
                                         </constraints>
                                     </stackView>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Destination ETC address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uz0-cF-10u">
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="4dB-qc-mKA">
                                         <rect key="frame" x="0.0" y="209" width="374" height="50"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="50" id="tAH-MH-iNr"/>
-                                        </constraints>
-                                        <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
-                                        <connections>
-                                            <action selector="didPressDestinationAddressTextField:" destination="fcI-Tf-to8" eventType="editingDidBegin" id="38A-kU-Ja9"/>
-                                        </connections>
-                                    </textField>
+                                        <subviews>
+                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Destination ETC address" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Uz0-cF-10u">
+                                                <rect key="frame" x="0.0" y="0.0" width="344" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="50" id="tAH-MH-iNr"/>
+                                                </constraints>
+                                                <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
+                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                <connections>
+                                                    <action selector="didPressDestinationAddressTextField:" destination="fcI-Tf-to8" eventType="editingDidBegin" id="38A-kU-Ja9"/>
+                                                </connections>
+                                            </textField>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G9w-xO-ixb">
+                                                <rect key="frame" x="349" y="0.0" width="25" height="50"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="25" id="ztM-ky-0pl"/>
+                                                </constraints>
+                                                <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal">
+                                                    <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <preferredSymbolConfiguration key="preferredSymbolConfiguration" scale="large"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressScanQRCodeButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="xZy-yP-CLx"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="center" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ell-vy-3Ox">
@@ -331,15 +350,38 @@
                                     </button>
                                 </subviews>
                             </stackView>
+                            <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4hO-9x-FIM">
+                                <rect key="frame" x="107" y="348" width="200" height="200"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="prq-pj-Ql8">
+                                        <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                        <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <connections>
+                                            <action selector="didPressDismissScanView:" destination="fcI-Tf-to8" eventType="touchUpInside" id="rmC-TG-Gdu"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="7zy-8E-Dhj"/>
+                                    <constraint firstAttribute="trailing" secondItem="prq-pj-Ql8" secondAttribute="trailing" id="9sq-mM-hjZ"/>
+                                    <constraint firstAttribute="width" constant="200" id="KTw-er-v7g"/>
+                                    <constraint firstItem="prq-pj-Ql8" firstAttribute="leading" secondItem="4hO-9x-FIM" secondAttribute="leading" id="R5X-jB-Fg0"/>
+                                    <constraint firstAttribute="bottom" secondItem="prq-pj-Ql8" secondAttribute="bottom" id="aM1-tE-CzO"/>
+                                    <constraint firstItem="prq-pj-Ql8" firstAttribute="top" secondItem="4hO-9x-FIM" secondAttribute="top" id="wFM-mA-gXX"/>
+                                </constraints>
+                            </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="miB-1H-3lr" secondAttribute="trailing" constant="20" id="Juo-dV-rTW"/>
+                            <constraint firstItem="4hO-9x-FIM" firstAttribute="centerX" secondItem="bI4-4y-IM1" secondAttribute="centerX" id="KNz-SD-EuI"/>
                             <constraint firstItem="miB-1H-3lr" firstAttribute="leading" secondItem="bI4-4y-IM1" secondAttribute="leading" constant="20" id="M10-Ij-XUS"/>
                             <constraint firstItem="miB-1H-3lr" firstAttribute="top" secondItem="ell-vy-3Ox" secondAttribute="bottom" constant="15" id="NGe-Nu-3g2"/>
                             <constraint firstItem="ell-vy-3Ox" firstAttribute="leading" secondItem="bI4-4y-IM1" secondAttribute="leading" constant="20" id="V8E-Ea-rpM"/>
                             <constraint firstItem="ell-vy-3Ox" firstAttribute="top" secondItem="j6r-ao-sPw" secondAttribute="top" constant="20" id="Zqe-t0-pYZ"/>
                             <constraint firstItem="MgC-az-0Fk" firstAttribute="centerX" secondItem="bI4-4y-IM1" secondAttribute="centerX" id="h4k-MN-6rH"/>
+                            <constraint firstItem="4hO-9x-FIM" firstAttribute="centerY" secondItem="bI4-4y-IM1" secondAttribute="centerY" id="hbD-lb-Kof"/>
                             <constraint firstItem="MgC-az-0Fk" firstAttribute="top" secondItem="miB-1H-3lr" secondAttribute="bottom" constant="8" id="j7a-7R-Uoz"/>
                             <constraint firstAttribute="trailing" secondItem="ell-vy-3Ox" secondAttribute="trailing" constant="20" id="nrI-Q9-bsR"/>
                             <constraint firstItem="j6r-ao-sPw" firstAttribute="bottom" secondItem="jly-O7-EeK" secondAttribute="bottom" constant="20" id="sUB-9d-i5C"/>
@@ -359,6 +401,7 @@
                         <outlet property="destinationCurrencyView" destination="9IT-9Q-T91" id="ZYB-nc-eJK"/>
                         <outlet property="destinationLabel" destination="OQ7-XI-F3P" id="g6D-n9-9Bj"/>
                         <outlet property="destinationView" destination="zMP-QR-12t" id="ciI-Ck-fiV"/>
+                        <outlet property="dismissScanView" destination="prq-pj-Ql8" id="W0r-i0-hMB"/>
                         <outlet property="exchangeNowButton" destination="jly-O7-EeK" id="hAr-Js-8wb"/>
                         <outlet property="exchangeRateLabel" destination="JiZ-QW-VNG" id="L4B-np-ZEP"/>
                         <outlet property="infoView" destination="iJH-P7-jtK" id="mcU-qB-eC8"/>
@@ -369,6 +412,8 @@
                         <outlet property="originLabel" destination="eJQ-EI-RNF" id="N0M-X5-eRu"/>
                         <outlet property="originView" destination="Oqe-bo-Hej" id="CuN-1P-im7"/>
                         <outlet property="refundAddressTextField" destination="PEM-ul-NHE" id="KXY-03-pgq"/>
+                        <outlet property="scanQRCodeButton" destination="G9w-xO-ixb" id="jCS-hR-1BP"/>
+                        <outlet property="scanView" destination="4hO-9x-FIM" id="clm-n9-RPm"/>
                         <outlet property="switchButton" destination="nqt-Dd-ceV" id="aVV-7y-kJW"/>
                         <outlet property="warningAmountButton" destination="ycF-mu-inT" id="9st-PT-h8c"/>
                         <outlet property="warningImageView" destination="A23-9f-Lc5" id="R4B-PU-u0M"/>
@@ -442,16 +487,16 @@
                                                     <rect key="frame" x="57" y="0.0" width="337" height="50"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nal-MH-eME">
-                                                            <rect key="frame" x="0.0" y="0.0" width="160" height="50"/>
-                                                            <constraints>
-                                                                <constraint firstAttribute="width" constant="160" id="JHn-Ro-oME"/>
-                                                            </constraints>
+                                                            <rect key="frame" x="0.0" y="0.0" width="217" height="50"/>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jh4-dZ-WPl">
-                                                            <rect key="frame" x="190" y="0.0" width="147" height="50"/>
+                                                            <rect key="frame" x="247" y="0.0" width="90" height="50"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" constant="90" id="Jan-SG-tJu"/>
+                                                            </constraints>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1040,24 +1085,17 @@
                                     <wkPreferences key="preferences"/>
                                 </wkWebViewConfiguration>
                             </wkWebView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="cab-DJ-TFB">
-                                <rect key="frame" x="197" y="438" width="20" height="20"/>
-                                <color key="color" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="aFU-gF-bM8" firstAttribute="top" secondItem="gaa-QW-wSy" secondAttribute="top" id="RXS-wZ-fsj"/>
-                            <constraint firstItem="cab-DJ-TFB" firstAttribute="centerY" secondItem="Ipd-7P-VEZ" secondAttribute="centerY" id="bal-te-x3s"/>
                             <constraint firstItem="aFU-gF-bM8" firstAttribute="bottom" secondItem="gaa-QW-wSy" secondAttribute="bottom" id="e6f-2j-FrV"/>
-                            <constraint firstItem="cab-DJ-TFB" firstAttribute="centerX" secondItem="Ipd-7P-VEZ" secondAttribute="centerX" id="f3K-Qc-5Qq"/>
                             <constraint firstItem="aFU-gF-bM8" firstAttribute="leading" secondItem="gaa-QW-wSy" secondAttribute="leading" id="oOI-Ax-f0h"/>
                             <constraint firstItem="aFU-gF-bM8" firstAttribute="trailing" secondItem="gaa-QW-wSy" secondAttribute="trailing" id="sic-H5-5GM"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="gaa-QW-wSy"/>
                     </view>
                     <connections>
-                        <outlet property="activityIndicator" destination="cab-DJ-TFB" id="zfk-zi-PPA"/>
                         <outlet property="webView" destination="aFU-gF-bM8" id="aQZ-gM-xiq"/>
                     </connections>
                 </viewController>

@@ -85,6 +85,8 @@ final class ExchangeViewModel {
     var destinationCurrencySymbolText: ((String) -> Void)?
 
     var destinationAddressText: ((String) -> Void)?
+    
+    var scanQRCodeImageText: ((String) -> Void)?
 
     // Warning
 
@@ -124,6 +126,7 @@ final class ExchangeViewModel {
         destinationCurrencyName = "Chainlink token"
         destinationCurrencySymbol = "LINK"
         destinationAddressText?(translator.translate(key: "mobile/Exchange/destinationAddressText"))
+        scanQRCodeImageText?("qrcode.viewfinder")
 
         warningImageText?("")
         warningText?("")
@@ -157,11 +160,6 @@ final class ExchangeViewModel {
         originAmountText?("\(warningAmountText)")
         getPrices(originAmountText: warningAmountText, message: message)
         alertState?(true)
-    }
-    
-    func didPressMoonPay() -> String {
-        let stringUrl = "https://buy-staging.moonpay.io?apiKey=pk_test_jIDOTIygj6fx1MLkSwuINiPl2LpCxx"
-        return stringUrl
     }
 
     func didPressExchangeNow(userID: String,

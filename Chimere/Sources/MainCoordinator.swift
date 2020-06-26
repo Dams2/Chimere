@@ -32,8 +32,8 @@ extension TabBarSourceType {
 fileprivate class TabBarSource: TabBarSourceType {
     var items: [UINavigationController] = [
         UINavigationController(nibName: nil, bundle: nil),
+//        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
-//        UINavigationController(nibName: nil, bundle: nil)
     ]
 
     init() {

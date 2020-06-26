@@ -18,8 +18,6 @@ final class FiatViewController: UIViewController, WKNavigationDelegate {
     // MARK: - Outlets
     
     @IBOutlet weak private var webView: WKWebView!
-
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     // MARK: - View life cycle
     
@@ -29,11 +27,8 @@ final class FiatViewController: UIViewController, WKNavigationDelegate {
         setUI()
         DispatchQueue.main.async {
             self.webView.load(self.helper.openMoonPay())
-            self.webView.addSubview(self.activityIndicator)
-            self.activityIndicator.startAnimating()
 
             self.webView.navigationDelegate = self
-//            self.activityIndicator.hidesWhenStopped = true
         }
     }
     
@@ -46,13 +41,5 @@ final class FiatViewController: UIViewController, WKNavigationDelegate {
         self.navigationController?.navigationBar.shadowImage = UIImage()
         webView.scrollView.isScrollEnabled = false
         webView.scrollView.bounces = false
-    }
-    
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        activityIndicator.stopAnimating()
-    }
-    
-    func webView(_ webView: WKWebView, didFail navigation: WKNavigation!, withError error: Error) {
-        activityIndicator.stopAnimating()
     }
 }
