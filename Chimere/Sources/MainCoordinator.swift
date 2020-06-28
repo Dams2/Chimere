@@ -73,6 +73,10 @@ final class MainCoordinator: NSObject {
         tabBarController = UITabBarController(nibName: nil, bundle: nil)
         tabBarController.viewControllers = tabBarSource.items
         tabBarController.selectedViewController = tabBarSource[.exchange]
+        
+        let attributes = [NSAttributedString.Key.font:UIFont(name: "BodoniEgyptianPro-ExtBold", size: 10
+        )]
+        UITabBarItem.appearance().setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
 
         super.init()
 

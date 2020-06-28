@@ -30,7 +30,7 @@ final class ExchangeViewController: UIViewController {
         didSet {
             scanView.layer.borderWidth = 1
             scanView.layer.cornerRadius = 10
-            scanView.layer.borderColor = #colorLiteral(red: 0.3333333433, green: 0.3333333433, blue: 0.3333333433, alpha: 1)
+            scanView.layer.borderColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
             scanView.isHidden = true
         }
     }
@@ -164,7 +164,7 @@ final class ExchangeViewController: UIViewController {
         addHowItWorkButton.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
         navigationItem.setRightBarButton(addHowItWorkButton,
                                                 animated: true)
-        
+
         self.tabBarController?.tabBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
         self.tabBarController?.tabBar.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
     }
@@ -239,12 +239,6 @@ final class ExchangeViewController: UIViewController {
         viewModel.destinationText = { [weak self] text in
             DispatchQueue.main.async {
                 self?.destinationLabel.text = text
-            }
-        }
-
-        viewModel.destinationAmountPlaceholderText = { [weak self] placeholder in
-            DispatchQueue.main.async {
-                self?.destinationAmountTextField.placeholder = placeholder
             }
         }
 

@@ -18,11 +18,11 @@
 
 "mobile/Exchange/originText" = "You send";
 
-"mobile/Exchange/refundAddressText" = "Enter ETH refund address here... 👈";
+"mobile/Exchange/refundAddressText" = "Enter ETH refund address here...";
 
 "mobile/Exchange/destinationText" = "You get approximately";
 
-"mobile/Exchange/destinationAddressText" = "Paste destination LINK address here... 👈";
+"mobile/Exchange/destinationAddressText" = "Paste destination LINK address here...";
 
 "mobile/Exchange/exchangeNowText" = "Exchange now";
 
@@ -96,13 +96,13 @@
 
 "mobile/Annex/Enter" = "Paste destination";
 
-"mobile/Annex/RefundAddress" = "refund address here... 👈";
+"mobile/Annex/RefundAddress" = "refund address here...";
 
 "mobile/Annex/Destination" = "Destination";
 
 "mobile/Annex/Address" = "address";
 
-"mobile/Annex/AddressHere" = "address here... 👈";
+"mobile/Annex/AddressHere" = "address here...";
 
 "mobile/Annex/SameCurrency" = "You can't exchange";
 

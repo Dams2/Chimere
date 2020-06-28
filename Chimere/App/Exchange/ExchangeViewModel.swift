@@ -77,8 +77,6 @@ final class ExchangeViewModel {
     // destination
 
     var destinationText: ((String) -> Void)?
-    
-    var destinationAmountPlaceholderText: ((String) -> Void)?
 
     var destinationAmountText: ((String) -> Void)?
 
@@ -87,7 +85,7 @@ final class ExchangeViewModel {
     var destinationCurrencySymbolText: ((String) -> Void)?
 
     var destinationAddressText: ((String) -> Void)?
-    
+
     var scanQRCodeImageText: ((String) -> Void)?
 
     // Warning
@@ -125,8 +123,7 @@ final class ExchangeViewModel {
         exchangeRateText?("")
 
         destinationText?(translator.translate(key: "mobile/Exchange/destinationText"))
-        destinationAmountPlaceholderText?("0.01")
-        destinationAmountText?("")
+        destinationAmountText?("...")
         destinationCurrencyName = "Chainlink token"
         destinationCurrencySymbol = "LINK"
         destinationAddressText?(translator.translate(key: "mobile/Exchange/destinationAddressText"))
@@ -209,7 +206,6 @@ final class ExchangeViewModel {
     func updateOrigin(currency: Currency, originAmountText: String) {
         originCurrencyName = currency.name
         originCurrencySymbol = currency.symbol
-        refundAddressText?("\(translator.translate(key: "mobile/Annex/Enter")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/RefundAddress"))")
         delegate?.didDismissCurrenciesList()
         message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
         getPrices(originAmountText: originAmountText, message: message)
@@ -333,11 +329,10 @@ final class ExchangeViewModel {
             self.exchangeRateText?("")
             self.originCurrencyName = destination[0]
             self.originCurrencySymbol = destination[1]
-            self.refundAddressText?("\(self.translator.translate(key: "mobile/Annex/Enter")) \(destination[1]) \(self.translator.translate(key: "mobile/Annex/RefundAddress"))")
 
             self.destinationCurrencyName = origin[0]
             self.destinationCurrencySymbol = origin[1]
-            self.destinationAddressText?("\(self.translator.translate(key: "mobile/Annex/Destination" )) \(origin[1]) \(self.translator.translate(key: "mobile/Annex/AddressHere"))")
+            self.destinationAddressText?("\(self.translator.translate(key: "mobile/Annex/Enter" )) \(origin[1]) \(self.translator.translate(key: "mobile/Annex/AddressHere"))")
         }
     }
 }

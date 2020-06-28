@@ -28,14 +28,16 @@ final class HistoryDataSources:  NSObject, UITableViewDelegate, UITableViewDataS
         guard items.count > indexPath.item else {
             return UITableViewCell()
         }
-        
         let order = items[indexPath.item]
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
+        
         cell.configure(with: order)
         return cell
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
+      
         didSelectItemAtIndex?(indexPath.item)
     }
 }

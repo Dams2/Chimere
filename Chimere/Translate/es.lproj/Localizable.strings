@@ -18,11 +18,11 @@
 
 "mobile/Exchange/originText" = "Usted envía";
 
-"mobile/Exchange/refundAddressText" = "Ingrese la dirección ETH de reembolso aquí ... 👈";
+"mobile/Exchange/refundAddressText" = "Ingrese la dirección ETH de reembolso aquí ...";
 
 "mobile/Exchange/destinationText" = "Aproximadamente";
 
-"mobile/Exchange/destinationAddressText" = "Pega la dirección LINK de destino aquí ... 👈";
+"mobile/Exchange/destinationAddressText" = "Pega la dirección LINK de destino aquí ...";
 
 "mobile/Exchange/exchangeNowText" = "Cambiar";
 
@@ -96,13 +96,13 @@
 
 "mobile/Annex/Enter" = "Pega la dirección";
 
-"mobile/Annex/RefundAddress" = "dirección de reembolso aquí... 👈";
+"mobile/Annex/RefundAddress" = "dirección de reembolso aquí...";
 
 "mobile/Annex/Destination" = "Dirección";
 
 "mobile/Annex/Address" = "de destino";
 
-"mobile/Annex/AddressHere" = "de destino aquí... 👈";
+"mobile/Annex/AddressHere" = "de destino aquí...";
 
 "mobile/Annex/SameCurrency" = "No puedes intercambiar";
 

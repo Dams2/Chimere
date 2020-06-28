@@ -19,11 +19,11 @@ final class ExchangeRepository: ExchangeRepositoryType {
     let client: HTTPClient
     
     private let token = RequestCancellationToken()
-    
+
     init(client: HTTPClient) {
         self.client = client
     }
-    
+
     func getAddressValidation(address: [String: String], callback: @escaping (AddressResponse) -> Void) {
         let stringURL = "https://chimere.io/api/check/is-valid-address"
         guard let url = URL(string: stringURL) else { return }
@@ -36,7 +36,7 @@ final class ExchangeRepository: ExchangeRepositoryType {
                         callback(validation)
         }
     }
-    
+
     func postOrder(order: [String: String] ,callback: @escaping (OrderResponse) -> Void) {
         let stringURL = "https://chimere.io/api/order/create-order"
         guard let url = URL(string: stringURL) else { return }
