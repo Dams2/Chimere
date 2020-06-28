@@ -36,8 +36,6 @@ final class HistoryDataSources:  NSObject, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryTableViewCell", for: indexPath) as! HistoryTableViewCell
-      
         didSelectItemAtIndex?(indexPath.item)
     }
 }

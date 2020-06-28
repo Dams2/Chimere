@@ -17,7 +17,7 @@ final class ExchangeViewModel {
     private let repository: ExchangeRepositoryType
 
     private let translator: Translator
-
+    
     init(delegate: ExchangeViewControllerDelegate?, repository: ExchangeRepositoryType, translator: Translator) {
         self.delegate = delegate
         self.repository = repository
@@ -253,13 +253,13 @@ final class ExchangeViewModel {
             else { return }
 
         let rate =  originRate / destinationRate
+        let formatValue = String(format: "%.8f", rate)
 
         self.convertDestinationValue(originAmountText: originAmountText,
                                      rate: rate,
                                      maximumPrice: maximumPrice,
                                      minimumPrice: minimumPrice)
-        print("\(destinationCurrencySymbol) / \(originCurrencySymbol)")
-        self.exchangeRateText?("1 \(originCurrencySymbol) ~ \(rate) \(destinationCurrencySymbol)")
+        self.exchangeRateText?("1 \(originCurrencySymbol) ~ \(formatValue) \(destinationCurrencySymbol)")
     }
 
     private func convertDestinationValue(originAmountText: String,

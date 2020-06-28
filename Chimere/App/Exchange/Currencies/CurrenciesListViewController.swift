@@ -21,7 +21,13 @@ final class CurrenciesListViewController: UIViewController {
     
     // MARK: - Outlets
 
-    @IBOutlet private weak var tableView: UITableView!
+    @IBOutlet weak var searchBar: UISearchBar!
+    
+    @IBOutlet weak var tableView: UITableView!
+    
+    var isSearchBarEmpty: Bool {
+      return searchBar.text?.isEmpty ?? true
+    }
     
     // MARK: - View life cycle
     
@@ -32,13 +38,17 @@ final class CurrenciesListViewController: UIViewController {
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
-        
-        
     }
 
     // MARK: - Helpers
     
     private func bind(to viewModel: CurrenciesListViewModel) {
+        viewModel.searchBarPlaceholderText = { [weak self] placeholder in
+            DispatchQueue.main.async {
+                self?.searchBar.placeholder = placeholder
+            }
+        }
+        
         viewModel.items = { [weak self] items in
             DispatchQueue.main.async {
                 self?.dataSource.update(with: items)

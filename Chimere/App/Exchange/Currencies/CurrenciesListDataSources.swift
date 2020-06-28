@@ -23,6 +23,8 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
     }
 
     private var items: [Item] = []
+    
+    private var filteredItems: [Item] = []
 
     func update(with item: [Item]) {
         self.items = item
@@ -48,7 +50,15 @@ final class CurrenciesListDataSources: NSObject, UITableViewDelegate, UITableVie
     func tableView(_ tableView: UITableView,
                    didSelectRowAt indexPath: IndexPath) {
         didSelectItemAtIndex?(indexPath.item)
-        let cell = tableView.dequeueReusableCell(withIdentifier: "CurrenciesTableViewCell", for: indexPath) as! CurrenciesTableViewCell
-        cell.selectionStyle = UITableViewCell.SelectionStyle.default
+    }
+}
+
+extension CurrenciesListDataSources: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String, tableView: UITableView) {
+        filteredItems = items.filter({ (currency) -> Bool in
+            guard let text = searchBar.text else { return false }
+            return currency.name.contains(text)
+        })
+        print(filteredItems)
     }
 }

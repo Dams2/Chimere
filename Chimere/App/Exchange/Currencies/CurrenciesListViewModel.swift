@@ -23,6 +23,8 @@ final class CurrenciesListViewModel {
     
     // MARK: - Outputs
     
+    var searchBarPlaceholderText: ((String) -> Void)?
+    
     var items: (([Currency]) -> Void)?
     
     private var currencyItems: [CurrencyItem] = [] {
@@ -31,21 +33,21 @@ final class CurrenciesListViewModel {
             self.items?(items)
         }
     }
-    
+
     enum CurrencyItem {
         case active(response: Asset)
     }
     // MARK: - Inputs
     
     func viewDidLoad() {
+        searchBarPlaceholderText?("Try 'Bitcoin' or 'BTC'")
         repository.getCurrencies { (currenciesResponse) in
             DispatchQueue.main.async {
                 currenciesResponse.asset.lazy.forEach { self.currencyItems.append(.active(response: $0)) }
             }
         }
     }
-    
-    
+
     func didSelectItem(at index: Int) {
         guard index < currencyItems.count else { return }
         let item = currencyItems[index]

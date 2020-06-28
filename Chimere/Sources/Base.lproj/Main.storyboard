@@ -465,7 +465,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hlf-io-y10">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                                <rect key="frame" x="0.0" y="100" width="414" height="796"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="CurrenciesTableViewCell" rowHeight="50" id="7t1-Cm-1Fz" customClass="CurrenciesTableViewCell" customModule="Chimere" customModuleProvider="target">
@@ -519,23 +519,31 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" showsCancelButton="YES" translatesAutoresizingMaskIntoConstraints="NO" id="63B-09-8bX">
+                                <rect key="frame" x="0.0" y="44" width="414" height="56"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <constraints>
                             <constraint firstItem="Hlf-io-y10" firstAttribute="leading" secondItem="UMh-lP-XZB" secondAttribute="leading" id="1MD-hN-yL7"/>
                             <constraint firstItem="Hlf-io-y10" firstAttribute="trailing" secondItem="UMh-lP-XZB" secondAttribute="trailing" id="1of-J9-yOY"/>
-                            <constraint firstItem="Hlf-io-y10" firstAttribute="top" secondItem="SOm-q1-NrX" secondAttribute="top" id="Oej-OT-qG3"/>
+                            <constraint firstItem="63B-09-8bX" firstAttribute="trailing" secondItem="UMh-lP-XZB" secondAttribute="trailing" id="9cb-ub-gWE"/>
+                            <constraint firstItem="63B-09-8bX" firstAttribute="leading" secondItem="UMh-lP-XZB" secondAttribute="leading" id="IlU-gF-sEq"/>
+                            <constraint firstItem="63B-09-8bX" firstAttribute="top" secondItem="UMh-lP-XZB" secondAttribute="top" id="c2f-jO-Xpy"/>
+                            <constraint firstItem="Hlf-io-y10" firstAttribute="top" secondItem="63B-09-8bX" secondAttribute="bottom" id="f97-nq-vto"/>
                             <constraint firstAttribute="bottom" secondItem="Hlf-io-y10" secondAttribute="bottom" id="ycy-7g-5dK"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="UMh-lP-XZB"/>
                     </view>
                     <connections>
+                        <outlet property="searchBar" destination="63B-09-8bX" id="S6H-qq-ISB"/>
                         <outlet property="tableView" destination="Hlf-io-y10" id="sj7-qE-Ehu"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2o-i4-jtN" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-446" y="747"/>
+            <point key="canvasLocation" x="-446.37681159420293" y="746.65178571428567"/>
         </scene>
         <!--Terms Of Use View Controller-->
         <scene sceneID="siX-jQ-V2h">
