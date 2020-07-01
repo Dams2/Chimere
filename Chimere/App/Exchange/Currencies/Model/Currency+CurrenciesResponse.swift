@@ -12,8 +12,8 @@ extension Currency {
     init(response: Asset) {
         self.name = "\(response.currency)"
         self.symbol = "\(response.ticker)"
-        self.price = ""
         self.active = "\(response.active)"
         self.image = "\(response.imgURL)"
+        self.id = "\(response.id)"
     }
 }

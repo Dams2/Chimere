@@ -9,24 +9,24 @@
 import Foundation
 
 final class CurrenciesListViewModel {
-    
+        
     // MARK: - Private Properties
     
     private let delegate: CurrenciesListViewControllerDelegate?
     
     private let repository: CurrenciesListRepository
-    
+
     init(delegate: CurrenciesListViewControllerDelegate?, repository: CurrenciesListRepository) {
         self.delegate = delegate
         self.repository = repository
     }
-    
+
     // MARK: - Outputs
-    
+
     var searchBarPlaceholderText: ((String) -> Void)?
-    
+
     var items: (([Currency]) -> Void)?
-    
+
     private var currencyItems: [CurrencyItem] = [] {
         didSet {
             let items = currencyItems.map { Currency(currencyItem:  $0) }
@@ -34,11 +34,19 @@ final class CurrenciesListViewModel {
         }
     }
 
+    private var filteredItems: [CurrencyItem] = [] {
+        didSet {
+            let items = filteredItems.map { Currency(currencyItem:  $0) }
+            self.items?(items)
+        }
+    }
+
     enum CurrencyItem {
         case active(response: Asset)
     }
+
     // MARK: - Inputs
-    
+
     func viewDidLoad() {
         searchBarPlaceholderText?("Try 'Bitcoin' or 'BTC'")
         repository.getCurrencies { (currenciesResponse) in
@@ -49,26 +57,26 @@ final class CurrenciesListViewModel {
     }
 
     func didSelectItem(at index: Int) {
-        guard index < currencyItems.count else { return }
+        guard currencyItems.indices.contains(index) else { return }
         let item = currencyItems[index]
         let currency = Currency(currencyItem: item)
         delegate?.didSelect(currency)
     }
 
-//    func temp() {
-//        let arr = ["be", "ba" , "bi", "r" ,"a"]
-//        let sortedArr = arr.sorted { $0 < $1 }
-//
-//        let arraay = [Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf"), Currency(name: "a", symbol: "A", price: "12", active: "wtf", image: "wtf")]
-//
-//        var dict: [String: Currency] = [:]
-//        arraay.forEach {
-//            dict[$0.symbol] = $0
-//        }
-//
-//        let itaaa = dict.values
-//        let letters = dict.keys
-//    }
+    func didSearchCurrency(with name: String) {
+        let unfilteredItems = self.currencyItems
+        if name == "" {
+            self.currencyItems = unfilteredItems
+            return
+        }
+        
+        self.filteredItems = currencyItems.filter {
+            switch $0 {
+            case .active(response: let asset):
+                return asset.currency.lowercased().contains(name.lowercased()) || asset.ticker.lowercased().contains(name.lowercased())
+            }
+        }
+    }
 }
 
 extension Currency {

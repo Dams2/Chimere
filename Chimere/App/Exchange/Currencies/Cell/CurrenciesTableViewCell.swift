@@ -35,6 +35,7 @@ final class CurrenciesTableViewCell: UITableViewCell {
             self.currencySymbolLabel.text = "(\(isDisable))"
         }
         currencyImageView.image = UIImage(named: currency.symbol)
+        
         currencyNameLabel.text = currency.name
         if active == "true" {
             self.isUserInteractionEnabled = true

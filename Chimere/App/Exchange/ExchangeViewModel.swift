@@ -124,7 +124,7 @@ final class ExchangeViewModel {
 
         destinationText?(translator.translate(key: "mobile/Exchange/destinationText"))
         destinationAmountText?("...")
-        destinationCurrencyName = "Chainlink token"
+        destinationCurrencyName = "Chainlink"
         destinationCurrencySymbol = "LINK"
         destinationAddressText?(translator.translate(key: "mobile/Exchange/destinationAddressText"))
         scanQRCodeImageText?("qrcode.viewfinder")

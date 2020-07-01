@@ -19,36 +19,45 @@ final class CurrenciesListViewController: UIViewController {
 
     var viewModel: CurrenciesListViewModel!
     
+    let searchController = UISearchController(searchResultsController: nil)
+
     // MARK: - Outlets
 
-    @IBOutlet weak var searchBar: UISearchBar!
+    @IBOutlet weak private var searchBar: UISearchBar!
     
-    @IBOutlet weak var tableView: UITableView!
-    
-    var isSearchBarEmpty: Bool {
-      return searchBar.text?.isEmpty ?? true
-    }
+    @IBOutlet weak private var tableView: UITableView!
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        searchBar.delegate = self
+    
+        setUI()
+        
         bind(to: dataSource)
         
         bind(to: viewModel)
         viewModel.viewDidLoad()
     }
+    
+    private func setUI() {
+        let attributes = [NSAttributedString.Key.font : UIFont(name: "BodoniEgyptianPro-ExtBold", size: 12)!]
+        
+        searchBar.searchTextField.attributedPlaceholder = NSAttributedString(string: "Placeholder Text", attributes: attributes)
+        searchBar.searchTextField.font = UIFont(name: "BodoniEgyptianPro-ExtBold", size: 17)
+    }
 
     // MARK: - Helpers
-    
+
     private func bind(to viewModel: CurrenciesListViewModel) {
         viewModel.searchBarPlaceholderText = { [weak self] placeholder in
             DispatchQueue.main.async {
                 self?.searchBar.placeholder = placeholder
             }
         }
-        
+
         viewModel.items = { [weak self] items in
             DispatchQueue.main.async {
                 self?.dataSource.update(with: items)
@@ -59,5 +68,15 @@ final class CurrenciesListViewController: UIViewController {
     
     private func bind(to dataSource: CurrenciesListDataSources) {
         dataSource.didSelectItemAtIndex = viewModel.didSelectItem
+    }
+}
+
+extension CurrenciesListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        viewModel.didSearchCurrency(with: searchText)
+    }
+    
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+        self.searchBar.endEditing(true)
     }
 }

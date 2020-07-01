@@ -126,11 +126,23 @@ extension Screens {
 extension Screens {
     func createAlert(with configuration: AlertConfiguration) -> UIAlertController {
         let alertController = UIAlertController()
+//        let attributesTitle = [NSAttributedString.Key.font : UIFont(name: "BodoniEgyptianPro-ExtBold", size: 15)!]
+//        let attributesMessage = [NSAttributedString.Key.font : UIFont(name: "BodoniEgyptianPro-Medium", size: 12)!]
+//        
+        alertController.view.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+        
         alertController.title = configuration.title
         alertController.message = configuration.message
         let action = UIAlertAction(title: configuration.okMessage,
                                    style: .default,
                                    handler: nil)
+//        alertController.setValue(NSAttributedString(string: alertController.title ?? "", attributes: attributesTitle), forKey: "attributedTitle")
+//
+//        alertController.setValue(NSAttributedString(string: alertController.message ?? "", attributes: attributesMessage), forKey: "attributedMessage")
+//
+//        alertController.setValue(NSAttributedString(string: alertController. ?? "", attributes: attributesMessage), forKey: "attributedMessage")
+//
+
         alertController.addAction(action)
         return alertController
     }

@@ -36,6 +36,7 @@ final class HistoryDataSources:  NSObject, UITableViewDelegate, UITableViewDataS
     }
 
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
         didSelectItemAtIndex?(indexPath.item)
     }
 }
