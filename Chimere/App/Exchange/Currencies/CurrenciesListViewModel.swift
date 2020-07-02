@@ -26,6 +26,8 @@ final class CurrenciesListViewModel {
     var searchBarPlaceholderText: ((String) -> Void)?
 
     var items: (([Currency]) -> Void)?
+    
+    private var searchingState = false
 
     private var currencyItems: [CurrencyItem] = [] {
         didSet {
@@ -57,22 +59,32 @@ final class CurrenciesListViewModel {
     }
 
     func didSelectItem(at index: Int) {
-        guard currencyItems.indices.contains(index) else { return }
-        let item = currencyItems[index]
-        let currency = Currency(currencyItem: item)
-        delegate?.didSelect(currency)
+        if searchingState == false {
+            guard currencyItems.indices.contains(index) else { return }
+            let item = currencyItems[index]
+            let currency = Currency(currencyItem: item)
+            delegate?.didSelect(currency)
+        } else {
+            guard filteredItems.indices.contains(index) else { return }
+            let item = filteredItems[index]
+            let currency = Currency(currencyItem: item)
+            delegate?.didSelect(currency)
+        }
+        
     }
 
     func didSearchCurrency(with name: String) {
         let unfilteredItems = self.currencyItems
         if name == "" {
             self.currencyItems = unfilteredItems
+            searchingState = false
             return
         }
         
         self.filteredItems = currencyItems.filter {
             switch $0 {
             case .active(response: let asset):
+                searchingState = true
                 return asset.currency.lowercased().contains(name.lowercased()) || asset.ticker.lowercased().contains(name.lowercased())
             }
         }
