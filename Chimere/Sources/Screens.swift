@@ -24,16 +24,24 @@ protocol ExchangeViewControllerDelegate: class {
     func didShowOriginCurrenciesList()
     func didShowDestinationCurrencies()
     func didDismissCurrenciesList()
-    func didSelectExchangeNow()
+    func didSelectExchangeNow(orderItems: [String: String])
     func didPresentAlert(for alert: AlertType)
+    func didSelectHowItWork()
 }
 
 extension Screens {
-    func createExchangeViewController(delegate: ExchangeViewControllerDelegate) -> UIViewController {
+    func createExchangeViewController(delegate: ExchangeViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ExchangeViewController") as! ExchangeViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = ExchangeViewModel(delegate: delegate, repository: repository)
+        let viewModel = ExchangeViewModel(delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createHowItWorkViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "HowItWorkViewController") as! HowItWorkViewController
         return viewController
     }
 }
@@ -52,19 +60,65 @@ extension Screens {
     }
 }
 
+protocol OrderSummaryViewControllerDelegate: class {
+    func didSelectConfirm(deposit: Deposit)
+    func didSelectTermsOfUse()
+}
+
 extension Screens {
-    func createDepositViewController() -> UIViewController {
-        let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
+    func createOrderSummaryViewController(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(repository: repository)
+        let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository, translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
 }
 
 extension Screens {
-    func createHistoryViewController() -> UIViewController {
+    func createTermsOfUseViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "TermsOfUseViewController") as! TermsOfUseViewController
+        return viewController
+    }
+}
+
+extension Screens {
+    func createDepositViewController(deposit: Deposit, delegate: ExchangeViewControllerDelegate) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
+        let repository = ExchangeRepository(client: context.client)
+        let viewModel = DepositViewModel(deposit: deposit, repository: repository, delegate: delegate, translator: context.translator)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+protocol HistoryViewControllerDelegate: class {
+    func didSelect(_ order: UserOrders)
+    func didShowExchange()
+}
+
+extension Screens {
+    func createHistoryViewController(delegate: HistoryViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
+        let repository = HistoryRepository(client: context.client)
+        let viewModel = HistoryViewModel(delegate: delegate, repository: repository, translator: context.translator)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createOrderDetailViewController(order: UserOrders) -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
+        let viewModel = OrderDetailViewModel(order: order, translator: context.translator)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createFiatViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "FiatViewController") as! FiatViewController
         return viewController
     }
 }
@@ -72,11 +126,23 @@ extension Screens {
 extension Screens {
     func createAlert(with configuration: AlertConfiguration) -> UIAlertController {
         let alertController = UIAlertController()
+//        let attributesTitle = [NSAttributedString.Key.font : UIFont(name: "BodoniEgyptianPro-ExtBold", size: 15)!]
+//        let attributesMessage = [NSAttributedString.Key.font : UIFont(name: "BodoniEgyptianPro-Medium", size: 12)!]
+//        
+        alertController.view.tintColor = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
+        
         alertController.title = configuration.title
         alertController.message = configuration.message
         let action = UIAlertAction(title: configuration.okMessage,
                                    style: .default,
                                    handler: nil)
+//        alertController.setValue(NSAttributedString(string: alertController.title ?? "", attributes: attributesTitle), forKey: "attributedTitle")
+//
+//        alertController.setValue(NSAttributedString(string: alertController.message ?? "", attributes: attributesMessage), forKey: "attributedMessage")
+//
+//        alertController.setValue(NSAttributedString(string: alertController. ?? "", attributes: attributesMessage), forKey: "attributedMessage")
+//
+
         alertController.addAction(action)
         return alertController
     }

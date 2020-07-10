@@ -37,7 +37,7 @@ final class HTTPClient {
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }
-
+    
     func dataRequest(requestType: RequestType,
                      url: URL,
                      cancelledBy token: RequestCancellationToken,
@@ -54,7 +54,7 @@ final class HTTPClient {
 
     func upload<T>(type: T.Type,
                     requestType: RequestType,
-                    array: [String: Any],
+                    dictionary: [String: String],
                     url: URL,
                     cancelledBy token: RequestCancellationToken,
                     completion: @escaping (T) -> Void) where T: Codable {
@@ -62,7 +62,7 @@ final class HTTPClient {
         request.httpMethod = requestType.rawValue
         
         do {
-            request.httpBody = try JSONSerialization.data(withJSONObject: array, options: .prettyPrinted)
+            request.httpBody = try JSONSerialization.data(withJSONObject: dictionary, options: .prettyPrinted)
         } catch let error {
             print(error.localizedDescription)
         }
@@ -72,9 +72,25 @@ final class HTTPClient {
         
         engine.send(request: request, cancelledBy: token, callback: { data, _, _ in
             guard let data = data else { return }
-            
-//            let str = String(decoding: data, as: UTF8.self)
-//            let json = Data(str.utf8)
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
+            self.decodeJSON(type: T.self, data: data, completion: completion)
+        })
+    }
+    
+    func websocketRequest<T>(type: T.Type,
+                             requestType: RequestType,
+                             url: URL,
+                             message: String,
+                             cancelledBy token: RequestCancellationToken,
+                             completion: @escaping (T) -> Void) where T: Codable{
+        var request = URLRequest(url: url)
+        request.httpMethod = requestType.rawValue
+        
+        engine.sendWebsocket(message: message, request: request, cancelledBy: token, callback: { data, _, _ in
+            guard let data = data else { return }
+            let str = String(decoding: data, as: UTF8.self)
+            print(str)
             self.decodeJSON(type: T.self, data: data, completion: completion)
         })
     }

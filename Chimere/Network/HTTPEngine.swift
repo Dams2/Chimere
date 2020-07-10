@@ -15,9 +15,9 @@ enum URLSessionEngineError: Error {
 }
 
 final class HTTPEngine {
-    
+
     private let session: URLSession
-    
+
     init(configuration: URLSessionConfiguration = .default) {
         self.session = URLSession(configuration: configuration)
     }
@@ -31,6 +31,44 @@ final class HTTPEngine {
                 callback(data, httpUrlResponse, nil)
             } else {
                 callback(data, nil, URLSessionEngineError.invalideURLResponseType)
+            }
+        }
+        
+        task.resume()
+        token.willDealocate = {
+            task.cancel()
+        }
+    }
+    
+    func sendWebsocket(message: String,
+                       request: URLRequest,
+                       cancelledBy token: RequestCancellationToken,
+                       callback: @escaping HTTPCompletionHander) {
+
+        let task = session.webSocketTask(with: request)
+
+        let message = URLSessionWebSocketTask.Message.string(message)
+
+        task.send(message) { (error) in
+            if let error = error {
+                print("WebSocket sending error: \(error) !!!")
+            }
+        }
+        
+        task.receive { (result) in
+            switch result {
+            case .failure(_):
+                print("Failed to receive message !!!")
+            case .success(let message):
+                switch message {
+                case .string(let text):
+                    let data = Data(text.utf8)
+                    callback(data, nil, nil)
+                case .data(let data):
+                    print(data)
+                @unknown default:
+                    print("Fatal ERROR !!!")
+                }
             }
         }
         

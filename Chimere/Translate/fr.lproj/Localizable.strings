@@ -1,0 +1,111 @@
+/* 
+  Localizable.strings
+  Chimere
+
+  Created by Damien Rojo on 18.05.20.
+  Copyright © 2020 Damien Rojo. All rights reserved.
+*/
+
+// - TabBar :
+
+"mobile/TabBar/exchange" = "Échanger";
+
+"mobile/TabBar/history" = "Historique";
+
+// - Exchange :
+
+"mobile/Exchange/descriptionText" = "Nous facilitons l'échange de crypto";
+
+"mobile/Exchange/originText" = "Vous envoyez";
+
+"mobile/Exchange/refundAddressText" = "Entrez l'adresse ETH de remboursement ici...";
+
+"mobile/Exchange/destinationText" = "Approximativement";
+
+"mobile/Exchange/destinationAddressText" = "Collez l'adresse LINK de destination ici...";
+
+"mobile/Exchange/exchangeNowText" = "Échanger";
+
+"mobile/Exchange/WarningMinimumAmount" = "Montant minimum:";
+
+"mobile/Exchange/WarningMaximumAmount" = "Montant maximum:";
+
+///////////// ALERT SAME ASSET
+
+"mobile/Exchange/Alert/title" = "Attention";
+
+"mobile/Exchange/Alert/OkMessage" = "D'accord";
+
+"mobile/Exchange/Alert/fillAnAmount" = "Vous devez remplir un montant";
+
+"mobile/Exchange/Alert/fillRefundAddress" = "Vous devez remplir l'adresse de remboursement";
+
+"mobile/Exchange/Alert/fillDestinationAddress" = "Vous devez remplir l'adresse de destination";
+
+"mobile/Exchange/Alert/AddressDoNotExist" = "L'adresse de destination n'est pas valide";
+
+// - OrderSummary :
+
+"mobile/OrderSummary/OrderText" = "Commande";
+
+"mobile/OrderSummary/ExchangeRateText" = "Taux d'échange";
+
+"mobile/OrderSummary/ExchangeFee" = "Frais d'échange";
+
+"mobile/OrderSummary/ArrivalTimeText" = "Heure d'arrivée";
+
+"mobile/OrderSummary/TermsOfUseText" = "En cliquant sur ce bouton, vous acceptez nos";
+
+"mobile/OrderSummary/ShowTermsOfUse" = "conditions d'utilisation";
+
+"mobile/OrderSummary/ConfirmText" = "Confirmer";
+
+// - Deposit :
+
+"mobile/Deposit/DescriptionText" = "Veuillez utiliser votre portefeuille pour envoyer de l'argent à l'adresse suivante en copiant ou en scannant le code QR";
+
+"mobile/Deposit/ToThisWalletText" = "À cette adresse";
+
+"mobile/Deposit/AddressText" = "Adresse";
+
+"mobile/Deposit/CompletedText" = "Terminer";
+
+// - History :
+
+"mobile/History/EmptyOrderText" = "Vous n'avez pas de commande";
+
+"mobile/History/ExchangeNowText" = "Échanger";
+
+"mobile/History/completed" = "Terminé";
+
+"mobile/History/exchanging" = "En cours d'échange";
+
+"mobile/History/exchanged" = "Éxchangé";
+
+"mobile/History/sending" = "En cours d'envoi";
+
+"mobile/History/paid" = "Payé";
+
+"mobile/History/notPaid" = "Non payé";
+
+"mobile/History/expired" = "Expiré";
+
+"mobile/History/failed" = "Échoué";
+
+// - Annex :
+
+"mobile/Annex/Enter" = "Collez l'adresse";
+
+"mobile/Annex/RefundAddress" = "refund adresse ici...";
+
+"mobile/Annex/Destination" = "Destination";
+
+"mobile/Annex/Address" = "de destination";
+
+"mobile/Annex/AddressHere" = "de destination ici...";
+
+"mobile/Annex/SameCurrency" = "vous ne pouvez échanger";
+
+"mobile/Annex/to" = "avec";
+
+"mobile/Annex/ScanText" = "Scannez le QR code";

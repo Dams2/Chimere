@@ -10,6 +10,7 @@ import UIKit
 
 enum ViewControllerItem: Int {
     case exchange = 0
+//    case fiat = 1
     case history = 1
 }
 
@@ -31,12 +32,15 @@ extension TabBarSourceType {
 fileprivate class TabBarSource: TabBarSourceType {
     var items: [UINavigationController] = [
         UINavigationController(nibName: nil, bundle: nil),
+//        UINavigationController(nibName: nil, bundle: nil),
         UINavigationController(nibName: nil, bundle: nil)
     ]
 
     init() {
-        self[.exchange].tabBarItem = UITabBarItem(title: "Exchange", image: UIImage(systemName: "bitcoinsign.circle"), tag: 0)
-        self[.history].tabBarItem = UITabBarItem(title: "History", image: UIImage(systemName: "book.circle"), tag: 1)
+        let translator = Translator(with: "")
+        self[.exchange].tabBarItem = UITabBarItem(title: translator.translate(key: "mobile/TabBar/exchange"), image: UIImage(systemName: "bitcoinsign.circle"), tag: 0)
+//        self[.fiat].tabBarItem = UITabBarItem(title: "Fiat", image: UIImage(systemName: "dollarsign.circle"), tag: 1)
+        self[.history].tabBarItem = UITabBarItem(title: translator.translate(key: "mobile/TabBar/history"), image: UIImage(systemName: "book.circle"), tag: 2)
     }
 }
 
@@ -53,6 +57,8 @@ final class MainCoordinator: NSObject {
 
     private var homeCoordinator: ExchangeCoordinator?
     
+    private var fiatCoordinator: FiatCoordinator?
+    
     private var historyCoordinator: HistoryCoordinator?
 
     private var tabBarSource = TabBarSource()
@@ -67,6 +73,10 @@ final class MainCoordinator: NSObject {
         tabBarController = UITabBarController(nibName: nil, bundle: nil)
         tabBarController.viewControllers = tabBarSource.items
         tabBarController.selectedViewController = tabBarSource[.exchange]
+        
+        let attributes = [NSAttributedString.Key.font:UIFont(name: "BodoniEgyptianPro-ExtBold", size: 10
+        )]
+        UITabBarItem.appearance().setTitleTextAttributes(attributes as [NSAttributedString.Key : Any], for: .normal)
 
         super.init()
 
@@ -85,6 +95,11 @@ final class MainCoordinator: NSObject {
         homeCoordinator?.start()
     }
     
+    private func shopFiat() {
+//        fiatCoordinator = FiatCoordinator(presenter: tabBarSource[.fiat], screens: screens)
+        fiatCoordinator?.start()
+    }
+    
     private func showHistory() {
         historyCoordinator = HistoryCoordinator(presenter: tabBarSource[.history], screens: screens)
         historyCoordinator?.start()
@@ -101,6 +116,8 @@ extension MainCoordinator: UITabBarControllerDelegate {
         switch item {
         case .exchange:
             showHome()
+//        case .fiat:
+//            shopFiat()
         case .history:
             showHistory()
         }

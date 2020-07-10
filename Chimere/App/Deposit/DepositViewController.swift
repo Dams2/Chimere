@@ -10,18 +10,20 @@ import UIKit
 
 final class DepositViewController: UIViewController {
     
+    // MARK: - Private Properties
+    
+    private let helper = Helper()
+    
     // MARK: - Properties
     
     var viewModel: DepositViewModel!
-    
+
     // MARK: - Outlets
-  
-        
-    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     @IBOutlet weak private var transactionIDView: UIView! {
         didSet {
-            transactionIDView.backgroundColor = .white
+            transactionIDView.layer.borderWidth = 1
+            transactionIDView.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
             transactionIDView.layer.cornerRadius = 15
         }
     }
@@ -34,10 +36,9 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var descriptionLabel: UITextView!
     
-    @IBOutlet weak private var depositWallet: UIView! {
+    @IBOutlet weak private var depositWalletView: UIView! {
         didSet {
-            depositWallet.backgroundColor = .white
-            depositWallet.layer.cornerRadius = 15
+            depositWalletView.layer.cornerRadius = 15
         }
     }
     
@@ -57,21 +58,41 @@ final class DepositViewController: UIViewController {
     
     @IBOutlet weak private var copyDepositAdressButton: UIButton!
     
-    @IBOutlet weak private var messageLabel: UILabel!
+    @IBOutlet weak private var messageLabel: UILabel! {
+       didSet {
+           messageLabel.isHidden = true
+        }
+    }
     
-    @IBOutlet weak private var messageValueLabel: UILabel!
+    @IBOutlet weak private var messageValueLabel: UILabel! {
+        didSet {
+            messageValueLabel.isHidden = true
+        }
+    }
     
-    @IBOutlet weak private var copyMessageValueButton: UIButton!
+    @IBOutlet weak private var copyMessageValueButton: UIButton! {
+       didSet {
+           copyMessageValueButton.isHidden = true
+       }
+    }
+    
+    @IBOutlet weak var completedButton: UIButton! {
+        didSet {
+            completedButton.layer.cornerRadius = 10
+            completedButton.layer.borderWidth = 1
+            completedButton.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+        }
+    }
     
     // MARK: - View life cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         bind(to: viewModel)
         viewModel.viewDidLoad()
+        self.navigationItem.hidesBackButton = true
     }
-    
+
     // MARK: - Helpers
     
     private func bind(to viewModel: DepositViewModel) {
@@ -113,7 +134,7 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyDepositAmountImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyDepositAmountButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyDepositAmountButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
         
@@ -123,10 +144,10 @@ final class DepositViewController: UIViewController {
             }
         }
         
-        viewModel.depositQRCodeText = {  text in
+        viewModel.depositQRCodeText = { [weak self] text in
             DispatchQueue.main.async {
-                guard let image = self.generateQRCode(from: text) else { return }
-                self.depositQRCodeImageView.image = image
+                guard let image = self?.helper.generateQRCode(from: text) else { return }
+                self?.depositQRCodeImageView.image = image
             }
         }
         
@@ -144,7 +165,7 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyDepositAdressImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyDepositAdressButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyDepositAdressButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
         }
         
@@ -162,50 +183,30 @@ final class DepositViewController: UIViewController {
         
         viewModel.copyMessageValueImageText = { [weak self] text in
             DispatchQueue.main.async {
-                self?.copyMessageValueButton.setImage(UIImage(systemName: text), for: .normal)
+                self?.copyMessageValueButton.setBackgroundImage(UIImage(systemName: text), for: .normal)
             }
-        }
-    }
-    
-    private func generateQRCode(from string: String) -> UIImage? {
-        let data = string.data(using: String.Encoding.ascii)
-
-        if let filter = CIFilter(name: "CIQRCodeGenerator") {
-            filter.setValue(data, forKey: "inputMessage")
-            let transform = CGAffineTransform(scaleX: 3, y: 3)
-
-            if let output = filter.outputImage?.transformed(by: transform) {
-                return UIImage(ciImage: output)
-            }
-        }
-
-        return nil
-    }
-    
-    private func copyNotified(button: UIButton, label: UILabel) {
-        UIPasteboard.general.string = label.text
-        button.setBackgroundImage(UIImage(systemName: "checkmark.seal"), for: .normal)
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
-            button.setBackgroundImage(UIImage(systemName: "square.on.square"), for: .normal)
         }
     }
     
     // MARK: - Actions
     
     @IBAction private func didPressCopyTransactionIDButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: transactionIDValueLabel)
+        helper.copyNotified(button: sender, label: transactionIDValueLabel, bool: false)
     }
     
     @IBAction private func didPressCopyDepositAmountButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: depositAmountLabel)
+        helper.copyNotified(button: sender, label: depositAmountLabel, bool: true)
     }
     
     @IBAction private func didPressCopyDepositAdressButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: depositAddressLabel)
+        helper.copyNotified(button: sender, label: depositAddressLabel, bool: false)
     }
     
     @IBAction private func didPressCopyMessageValueButton(_ sender: UIButton) {
-        copyNotified(button: sender, label: messageValueLabel)
+        helper.copyNotified(button: sender, label: messageValueLabel, bool: false)
+    }
+    
+    @IBAction func didPressCompletedButton(_ sender: UIButton) {
+        viewModel.didPressCompleted()
     }
 }

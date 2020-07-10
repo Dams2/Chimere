@@ -1,12 +1,12 @@
 //
 //  ImageRepository.swift
-//  antex
+//  Chimere
 //
-//  Created by Damien Rojo on 17.04.20.
+//  Created by Damien Rojo on 27.05.20.
 //  Copyright © 2020 Damien Rojo. All rights reserved.
 //
 
-import UIKit
+import Foundation
 
 final class ImageRepository {
     

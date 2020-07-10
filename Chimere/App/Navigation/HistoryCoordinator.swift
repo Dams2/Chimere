@@ -30,7 +30,26 @@ final class HistoryCoordinator {
     }
 
     private func showOrderHistory() {
-        let viewController = screens.createHistoryViewController()
+        let viewController = screens.createHistoryViewController(delegate: self)
         presenter.viewControllers = [viewController]
+    }
+    
+    private func showExchange() {
+        
+    }
+    
+    private func showOrderDetail(order: UserOrders) {
+        let viewController = screens.createOrderDetailViewController(order: order)
+        presenter.showDetailViewController(viewController, sender: self)
+    }
+}
+
+extension HistoryCoordinator: HistoryViewControllerDelegate {
+    func didSelect(_ order: UserOrders) {
+        showOrderDetail(order: order)
+    }
+    
+    func didShowExchange() {
+        showExchange()
     }
 }

@@ -12,10 +12,19 @@ final class DepositViewModel {
     
     // MARK: - Private Properties
     
+    private let deposit: Deposit
+    
     private let repository: ExchangeRepositoryType
+    
+    private let delegate: ExchangeViewControllerDelegate
+    
+    private let translator: Translator
 
-    init(repository: ExchangeRepositoryType) {
+    init(deposit: Deposit, repository: ExchangeRepositoryType, delegate: ExchangeViewControllerDelegate, translator: Translator) {
+        self.deposit = deposit
         self.repository = repository
+        self.delegate = delegate
+        self.translator = translator
     }
     
     // MARK: - Outputs
@@ -49,38 +58,36 @@ final class DepositViewModel {
     var messageValueText: ((String) -> Void)?
     
     var copyMessageValueImageText: ((String) -> Void)?
+    
+    var completedText: ((String) -> Void)?
 
     // MARK: - Inputs
     
     func viewDidLoad() {
-        transactionIDText?("Trasaction ID:")
+        transactionIDText?("Transaction ID:")
+        transactionIDValueText?(deposit.id)
         copyTansactionIDImageText?("square.on.square")
         
-        descriptionText?("Please use your wallet or exchange account to send money to the following address by typing it in or scanning the QR code")
+        descriptionText?(translator.translate(key: "mobile/Deposit/DescriptionText"))
         
-        sendText?("Send")
+        sendText?(translator.translate(key: "mobile/Exchange/originText"))
+        depositAmountText?("\(deposit.depositAmount) \(deposit.depositSymbol)")
         copyDepositAmountImageText?("square.on.square")
         
-        toThisWalletText?("To this address")
+        toThisWalletText?(translator.translate(key: "mobile/Deposit/ToThisWalletText"))
+        depositQRCodeText?(deposit.depositAddress)
         
-        addressText?("Address")
+        addressText?(translator.translate(key: "mobile/Deposit/AddressText"))
+        depositAddressText?(deposit.depositAddress)
         copyDepositAdressImageText?("square.on.square")
         
         messageText?("Message")
         copyMessageValueImageText?("square.on.square")
+        
+        completedText?(translator.translate(key: "mobile/Deposit/CompletedText"))
     }
     
-    func depositRequest() {
-        let orderItems: [String: Any] = ["deposit_amount": "120", "deposit_ticker": "ETH", "refund_address": "0xa2fec727757e47c64942e23949da839e6da948ac", "destination_amount": "34", "destination_ticker": "BTC", "destination_address": "18cBEMRxXHqzWWCxZNtU91F5sbUNKhL5PX"]
-               
-        repository.postOrder(order: orderItems) { (depositResponse) in
-           guard let id =  depositResponse.order.id else {return}
-            
-           self.transactionIDValueText?(id)
-           self.depositAmountText?("\(depositResponse.order.depositAmount)")
-           self.depositQRCodeText?(depositResponse.order.depositAddress)
-           self.depositAddressText?(depositResponse.order.depositAddress)
-            
-        }
+    func didPressCompleted() {
+        delegate.didshowExchange()
     }
 }

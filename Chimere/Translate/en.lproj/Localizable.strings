@@ -1,0 +1,113 @@
+/* 
+  Localizable.strings
+  Chimere
+
+  Created by Damien Rojo on 18.05.20.
+  Copyright © 2020 Damien Rojo. All rights reserved.
+*/
+
+// - TabBar :
+
+"mobile/TabBar/exchange" = "Exchange";
+
+"mobile/TabBar/history" = "History";
+
+// - Exchange :
+
+"mobile/Exchange/descriptionText" = "We are making crypto easy to exchange";
+
+"mobile/Exchange/originText" = "You send";
+
+"mobile/Exchange/refundAddressText" = "Enter ETH refund address here...";
+
+"mobile/Exchange/destinationText" = "You get approximately";
+
+"mobile/Exchange/destinationAddressText" = "Paste destination LINK address here...";
+
+"mobile/Exchange/exchangeNowText" = "Exchange now";
+
+"mobile/Exchange/WarningMinimumAmount" = "Minimum Amount:";
+
+"mobile/Exchange/WarningMaximumAmount" = "Maximum Amount:";
+
+///////////// ALERT SAME ASSET
+
+"mobile/Exchange/Alert/title" = "Warning";
+
+"mobile/Exchange/Alert/OkMessage" = "Ok";
+
+"mobile/Exchange/Alert/fillAnAmount" = "You must fill in an amount";
+
+"mobile/Exchange/Alert/fillRefundAddress" = "You must fill refund address";
+
+"mobile/Exchange/Alert/fillDestinationAddress" = "You must fill destination address";
+
+"mobile/Exchange/Alert/AddressDoNotExist" = "Destination address is not valid";
+
+// - OrderSummary :
+
+"mobile/OrderSummary/OrderText" = "Order";
+
+"mobile/OrderSummary/ExchangeRateText" = "Exchange rates";
+
+"mobile/OrderSummary/ExchangeFee" = "Exchange fee";
+
+"mobile/OrderSummary/ArrivalTimeText" = "Arrival time";
+
+"mobile/OrderSummary/TermsOfUseText" = "By clicking this button you agree to our";
+
+"mobile/OrderSummary/ShowTermsOfUse" = "terms of use";
+
+"mobile/OrderSummary/ConfirmText" = "Confirm";
+
+// - Deposit :
+
+"mobile/Deposit/DescriptionText" = "Please use your wallet to send money to the following address by copying or scanning the QR code";
+
+"mobile/Deposit/ToThisWalletText" = "To this address";
+
+"mobile/Deposit/AddressText" = "Address";
+
+"mobile/Deposit/CompletedText" = "Completed";
+
+// - History :
+
+"mobile/History/EmptyOrderText" = "You do not have an order";
+
+"mobile/History/ExchangeNowText" = "Exchange now";
+
+"mobile/History/completed" = "Completed";
+
+"mobile/History/exchanging" = "Exchanging";
+
+"mobile/History/exchanged" = "Exchanged";
+
+"mobile/History/sending" = "Sending";
+
+"mobile/History/paid" = "Paid";
+
+"mobile/History/notPaid" = "Not paid";
+
+"mobile/History/expired" = "Expired";
+
+"mobile/History/failed" = "Failed";
+
+// - Annex :
+
+"mobile/Annex/Enter" = "Paste destination";
+
+"mobile/Annex/RefundAddress" = "refund address here...";
+
+"mobile/Annex/Destination" = "Destination";
+
+"mobile/Annex/Address" = "address";
+
+"mobile/Annex/AddressHere" = "address here...";
+
+"mobile/Annex/SameCurrency" = "You can't exchange";
+
+"mobile/Annex/to" = "to";
+
+"mobile/Annex/TemporarilyDisable" = "temporarily disable";
+
+"mobile/Annex/ScanText" = "Scan a QR code";

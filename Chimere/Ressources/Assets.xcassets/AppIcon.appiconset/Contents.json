@@ -1,44 +1,49 @@
 {
   "images" : [
     {
+      "filename" : "40x40-2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "20x20"
     },
     {
+      "filename" : "60x60-3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "20x20"
     },
     {
+      "filename" : "58x58-2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "29x29"
     },
     {
+      "filename" : "87x87-3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "29x29"
     },
     {
+      "filename" : "80x80-2x.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "40x40"
     },
     {
-      "filename" : "chimereLogo.001 copy-2.jpeg",
+      "filename" : "120X120-2x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "40x40"
     },
     {
-      "filename" : "chimereLogo.001 copy-1.jpeg",
+      "filename" : "120X120-2x-1.png",
       "idiom" : "iphone",
       "scale" : "2x",
       "size" : "60x60"
     },
     {
-      "filename" : "chimereLogo.001 copy.jpeg",
+      "filename" : "180x180-3x.png",
       "idiom" : "iphone",
       "scale" : "3x",
       "size" : "60x60"
@@ -89,7 +94,7 @@
       "size" : "83.5x83.5"
     },
     {
-      "filename" : "ChimereImage.001 copy-2.jpeg",
+      "filename" : "1024x1024.png",
       "idiom" : "ios-marketing",
       "scale" : "1x",
       "size" : "1024x1024"
