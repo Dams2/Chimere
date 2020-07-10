@@ -10,11 +10,25 @@ import UIKit
 
 final class SignInViewController: UIViewController {
     
+    // MARK: - Properties
+
+    var viewModel: SignInViewModel!
+    
+    // MARK: - Private Properties
+    
+    private lazy var addBackBarButtonItem: UIBarButtonItem = {
+        let back =  UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(backButton))
+        
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+
+        return back
+    }()
+    
     // MARK: - Outlets
     
     @IBOutlet weak private var segmentedControl: UISegmentedControl! {
         didSet {
-            segmentedControl.backgroundColor = .blue
+            segmentedControl.selected = #colorLiteral(red: 0.3529411765, green: 0.4509803922, blue: 0.007843137255, alpha: 1)
         }
     }
     
@@ -28,17 +42,34 @@ final class SignInViewController: UIViewController {
     
     @IBOutlet weak var passwordTextField: UITextField!
     
-    @IBOutlet weak var signInButton: UIButton!
-    
+    @IBOutlet weak var signInButton: UIButton! {
+        didSet {
+            signInButton.layer.borderWidth = 1
+            signInButton.layer.cornerRadius = 10
+            signInButton.layer.borderColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+        }
+    }
+
     @IBOutlet weak var youAgreeLabel: UILabel!
-    
+
     @IBOutlet weak var thermsAndPrivacyButton: UIButton!
-    
+
     // MARK: - View life cycle
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+
+        setUI()
+    }
+    
+    private func setUI() {
+        navigationItem.leftBarButtonItem = addBackBarButtonItem
+    }
+    
+    // MARK: - Helpers
+    
+    @objc func backButton() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Actions

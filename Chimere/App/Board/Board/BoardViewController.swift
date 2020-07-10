@@ -14,9 +14,29 @@ final class BoardViewController: UIViewController {
     
     var viewModel: BoardViewModel!
     
+    // MARK: - Private Properties
+
+    private lazy var addBackBarButtonItem: UIBarButtonItem = {
+        let back =  UIBarButtonItem(image: UIImage(systemName: "chevron.left"), style: .done, target: self, action: #selector(backButton))
+        
+        self.navigationController!.navigationBar.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+
+        return back
+    }()
+    
     // MARK: - Outlets
     
-    @IBOutlet weak private var welcomeView: UIView!
+    @IBOutlet weak private var welcomeView: UIView! {
+        didSet {
+            let bottomLine = CALayer()
+            bottomLine.frame = CGRect(x: 0.0,
+                                      y: welcomeView.frame.height - 1,
+                                      width: welcomeView.frame.width,
+                                      height: 1.0)
+            bottomLine.backgroundColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+            welcomeView.layer.addSublayer(bottomLine)
+        }
+    }
     
     @IBOutlet weak private var welcomeLabel: UILabel!
     
@@ -40,17 +60,23 @@ final class BoardViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-    
+        setUI()
     }
     
     private func setUI() {
-        navigationController?.navigationBar.isHidden = true
+        navigationItem.leftBarButtonItem = addBackBarButtonItem
+    }
+    
+    // MARK: - Helpers
+    
+    @objc func backButton() {
+        self.navigationController?.popViewController(animated: true)
     }
     
     // MARK: - Actions
     
     @IBAction private func didPressSignInButton(_ sender: UIButton) {
-        
+        viewModel.didPressSignIn()
     }
     
     @IBAction private func didPressSignUpButton(_ sender: UIButton) {

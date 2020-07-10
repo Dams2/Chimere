@@ -40,10 +40,22 @@ extension Screens {
     }
 }
 
+protocol BoardViewControllerDelegate: class {
+    func didShowSignIn()
+}
 extension Screens {
-    func createBoardViewController() -> UIViewController {
+    func createBoardViewController(delegate: BoardViewControllerDelegate?) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "BoardViewController") as! BoardViewController
-        let viewModel = BoardViewModel()
+        let viewModel = BoardViewModel(delegate: delegate)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createSignInViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "SignInViewController") as! SignInViewController
+        let viewModel = SignInViewModel()
         viewController.viewModel = viewModel
         return viewController
     }

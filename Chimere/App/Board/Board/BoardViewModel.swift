@@ -12,10 +12,14 @@ final class BoardViewModel {
     
     // MARK: - Private Properties
     
+    private let delegate: BoardViewControllerDelegate?
     
     // MARK: - Init
 
-
+    init(delegate: BoardViewControllerDelegate?) {
+        self.delegate = delegate
+    }
+    
     // MARK: - Outputs
     
     var welcomeText: ((String) -> Void)?
@@ -28,5 +32,9 @@ final class BoardViewModel {
     
     func viewDidLoad() {
         
+    }
+    
+    func didPressSignIn() {
+        delegate?.didShowSignIn()
     }
 }

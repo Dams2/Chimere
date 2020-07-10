@@ -29,6 +29,7 @@
 		9191027D24A5E86E00D64C1F /* BodoniEgyptianPro-Medium.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9191027A24A5E86E00D64C1F /* BodoniEgyptianPro-Medium.ttf */; };
 		9191027E24A5E86E00D64C1F /* BodoniEgyptianPro-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 9191027B24A5E86E00D64C1F /* BodoniEgyptianPro-Regular.ttf */; };
 		9191028224A5EFFA00D64C1F /* ScannerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9191028124A5EFFA00D64C1F /* ScannerViewController.swift */; };
+		9192C47924B8B00000086BCC /* SignInViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9192C47824B8B00000086BCC /* SignInViewModel.swift */; };
 		9195111424465C8000595300 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111324465C8000595300 /* ViewController.swift */; };
 		9195111724474D4F00595300 /* DepositViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111624474D4F00595300 /* DepositViewController.swift */; };
 		9195111924474D7300595300 /* DepositViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9195111824474D7300595300 /* DepositViewModel.swift */; };
@@ -117,6 +118,7 @@
 		9191027A24A5E86E00D64C1F /* BodoniEgyptianPro-Medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BodoniEgyptianPro-Medium.ttf"; sourceTree = "<group>"; };
 		9191027B24A5E86E00D64C1F /* BodoniEgyptianPro-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "BodoniEgyptianPro-Regular.ttf"; sourceTree = "<group>"; };
 		9191028124A5EFFA00D64C1F /* ScannerViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScannerViewController.swift; sourceTree = "<group>"; };
+		9192C47824B8B00000086BCC /* SignInViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewModel.swift; sourceTree = "<group>"; };
 		9195111324465C8000595300 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		9195111624474D4F00595300 /* DepositViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewController.swift; sourceTree = "<group>"; };
 		9195111824474D7300595300 /* DepositViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DepositViewModel.swift; sourceTree = "<group>"; };
@@ -528,6 +530,7 @@
 			isa = PBXGroup;
 			children = (
 				91F85E2C24B881AE00380D0D /* SignInViewController.swift */,
+				9192C47824B8B00000086BCC /* SignInViewModel.swift */,
 			);
 			path = SignIn;
 			sourceTree = "<group>";
@@ -713,6 +716,7 @@
 				914F77F72450EFE50018FA7F /* CurrenciesListViewModel.swift in Sources */,
 				911A551A246366B200F1CDF6 /* Helper.swift in Sources */,
 				9146345A2449E1BA00CE9BB6 /* CurrenciesResponse.swift in Sources */,
+				9192C47924B8B00000086BCC /* SignInViewModel.swift in Sources */,
 				9159DE3C247EF6BF00FCA926 /* ImageRepository.swift in Sources */,
 				91DD8708244F581E001DDD2A /* OrderResponse.swift in Sources */,
 				91BF86BC2448D03100403F97 /* CurrenciesListDataSources.swift in Sources */,

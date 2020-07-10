@@ -47,8 +47,13 @@ final class ExchangeCoordinator {
     }
     
     private func showBoard() {
-        let viewController = screens.createBoardViewController()
+        let viewController = screens.createBoardViewController(delegate: self)
         viewController.hidesBottomBarWhenPushed = true
+        presenter.pushViewController(viewController, animated: true)
+    }
+    
+    private func showSignIn() {
+        let viewController = screens.createSignInViewController()
         presenter.pushViewController(viewController, animated: true)
     }
     
@@ -122,6 +127,12 @@ extension ExchangeCoordinator: ExchangeViewControllerDelegate {
             exchangeViewController?.present(alertController,
                                         animated: true)
         }
+    }
+}
+
+extension ExchangeCoordinator: BoardViewControllerDelegate {
+    func didShowSignIn() {
+        showSignIn()
     }
 }
 
