@@ -27,6 +27,7 @@ protocol ExchangeViewControllerDelegate: class {
     func didSelectExchangeNow(orderItems: [String: String])
     func didPresentAlert(for alert: AlertType)
     func didSelectHowItWork()
+    func didSelectBoard()
 }
 
 extension Screens {
@@ -34,6 +35,15 @@ extension Screens {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ExchangeViewController") as! ExchangeViewController
         let repository = ExchangeRepository(client: context.client)
         let viewModel = ExchangeViewModel(delegate: delegate, repository: repository, translator: context.translator)
+        viewController.viewModel = viewModel
+        return viewController
+    }
+}
+
+extension Screens {
+    func createBoardViewController() -> UIViewController {
+        let viewController = storyboard.instantiateViewController(withIdentifier: "BoardViewController") as! BoardViewController
+        let viewModel = BoardViewModel()
         viewController.viewModel = viewModel
         return viewController
     }
@@ -142,7 +152,6 @@ extension Screens {
 //
 //        alertController.setValue(NSAttributedString(string: alertController. ?? "", attributes: attributesMessage), forKey: "attributedMessage")
 //
-
         alertController.addAction(action)
         return alertController
     }

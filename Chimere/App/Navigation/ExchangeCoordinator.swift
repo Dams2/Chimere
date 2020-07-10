@@ -46,6 +46,12 @@ final class ExchangeCoordinator {
         presenter.viewControllers = [exchangeViewController]
     }
     
+    private func showBoard() {
+        let viewController = screens.createBoardViewController()
+        viewController.hidesBottomBarWhenPushed = true
+        presenter.pushViewController(viewController, animated: true)
+    }
+    
     private func showHowItWork() {
         let viewController = screens.createHowItWorkViewController()
         presenter.showDetailViewController(viewController, sender: self)
@@ -62,6 +68,7 @@ final class ExchangeCoordinator {
     
     private func showOrderSummary(orderItems: [String: String]) {
         let viewController = screens.createOrderSummaryViewController(orderItems: orderItems, delegate: self)
+        viewController.hidesBottomBarWhenPushed = true
         presenter.pushViewController(viewController, animated: true)
     }
     
@@ -80,6 +87,10 @@ extension ExchangeCoordinator: ExchangeViewControllerDelegate {
     
     func didshowExchange() {
         showExchange()
+    }
+    
+    func didSelectBoard() {
+        showBoard()
     }
     
     func didSelectHowItWork() {

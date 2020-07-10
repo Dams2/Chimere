@@ -138,7 +138,11 @@ final class ExchangeViewModel {
         alertState?(true)
     }
     
-    func didPreessHowItWork() {
+    func didPressBoard() {
+        delegate?.didSelectBoard()
+    }
+    
+    func didPressHowItWork() {
         delegate?.didSelectHowItWork()
     }
 

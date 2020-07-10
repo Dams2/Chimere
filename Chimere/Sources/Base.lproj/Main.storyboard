@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16087"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -12,6 +12,9 @@
         </array>
         <array key="BodoniEgyptianPro-Medium.ttf">
             <string>BodoniEgyptianPro-Medium</string>
+        </array>
+        <array key="BodoniEgyptianPro-Regular.ttf">
+            <string>BodoniEgyptianPro-Regular</string>
         </array>
     </customFonts>
     <scenes>
@@ -33,16 +36,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="246" height="70"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="TKf-jj-2Xe">
-                                                        <rect key="frame" x="10" y="8.5" width="226" height="53"/>
+                                                        <rect key="frame" x="10" y="8.3333333333333464" width="226" height="53.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You send" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eJQ-EI-RNF">
-                                                                <rect key="frame" x="0.0" y="0.0" width="226" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="226" height="20.666666666666668"/>
                                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.01" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="SXa-Fs-oGr">
-                                                                <rect key="frame" x="0.0" y="27.5" width="226" height="25.5"/>
+                                                                <rect key="frame" x="0.0" y="27.666666666666657" width="226" height="25.666666666666671"/>
                                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -71,7 +74,7 @@
                                                 <rect key="frame" x="254" y="0.0" width="120" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tether" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ccz-co-Mql">
-                                                        <rect key="frame" x="10" y="8" width="100" height="13.5"/>
+                                                        <rect key="frame" x="10" y="8" width="100" height="13.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="11"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -127,7 +130,7 @@
                                         </constraints>
                                     </stackView>
                                     <textField hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="  Enter USDT refund address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="PEM-ul-NHE">
-                                        <rect key="frame" x="0.0" y="71.5" width="374" height="50"/>
+                                        <rect key="frame" x="0.0" y="71.666666666666657" width="374" height="50"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="50" id="IWu-W1-Ogf"/>
                                         </constraints>
@@ -138,13 +141,13 @@
                                         <rect key="frame" x="0.0" y="73" width="374" height="60"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 USDT ~ 0.000145 ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JiZ-QW-VNG">
-                                                <rect key="frame" x="8" y="23" width="139" height="14.5"/>
+                                                <rect key="frame" x="8" y="22.666666666666686" width="139" height="14.666666666666664"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="12"/>
                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nqt-Dd-ceV">
-                                                <rect key="frame" x="331" y="13" width="35" height="34"/>
+                                                <rect key="frame" x="331" y="13.666666666666657" width="35" height="33.666666666666671"/>
                                                 <color key="backgroundColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="35" id="Nhn-yX-yfc"/>
@@ -174,16 +177,16 @@
                                                 <rect key="frame" x="0.0" y="0.0" width="246" height="70"/>
                                                 <subviews>
                                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="9" translatesAutoresizingMaskIntoConstraints="NO" id="mMI-BF-noe">
-                                                        <rect key="frame" x="10" y="7.5" width="226" height="55"/>
+                                                        <rect key="frame" x="10" y="7.3333333333333179" width="226" height="55.333333333333343"/>
                                                         <subviews>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get approximately" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OQ7-XI-F3P">
-                                                                <rect key="frame" x="0.0" y="0.0" width="226" height="20.5"/>
+                                                                <rect key="frame" x="0.0" y="0.0" width="226" height="20.666666666666668"/>
                                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <nil key="highlightedColor"/>
                                                             </label>
                                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="0.01" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="fkl-mS-dy3">
-                                                                <rect key="frame" x="0.0" y="29.5" width="226" height="25.5"/>
+                                                                <rect key="frame" x="0.0" y="29.666666666666686" width="226" height="25.666666666666671"/>
                                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
                                                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
@@ -207,7 +210,7 @@
                                                 <rect key="frame" x="254" y="0.0" width="120" height="70"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ethereum classic" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RpM-G9-zv2">
-                                                        <rect key="frame" x="10" y="8" width="100" height="13.5"/>
+                                                        <rect key="frame" x="10" y="8" width="100" height="13.333333333333336"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="11"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -354,7 +357,7 @@
                                 <rect key="frame" x="0.0" y="64" width="414" height="494"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="scanea el código qr" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3CV-pF-hoM">
-                                        <rect key="frame" x="133.5" y="453.5" width="147.5" height="20.5"/>
+                                        <rect key="frame" x="133.33333333333331" y="453.33333333333337" width="147.33333333333331" height="20.666666666666686"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -594,19 +597,19 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="uET-JP-OWN">
-                                <rect key="frame" x="20" y="105" width="374" height="174.5"/>
+                                <rect key="frame" x="20" y="105.00000000000001" width="374" height="175.33333333333337"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="JFF-sp-XSp">
-                                        <rect key="frame" x="0.0" y="0.0" width="374" height="49"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="49.333333333333336"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You send" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VVw-HA-4Xl">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 BTC" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2Fh-Hv-9lf">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="28.666666666666657" width="374" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -614,16 +617,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="yxB-oH-HdP">
-                                        <rect key="frame" x="0.0" y="57" width="374" height="49"/>
+                                        <rect key="frame" x="0.0" y="57.333333333333343" width="374" height="49.333333333333343"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You get approximately" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qif-65-uza">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="78.8364055 ETH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YOs-Ge-p7K">
-                                                <rect key="frame" x="0.0" y="28.5" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="28.666666666666657" width="374" height="20.666666666666671"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
@@ -631,16 +634,16 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="yXl-iE-ZXM">
-                                        <rect key="frame" x="0.0" y="114" width="374" height="60.5"/>
+                                        <rect key="frame" x="0.0" y="114.66666666666667" width="374" height="60.666666666666671"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination ETH address" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WG5-gH-V4Y">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="20.666666666666668"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JZX-Hq-EHm">
-                                                <rect key="frame" x="0.0" y="20.5" width="374" height="40"/>
+                                                <rect key="frame" x="0.0" y="20.666666666666686" width="374" height="40"/>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
@@ -651,22 +654,22 @@
                                 </subviews>
                             </stackView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dk4-Fm-CVA">
-                                <rect key="frame" x="0.0" y="304.5" width="414" height="591.5"/>
+                                <rect key="frame" x="0.0" y="305.33333333333331" width="414" height="590.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9oy-0m-dzL">
-                                        <rect key="frame" x="20" y="20" width="374" height="164.5"/>
+                                        <rect key="frame" x="20" y="20" width="374" height="163.66666666666666"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="2dd-cC-Wzo">
-                                                <rect key="frame" x="0.0" y="0.0" width="374" height="47"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="46.666666666666664"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchange rates" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DVT-KX-31j">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1 BTC  ~ 78.892294 ETH" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xNm-Wh-hId">
-                                                        <rect key="frame" x="0.0" y="27.5" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="27.333333333333371" width="374" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -674,7 +677,7 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView hidden="YES" opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-Ca-2mk">
-                                                <rect key="frame" x="0.0" y="51" width="374" height="8"/>
+                                                <rect key="frame" x="0.0" y="50.666666666666686" width="374" height="8"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Total Fee" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7O4-qM-uaf">
                                                         <rect key="frame" x="0.0" y="0.0" width="374" height="0.0"/>
@@ -691,16 +694,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="cT6-z6-baw">
-                                                <rect key="frame" x="0.0" y="55" width="374" height="47"/>
+                                                <rect key="frame" x="0.0" y="54.666666666666686" width="374" height="46.666666666666657"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Arrival time" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Gtx-af-4vQ">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5 - 30 min" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QdI-cp-vvj">
-                                                        <rect key="frame" x="0.0" y="27.5" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="27.333333333333314" width="374" height="19.333333333333329"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -708,16 +711,16 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="c18-vn-2PI">
-                                                <rect key="frame" x="0.0" y="110" width="374" height="54.5"/>
+                                                <rect key="frame" x="0.0" y="109.33333333333336" width="374" height="54.333333333333329"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By clicking this button you agree to our" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JOm-fa-U3d">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="19.333333333333332"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyR-WL-b6C">
-                                                        <rect key="frame" x="0.0" y="22.5" width="374" height="32"/>
+                                                        <rect key="frame" x="0.0" y="22.333333333333314" width="374" height="32"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                         <state key="normal">
                                                             <color key="titleColor" red="0.65098039220000004" green="0.3294117647" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -753,7 +756,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="YLd-Zd-UNp">
-                                <rect key="frame" x="339" y="809.5" width="20" height="20"/>
+                                <rect key="frame" x="339" y="809.66666666666663" width="20" height="20"/>
                                 <color key="color" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                         </subviews>
@@ -811,35 +814,35 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" bouncesZoom="NO" editable="NO" textAlignment="justified" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CVB-uW-XXy">
-                                <rect key="frame" x="20" y="120" width="374" height="41.5"/>
+                                <rect key="frame" x="20" y="109.99999999999999" width="374" height="41.333333333333329"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="u4D-bi-wOI">
-                                <rect key="frame" x="20" y="171.5" width="374" height="615.5"/>
+                                <rect key="frame" x="20" y="161.33333333333331" width="374" height="625.66666666666674"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="fnY-vg-pHc">
-                                        <rect key="frame" x="120.5" y="20" width="133.5" height="46"/>
+                                        <rect key="frame" x="120.33333333333333" y="20" width="133.33333333333337" height="46"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="or8-My-ah4">
-                                                <rect key="frame" x="0.0" y="0.0" width="133.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="133.33333333333334" height="18"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="FP1-hS-Zmk">
-                                                <rect key="frame" x="0.0" y="26" width="133.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="26" width="133.33333333333334" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruU-vE-ewf">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="20"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NEs-Bo-FtW">
-                                                        <rect key="frame" x="108.5" y="0.0" width="25" height="20"/>
+                                                        <rect key="frame" x="108.33333333333331" y="0.0" width="25" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="TfJ-wJ-xJ9"/>
                                                             <constraint firstAttribute="height" constant="20" id="p5o-n1-vdX"/>
@@ -872,7 +875,7 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xJj-4g-HTo">
-                                                <rect key="frame" x="0.0" y="27" width="100" height="100"/>
+                                                <rect key="frame" x="0.0" y="26.999999999999972" width="100" height="100"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="100" id="87k-y5-r4q"/>
                                                     <constraint firstAttribute="height" constant="100" id="hqw-Ai-Xb3"/>
@@ -971,7 +974,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K3i-uY-PhJ">
-                                <rect key="frame" x="126" y="64" width="162" height="46"/>
+                                <rect key="frame" x="126" y="54" width="162" height="46"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I1M-ps-p87">
                                         <rect key="frame" x="8" y="13" width="146" height="20"/>
@@ -1036,7 +1039,7 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="u4D-bi-wOI" firstAttribute="top" secondItem="CVB-uW-XXy" secondAttribute="bottom" constant="10" id="EAO-nb-gBO"/>
-                            <constraint firstItem="K3i-uY-PhJ" firstAttribute="top" secondItem="6qp-lp-Knl" secondAttribute="top" constant="20" id="Egu-N3-JQ5"/>
+                            <constraint firstItem="K3i-uY-PhJ" firstAttribute="top" secondItem="6qp-lp-Knl" secondAttribute="top" constant="10" id="Egu-N3-JQ5"/>
                             <constraint firstItem="6qp-lp-Knl" firstAttribute="trailing" secondItem="u4D-bi-wOI" secondAttribute="trailing" constant="20" id="Epy-jb-i7I"/>
                             <constraint firstItem="CVB-uW-XXy" firstAttribute="leading" secondItem="6qp-lp-Knl" secondAttribute="leading" constant="20" id="Ht2-Em-ddP"/>
                             <constraint firstItem="6qp-lp-Knl" firstAttribute="bottom" secondItem="hbc-Ku-LiM" secondAttribute="bottom" constant="20" id="Ish-0I-7Aw"/>
@@ -1075,6 +1078,199 @@
             </objects>
             <point key="canvasLocation" x="1116" y="42"/>
         </scene>
+        <!--Sign In View Controller-->
+        <scene sceneID="biw-DK-M6s">
+            <objects>
+                <viewController storyboardIdentifier="SignInViewController" id="ntd-ET-24I" customClass="SignInViewController" customModule="Chimere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="NGo-fG-Jes">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="Ips-VS-5ta">
+                                <rect key="frame" x="20" y="125" width="374" height="165"/>
+                                <subviews>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="vwJ-0C-bcd">
+                                        <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="si2-V3-hNv">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="asd-Ry-bYh">
+                                                        <rect key="frame" x="10" y="8.3333333333333464" width="354" height="53.333333333333343"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AQL-Um-QNq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="20.666666666666668"/>
+                                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
+                                                                <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your email address" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-5J-EBy">
+                                                                <rect key="frame" x="0.0" y="27.666666666666657" width="354" height="25.666666666666671"/>
+                                                                <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <action selector="originAmountTextFieldDidChange:" destination="fcI-Tf-to8" eventType="editingChanged" id="opX-xI-Qcb"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstAttribute="trailing" secondItem="rRf-5J-EBy" secondAttribute="trailing" id="ctG-rh-kE5"/>
+                                                            <constraint firstItem="AQL-Um-QNq" firstAttribute="leading" secondItem="asd-Ry-bYh" secondAttribute="leading" id="q1J-UB-xPM"/>
+                                                            <constraint firstAttribute="trailing" secondItem="AQL-Um-QNq" secondAttribute="trailing" id="tLm-jv-i3g"/>
+                                                            <constraint firstItem="rRf-5J-EBy" firstAttribute="leading" secondItem="asd-Ry-bYh" secondAttribute="leading" id="tja-kz-n2i"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstItem="asd-Ry-bYh" firstAttribute="leading" secondItem="si2-V3-hNv" secondAttribute="leading" constant="10" id="HcH-hi-YEl"/>
+                                                    <constraint firstItem="asd-Ry-bYh" firstAttribute="centerY" secondItem="si2-V3-hNv" secondAttribute="centerY" id="Ox1-Ys-ath"/>
+                                                    <constraint firstAttribute="height" constant="70" id="Qpk-Qc-aFM"/>
+                                                    <constraint firstAttribute="trailing" secondItem="asd-Ry-bYh" secondAttribute="trailing" constant="10" id="fig-8B-ne2"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="TIZ-bC-2XS">
+                                        <rect key="frame" x="0.0" y="95" width="374" height="70"/>
+                                        <subviews>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h4P-vI-aKl">
+                                                <rect key="frame" x="0.0" y="0.0" width="374" height="70"/>
+                                                <subviews>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="3No-hD-C2m">
+                                                        <rect key="frame" x="10" y="4.3333333333333393" width="354" height="61.666666666666657"/>
+                                                        <subviews>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="2H1-C8-cS4">
+                                                                <rect key="frame" x="0.0" y="0.0" width="354" height="29"/>
+                                                                <subviews>
+                                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Password" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Kf-qU-qZd">
+                                                                        <rect key="frame" x="0.0" y="0.0" width="151" height="29"/>
+                                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
+                                                                        <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        <nil key="highlightedColor"/>
+                                                                    </label>
+                                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DyE-zU-qRF">
+                                                                        <rect key="frame" x="251" y="0.0" width="103" height="29"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="width" constant="103" id="snl-oO-RDH"/>
+                                                                        </constraints>
+                                                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-Regular" family="Bodoni Egyptian Pro" pointSize="14"/>
+                                                                        <state key="normal" title="Forgot password?">
+                                                                            <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                        </state>
+                                                                        <connections>
+                                                                            <action selector="didPressForgotPasswordButton:" destination="ntd-ET-24I" eventType="touchUpInside" id="tgX-By-HF9"/>
+                                                                        </connections>
+                                                                    </button>
+                                                                </subviews>
+                                                            </stackView>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter your password" textAlignment="natural" minimumFontSize="17" clearButtonMode="whileEditing" translatesAutoresizingMaskIntoConstraints="NO" id="iiH-MN-oob">
+                                                                <rect key="frame" x="0.0" y="35.999999999999972" width="354" height="25.666666666666671"/>
+                                                                <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
+                                                                <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="phonePad" smartDashesType="no" smartInsertDeleteType="no" smartQuotesType="no"/>
+                                                                <connections>
+                                                                    <action selector="originAmountTextFieldDidChange:" destination="fcI-Tf-to8" eventType="editingChanged" id="NSp-uf-RY8"/>
+                                                                </connections>
+                                                            </textField>
+                                                        </subviews>
+                                                        <constraints>
+                                                            <constraint firstItem="iiH-MN-oob" firstAttribute="leading" secondItem="3No-hD-C2m" secondAttribute="leading" id="1vh-Tr-Fcp"/>
+                                                            <constraint firstAttribute="trailing" secondItem="iiH-MN-oob" secondAttribute="trailing" id="smn-nm-AHZ"/>
+                                                        </constraints>
+                                                    </stackView>
+                                                </subviews>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="3No-hD-C2m" secondAttribute="trailing" constant="10" id="EiP-wb-Ine"/>
+                                                    <constraint firstAttribute="height" constant="70" id="IOo-Qe-FAC"/>
+                                                    <constraint firstItem="3No-hD-C2m" firstAttribute="leading" secondItem="h4P-vI-aKl" secondAttribute="leading" constant="10" id="Wkp-UP-jnU"/>
+                                                    <constraint firstItem="3No-hD-C2m" firstAttribute="centerY" secondItem="h4P-vI-aKl" secondAttribute="centerY" id="XcE-dB-WbD"/>
+                                                </constraints>
+                                            </view>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="2" translatesAutoresizingMaskIntoConstraints="NO" id="d31-L5-EoP">
+                                <rect key="frame" x="22.333333333333343" y="834" width="369.66666666666663" height="28"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="By signing up you agree to the " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xdB-hp-E83">
+                                        <rect key="frame" x="0.0" y="0.0" width="183.66666666666666" height="28"/>
+                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="13"/>
+                                        <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="leading" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xag-ph-xVZ">
+                                        <rect key="frame" x="185.66666666666663" y="0.0" width="184" height="28"/>
+                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="13"/>
+                                        <state key="normal" title="Terms Of Use &amp; Privacy Policy">
+                                            <color key="titleColor" red="0.65098039220000004" green="0.3294117647" blue="0.050980392159999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="didPressTermsOfUseButton:" destination="bEb-Ca-ayz" eventType="touchUpInside" id="pmY-wQ-Q9p"/>
+                                            <action selector="didPressThermsAndPrivacyButton:" destination="ntd-ET-24I" eventType="touchUpInside" id="3sD-4B-9Rc"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qe9-e6-vWC">
+                                <rect key="frame" x="40" y="774" width="334" height="45"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="45" id="l43-Ij-XBb"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="24"/>
+                                <state key="normal">
+                                    <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="cF9-4q-ODc"/>
+                                    <action selector="didPressSignInButton:" destination="ntd-ET-24I" eventType="touchUpInside" id="sbl-dY-kbN"/>
+                                </connections>
+                            </button>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="9y3-fo-LEv">
+                                <rect key="frame" x="40" y="64" width="334" height="32"/>
+                                <segments>
+                                    <segment title="Sign In"/>
+                                    <segment title="Sign Up"/>
+                                </segments>
+                                <color key="selectedSegmentTintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </segmentedControl>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="FWQ-ah-KUN" firstAttribute="bottom" secondItem="d31-L5-EoP" secondAttribute="bottom" id="0kE-eM-zpf"/>
+                            <constraint firstItem="9y3-fo-LEv" firstAttribute="leading" secondItem="FWQ-ah-KUN" secondAttribute="leading" constant="40" id="AeB-uG-7wm"/>
+                            <constraint firstItem="9y3-fo-LEv" firstAttribute="top" secondItem="FWQ-ah-KUN" secondAttribute="top" constant="20" id="G36-mT-h91"/>
+                            <constraint firstItem="Qe9-e6-vWC" firstAttribute="leading" secondItem="FWQ-ah-KUN" secondAttribute="leading" constant="40" id="GXs-l7-avl"/>
+                            <constraint firstItem="FWQ-ah-KUN" firstAttribute="trailing" secondItem="Ips-VS-5ta" secondAttribute="trailing" constant="20" id="Yuv-5u-V5r"/>
+                            <constraint firstItem="d31-L5-EoP" firstAttribute="centerX" secondItem="NGo-fG-Jes" secondAttribute="centerX" id="coE-6O-3b1"/>
+                            <constraint firstItem="d31-L5-EoP" firstAttribute="top" secondItem="Qe9-e6-vWC" secondAttribute="bottom" constant="15" id="dBQ-bH-odw"/>
+                            <constraint firstItem="Ips-VS-5ta" firstAttribute="leading" secondItem="FWQ-ah-KUN" secondAttribute="leading" constant="20" id="iRj-Yh-u1N"/>
+                            <constraint firstItem="Ips-VS-5ta" firstAttribute="top" secondItem="9y3-fo-LEv" secondAttribute="bottom" constant="30" id="r3S-Lu-h3f"/>
+                            <constraint firstItem="FWQ-ah-KUN" firstAttribute="trailing" secondItem="9y3-fo-LEv" secondAttribute="trailing" constant="40" id="tYK-Ik-st8"/>
+                            <constraint firstItem="FWQ-ah-KUN" firstAttribute="trailing" secondItem="Qe9-e6-vWC" secondAttribute="trailing" constant="40" id="yEH-5n-Hvd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="FWQ-ah-KUN"/>
+                    </view>
+                    <connections>
+                        <outlet property="emailLabel" destination="AQL-Um-QNq" id="84m-Qe-lAl"/>
+                        <outlet property="emailTextField" destination="rRf-5J-EBy" id="rFI-vd-XyU"/>
+                        <outlet property="forgotPasswordButton" destination="DyE-zU-qRF" id="AOg-qa-FBa"/>
+                        <outlet property="passwordLabel" destination="8Kf-qU-qZd" id="La6-tQ-MLN"/>
+                        <outlet property="passwordTextField" destination="iiH-MN-oob" id="BcG-Di-Ywr"/>
+                        <outlet property="segmentedControl" destination="9y3-fo-LEv" id="NoH-x4-sZE"/>
+                        <outlet property="signInButton" destination="Qe9-e6-vWC" id="6f4-i9-09R"/>
+                        <outlet property="thermsAndPrivacyButton" destination="Xag-ph-xVZ" id="ZIB-eC-8Po"/>
+                        <outlet property="youAgreeLabel" destination="xdB-hp-E83" id="D3L-zX-Y8f"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Uw3-yk-Bca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="38" y="-658"/>
+        </scene>
         <!--Fiat View Controller-->
         <scene sceneID="xec-k9-on4">
             <objects>
@@ -1107,7 +1303,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="oKE-NW-0AE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1908.6956521739132" y="41.517857142857139"/>
+            <point key="canvasLocation" x="-1962" y="42"/>
         </scene>
         <!--History View Controller-->
         <scene sceneID="dIZ-4C-pCz">
@@ -1130,7 +1326,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="VbE-z4-fYj">
-                                                    <rect key="frame" x="22" y="110" width="28" height="11"/>
+                                                    <rect key="frame" x="22" y="110.33333333333333" width="28" height="10.333333333333329"/>
                                                     <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="28" id="7eS-Sa-avk"/>
@@ -1138,10 +1334,10 @@
                                                     </constraints>
                                                 </imageView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ccP-Rd-gF2">
-                                                    <rect key="frame" x="20" y="70" width="148.5" height="30"/>
+                                                    <rect key="frame" x="20" y="70" width="148.66666666666666" height="30"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bitcoinsign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="63R-IV-26a">
-                                                            <rect key="frame" x="0.0" y="1" width="30" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="30" height="27.000000000000004"/>
                                                             <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="DiW-8L-kpg"/>
@@ -1155,7 +1351,7 @@
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6c8-7k-o3T">
-                                                            <rect key="frame" x="114" y="0.0" width="34.5" height="30"/>
+                                                            <rect key="frame" x="114.00000000000001" y="0.0" width="34.666666666666671" height="30"/>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1163,10 +1359,10 @@
                                                     </subviews>
                                                 </stackView>
                                                 <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="rcF-j5-5qi">
-                                                    <rect key="frame" x="20" y="130.5" width="180.5" height="30"/>
+                                                    <rect key="frame" x="20" y="130.33333333333334" width="180.33333333333334" height="30"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="cruzeirosign.square" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="2PB-lN-3h2">
-                                                            <rect key="frame" x="0.0" y="1" width="30" height="27.5"/>
+                                                            <rect key="frame" x="0.0" y="1.6666666666666643" width="30" height="27.000000000000004"/>
                                                             <color key="tintColor" red="1" green="0.52156862749999999" blue="0.86274509799999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="30" id="EeH-AR-eAh"/>
@@ -1174,13 +1370,13 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="569.28234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="37D-Ts-qUr">
-                                                            <rect key="frame" x="35" y="0.0" width="84.5" height="30"/>
+                                                            <rect key="frame" x="34.999999999999993" y="0.0" width="84.333333333333314" height="30"/>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Stratus" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f1O-xe-cc5">
-                                                            <rect key="frame" x="124.5" y="0.0" width="56" height="30"/>
+                                                            <rect key="frame" x="124.33333333333334" y="0.0" width="56" height="30"/>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1191,7 +1387,7 @@
                                                     <rect key="frame" x="10" y="0.0" width="394" height="40"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchanging" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="l7W-hf-iuI">
-                                                            <rect key="frame" x="150.5" y="10" width="93.5" height="20.5"/>
+                                                            <rect key="frame" x="150.33333333333334" y="9.6666666666666661" width="93.666666666666657" height="20.666666666666671"/>
                                                             <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                             <color key="textColor" systemColor="systemYellowColor" red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                             <nil key="highlightedColor"/>
@@ -1205,7 +1401,7 @@
                                                     </constraints>
                                                 </view>
                                                 <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 22, 02:01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yS0-uH-Clt">
-                                                    <rect key="frame" x="309" y="108" width="85" height="16"/>
+                                                    <rect key="frame" x="309" y="108" width="85" height="15.666666666666671"/>
                                                     <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="13"/>
                                                     <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -1245,25 +1441,22 @@
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="6" translatesAutoresizingMaskIntoConstraints="NO" id="CJW-z3-x0K">
-                                        <rect key="frame" x="103" y="388" width="208.5" height="76"/>
+                                        <rect key="frame" x="103.00000000000001" y="387.66666666666669" width="208.33333333333337" height="77"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="You have no orders" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pEe-5A-Tsp">
-                                                <rect key="frame" x="0.0" y="0.0" width="208.5" height="29"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="208.33333333333334" height="29"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="24"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mCw-EG-mIx">
-                                                <rect key="frame" x="89" y="35" width="30" height="41"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="24"/>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A8e-ZJ-9Fn">
+                                                <rect key="frame" x="89" y="35" width="30" height="42"/>
+                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="25"/>
                                                 <state key="normal">
                                                     <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
                                                 <connections>
-                                                    <action selector="didPressCompletedButton:" destination="w8g-oZ-LfL" eventType="touchUpInside" id="c0f-Sd-Z7g"/>
-                                                    <action selector="didPressExchangeNow:" destination="z4o-Ru-ULT" eventType="touchUpInside" id="Dxy-O0-syh"/>
-                                                    <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="f30-tr-uKZ"/>
+                                                    <action selector="didPressExchangeNowButton:" destination="z4o-Ru-ULT" eventType="touchUpInside" id="hsU-S0-Ozw"/>
                                                 </connections>
                                             </button>
                                         </subviews>
@@ -1299,13 +1492,13 @@
                         <outlet property="activityIndicator" destination="1Pq-s3-1am" id="Kyq-Xk-SuW"/>
                         <outlet property="emptyOrderLabel" destination="pEe-5A-Tsp" id="YUV-Sp-btH"/>
                         <outlet property="emptyOrdersView" destination="DXp-Xl-Xp0" id="0Dh-WI-Bzb"/>
-                        <outlet property="exchangeNowButton" destination="mCw-EG-mIx" id="HQd-tZ-CYP"/>
+                        <outlet property="exchangeNowButton" destination="A8e-ZJ-9Fn" id="h1Y-bj-VDy"/>
                         <outlet property="tableView" destination="DAc-uc-fuO" id="ce0-5e-alk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FMF-hH-TJy" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2675" y="42"/>
+            <point key="canvasLocation" x="1897" y="42"/>
         </scene>
         <!--Order Detail View Controller-->
         <scene sceneID="YpQ-pu-YyU">
@@ -1319,7 +1512,7 @@
                                 <rect key="frame" x="10" y="64" width="394" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchanging" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSU-pe-hge">
-                                        <rect key="frame" x="147.5" y="9" width="99" height="22"/>
+                                        <rect key="frame" x="147.66666666666666" y="9.3333333333333304" width="99" height="21.666666666666671"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="18"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1333,7 +1526,7 @@
                                 </constraints>
                             </view>
                             <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="July 22, 02:01" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8QN-mu-Uor">
-                                <rect key="frame" x="319" y="826" width="85" height="16"/>
+                                <rect key="frame" x="319" y="826.33333333333337" width="85" height="15.666666666666629"/>
                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="13"/>
                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
@@ -1342,7 +1535,7 @@
                                 <rect key="frame" x="20" y="124" width="374" height="46"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="hSs-sb-uUG">
-                                        <rect key="frame" x="47.5" y="13" width="279.5" height="20"/>
+                                        <rect key="frame" x="47.333333333333343" y="13" width="279.33333333333326" height="20"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Transaction ID:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="60X-vs-nah">
                                                 <rect key="frame" x="0.0" y="0.0" width="114" height="20"/>
@@ -1354,13 +1547,13 @@
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="hvays5d3sdkjfal" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="teK-fI-Rgd">
-                                                <rect key="frame" x="122" y="0.0" width="119.5" height="20"/>
+                                                <rect key="frame" x="122.00000000000003" y="0.0" width="119.33333333333334" height="20"/>
                                                 <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="16"/>
                                                 <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="piE-9O-XWV">
-                                                <rect key="frame" x="249.5" y="0.0" width="30" height="20"/>
+                                                <rect key="frame" x="249.33333333333337" y="0.0" width="30" height="20"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="20" id="W4J-J2-9RD"/>
                                                 </constraints>
@@ -1388,7 +1581,7 @@
                                 </constraints>
                             </view>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="chevron.down" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="eKy-DD-Eio">
-                                <rect key="frame" x="193" y="233" width="28" height="11"/>
+                                <rect key="frame" x="193" y="233.33333333333334" width="28" height="10.333333333333314"/>
                                 <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="28" id="ECo-Of-M1f"/>
@@ -1396,7 +1589,7 @@
                                 </constraints>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Q4j-V3-ae0">
-                                <rect key="frame" x="127.5" y="190" width="159.5" height="30"/>
+                                <rect key="frame" x="127.33333333333333" y="190" width="159.66666666666669" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="BTC" translatesAutoresizingMaskIntoConstraints="NO" id="8CJ-gh-QaQ">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -1407,13 +1600,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.5489210" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lad-mJ-pWh">
-                                        <rect key="frame" x="35" y="0.0" width="85" height="30"/>
+                                        <rect key="frame" x="35.000000000000014" y="0.0" width="85" height="30"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="BTC" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xMc-lw-mlF">
-                                        <rect key="frame" x="125" y="0.0" width="34.5" height="30"/>
+                                        <rect key="frame" x="125.00000000000001" y="0.0" width="34.666666666666671" height="30"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1421,16 +1614,16 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="3" translatesAutoresizingMaskIntoConstraints="NO" id="7gt-Kk-tQg">
-                                <rect key="frame" x="10" y="294.5" width="394" height="33.5"/>
+                                <rect key="frame" x="10" y="294.33333333333331" width="394" height="33.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Destination ETH address" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ax-PB-KHV">
-                                        <rect key="frame" x="0.0" y="0.0" width="394" height="14.5"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="394" height="14.666666666666666"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="12"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0xd3dq3nqwj81932e12nd1h3n8dned8q" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QVJ-6X-8LH">
-                                        <rect key="frame" x="0.0" y="17.5" width="394" height="16"/>
+                                        <rect key="frame" x="0.0" y="17.666666666666686" width="394" height="15.666666666666664"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="13"/>
                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1438,7 +1631,7 @@
                                 </subviews>
                             </stackView>
                             <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="Z91-br-YRs">
-                                <rect key="frame" x="126.5" y="256.5" width="161" height="30"/>
+                                <rect key="frame" x="126.66666666666669" y="256.33333333333331" width="161" height="30"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="ETH" translatesAutoresizingMaskIntoConstraints="NO" id="LyE-It-eHE">
                                         <rect key="frame" x="0.0" y="0.0" width="30" height="30"/>
@@ -1449,13 +1642,13 @@
                                         </constraints>
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="569.28234" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XVY-D8-Ees">
-                                        <rect key="frame" x="35" y="0.0" width="84.5" height="30"/>
+                                        <rect key="frame" x="34.999999999999993" y="0.0" width="84.333333333333314" height="30"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ETH" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guQ-97-Rpb">
-                                        <rect key="frame" x="124.5" y="0.0" width="36.5" height="30"/>
+                                        <rect key="frame" x="124.33333333333333" y="0.0" width="36.666666666666671" height="30"/>
                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
@@ -1463,28 +1656,28 @@
                                 </subviews>
                             </stackView>
                             <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5jp-zZ-9yJ">
-                                <rect key="frame" x="20" y="340" width="374" height="476"/>
+                                <rect key="frame" x="20" y="339.66666666666663" width="374" height="476.66666666666663"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="YTZ-h1-jlr">
-                                        <rect key="frame" x="120.5" y="10" width="133.5" height="46"/>
+                                        <rect key="frame" x="120.33333333333333" y="10" width="133.33333333333337" height="46"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Send" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9I9-HH-TVa">
-                                                <rect key="frame" x="0.0" y="0.0" width="133.5" height="18"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="133.33333333333334" height="18"/>
                                                 <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                 <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="7" translatesAutoresizingMaskIntoConstraints="NO" id="J0E-yH-hRV">
-                                                <rect key="frame" x="0.0" y="26" width="133.5" height="20"/>
+                                                <rect key="frame" x="0.0" y="26" width="133.33333333333334" height="20"/>
                                                 <subviews>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0.56892 BTC" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yw1-X3-KXU">
-                                                        <rect key="frame" x="0.0" y="0.0" width="101.5" height="20"/>
+                                                        <rect key="frame" x="0.0" y="0.0" width="101.33333333333333" height="20"/>
                                                         <fontDescription key="fontDescription" name="Arial-BoldMT" family="Arial" pointSize="17"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tom-o4-31r">
-                                                        <rect key="frame" x="108.5" y="0.0" width="25" height="20"/>
+                                                        <rect key="frame" x="108.33333333333331" y="0.0" width="25" height="20"/>
                                                         <constraints>
                                                             <constraint firstAttribute="width" constant="25" id="9d4-Zq-SeB"/>
                                                             <constraint firstAttribute="height" constant="20" id="LyK-oa-YQ8"/>
@@ -1528,7 +1721,7 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Yfb-fR-4ac">
-                                        <rect key="frame" x="20" y="203" width="334" height="68"/>
+                                        <rect key="frame" x="20" y="202.99999999999994" width="334" height="68"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="100" translatesAutoresizingMaskIntoConstraints="NO" id="siE-Ir-QMC">
                                                 <rect key="frame" x="0.0" y="0.0" width="334" height="20"/>
@@ -1620,20 +1813,20 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DBn-mh-vWc">
-                                <rect key="frame" x="20" y="348" width="374" height="284"/>
+                                <rect key="frame" x="20" y="347.66666666666669" width="374" height="284.00000000000006"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="e3H-JU-SHk">
-                                        <rect key="frame" x="140.5" y="8" width="93.5" height="267.5"/>
+                                        <rect key="frame" x="140.33333333333334" y="7" width="93.666666666666657" height="270"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="qGr-pG-WiB">
-                                                <rect key="frame" x="29.5" y="0.0" width="34.5" height="45.5"/>
+                                                <rect key="frame" x="29.666666666666661" y="0.0" width="34.333333333333343" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ECC-xI-3x9">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="34.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="34.333333333333336" height="21.666666666666664"/>
                                                         <color key="tintColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Paid" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hw-kS-MI8">
-                                                        <rect key="frame" x="0.0" y="25" width="34.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333314" width="34.333333333333336" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1641,14 +1834,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="FjA-k6-8Bm">
-                                                <rect key="frame" x="0.0" y="55.5" width="93.5" height="45.5"/>
+                                                <rect key="frame" x="0.0" y="56" width="93.666666666666671" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="GBL-kz-lRy">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="93.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="93.666666666666671" height="21.666666666666664"/>
                                                         <color key="tintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchanging" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="M4j-Yq-as7">
-                                                        <rect key="frame" x="0.0" y="25" width="93.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333314" width="93.666666666666671" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1656,14 +1849,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="z9O-41-TBN">
-                                                <rect key="frame" x="3.5" y="111" width="86.5" height="45.5"/>
+                                                <rect key="frame" x="3.6666666666666572" y="112" width="86.333333333333329" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="ZI8-E0-9h3">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="86.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="86.333333333333329" height="21.666666666666664"/>
                                                         <color key="tintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Exchanged" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IZs-5F-x9w">
-                                                        <rect key="frame" x="0.0" y="25" width="86.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333314" width="86.333333333333329" height="20.666666666666671"/>
                                                         <color key="tintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -1672,14 +1865,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="arn-c6-K1R">
-                                                <rect key="frame" x="14.5" y="166.5" width="64.5" height="45.5"/>
+                                                <rect key="frame" x="14.666666666666657" y="167.99999999999994" width="64.333333333333329" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="wdj-Zl-G1h">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="64.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="64.333333333333329" height="21.666666666666664"/>
                                                         <color key="tintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Sending" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hxS-Bj-ygE">
-                                                        <rect key="frame" x="0.0" y="25" width="64.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333371" width="64.333333333333329" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1687,14 +1880,14 @@
                                                 </subviews>
                                             </stackView>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="ZvL-57-qNO">
-                                                <rect key="frame" x="5" y="222" width="83.5" height="45.5"/>
+                                                <rect key="frame" x="5" y="223.99999999999994" width="83.666666666666671" height="46"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="checkmark.seal" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="Ddo-J3-pWs">
-                                                        <rect key="frame" x="0.0" y="-0.5" width="83.5" height="21.5"/>
+                                                        <rect key="frame" x="0.0" y="-0.66666666666666785" width="83.666666666666671" height="21.666666666666664"/>
                                                         <color key="tintColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                     </imageView>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Completed" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="oIt-qd-f7X">
-                                                        <rect key="frame" x="0.0" y="25" width="83.5" height="20.5"/>
+                                                        <rect key="frame" x="0.0" y="25.333333333333371" width="83.666666666666671" height="20.666666666666671"/>
                                                         <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="17"/>
                                                         <color key="textColor" red="0.94901960780000005" green="0.86274509799999999" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                         <nil key="highlightedColor"/>
@@ -1786,7 +1979,93 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xjq-Rk-sNr" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3405.7971014492755" y="40.848214285714285"/>
+            <point key="canvasLocation" x="2652" y="41"/>
+        </scene>
+        <!--Board View Controller-->
+        <scene sceneID="erY-rk-nLQ">
+            <objects>
+                <viewController storyboardIdentifier="BoardViewController" id="Z8e-nk-WkB" customClass="BoardViewController" customModule="Chimere" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="u67-JF-IZF">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1uE-jS-3tC">
+                                <rect key="frame" x="0.0" y="64" width="414" height="130"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Order" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xKX-eO-Ftb">
+                                        <rect key="frame" x="20.000000000000004" y="0.0" width="63.333333333333343" height="30"/>
+                                        <fontDescription key="fontDescription" name="BodoniEgyptianPro-Medium" family="Bodoni Egyptian Pro" pointSize="25"/>
+                                        <color key="textColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="25" translatesAutoresizingMaskIntoConstraints="NO" id="l33-dl-iBU">
+                                        <rect key="frame" x="69.666666666666686" y="42.666666666666671" width="275" height="45"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AMe-ra-jXy">
+                                                <rect key="frame" x="0.0" y="0.0" width="125" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" constant="125" id="DRm-pX-Eaf"/>
+                                                    <constraint firstAttribute="height" constant="45" id="dtq-Mx-Owt"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
+                                                <state key="normal" title="Sign In">
+                                                    <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="Yrr-AH-tlg"/>
+                                                    <action selector="didPressSignInButton:" destination="ntd-ET-24I" eventType="touchUpInside" id="1nP-dP-w6X"/>
+                                                    <action selector="didPressSignInButton:" destination="Z8e-nk-WkB" eventType="touchUpInside" id="Cib-j6-7WH"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qPZ-X3-mbe">
+                                                <rect key="frame" x="150" y="0.0" width="125" height="45"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="45" id="4Dz-4Q-CEu"/>
+                                                    <constraint firstAttribute="width" constant="125" id="7es-GO-EKc"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="BodoniEgyptianPro-ExtBold" family="Bodoni Egyptian Pro" pointSize="20"/>
+                                                <state key="normal" title="Sign Up">
+                                                    <color key="titleColor" red="0.35294117650000001" green="0.45098039220000002" blue="0.0078431372550000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                </state>
+                                                <connections>
+                                                    <action selector="didPressExchangeNowButton:" destination="fcI-Tf-to8" eventType="touchUpInside" id="99t-Ji-QFa"/>
+                                                    <action selector="didPressSignInButton:" destination="ntd-ET-24I" eventType="touchUpInside" id="0we-43-UwB"/>
+                                                    <action selector="didPressSignUpButton:" destination="Z8e-nk-WkB" eventType="touchUpInside" id="Aci-u4-TyH"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="l33-dl-iBU" firstAttribute="centerY" secondItem="1uE-jS-3tC" secondAttribute="centerY" id="h0f-I3-Kak"/>
+                                    <constraint firstItem="l33-dl-iBU" firstAttribute="centerX" secondItem="1uE-jS-3tC" secondAttribute="centerX" id="lIR-Bd-Jag"/>
+                                    <constraint firstAttribute="height" constant="130" id="pDP-zQ-gXi"/>
+                                    <constraint firstItem="xKX-eO-Ftb" firstAttribute="leading" secondItem="1uE-jS-3tC" secondAttribute="leading" constant="20" id="tXA-XV-QvN"/>
+                                    <constraint firstItem="xKX-eO-Ftb" firstAttribute="top" secondItem="1uE-jS-3tC" secondAttribute="top" id="tyR-GQ-UZT"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="1uE-jS-3tC" firstAttribute="leading" secondItem="JI8-b8-Re1" secondAttribute="leading" id="8y9-WB-Jyf"/>
+                            <constraint firstItem="1uE-jS-3tC" firstAttribute="trailing" secondItem="JI8-b8-Re1" secondAttribute="trailing" id="bbe-El-LjT"/>
+                            <constraint firstItem="1uE-jS-3tC" firstAttribute="top" secondItem="JI8-b8-Re1" secondAttribute="top" constant="20" id="iLc-J2-sPR"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="JI8-b8-Re1"/>
+                    </view>
+                    <connections>
+                        <outlet property="signInButton" destination="AMe-ra-jXy" id="6yv-TY-I8j"/>
+                        <outlet property="signUpButton" destination="qPZ-X3-mbe" id="0Nt-Qm-v57"/>
+                        <outlet property="welcomeLabel" destination="xKX-eO-Ftb" id="7Au-gl-Egq"/>
+                        <outlet property="welcomeView" destination="1uE-jS-3tC" id="oKj-Hf-QWy"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="xK1-XZ-m7F" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-794.20289855072474" y="-658.25892857142856"/>
         </scene>
     </scenes>
     <resources>

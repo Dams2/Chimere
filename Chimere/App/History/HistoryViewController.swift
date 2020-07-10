@@ -42,8 +42,6 @@ final class HistoryViewController: UIViewController {
         tableView.delegate = dataSource
         tableView.refreshControl = refreshControl
         
-        exchangeNowButton.isEnabled = false
-
         bind(to: dataSource)
 
         bind(to: viewModel)

@@ -19,10 +19,27 @@ final class ExchangeViewController: UIViewController {
     
     var previewLayer: AVCaptureVideoPreviewLayer!
 
-    
     // MARK: - Private Properties
     
     private let helper = Helper()
+    
+    private lazy var addBoardBarButtonItem: UIBarButtonItem = {
+        let addBoard = UIBarButtonItem(image: UIImage(systemName: "person"),
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(boardButton))
+        addBoard.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+        return addBoard
+    }()
+    
+    private lazy var addHowItWorkBarButtonItem: UIBarButtonItem = {
+        let addHowItWork = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
+                                                 style: .done,
+                                                 target: self,
+                                                 action: #selector(infoButton))
+        addHowItWork.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
+        return addHowItWork
+    }()
 
     // MARK: - Outlets
 
@@ -157,12 +174,10 @@ final class ExchangeViewController: UIViewController {
         self.navigationItem.titleView = helper.setTitleViewImage
         self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         self.navigationController?.navigationBar.shadowImage = UIImage()
-        let addHowItWorkButton = UIBarButtonItem(image: UIImage(systemName: "info.circle"),
-                                                 style: .done,
-                                                 target: self,
-                                                 action: #selector(infoButton))
-        addHowItWorkButton.tintColor = #colorLiteral(red: 0.9490196078, green: 0.862745098, blue: 0.6078431373, alpha: 1)
-        navigationItem.setRightBarButton(addHowItWorkButton,
+        
+        navigationItem.setLeftBarButton(addBoardBarButtonItem,
+                                        animated: true)
+        navigationItem.setRightBarButton(addHowItWorkBarButtonItem,
                                                 animated: true)
 
         self.tabBarController?.tabBar.barTintColor = #colorLiteral(red: 1, green: 1, blue: 1, alpha: 1)
@@ -323,8 +338,12 @@ final class ExchangeViewController: UIViewController {
 
     // MARK: - Actions
     
+    @objc private func boardButton() {
+        viewModel.didPressBoard()
+    }
+    
     @objc private func infoButton() {
-        viewModel.didPreessHowItWork()
+        viewModel.didPressHowItWork()
     }
 
     @IBAction private func originAmountTextFieldDidChange(_ sender: UITextField) {

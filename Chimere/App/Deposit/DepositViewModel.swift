@@ -85,6 +85,7 @@ final class DepositViewModel {
         copyMessageValueImageText?("square.on.square")
         
         completedText?(translator.translate(key: "mobile/Deposit/CompletedText"))
+        print("xxxxxxxxxxx\(deposit.createdDate)")
     }
     
     func didPressCompleted() {

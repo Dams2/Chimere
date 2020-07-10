@@ -17,7 +17,9 @@ extension UserOrders {
         self.destinationAmount = "\(response.destinationAmount)"
         self.destinationSymbol = "\(response.destinationTicker)"
         self.destinationAddress = "\(response.destinationAddress)"
-        self.createdDate = "\(DateFormatter.dateFormatter(stringDate: response.createdDate))"
+        self.createdDate = "\(response.createdDate)"
+        
+        // DateFormatter.dateFormatter(stringDate: response.createdDate)
         self.state = ["Loaded": response.state.loaded,
                       "Exchanging": response.state.exchanging,
                       "Exchanged": response.state.exchanged,

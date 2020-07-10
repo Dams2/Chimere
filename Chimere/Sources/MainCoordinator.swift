@@ -95,7 +95,7 @@ final class MainCoordinator: NSObject {
         homeCoordinator?.start()
     }
     
-    private func shopFiat() {
+    private func showFiat() {
 //        fiatCoordinator = FiatCoordinator(presenter: tabBarSource[.fiat], screens: screens)
         fiatCoordinator?.start()
     }

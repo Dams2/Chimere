@@ -35,7 +35,8 @@ final class HistoryCoordinator {
     }
     
     private func showExchange() {
-        
+        let viewController = screens.createExchangeViewController(delegate: nil)
+        presenter.viewControllers = [viewController]
     }
     
     private func showOrderDetail(order: UserOrders) {
