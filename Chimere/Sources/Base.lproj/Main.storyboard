@@ -1261,7 +1261,6 @@
                         <outlet property="forgotPasswordButton" destination="DyE-zU-qRF" id="AOg-qa-FBa"/>
                         <outlet property="passwordLabel" destination="8Kf-qU-qZd" id="La6-tQ-MLN"/>
                         <outlet property="passwordTextField" destination="iiH-MN-oob" id="BcG-Di-Ywr"/>
-                        <outlet property="segmentedControl" destination="9y3-fo-LEv" id="NoH-x4-sZE"/>
                         <outlet property="signInButton" destination="Qe9-e6-vWC" id="6f4-i9-09R"/>
                         <outlet property="thermsAndPrivacyButton" destination="Xag-ph-xVZ" id="ZIB-eC-8Po"/>
                         <outlet property="youAgreeLabel" destination="xdB-hp-E83" id="D3L-zX-Y8f"/>
@@ -1269,7 +1268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uw3-yk-Bca" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="38" y="-658"/>
+            <point key="canvasLocation" x="37.600000000000001" y="-658.37438423645324"/>
         </scene>
         <!--Fiat View Controller-->
         <scene sceneID="xec-k9-on4">

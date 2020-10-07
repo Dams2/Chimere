@@ -13,12 +13,23 @@ final class HistoryViewModel {
     // MARK: - Private Properties
     
     private let delegate: HistoryViewControllerDelegate?
-    
     private let repository: HistoryRepositoryType
-    
     private let translator: Translator
+    private let actions: Actions
     
-    init(delegate: HistoryViewControllerDelegate?, repository: HistoryRepositoryType, translator: Translator) {
+    struct Actions {
+        let didSelectExchange: VoidClosure
+    }
+    
+    // MARK: - Init
+
+    init(
+        actions: Actions,
+        delegate: HistoryViewControllerDelegate?,
+        repository: HistoryRepositoryType,
+        translator: Translator
+    ) {
+        self.actions = actions
         self.delegate = delegate
         self.repository = repository
         self.translator = translator
@@ -28,7 +39,6 @@ final class HistoryViewModel {
     
     var emptyOrderText: ((String) -> Void)?
     var exchangeNowText: ((String) -> Void)?
-    
     var loadingState: ((State) -> Void)?
     
     enum State {
@@ -81,7 +91,7 @@ final class HistoryViewModel {
     }
     
     func didPressExchangeNow() {
-        delegate?.didShowExchange()
+        actions.didSelectExchange()
     }
 }
 

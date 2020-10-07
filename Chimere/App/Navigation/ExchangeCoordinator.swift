@@ -41,7 +41,35 @@ final class ExchangeCoordinator {
     }
 
     private func showExchange() {
-        exchangeViewController = screens.createExchangeViewController(delegate: self)
+        let actions: ExchangeViewModel.Actions = .init(
+            didPresentExchange: {
+                self.showExchange()
+        },
+            didSelectBoard: {
+                self.showBoard()
+        },
+            didSelectHowItWork: {
+                self.showHowItWork()
+        },
+            didSelectOriginCurrency: {
+                self.selectedCurrency = .origin
+                self.showCurrenciesList()
+        },
+            didSelectDestinationCurrency: {
+                self.selectedCurrency = .destination
+                self.showCurrenciesList()
+        },
+            didDismissCurrenciesList: {
+                self.dismissCurrenciesList()
+        },
+            didSelectExchangeNow: { (items) in
+                self.showOrderSummary(orderItems: items)
+        },
+            didPresentAlert: { (alert) in
+                self.didPresentAlert(for: .badEntry(alertConfiguration: alert))
+        } )
+
+        exchangeViewController = screens.createExchangeViewController(actions: actions)
         guard let exchangeViewController = exchangeViewController else { return }
         presenter.viewControllers = [exchangeViewController]
     }
@@ -83,41 +111,11 @@ final class ExchangeCoordinator {
     }
     
     private func showDeposit(deposit: Deposit) {
-        let viewController = screens.createDepositViewController(deposit: deposit, delegate: self)
+        let actions: DepositViewModel.Actions = .init {
+            self.showExchange()
+        }
+        let viewController = screens.createDepositViewController(actions: actions, deposit: deposit)
         presenter.pushViewController(viewController, animated: true)
-    }
-}
-
-extension ExchangeCoordinator: ExchangeViewControllerDelegate {
-    
-    func didshowExchange() {
-        showExchange()
-    }
-    
-    func didSelectBoard() {
-        showBoard()
-    }
-    
-    func didSelectHowItWork() {
-        showHowItWork()
-    }
-    
-    func didShowOriginCurrenciesList() {
-        selectedCurrency = .origin
-        showCurrenciesList()
-    }
-
-    func didShowDestinationCurrencies() {
-        selectedCurrency = .destination
-        showCurrenciesList()
-    }
-    
-    func didDismissCurrenciesList() {
-        dismissCurrenciesList()
-    }
-
-    func didSelectExchangeNow(orderItems: [String: String]) {
-        showOrderSummary(orderItems: orderItems)
     }
     
     func didPresentAlert(for alert: AlertType) {

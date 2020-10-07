@@ -13,17 +13,24 @@ final class DepositViewModel {
     // MARK: - Private Properties
     
     private let deposit: Deposit
-    
     private let repository: ExchangeRepositoryType
-    
-    private let delegate: ExchangeViewControllerDelegate
-    
     private let translator: Translator
+    private let actions: Actions
+    
+    struct Actions {
+        let didPresentExchange: VoidClosure
+    }
+    // MARK: - Init
 
-    init(deposit: Deposit, repository: ExchangeRepositoryType, delegate: ExchangeViewControllerDelegate, translator: Translator) {
+    init(
+        actions: Actions,
+        deposit: Deposit,
+        repository: ExchangeRepositoryType,
+        translator: Translator
+    ) {
+        self.actions = actions
         self.deposit = deposit
         self.repository = repository
-        self.delegate = delegate
         self.translator = translator
     }
     
@@ -89,6 +96,6 @@ final class DepositViewModel {
     }
     
     func didPressCompleted() {
-        delegate.didshowExchange()
+        actions.didPresentExchange()
     }
 }

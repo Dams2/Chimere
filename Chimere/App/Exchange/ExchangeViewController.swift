@@ -354,7 +354,7 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction private func didPressChangeOriginCurrencyButton(_ sender: UIButton) {
-        viewModel.didPressChangeOriginCurrency() 
+        viewModel.didPressOriginCurrency() 
     }
 
     @IBAction private  func didPressSwitchButton(_ sender: UIButton) {
@@ -365,7 +365,7 @@ final class ExchangeViewController: UIViewController {
     }
 
     @IBAction private func didPressChangeDestinationCurrencyButton(_ sender: UIButton) {
-        viewModel.didPressChangeDestinationCurrency()
+        viewModel.didPressDestinationCurrency()
     }
     
     @IBAction private func didPressDestinationAddressTextField(_ sender: UITextField) {

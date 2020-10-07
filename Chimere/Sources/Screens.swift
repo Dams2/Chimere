@@ -19,22 +19,17 @@ public class Screens {
     }
 }
 
-protocol ExchangeViewControllerDelegate: class {
-    func didshowExchange()
-    func didShowOriginCurrenciesList()
-    func didShowDestinationCurrencies()
-    func didDismissCurrenciesList()
-    func didSelectExchangeNow(orderItems: [String: String])
-    func didPresentAlert(for alert: AlertType)
-    func didSelectHowItWork()
-    func didSelectBoard()
-}
-
 extension Screens {
-    func createExchangeViewController(delegate: ExchangeViewControllerDelegate?) -> UIViewController {
+    func createExchangeViewController(
+        actions: ExchangeViewModel.Actions
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "ExchangeViewController") as! ExchangeViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = ExchangeViewModel(delegate: delegate, repository: repository, translator: context.translator)
+        let viewModel = ExchangeViewModel(
+            actions: actions,
+            repository: repository,
+            translator: context.translator
+        )
         viewController.viewModel = viewModel
         return viewController
     }
@@ -43,8 +38,11 @@ extension Screens {
 protocol BoardViewControllerDelegate: class {
     func didShowSignIn()
 }
+
 extension Screens {
-    func createBoardViewController(delegate: BoardViewControllerDelegate?) -> UIViewController {
+    func createBoardViewController(
+        delegate: BoardViewControllerDelegate?
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "BoardViewController") as! BoardViewController
         let viewModel = BoardViewModel(delegate: delegate)
         viewController.viewModel = viewModel
@@ -73,10 +71,13 @@ protocol CurrenciesListViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createCurrenciesListViewController(delegate: CurrenciesListViewControllerDelegate?) -> UIViewController {
+    func createCurrenciesListViewController(
+        delegate: CurrenciesListViewControllerDelegate?
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "CurrenciesListViewController") as! CurrenciesListViewController
         let repository = CurrenciesListRepository(client: context.client)
-        let viewModel = CurrenciesListViewModel(delegate: delegate, repository: repository)
+        let viewModel = CurrenciesListViewModel(delegate: delegate,
+                                                repository: repository)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -88,10 +89,16 @@ protocol OrderSummaryViewControllerDelegate: class {
 }
 
 extension Screens {
-    func createOrderSummaryViewController(orderItems: [String: String], delegate: OrderSummaryViewControllerDelegate) -> UIViewController {
+    func createOrderSummaryViewController(
+        orderItems: [String: String],
+        delegate: OrderSummaryViewControllerDelegate
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "OrderSummaryViewController") as! OrderSummaryViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = OrderSummaryViewModel(orderItems: orderItems, delegate: delegate, repository: repository, translator: context.translator)
+        let viewModel = OrderSummaryViewModel(orderItems: orderItems,
+                                              delegate: delegate,
+                                              repository: repository,
+                                              translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -105,10 +112,16 @@ extension Screens {
 }
 
 extension Screens {
-    func createDepositViewController(deposit: Deposit, delegate: ExchangeViewControllerDelegate) -> UIViewController {
+    func createDepositViewController(
+        actions: DepositViewModel.Actions,
+        deposit: Deposit
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "DepositViewController") as! DepositViewController
         let repository = ExchangeRepository(client: context.client)
-        let viewModel = DepositViewModel(deposit: deposit, repository: repository, delegate: delegate, translator: context.translator)
+        let viewModel = DepositViewModel(actions: actions,
+                                         deposit: deposit,
+                                         repository: repository,
+                                         translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
@@ -116,23 +129,31 @@ extension Screens {
 
 protocol HistoryViewControllerDelegate: class {
     func didSelect(_ order: UserOrders)
-    func didShowExchange()
 }
 
 extension Screens {
-    func createHistoryViewController(delegate: HistoryViewControllerDelegate?) -> UIViewController {
+    func createHistoryViewController(
+        actions: HistoryViewModel.Actions,
+        delegate: HistoryViewControllerDelegate?
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "HistoryViewController") as! HistoryViewController
         let repository = HistoryRepository(client: context.client)
-        let viewModel = HistoryViewModel(delegate: delegate, repository: repository, translator: context.translator)
+        let viewModel = HistoryViewModel(actions: actions,
+                                         delegate: delegate,
+                                         repository: repository,
+                                         translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }
 }
 
 extension Screens {
-    func createOrderDetailViewController(order: UserOrders) -> UIViewController {
+    func createOrderDetailViewController(
+        order: UserOrders
+    ) -> UIViewController {
         let viewController = storyboard.instantiateViewController(withIdentifier: "OrderDetailViewController") as! OrderDetailViewController
-        let viewModel = OrderDetailViewModel(order: order, translator: context.translator)
+        let viewModel = OrderDetailViewModel(order: order,
+                                             translator: context.translator)
         viewController.viewModel = viewModel
         return viewController
     }

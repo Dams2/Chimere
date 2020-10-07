@@ -30,12 +30,27 @@ final class HistoryCoordinator {
     }
 
     private func showOrderHistory() {
-        let viewController = screens.createHistoryViewController(delegate: self)
+        let actions: HistoryViewModel.Actions = .init {
+            self.showExchange()
+        }
+        
+        let viewController = screens.createHistoryViewController(actions: actions, delegate: self)
         presenter.viewControllers = [viewController]
     }
     
     private func showExchange() {
-        let viewController = screens.createExchangeViewController(delegate: nil)
+        let action: ExchangeViewModel.Actions = .init(
+            didPresentExchange: { },
+            didSelectBoard: { },
+            didSelectHowItWork: { },
+            didSelectOriginCurrency: { },
+            didSelectDestinationCurrency: { },
+            didDismissCurrenciesList: { },
+            didSelectExchangeNow: { _ in },
+            didPresentAlert: { _ in }
+        )
+        
+        let viewController = screens.createExchangeViewController(actions: action)
         presenter.viewControllers = [viewController]
     }
     

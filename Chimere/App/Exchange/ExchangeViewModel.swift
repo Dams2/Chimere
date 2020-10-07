@@ -10,101 +10,101 @@ import Foundation
 
 final class ExchangeViewModel {
 
-    // MARK: - Properties
-
-    private weak var delegate: ExchangeViewControllerDelegate?
+    // MARK: - Private Properties
 
     private let repository: ExchangeRepositoryType
-
     private let translator: Translator
-    
-    init(delegate: ExchangeViewControllerDelegate?, repository: ExchangeRepositoryType, translator: Translator) {
-        self.delegate = delegate
-        self.repository = repository
-        self.translator = translator
-    }
 
-    var originCurrencyName: String = "" {
+    private var originCurrencyName: String = "" {
         didSet {
             originCurrencyNameText?(originCurrencyName)
         }
     }
-    
-    var originCurrencySymbol: String = "" {
+
+    private var originCurrencySymbol: String = "" {
         didSet {
             originCurrencySymbolText?(originCurrencySymbol)
         }
     }
-    
-    var destinationCurrencyName: String = "" {
+
+    private var destinationCurrencyName: String = "" {
         didSet {
             destinationCurrencyNameText?(destinationCurrencyName)
         }
     }
-    
-    var destinationCurrencySymbol: String = "" {
+
+    private var destinationCurrencySymbol: String = "" {
         didSet {
             destinationCurrencySymbolText?(destinationCurrencySymbol)
         }
     }
+
+    private var message: String = ""
+    private var orderItems: [String: String] = [:]
+    private let actions: Actions
     
-    var message: String = ""
+    struct Actions {
+        let didPresentExchange: VoidClosure
+        let didSelectBoard: VoidClosure
+        let didSelectHowItWork: VoidClosure
+        let didSelectOriginCurrency: VoidClosure
+        let didSelectDestinationCurrency: VoidClosure
+        let didDismissCurrenciesList: VoidClosure
+        let didSelectExchangeNow: ([String: String]) -> Void
+        let didPresentAlert: (AlertConfiguration) -> Void
+        
+    }
+
+    // MARK: - Init
+
+    init(
+        actions: Actions,
+        repository: ExchangeRepositoryType,
+        translator: Translator
+    ) {
+        self.actions = actions
+        self.repository = repository
+        self.translator = translator
+    }
     
     // MARK: - Outputs
     
-    var scanText: ((String) -> Void)?
-
-    var descriptionText: ((String) -> Void)?
+    var scanText: InputClosure<String>?
+    var descriptionText: InputClosure<String>?
 
     // deposit
 
-    var originText: ((String) -> Void)?
-
-    var originAmountPlaceholderText: ((String) -> Void)?
-
-    var originAmountText: ((String) -> Void)?
-
-    var originCurrencyNameText: ((String) -> Void)?
-
-    var originCurrencySymbolText: ((String) -> Void)?
-
-    var refundAddressText: ((String) -> Void)?
+    var originText: InputClosure<String>?
+    var originAmountPlaceholderText: InputClosure<String>?
+    var originAmountText: InputClosure<String>?
+    var originCurrencyNameText: InputClosure<String>?
+    var originCurrencySymbolText: InputClosure<String>?
+    var refundAddressText: InputClosure<String>?
 
     // info
 
-    var exchangeRateText: ((String) -> Void)?
+    var exchangeRateText: InputClosure<String>?
 
     // destination
 
-    var destinationText: ((String) -> Void)?
-
-    var destinationAmountText: ((String) -> Void)?
-
-    var destinationCurrencyNameText: ((String) -> Void)?
-
-    var destinationCurrencySymbolText: ((String) -> Void)?
-
-    var destinationAddressText: ((String) -> Void)?
-
-    var scanQRCodeImageText: ((String) -> Void)?
+    var destinationText: InputClosure<String>?
+    var destinationAmountText: InputClosure<String>?
+    var destinationCurrencyNameText: InputClosure<String>?
+    var destinationCurrencySymbolText: InputClosure<String>?
+    var destinationAddressText: InputClosure<String>?
+    var scanQRCodeImageText: InputClosure<String>?
 
     // Warning
 
-    var warningImageText: ((String) -> Void)?
-
-    var warningText: ((String) -> Void)?
-
-    var warningAmountText: ((String) -> Void)?
+    var warningImageText: InputClosure<String>?
+    var warningText: InputClosure<String>?
+    var warningAmountText: InputClosure<String>?
 
     // next step
 
-    var exchangeNowText: ((String) -> Void)?
-    
-    var alertState: ((Bool) -> Void)?
-
-    var orderItems: [String: String] = [:]
-    
-    var loadingState: ((Bool) -> Void)?
+    var exchangeNowText: InputClosure<String>?
+    var alertState: InputClosure<Bool>?
+    var loadingState: InputClosure<Bool>?
 
     // MARK: - Inputs
 
@@ -139,15 +139,15 @@ final class ExchangeViewModel {
     }
     
     func didPressBoard() {
-        delegate?.didSelectBoard()
+        actions.didSelectBoard()
     }
     
     func didPressHowItWork() {
-        delegate?.didSelectHowItWork()
+        actions.didSelectHowItWork()
     }
 
-    func didPressChangeOriginCurrency() {
-        delegate?.didShowOriginCurrenciesList()
+    func didPressOriginCurrency() {
+        actions.didSelectOriginCurrency()
     }
 
     func didPressSwitch(originAmountText: String) {
@@ -156,8 +156,8 @@ final class ExchangeViewModel {
         getPrices(originAmountText: originAmountText, message: message)
     }
 
-    func didPressChangeDestinationCurrency() {
-        delegate?.didShowDestinationCurrencies()
+    func didPressDestinationCurrency() {
+        actions.didSelectDestinationCurrency()
     }
 
     func didPressWarningAmount(warningAmountText: String,
@@ -210,7 +210,7 @@ final class ExchangeViewModel {
     func updateOrigin(currency: Currency, originAmountText: String) {
         originCurrencyName = currency.name
         originCurrencySymbol = currency.symbol
-        delegate?.didDismissCurrenciesList()
+        actions.didDismissCurrenciesList()
         message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
         getPrices(originAmountText: originAmountText, message: message)
     }
@@ -220,7 +220,7 @@ final class ExchangeViewModel {
         destinationCurrencyName = currency.name
         destinationCurrencySymbol = currency.symbol
         destinationAddressText?("\(translator.translate(key: "mobile/Annex/Enter")) \(currency.symbol) \(translator.translate(key: "mobile/Annex/AddressHere"))")
-        delegate?.didDismissCurrenciesList()
+        actions.didDismissCurrenciesList()
         message = "\(originCurrencySymbol)/\(destinationCurrencySymbol)"
         getPrices(originAmountText: originAmountText, message: message)
     }
@@ -238,6 +238,7 @@ final class ExchangeViewModel {
             guard let destinationRate = price.askPrice.bestAsk,
                 let originRate = price.bidPrice.bestBid
                 else { return }
+            print(price)
             self.loadingState?(false)
             self.exchangeRateValue(originAmountText: originAmountText,
                                    originRate: originRate,
@@ -310,7 +311,7 @@ final class ExchangeViewModel {
 
     private func presentAlert(message: String) {
         DispatchQueue.main.async {
-            self.delegate?.didPresentAlert(for: .badEntry(alertConfiguration: AlertConfiguration(title: self.translator.translate(key: "mobile/Exchange/Alert/title"), message: message, okMessage: self.translator.translate(key: "mobile/Exchange/Alert/OkMessage"), cancelMessage: nil)))
+            self.actions.didPresentAlert(AlertConfiguration(title: self.translator.translate(key: "mobile/Exchange/Alert/title"), message: message, okMessage: self.translator.translate(key: "mobile/Exchange/Alert/OkMessage"), cancelMessage: nil))
         }
     }
 
@@ -320,7 +321,7 @@ final class ExchangeViewModel {
             return
         } else {
             DispatchQueue.main.async {
-                self.delegate?.didSelectExchangeNow(orderItems: orderItems)
+                self.actions.didSelectExchangeNow(orderItems)
             }
         }
     }
